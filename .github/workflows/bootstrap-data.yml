@@ -1,0 +1,75 @@
+name: Acquire public baseline data
+on:
+  push:
+    paths: ['.github/workflows/bootstrap-data.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download licensed libraries and public baseline datasets
+        shell: python
+        run: |
+          import urllib.request, urllib.parse, json, pathlib, datetime, calendar, time
+          root=pathlib.Path('.')
+          for folder in ['vendor/leaflet/images','data/public']: (root/folder).mkdir(parents=True,exist_ok=True)
+          def fetch(url, timeout=80):
+            req=urllib.request.Request(url,headers={'User-Agent':'FarmSystemDesign/0.1 (+https://github.com/1337816143/FarmSystemDesign)'})
+            with urllib.request.urlopen(req,timeout=timeout) as r: return r.read()
+          for name in ['leaflet.js','leaflet.css']:
+            (root/'vendor/leaflet'/name).write_bytes(fetch('https://unpkg.com/leaflet@1.9.4/dist/'+name))
+          (root/'vendor/leaflet/LICENSE').write_bytes(fetch('https://raw.githubusercontent.com/Leaflet/Leaflet/v1.9.4/LICENSE'))
+          for name in ['layers.png','layers-2x.png','marker-icon.png','marker-icon-2x.png','marker-shadow.png']:
+            (root/'vendor/leaflet/images'/name).write_bytes(fetch('https://unpkg.com/leaflet@1.9.4/dist/images/'+name))
+          now=datetime.datetime.now(datetime.timezone.utc).isoformat()
+          report={'retrievedAt':now,'sources':[]}
+          url='https://power.larc.nasa.gov/api/temporal/monthly/point?'+urllib.parse.urlencode({'parameters':'T2M,PRECTOTCORR,RH2M,WS2M','community':'AG','longitude':109.17,'latitude':18.38,'start':'2025','end':'2025','format':'JSON'})
+          try:
+            raw=fetch(url); obj=json.loads(raw); p=obj['properties']['parameter']
+            (root/'data/public/nasa-power-2025-raw.json').write_bytes(raw)
+            records=[]
+            for m in range(1,13):
+              k=f'2025{m:02}'; row={'month':f'2025-{m:02}','temperatureC':p['T2M'].get(k),'precipitationMmDay':p['PRECTOTCORR'].get(k),'humidityPct':p['RH2M'].get(k),'windMps':p['WS2M'].get(k)}
+              for key,value in list(row.items()):
+                if key!='month' and (value is None or value<=-900): row[key]=None
+              row['precipitationMmMonth']=round(row['precipitationMmDay']*calendar.monthrange(2025,m)[1],2) if row['precipitationMmDay'] is not None else None
+              records.append(row)
+            data={'id':'nasa-power-2025','status':'public-gridded','source':'NASA POWER / MERRA-2','sourceUrl':url,'documentation':'https://power.larc.nasa.gov/docs/services/api/temporal/monthly/','retrievedAt':now,'year':2025,'requestedPoint':[109.17,18.38],'geometry':obj.get('geometry'),'parameters':obj.get('parameters'),'header':obj.get('header'),'note':'Public gridded climate, NOT a farm weather station. Monthly precipitation = monthly mean daily precipitation x days in month. Historical 2025, not live.','records':records}
+            (root/'data/public/climate.json').write_text(json.dumps(data,ensure_ascii=False,indent=2))
+            report['sources'].append({'id':'nasa-power','ok':True,'records':len(records),'url':url})
+          except Exception as e:
+            report['sources'].append({'id':'nasa-power','ok':False,'error':str(e),'url':url})
+          query='[out:json][timeout:65];(way["highway"~"primary|secondary|tertiary|unclassified"](18.345,109.13,18.407,109.235);way["waterway"](18.345,109.13,18.407,109.235);way["natural"="water"](18.345,109.13,18.407,109.235););out geom;'
+          for endpoint in ['https://overpass-api.de/api/interpreter','https://overpass.kumi.systems/api/interpreter']:
+            try:
+              url=endpoint+'?'+urllib.parse.urlencode({'data':query}); obj=json.loads(fetch(url)); features=[]
+              for e in obj.get('elements',[]):
+                coords=[[g['lon'],g['lat']] for g in e.get('geometry',[])]
+                if len(coords)<2: continue
+                tags=e.get('tags',{}); poly=tags.get('natural')=='water' and coords[0]==coords[-1] and len(coords)>=4
+                features.append({'type':'Feature','id':str(e['id']),'properties':{'osm_id':e['id'],'name':tags.get('name',''),'highway':tags.get('highway'),'waterway':tags.get('waterway'),'natural':tags.get('natural'),'provenance':'OpenStreetMap / ODbL 1.0'},'geometry':{'type':'Polygon' if poly else 'LineString','coordinates':[coords] if poly else coords}})
+              data={'type':'FeatureCollection','source':'OpenStreetMap contributors','license':'ODbL-1.0','sourceUrl':endpoint,'retrievedAt':now,'bbox':[109.13,18.345,109.235,18.407],'osmTimestamp':obj.get('osm3s',{}).get('timestamp_osm_base'),'features':features}
+              (root/'data/public/osm-context.geojson').write_text(json.dumps(data,ensure_ascii=False,separators=(',',':')))
+              report['sources'].append({'id':'osm-context','ok':True,'features':len(features),'url':endpoint}); break
+            except Exception as e:
+              report['sources'].append({'id':'osm-attempt','ok':False,'error':str(e),'url':endpoint})
+          (root/'data/public/acquisition-report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+          print(json.dumps(report,ensure_ascii=False,indent=2))
+      - name: Commit public data without overwriting app changes
+        run: |
+          git config user.name 'FarmSystemDesign data bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add vendor data/public
+          git diff --cached --quiet || git commit -m 'data: acquire NASA POWER 2025 climate and OSM geographic context'
+          git pull --rebase origin main
+          git push origin main
+      - name: Probe Pages configuration
+        continue-on-error: true
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
