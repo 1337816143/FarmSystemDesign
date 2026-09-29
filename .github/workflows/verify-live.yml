@@ -1,0 +1,47 @@
+name: Verify live Pages endpoint
+on:
+  push:
+    paths: ['.github/workflows/verify-live.yml']
+  workflow_dispatch:
+  workflow_run:
+    workflows: ['Test and deploy FarmSystem']
+    types: [completed]
+permissions:
+  contents: read
+jobs:
+  verify:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Check production document, modules and public data
+        shell: python
+        run: |
+          import urllib.request,json,time,pathlib,datetime
+          base='https://1337816143.github.io/FarmSystemDesign/'
+          report={'checkedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'url':base,'checks':[]}
+          paths=['','src/app.js','src/model.js','src/optimizer.worker.js','data/public/climate.json','data/public/osm-context.geojson','data/public/imagery.json','sw.js']
+          for path in paths:
+            for attempt in range(4):
+              try:
+                req=urllib.request.Request(base+path,headers={'User-Agent':'FarmSystemDesign-production-verification/0.1','Cache-Control':'no-cache'})
+                with urllib.request.urlopen(req,timeout=20) as r:
+                  payload=r.read();status=r.status;kind=r.headers.get('Content-Type','')
+                assert status==200 and len(payload)>50
+                if path=='':assert b'FarmSystem' in payload and b'src/app.js' in payload
+                if path.endswith('climate.json'):assert len(json.loads(payload)['records'])==12
+                if path.endswith('osm-context.geojson'):assert len(json.loads(payload)['features'])==197
+                if path.endswith('imagery.json'):
+                  meta=json.loads(payload);assert meta['qualityCheck']['nonblank']
+                  with urllib.request.urlopen(base+'data/public/'+meta['filename'],timeout=20) as im:assert im.read().startswith(b'\xff\xd8')
+                report['checks'].append({'path':path or '/','status':status,'bytes':len(payload),'contentType':kind});break
+              except Exception:
+                if attempt==3:raise
+                time.sleep(5)
+          report['success']=True
+          text=json.dumps(report,indent=2);print(text);pathlib.Path('live-verification.json').write_text(text)
+      - uses: actions/upload-artifact@v4
+        with:
+          name: live-pages-verification
+          path: live-verification.json
+          retention-days: 7
