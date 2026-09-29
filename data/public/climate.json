@@ -1,0 +1,153 @@
+{
+  "id": "nasa-power-2025",
+  "status": "public-gridded",
+  "source": "NASA POWER / MERRA-2",
+  "sourceUrl": "https://power.larc.nasa.gov/api/temporal/monthly/point?parameters=T2M%2CPRECTOTCORR%2CRH2M%2CWS2M&community=AG&longitude=109.17&latitude=18.38&start=2025&end=2025&format=JSON",
+  "documentation": "https://power.larc.nasa.gov/docs/services/api/temporal/monthly/",
+  "retrievedAt": "2026-09-29T12:12:00.231331+00:00",
+  "year": 2025,
+  "requestedPoint": [
+    109.17,
+    18.38
+  ],
+  "geometry": {
+    "type": "Point",
+    "coordinates": [
+      109.17,
+      18.38,
+      265.47
+    ]
+  },
+  "parameters": {
+    "PRECTOTCORR": {
+      "units": "mm/day",
+      "longname": "Precipitation Corrected"
+    },
+    "RH2M": {
+      "units": "%",
+      "longname": "Relative Humidity at 2 Meters"
+    },
+    "T2M": {
+      "units": "C",
+      "longname": "Temperature at 2 Meters"
+    },
+    "WS2M": {
+      "units": "m/s",
+      "longname": "Wind Speed at 2 Meters"
+    }
+  },
+  "header": {
+    "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+    "api": {
+      "version": "v2.10.0",
+      "name": "POWER Monthly and Annual API"
+    },
+    "sources": [
+      "MERRA2",
+      "POWER"
+    ],
+    "fill_value": -999.0,
+    "time_standard": "LST",
+    "start": "20250101",
+    "end": "20251231"
+  },
+  "note": "Public gridded climate, NOT a farm weather station. Monthly precipitation = monthly mean daily precipitation x days in month. Historical 2025, not live.",
+  "records": [
+    {
+      "month": "2025-01",
+      "temperatureC": 17.86,
+      "precipitationMmDay": 0.72,
+      "humidityPct": 76.32,
+      "windMps": 0.95,
+      "precipitationMmMonth": 22.32
+    },
+    {
+      "month": "2025-02",
+      "temperatureC": 20.56,
+      "precipitationMmDay": 0.53,
+      "humidityPct": 78.17,
+      "windMps": 0.86,
+      "precipitationMmMonth": 14.84
+    },
+    {
+      "month": "2025-03",
+      "temperatureC": 22.68,
+      "precipitationMmDay": 1.17,
+      "humidityPct": 75.01,
+      "windMps": 0.8,
+      "precipitationMmMonth": 36.27
+    },
+    {
+      "month": "2025-04",
+      "temperatureC": 25.45,
+      "precipitationMmDay": 2.92,
+      "humidityPct": 76.11,
+      "windMps": 0.73,
+      "precipitationMmMonth": 87.6
+    },
+    {
+      "month": "2025-05",
+      "temperatureC": 26.99,
+      "precipitationMmDay": 8.0,
+      "humidityPct": 83.79,
+      "windMps": 0.76,
+      "precipitationMmMonth": 248.0
+    },
+    {
+      "month": "2025-06",
+      "temperatureC": 27.16,
+      "precipitationMmDay": 11.31,
+      "humidityPct": 88.16,
+      "windMps": 0.95,
+      "precipitationMmMonth": 339.3
+    },
+    {
+      "month": "2025-07",
+      "temperatureC": 26.64,
+      "precipitationMmDay": 9.0,
+      "humidityPct": 90.61,
+      "windMps": 0.97,
+      "precipitationMmMonth": 279.0
+    },
+    {
+      "month": "2025-08",
+      "temperatureC": 26.78,
+      "precipitationMmDay": 11.93,
+      "humidityPct": 88.74,
+      "windMps": 0.9,
+      "precipitationMmMonth": 369.83
+    },
+    {
+      "month": "2025-09",
+      "temperatureC": 26.56,
+      "precipitationMmDay": 13.19,
+      "humidityPct": 88.13,
+      "windMps": 0.81,
+      "precipitationMmMonth": 395.7
+    },
+    {
+      "month": "2025-10",
+      "temperatureC": 24.58,
+      "precipitationMmDay": 13.35,
+      "humidityPct": 89.33,
+      "windMps": 1.09,
+      "precipitationMmMonth": 413.85
+    },
+    {
+      "month": "2025-11",
+      "temperatureC": 21.29,
+      "precipitationMmDay": 5.34,
+      "humidityPct": 85.72,
+      "windMps": 1.11,
+      "precipitationMmMonth": 160.2
+    },
+    {
+      "month": "2025-12",
+      "temperatureC": 20.69,
+      "precipitationMmDay": 0.69,
+      "humidityPct": 84.72,
+      "windMps": 0.92,
+      "precipitationMmMonth": 21.39
+    }
+  ]
+}
