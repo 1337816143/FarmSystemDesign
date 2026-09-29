@@ -1,0 +1,49 @@
+name: Validate public imagery content
+on:
+  push:
+    paths: ['.github/workflows/validate-imagery.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: python -m pip install Pillow
+      - name: Fetch and inspect NASA imagery
+        shell: python
+        run: |
+          import urllib.request,urllib.parse,json,pathlib,datetime,io
+          from PIL import Image,ImageStat
+          folder=pathlib.Path('data/public');report=[];success=False
+          for version,date in [('1.3.0','2025-01-15'),('1.3.0','2025-03-15'),('1.3.0','2025-12-15')]:
+            params={'SERVICE':'WMS','VERSION':version,'REQUEST':'GetMap','LAYERS':'MODIS_Terra_CorrectedReflectance_TrueColor','STYLES':'','FORMAT':'image/jpeg','CRS':'EPSG:4326','BBOX':'18.33,109.10,18.43,109.24','WIDTH':1024,'HEIGHT':768,'TIME':date}
+            url='https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?'+urllib.parse.urlencode(params)
+            try:
+              with urllib.request.urlopen(url,timeout=60) as r:raw=r.read()
+              im=Image.open(io.BytesIO(raw)).convert('RGB');stats=ImageStat.Stat(im);mean=stats.mean;std=stats.stddev
+              ok=max(std)>4 and sum(mean)>25
+              report.append({'url':url,'date':date,'meanRGB':mean,'stdRGB':std,'validNonblank':ok})
+              if not ok:continue
+              name='modis-'+date+'.jpg';(folder/name).write_bytes(raw)
+              meta={'id':'nasa-gibs','source':'NASA GIBS / MODIS Terra corrected reflectance','status':'public-imagery','sourceUrl':url,'date':date,'filename':name,'retrievedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'bbox':[109.10,18.33,109.24,18.43],'nativeResolutionM':250,'qualityCheck':{'meanRGB':mean,'stdRGB':std,'nonblank':True},'note':'250m browse visualization. WMS1.3 EPSG4326 uses latitude-longitude request axis order. Nonblank check is not cloud masking or scientific validation. Not an optimizer input.'}
+              (folder/'imagery.json').write_text(json.dumps(meta,indent=2));success=True;break
+            except Exception as e:report.append({'url':url,'error':str(e)})
+          if not success:
+            (folder/'imagery.json').unlink(missing_ok=True)
+            (folder/'modis-2025-01-15.jpg').unlink(missing_ok=True)
+          (folder/'imagery-quality-report.json').write_text(json.dumps({'success':success,'attempts':report},indent=2));print(json.dumps(report))
+      - name: Store verified source status
+        run: |
+          git config user.name 'FarmSystemDesign data bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/public
+          git diff --cached --quiet || git commit -m 'fix: validate nonblank NASA imagery with correct WMS axis order'
+          git pull --rebase origin main
+          git push origin main
+      - uses: actions/upload-artifact@v4
+        with:
+          name: verified-public-data
+          path: data/public
+          retention-days: 7
