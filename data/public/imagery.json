@@ -2,9 +2,10 @@
   "id": "nasa-gibs",
   "source": "NASA GIBS / MODIS Terra corrected reflectance",
   "status": "public-imagery",
-  "sourceUrl": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&LAYERS=MODIS_Terra_CorrectedReflectance_TrueColor&STYLES=&FORMAT=image%2Fjpeg&SRS=EPSG%3A4326&BBOX=109.10%2C18.33%2C109.24%2C18.43&WIDTH=1024&HEIGHT=768&TIME=2025-01-15",
-  "date": "2025-01-15",
-  "retrievedAt": "2026-09-29T12:17:45.104523+00:00",
+  "sourceUrl": "https://gibs.earthdata.nasa.gov/wms/epsg4326/best/wms.cgi?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&LAYERS=MODIS_Terra_CorrectedReflectance_TrueColor&STYLES=&FORMAT=image%2Fjpeg&CRS=EPSG%3A4326&BBOX=18.33%2C109.10%2C18.43%2C109.24&WIDTH=1024&HEIGHT=768&TIME=2025-03-15",
+  "date": "2025-03-15",
+  "filename": "modis-2025-03-15.jpg",
+  "retrievedAt": "2026-09-29T12:35:03.452328+00:00",
   "bbox": [
     109.1,
     18.33,
@@ -12,5 +13,18 @@
     18.43
   ],
   "nativeResolutionM": 250,
-  "note": "250m browse visualization; not field-scale analytical imagery. May contain clouds; display only, not used by optimizer."
+  "qualityCheck": {
+    "meanRGB": [
+      146.51022338867188,
+      151.2856877644857,
+      145.51666768391928
+    ],
+    "stdRGB": [
+      29.179215552069156,
+      26.03728094711626,
+      25.70504074041012
+    ],
+    "nonblank": true
+  },
+  "note": "250m browse visualization. WMS1.3 EPSG4326 uses latitude-longitude request axis order. Nonblank check is not cloud masking or scientific validation. Not an optimizer input."
 }
