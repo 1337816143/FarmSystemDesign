@@ -1,0 +1,42 @@
+name: Import verified application source
+on:
+  push:
+    paths: ['.github/workflows/import-source.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Validate transfer and extract only application files
+        shell: python
+        run: |
+          import pathlib,hashlib,base64,tarfile,io,lzma
+          expected=['5a7df1c9543b8dc040c732ef8b043cb8c727cbd146bf66f34508526b116825a9','a04cef76cba94feefbe18022fd205a0e6d6673f210fc101e1cd3ad39f044aa54','31e30343928306ba45a6e3dab98f62a5a14527eb0a7f6608eb0ab01495985dc2','8f228326b539dda0ea70641a507cdeb75c68f76490b689f800c72071d799da8d','69255f438d0f4ad68b1edbd91e3d42f50f6bedfc2829f374fa453efe398e94c9','28a1c0619e8ff5b224dd18e9e47514937f529fedd5eabb379c9fe6e834296019','2fb905b9baa10e494df4b5c9c42505cebae460f7c1c4e396f5f0160f32c2bc33','54e5f8867db6f2cbfbf12ba5b6d714fa02ae284629890ff1f0f5e42bbc6e25b5','7aea0393dfc040aae494526bf265098037701e83b41e4be069e1a7b42ffeb672']
+          chunks=[]
+          for i,h in enumerate(expected):
+            p=pathlib.Path(f'.delivery/source.{i:02}');s=p.read_text().strip();actual=hashlib.sha256(s.encode()).hexdigest();print(p,len(s),actual)
+            assert actual==h,f'Chunk {i} mismatch'
+            chunks.append(s)
+          raw=base64.b64decode(''.join(chunks),validate=True)
+          assert hashlib.sha256(raw).hexdigest()=='543d754288e93ef221e4e8c279e6d69b578e6f13272d5535cbd8e93cdfd97f24'
+          with tarfile.open(fileobj=io.BytesIO(lzma.decompress(raw)),mode='r:') as archive:
+            for m in archive.getmembers():
+              p=pathlib.PurePosixPath(m.name)
+              assert m.isfile() and not p.is_absolute() and '..' not in p.parts and p.parts[0] not in ['.github','.git','data']
+              target=pathlib.Path(m.name);target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(archive.extractfile(m).read());print('Extracted',m.name,m.size)
+      - run: npm run check && npm test
+      - name: Commit verified source and discard transfer staging
+        run: |
+          git config user.name 'FarmSystemDesign build bot'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git rm -r --ignore-unmatch .delivery vendor data/public/modis-2025-01-15.jpg
+          git add .gitignore README.md docs icon.svg index.html manifest.webmanifest package.json src styles.css sw.js tests tools
+          git commit -m 'feat: ship FarmSystem multi-scale research platform with tested resource optimizer'
+          git pull --rebase origin main
+          git push origin main
