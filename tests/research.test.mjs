@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {REGIONAL_EVIDENCE_VERSION,OFFICIAL_SNAPSHOT,AUDIT,assessStages,auditCsvRows} from '../src/research.js';
+import {REGIONAL_EVIDENCE_VERSION,OFFICIAL_SNAPSHOT,NUTRIENT_BOUNDARY_STUDY,AUDIT,assessStages,auditCsvRows} from '../src/research.js';
 
 test('the provincial snapshot retains its source, year, units and province-only scale',()=>{
   assert.equal(OFFICIAL_SNAPSHOT.year,2025);
@@ -24,6 +24,17 @@ test('confirmed sources cannot open a regional analysis or optimization gate',()
   assert.equal(assessStages('province',withUnits)[1].ready,false);
   const validationOnly=AUDIT.map(row=>row.id==='farm-validation'?{...row,status:'integrated-verified'}:row);
   assert.equal(assessStages('farm',validationOnly)[1].ready,false);
+});
+
+test('Dong nutrient thresholds retain island-scale literature status',()=>{
+  assert.equal(NUTRIENT_BOUNDARY_STUDY.geography,'海南岛整体');
+  assert.equal(NUTRIENT_BOUNDARY_STUDY.evidence.find(x=>x.label.startsWith('磷：')).value,'25／44／70');
+  const row=AUDIT.find(x=>x.id==='dong-nutrient-boundaries');
+  assert.equal(row.status,'source-confirmed');
+  assert.equal(row.track,'province');
+  assert.ok(row.gap.includes('不能直接下推'));
+  assert.ok(assessStages('province').every(x=>!x.ready));
+  assert.ok(!auditCsvRows('farm').some(x=>x.includes('dong-nutrient-boundaries')));
 });
 
 test('regional evidence remains outside the farm model and export is route-specific',()=>{

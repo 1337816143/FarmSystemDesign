@@ -1,6 +1,6 @@
 // Research route register. Source confirmation is deliberately separate from
 // integration and scientific validation; no regional record enters the farm model.
-export const REGIONAL_EVIDENCE_VERSION = 'hainan-audit-2026-09-30-r1';
+export const REGIONAL_EVIDENCE_VERSION = 'hainan-audit-2026-09-30-r2';
 
 export const ROUTES = {
   farm: {
@@ -45,10 +45,31 @@ export const OFFICIAL_SNAPSHOT = {
   ]
 };
 
+// Literature evidence at island scale. These published model results are not
+// observations for a county, farm, or the current demonstration model.
+export const NUTRIENT_BOUNDARY_STUDY = {
+  title: '海南农业增产目标与氮磷环境边界',
+  citation: 'Dong et al., Agricultural Systems 234 (2026), 104695',
+  url: 'https://doi.org/10.1016/j.agsy.2026.104695',
+  geography: '海南岛整体',
+  history: '1988–2020',
+  scenarios: '2030 BAU、S1–S5',
+  method: 'NUFER 作物—畜牧氮磷物质流与生产／环境阈值',
+  evidence: [
+    {label:'氮：生产所需最低投入',value:'135',unit:'Gg N／年',source:'§3.2；Table S6'},
+    {label:'氮：不同环境终点的投入上界',value:'174–262',unit:'Gg N／年',source:'§3.2；Fig. 5a；Table S6'},
+    {label:'磷：生产下界／径流环境上界／2020 投入',value:'25／44／70',unit:'Gg P／年',source:'§3.2；Fig. 5b；Table S9'},
+    {label:'S5：相对 2020 减少氮／磷投入',value:'45%／37%',unit:'模型情景',source:'摘要；§3.2'},
+    {label:'S5：目标产量需氮达成',value:'96%',unit:'模型情景',source:'摘要；§3.2'}
+  ],
+  boundary: '阈值和情景均为全岛模型结果；不能直接分配到市县或地块，也不能充当本平台的实测参数。需取得补充材料、NUFER 配置和分区损失系数，先核对各项投入的系统边界。'
+};
+
 // "source-confirmed" means a source and its stated grain were checked. It does
 // not mean the underlying county/time series was acquired, harmonized or tested.
 export const AUDIT = [
   {id:'province-snapshot',track:'province',name:'2025 年全省农业总量',status:'display-only',grain:'省级 · 年度',period:'2025',use:'描述性背景',gap:'已在平台展示；未进入分析模型。不能反推市县或农场。',url:OFFICIAL_SNAPSHOT.url},
+  {id:'dong-nutrient-boundaries',track:'province',name:'Dong 等（2026）海南氮磷边界研究',status:'source-confirmed',grain:'全岛模型 · 年度／2030 情景',period:'1988–2020；2030 情景',use:'营养约束候选与跨尺度问题定义',gap:'已核读论文；补充材料、原始数据及模型参数未接入。全岛阈值不能直接下推市县或农场。',url:NUTRIENT_BOUNDARY_STUDY.url},
   {id:'county-series',track:'province',name:'市县农业生产时序',status:'source-confirmed',grain:'市县 · 年度',period:'逐年核对',use:'区域诊断',gap:'年鉴入口已确认；表格、年份、行政区划变动和统计口径尚未提取核对。',url:'https://stats.hainan.gov.cn/tjj/tjsu/ndsj/2025/18gb_list.html'},
   {id:'admin-units',track:'province',name:'可追溯的市县边界与代码',status:'missing',grain:'市县 · 版本化',period:'待定',use:'空间汇总',gap:'须确定法定统计单元及边界版本，不能用演示地块拼成全省地图。',url:''},
   {id:'climate-grid',track:'province',name:'ERA5-Land 气候重分析',status:'candidate',grain:'约 0.1° · 小时',period:'1950 年至今，按需选取',use:'气候暴露候选',gap:'未下载海南子集，尚未与行政单元匹配或本地观测交叉检验。',url:'https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land'},
