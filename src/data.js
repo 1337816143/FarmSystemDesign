@@ -1,7 +1,7 @@
-/** Deterministic, explicitly synthetic data. Never use these values as farm measurements. */
-export const VERSION = '0.1.0';
-export const DATA_VERSION = 'demo-2026-09-29-v1';
-export const MODEL_VERSION = 'screening-0.1.0';
+/** Public predicted geometry + explicitly synthetic production assumptions. Not surveyed parcels. */
+import {VERSION,DATA_VERSION,MODEL_VERSION} from './version.js';
+import {EVIDENCE_DATASET} from './evidence.generated.js';
+export {VERSION,DATA_VERSION,MODEL_VERSION};
 export const ORIGIN = [109.17,18.38];
 export const SOURCES = {
   power: 'https://power.larc.nasa.gov/docs/services/api/temporal/monthly/',
@@ -20,7 +20,7 @@ export const CROPS = {
 export const ANNUALS = ['rice','vegetable','legume','cover'];
 export const METRICS = [
   ['margin','核算收益','元','max'],['water','灌溉 / 补水量','m³','min'],['labour','劳动需求','工日','min'],
-  ['nSurplus','系统氮盈余代理','kg N','min'],['energy','可食能量代理','GJ','max']
+  ['nSurplus','氮收支余量（排序用绝对值）','kg N','min'],['energy','可食能量代理','GJ','max']
 ];
 export const SCENARIOS = {
   normal:{name:'基准条件',water:1,labour:1,rain:1,price:1,shock:0},
@@ -36,30 +36,8 @@ export function areaHa(ring){
   for(let i=0;i<ring.length-1;i++){const [a,b]=ring[i],[c,d]=ring[i+1];sum+=(c-a)*r*(2+Math.sin(b*r)+Math.sin(d*r));}
   return Math.abs(sum*6371008.8**2/2)/10000;
 }
-export function centroid(plot){const p=plot.geometry.coordinates[0].slice(0,-1);return [p.reduce((s,x)=>s+x[0],0)/p.length,p.reduce((s,x)=>s+x[1],0)/p.length];}
-export function makeDemo(){
-  const rand=rng(),farms=[],plots=[],villages=[
-    {id:'V01',name:'示例村落 A',center:[109.154,18.369]},
-    {id:'V02',name:'示例村落 B',center:[109.173,18.386]},
-    {id:'V03',name:'示例村落 C',center:[109.195,18.374]}
-  ];
-  for(let v=0;v<3;v++) for(let f=0;f<4;f++){
-    const i=v*4+f,id=`F${String(i+1).padStart(2,'0')}`,x=villages[v].center[0]+(f%2)*.0055,y=villages[v].center[1]+Math.floor(f/2)*.0045;
-    const farm={id,name:`示例${i%4===0?'农场':'农户'} ${String(i+1).padStart(2,'0')}`,villageId:villages[v].id,kind:i%4===0?'farm':'household',representative:i===1,provenance:'synthetic',poultry:i%3===0?180: i%3===1?80:0,water:[],labour:[],center:[x,y],note:'虚拟经营主体，不对应现实居民；所有资源禀赋为演示假设。'};
-    let totalArea=0;
-    for(let j=0;j<3;j++){
-      const lon=x+j*.00135,lat=y+(j%2)*.00165,dx=.00105+rand()*.00018,dy=.0011+rand()*.00016;
-      const ring=[[lon,lat],[lon+dx,lat+.00008],[lon+dx*.96,lat+dy],[lon-.00007,lat+dy*.9],[lon,lat]];
-      const fixed=j===2&&i%3!==2, crop=fixed?(i%3===0?'orchard':'pond'):ANNUALS[(i+j)%3];
-      const area=areaHa(ring);totalArea+=area;
-      plots.push({id:`P${String(i*3+j+1).padStart(2,'0')}`,farmId:id,name:`地块 ${String(i*3+j+1).padStart(2,'0')}`,geometry:{type:'Polygon',coordinates:[ring]},areaHa:round(area,4),crop,locked:fixed,soilFactor:round(.84+rand()*.28),slopeDeg:round(1+rand()*12),soilN:round(.6+rand()*.65),provenance:'synthetic',geometrySource:'synthetic',updatedAt:'2025-01-01',note:fixed?'多年生 / 水产单元固定，搜索中不允许零成本转为年生作物。':'地块位置与边界为虚拟演示，不是实际地籍或遥感解译。'});
-    }
-    farm.water=[.33,.34,.33].map(w=>round(totalArea*6900*(.83+rand()*.38)*w));
-    farm.labour=[.3,.28,.42].map(w=>round(totalArea*85*(.78+rand()*.44)*w));
-    farms.push(farm);
-  }
-  return {schemaVersion:1,version:DATA_VERSION,crs:'EPSG:4326',provenance:'synthetic',studyLabel:'海南 · 崖州附近演示窗口（非已确认研究区）',center:ORIGIN,extent:[109.13,18.345,109.235,18.407],villages,farms,plots,updatedAt:'2026-09-29',notes:'地理背景真实；示例经营主体、村落分组、地块、土壤和经营参数全部虚拟。'};
-}
+export function centroid(plot){if(plot.representativePoint)return [...plot.representativePoint];const p=plot.geometry.coordinates[0].slice(0,-1);return [p.reduce((s,x)=>s+x[0],0)/p.length,p.reduce((s,x)=>s+x[1],0)/p.length];}
+export function makeDemo(){return structuredClone(EVIDENCE_DATASET);}
 export function defaultConfig(){return {mode:'independent',quarter:0,scenario:'normal',water:1,labour:1,rain:1,price:1,shock:0,minIncomeRatio:0,objective:'balanced',samples:1600,seed:20260929};}
 export function baselineAllocation(plots){return Object.fromEntries(plots.map(p=>[p.id,p.crop]));}
 export function selectedFarms(data,scope,ids=[]){
@@ -90,16 +68,18 @@ export function validateDataset(d){
   for(const p of d.plots){
     if(typeof p.id!=='string'||!p.id||pids.has(p.id))errors.push('地块 ID 缺失或重复');pids.add(p.id);
     if(typeof p.name!=='string'||p.name.length>120)errors.push(`${p.id} 名称无效`);
-    if(!['synthetic','user-unverified','observed'].includes(p.provenance)||!['synthetic','user-unverified','observed'].includes(p.geometrySource))errors.push(`${p.id} 缺少数据或几何身份`);
+    if(!['synthetic','user-unverified','observed'].includes(p.provenance)||!['synthetic','user-unverified','observed','public-ml-prediction','public-osm'].includes(p.geometrySource))errors.push(`${p.id} 缺少数据或几何身份`);
     if(!ids.has(p.farmId))errors.push(`${p.id} 经营主体不存在`);
     if(!CROPS[p.crop])errors.push(`${p.id} 不支持的活动类型`);
     if(!Number.isFinite(p.areaHa)||p.areaHa<=0||p.areaHa>1e5)errors.push(`${p.id} 面积无效`);
     if(!Number.isFinite(p.soilFactor)||p.soilFactor<.1||p.soilFactor>3)errors.push(`${p.id} soilFactor 应为0.1–3`);
     if(typeof p.locked!=='boolean')errors.push(`${p.id} 缺少 locked`);
     const rings=p.geometry?.coordinates, r=rings?.[0];
-    if(p.geometry?.type!=='Polygon'||rings?.length!==1||!Array.isArray(r)||r.length<4||r.length>2000){errors.push(`${p.id} 仅支持无洞的简单 Polygon`);continue;}
-    if(r.some(c=>!Array.isArray(c)||c.length!==2||!c.every(Number.isFinite)||Math.abs(c[0])>180||Math.abs(c[1])>85)||r[0][0]!==r.at(-1)[0]||r[0][1]!==r.at(-1)[1])errors.push(`${p.id} WGS84坐标无效或环未闭合`);
-    else if(Math.abs(areaHa(r)-p.areaHa)/p.areaHa>.12)errors.push(`${p.id} 属性面积与几何面积差异超过12%`);
+    if(p.geometry?.type!=='Polygon'||!Array.isArray(rings)||!rings.length||rings.some(r=>!Array.isArray(r)||r.length<4||r.length>4000)){errors.push(`${p.id} 仅支持有效 Polygon（可含孔洞）`);continue;}
+    let valid=true;
+    for(const ring of rings){if(ring.some(c=>!validPoint(c))||ring[0][0]!==ring.at(-1)[0]||ring[0][1]!==ring.at(-1)[1]){errors.push(`${p.id} WGS84坐标无效或环未闭合`);valid=false;}}
+    if(valid){const a=areaHa(rings[0])-rings.slice(1).reduce((s,r)=>s+areaHa(r),0);if(a<=0||Math.abs(a-p.areaHa)/p.areaHa>.01)errors.push(`${p.id} 属性面积与球面近似核对差异超过1%（正式面积用WGS84椭球）`);}
+
   }
   for(const f of d.farms)if(!d.plots.some(p=>p.farmId===f.id))errors.push(`${f.id} 没有地块（当前原型要求每个主体至少一块地）`);
   return [...new Set(errors)];

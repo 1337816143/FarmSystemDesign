@@ -1,0 +1,1067 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "way/389404558",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1606684,
+              18.3688821
+            ],
+            [
+              109.16042,
+              18.3689699
+            ],
+            [
+              109.1603087,
+              18.3686629
+            ],
+            [
+              109.1597519,
+              18.3690001
+            ],
+            [
+              109.159789,
+              18.3692165
+            ],
+            [
+              109.1595663,
+              18.3692316
+            ],
+            [
+              109.1595022,
+              18.3693723
+            ],
+            [
+              109.1594655,
+              18.369453
+            ],
+            [
+              109.1593753,
+              18.369448
+            ],
+            [
+              109.15937,
+              18.3696443
+            ],
+            [
+              109.1591897,
+              18.3696191
+            ],
+            [
+              109.1591526,
+              18.3697047
+            ],
+            [
+              109.1589246,
+              18.3697197
+            ],
+            [
+              109.1589087,
+              18.3696292
+            ],
+            [
+              109.158792,
+              18.3696292
+            ],
+            [
+              109.1588503,
+              18.3693876
+            ],
+            [
+              109.158389,
+              18.3695738
+            ],
+            [
+              109.1583996,
+              18.3697399
+            ],
+            [
+              109.1581981,
+              18.3697499
+            ],
+            [
+              109.1582193,
+              18.3698556
+            ],
+            [
+              109.1585746,
+              18.3699261
+            ],
+            [
+              109.1586117,
+              18.3698556
+            ],
+            [
+              109.1588397,
+              18.3698808
+            ],
+            [
+              109.1588291,
+              18.3700267
+            ],
+            [
+              109.1590253,
+              18.3700469
+            ],
+            [
+              109.1590837,
+              18.3699613
+            ],
+            [
+              109.1592746,
+              18.3699915
+            ],
+            [
+              109.159195,
+              18.370369
+            ],
+            [
+              109.1596359,
+              18.3704723
+            ],
+            [
+              109.159667,
+              18.370379
+            ],
+            [
+              109.1599162,
+              18.3704294
+            ],
+            [
+              109.1598938,
+              18.3705565
+            ],
+            [
+              109.1602981,
+              18.3707666
+            ],
+            [
+              109.1603352,
+              18.3701375
+            ],
+            [
+              109.1604818,
+              18.3700732
+            ],
+            [
+              109.1605049,
+              18.3699513
+            ],
+            [
+              109.1605844,
+              18.3698556
+            ],
+            [
+              109.1607555,
+              18.369786
+            ],
+            [
+              109.1607492,
+              18.3695887
+            ],
+            [
+              109.1605473,
+              18.3695839
+            ],
+            [
+              109.1604837,
+              18.3692819
+            ],
+            [
+              109.1607148,
+              18.3692067
+            ],
+            [
+              109.1606684,
+              18.3688821
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "389404558",
+        "sourceUrl": "https://www.openstreetmap.org/way/389404558",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2016-01-03T18:06:59Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland",
+          "source": "bing"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 2.5875913474305534,
+        "geometryValid": true,
+        "vertexCount": 43,
+        "representativePoint": [
+          109.15989587174352,
+          18.369712200000002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114717636",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1396942,
+              18.3801385
+            ],
+            [
+              109.1399123,
+              18.3777219
+            ],
+            [
+              109.1424234,
+              18.37794
+            ],
+            [
+              109.142177,
+              18.3798763
+            ],
+            [
+              109.1418415,
+              18.3803766
+            ],
+            [
+              109.1396942,
+              18.3801385
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114717636",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114717636",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-16T20:56:28Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 7.025606779804081,
+        "geometryValid": true,
+        "vertexCount": 6,
+        "representativePoint": [
+          109.14105272001468,
+          18.37890815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114717637",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1417744,
+              18.3805479
+            ],
+            [
+              109.1396936,
+              18.3802638
+            ],
+            [
+              109.139318,
+              18.3842081
+            ],
+            [
+              109.13945,
+              18.38429
+            ],
+            [
+              109.1417744,
+              18.3805479
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114717637",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114717637",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-16T20:56:28Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 5.262520874086395,
+        "geometryValid": true,
+        "vertexCount": 5,
+        "representativePoint": [
+          109.14006495458838,
+          18.382378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114717638",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1284776,
+              18.3807257
+            ],
+            [
+              109.1286446,
+              18.3791874
+            ],
+            [
+              109.1308143,
+              18.3793995
+            ],
+            [
+              109.1306472,
+              18.3809381
+            ],
+            [
+              109.1284776,
+              18.3807257
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114717638",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114717638",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-16T20:56:28Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 3.945711399102211,
+        "geometryValid": true,
+        "vertexCount": 5,
+        "representativePoint": [
+          109.1296459354693,
+          18.380062600000002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114717639",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1286583,
+              18.3790364
+            ],
+            [
+              109.1308152,
+              18.3792676
+            ],
+            [
+              109.1311502,
+              18.377004
+            ],
+            [
+              109.1288106,
+              18.3768209
+            ],
+            [
+              109.1286583,
+              18.3790364
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114717639",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114717639",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-16T20:56:28Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 5.9484725116297605,
+        "geometryValid": true,
+        "vertexCount": 5,
+        "representativePoint": [
+          109.12986398236474,
+          18.3780202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114717640",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1310081,
+              18.3792242
+            ],
+            [
+              109.1313024,
+              18.377028
+            ],
+            [
+              109.1344337,
+              18.3772929
+            ],
+            [
+              109.1340886,
+              18.3795132
+            ],
+            [
+              109.1310081,
+              18.3792242
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114717640",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114717640",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-16T20:56:28Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 8.125948930249363,
+        "geometryValid": true,
+        "vertexCount": 5,
+        "representativePoint": [
+          109.13271055535009,
+          18.378258549999998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114717641",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1309472,
+              18.3793687
+            ],
+            [
+              109.1307848,
+              18.3809388
+            ],
+            [
+              109.1337994,
+              18.3812807
+            ],
+            [
+              109.1340531,
+              18.3796866
+            ],
+            [
+              109.1309472,
+              18.3793687
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114717641",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114717641",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-16T20:56:28Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 5.743371289394796,
+        "geometryValid": true,
+        "vertexCount": 5,
+        "representativePoint": [
+          109.1324015079619,
+          18.380312699999998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114756647",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1234622,
+              18.3786899
+            ],
+            [
+              109.123517,
+              18.3764417
+            ],
+            [
+              109.1286247,
+              18.3768056
+            ],
+            [
+              109.1284809,
+              18.3790147
+            ],
+            [
+              109.1234622,
+              18.3786899
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114756647",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114756647",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-17T00:04:31Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 13.238840780909547,
+        "geometryValid": true,
+        "vertexCount": 5,
+        "representativePoint": [
+          109.12602426814317,
+          18.37774775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114756648",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1234828,
+              18.3751162
+            ],
+            [
+              109.1287685,
+              18.3755255
+            ],
+            [
+              109.1287274,
+              18.3762858
+            ],
+            [
+              109.123517,
+              18.3758829
+            ],
+            [
+              109.1234828,
+              18.3751162
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114756648",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114756648",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-17T00:04:31Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 4.688485773557704,
+        "geometryValid": true,
+        "vertexCount": 5,
+        "representativePoint": [
+          109.12613393433898,
+          18.3757042
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114756649",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1235037,
+              18.3749614
+            ],
+            [
+              109.123297,
+              18.3713161
+            ],
+            [
+              109.1240922,
+              18.3711878
+            ],
+            [
+              109.124132,
+              18.3713312
+            ],
+            [
+              109.1246966,
+              18.3714822
+            ],
+            [
+              109.1252931,
+              18.3727652
+            ],
+            [
+              109.1258338,
+              18.3733614
+            ],
+            [
+              109.1255555,
+              18.3750973
+            ],
+            [
+              109.1235037,
+              18.3749614
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114756649",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114756649",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-17T00:04:31Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 8.634855576455593,
+        "geometryValid": true,
+        "vertexCount": 9,
+        "representativePoint": [
+          109.12447976087358,
+          18.3730633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114756650",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1257702,
+              18.3750973
+            ],
+            [
+              109.1260168,
+              18.3734746
+            ],
+            [
+              109.1263428,
+              18.3739803
+            ],
+            [
+              109.1283071,
+              18.3744558
+            ],
+            [
+              109.1285298,
+              18.3740633
+            ],
+            [
+              109.1288479,
+              18.3740633
+            ],
+            [
+              109.1287922,
+              18.3753765
+            ],
+            [
+              109.1257702,
+              18.3750973
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114756650",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114756650",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-17T00:04:31Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 3.8484497664898636,
+        "geometryValid": true,
+        "vertexCount": 8,
+        "representativePoint": [
+          109.12669694965459,
+          18.374259549999998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114756651",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1231697,
+              18.3757765
+            ],
+            [
+              109.1204818,
+              18.3755199
+            ],
+            [
+              109.1198376,
+              18.3711652
+            ],
+            [
+              109.1202034,
+              18.369067
+            ],
+            [
+              109.1210941,
+              18.3690293
+            ],
+            [
+              109.1219927,
+              18.3695652
+            ],
+            [
+              109.1227403,
+              18.3693614
+            ],
+            [
+              109.1231697,
+              18.3757765
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114756651",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114756651",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-17T00:04:31Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 21.136886862796544,
+        "geometryValid": true,
+        "vertexCount": 8,
+        "representativePoint": [
+          109.12158324077645,
+          18.37334255
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114756652",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1151953,
+              18.3751508
+            ],
+            [
+              109.1150521,
+              18.3713848
+            ],
+            [
+              109.1195612,
+              18.3709697
+            ],
+            [
+              109.1202213,
+              18.3755206
+            ],
+            [
+              109.1151953,
+              18.3751508
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114756652",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114756652",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-17T00:04:31Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 23.200965525877475,
+        "geometryValid": true,
+        "vertexCount": 5,
+        "representativePoint": [
+          109.11750911767123,
+          18.3732678
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1114756653",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.1150393,
+              18.3712209
+            ],
+            [
+              109.1150855,
+              18.3688365
+            ],
+            [
+              109.1199903,
+              18.368819
+            ],
+            [
+              109.1196485,
+              18.3707475
+            ],
+            [
+              109.1150393,
+              18.3712209
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1114756653",
+        "sourceUrl": "https://www.openstreetmap.org/way/1114756653",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2022-11-17T00:04:31Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 11.943729225829244,
+        "geometryValid": true,
+        "vertexCount": 5,
+        "representativePoint": [
+          109.1174424177346,
+          18.369792
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "way/1560017081",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              109.182409,
+              18.3316524
+            ],
+            [
+              109.1812418,
+              18.3318398
+            ],
+            [
+              109.180581,
+              18.3314732
+            ],
+            [
+              109.1794567,
+              18.3319212
+            ],
+            [
+              109.1789246,
+              18.3316931
+            ],
+            [
+              109.1783324,
+              18.3318316
+            ],
+            [
+              109.1782209,
+              18.3322797
+            ],
+            [
+              109.1776802,
+              18.3322878
+            ],
+            [
+              109.1776544,
+              18.331962
+            ],
+            [
+              109.1774227,
+              18.3319864
+            ],
+            [
+              109.1768477,
+              18.3333306
+            ],
+            [
+              109.1766503,
+              18.3343001
+            ],
+            [
+              109.1763156,
+              18.3350496
+            ],
+            [
+              109.1765645,
+              18.3371269
+            ],
+            [
+              109.1772682,
+              18.3399375
+            ],
+            [
+              109.1791993,
+              18.339245
+            ],
+            [
+              109.180272,
+              18.3388784
+            ],
+            [
+              109.1803064,
+              18.3384956
+            ],
+            [
+              109.1822717,
+              18.3373388
+            ],
+            [
+              109.1816281,
+              18.3360109
+            ],
+            [
+              109.1819885,
+              18.335465
+            ],
+            [
+              109.1816109,
+              18.3347074
+            ],
+            [
+              109.1832329,
+              18.3340801
+            ],
+            [
+              109.182143,
+              18.3330618
+            ],
+            [
+              109.1820314,
+              18.3323612
+            ],
+            [
+              109.1826322,
+              18.3321168
+            ],
+            [
+              109.182409,
+              18.3316524
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "osmType": "way",
+        "osmId": "1560017081",
+        "sourceUrl": "https://www.openstreetmap.org/way/1560017081",
+        "sourceVersion": "1",
+        "sourceTimestamp": "2026-09-17T21:29:23Z",
+        "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+        "tags": {
+          "landuse": "farmland"
+        },
+        "geometryStatus": "public-osm",
+        "license": "ODbL-1.0",
+        "areaHaEllipsoid": 44.99621339145685,
+        "geometryValid": true,
+        "vertexCount": 27,
+        "representativePoint": [
+          109.17910318870288,
+          18.335737950000002
+        ]
+      }
+    }
+  ],
+  "metadata": {
+    "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+    "bbox": [
+      109.09,
+      18.3,
+      109.26,
+      18.45
+    ],
+    "selection": "All valid complete OSM farmland/orchard/plant_nursery/vineyard ways with centroid inside bbox and area 0.1–400 ha. No fabricated subdivision.",
+    "interpretation": "Public land-use patches, not verified field/cadastral boundaries or ownership.",
+    "license": "ODbL-1.0"
+  }
+}

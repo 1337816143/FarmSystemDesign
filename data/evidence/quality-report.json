@@ -1,0 +1,84 @@
+{
+  "version": "evidence-2025-r1+assumptions-r2",
+  "builtOn": "2026-09-30",
+  "sourcePredictionYear": 2025,
+  "sourceCount": 1170,
+  "osmPatchCount": 15,
+  "selectedCount": 110,
+  "actorCount": 13,
+  "selectedAreaHa": 70.7836409,
+  "exclusions": {
+    "not_fully_covered_by_image": 33,
+    "below_90pct_OSM_agricultural_overlap": 766,
+    "below_0_1_ha": 261
+  },
+  "selection": {
+    "minAreaHa": 0.1,
+    "minOSMOverlap": 0.9,
+    "fullImageCoverage": true,
+    "method": "All matching full Polygon features in downloaded spatial subset; no hand-picking or subdivision.",
+    "notValidation": true
+  },
+  "checks": [
+    {
+      "name": "源几何逐坐标一致",
+      "passed": true,
+      "detail": "保留原始顶点与孔洞，不进行平滑、切分或挪动"
+    },
+    {
+      "name": "Polygon有效性与环闭合",
+      "passed": true,
+      "detail": "110 个入选单元"
+    },
+    {
+      "name": "相互重叠检查",
+      "passed": true,
+      "detail": "容差0.01m²；0 对重叠"
+    },
+    {
+      "name": "影像完整覆盖",
+      "passed": true,
+      "detail": "入选几何完全位于本地Sentinel-2影像范围"
+    },
+    {
+      "name": "关联完整性",
+      "passed": true,
+      "detail": "每个单元关联一个明确标记的假设主体"
+    },
+    {
+      "name": "面积口径",
+      "passed": true,
+      "detail": "WGS84椭球面积，含孔洞；ha与亩通过1ha=15亩换算"
+    },
+    {
+      "name": "未知属性保留缺失",
+      "passed": true,
+      "detail": "不从RGB编造作物、权属、土壤氮或NDVI"
+    },
+    {
+      "name": "影像文件校验",
+      "passed": true,
+      "detail": "SHA-256与获取元数据一致"
+    }
+  ],
+  "overlapPairs": [],
+  "confidenceMissing": 110,
+  "licenses": {
+    "ftw": "CC-BY-4.0",
+    "osm": "ODbL-1.0",
+    "sentinel": "Contains modified Copernicus Sentinel data (2025)"
+  },
+  "sourceHashes": {
+    "ftw-fields-2025.geojson": "45934e2aacf2cb067bad507f50362ea0217dc484193284f157583ffd1fa63e56",
+    "agricultural-evidence.geojson": "5b475a3ac8554ae43383b7ed00ce53242a0195676a86cc7b6528cf733d97e82c",
+    "sentinel2-visual.webp": "82b49a273fa36c031b174e472fb2a6de774f683c64f221961c06ce304e44e717",
+    "sentinel-imagery.json": "9fad17541c909a98c4696b867db562c4ce4c06803a4b0f0f60522292a3abfad9"
+  },
+  "limitations": [
+    "无人地面核验的田界或地籍数据",
+    "OSM叠合只用于保守筛选，不是独立精度验证",
+    "研究区覆盖不完整，不能代表区域农业总量",
+    "单景2025历史RGB，不是实时状态或作物分类",
+    "归属、作物、价格、用水用工和禽类数均为假设"
+  ]
+}

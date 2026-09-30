@@ -1,0 +1,41 @@
+{
+  "provider": "ESA / Copernicus Sentinel-2 L2A · Microsoft Planetary Computer",
+  "itemId": "S2B_MSIL2A_20250322T030529_R075_T49QBA_20250322T060811",
+  "sourceUrl": "https://planetarycomputer.microsoft.com/api/stac/v1/collections/sentinel-2-l2a/items/S2B_MSIL2A_20250322T030529_R075_T49QBA_20250322T060811",
+  "acquiredAt": "2025-03-22T03:05:29.024000Z",
+  "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+  "bbox": [
+    109.1030393,
+    18.3194732,
+    109.1952329,
+    18.39629
+  ],
+  "projectedBounds": [
+    12145294.778874515,
+    2074976.4287884017,
+    12155557.723480912,
+    2083986.1618542974
+  ],
+  "crs": "EPSG:3857",
+  "filename": "sentinel2-visual.webp",
+  "nativeCrs": "EPSG:32649",
+  "nativeResolutionM": 10.0,
+  "displayPixelSizeM": [
+    9.993130093863,
+    9.999703735733336
+  ],
+  "width": 1027,
+  "height": 901,
+  "sceneCloudPct": 0.119532,
+  "localUsableFraction": 0.9960370766226426,
+  "sclValidClasses": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "qualityMethod": "SCL nearest-neighbor; classes 4,5,6,7 usable, not a guarantee of cloud-free field observations.",
+  "processing": "Provider visual RGB; bilinear warp to EPSG:3857, ~10 m projected display pixels; no inferred field boundaries.",
+  "license": "Copernicus Sentinel data terms; contains modified Copernicus Sentinel data 2025",
+  "sha256": "82b49a273fa36c031b174e472fb2a6de774f683c64f221961c06ce304e44e717"
+}

@@ -1,0 +1,47 @@
+{
+  "retrievedAt": "2026-09-29T14:08:16.871468+00:00",
+  "attempts": [],
+  "bbox": [
+    109.108,
+    18.354,
+    109.151,
+    18.397
+  ],
+  "source": "https://source.coop/ftw/global-data",
+  "catalogsVisited": [
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_GS.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_GX.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=TW/Taiwan.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_BJ.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors-test/fields-yearly/collection.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors-test/fields-thinned/collection.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_GD.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=NG/catalog.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=ET/catalog.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=TZ/catalog.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_HI.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_HA.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_HB.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors-test/cells-r5/collection.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=BR/catalog.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=IN/catalog.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors-test/cells-r7/collection.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_AH.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_CQ.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors-test/catalog.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_HE.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=AU/catalog.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_GZ.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors-test/cells-r8/collection.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/collection.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=PK/catalog.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=US/catalog.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_FJ.json",
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/catalog.json"
+  ],
+  "parquetCandidates": [
+    "https://data.source.coop/ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/CN_HI.parquet"
+  ],
+  "features": 1170,
+  "ok": true
+}

@@ -1,0 +1,35 @@
+{
+  "retrievedAt": "2026-09-29T13:48:27.235908+00:00",
+  "bbox": [
+    109.09,
+    18.3,
+    109.26,
+    18.45
+  ],
+  "attempts": [
+    {
+      "kind": "osm",
+      "url": "https://api.openstreetmap.org/api/0.6/map?bbox=109.09,18.3,109.175,18.45",
+      "ok": true,
+      "bytes": 2693372
+    },
+    {
+      "kind": "osm",
+      "url": "https://api.openstreetmap.org/api/0.6/map?bbox=109.175,18.3,109.26,18.45",
+      "ok": true,
+      "bytes": 2924091
+    },
+    {
+      "kind": "sentinel",
+      "item": "S2B_MSIL2A_20250322T030529_R075_T49QBA_20250322T060811",
+      "date": "2025-03-22T03:05:29.024000Z",
+      "sceneCloudPct": 0.119532,
+      "localUsableFraction": 0.9960370766226426,
+      "rgbStd": 41.624893799237576,
+      "ok": true
+    }
+  ],
+  "agriculturalFeatures": 15,
+  "contextFeatures": 1652,
+  "imageryAvailable": true
+}

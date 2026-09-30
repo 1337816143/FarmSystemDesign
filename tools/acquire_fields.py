@@ -1,0 +1,54 @@
+import requests,json,traceback,urllib.parse,xml.etree.ElementTree as ET
+from pathlib import Path
+from datetime import datetime,timezone
+import duckdb
+from shapely import wkb
+from shapely.geometry import mapping,box
+from pyproj import Geod
+out=Path('field-evidence');s=requests.Session();s.headers['User-Agent']='FarmSystemDesignResearch/0.2';report={'retrievedAt':datetime.now(timezone.utc).isoformat(),'attempts':[],'bbox':[109.108,18.354,109.151,18.397],'source':'https://source.coop/ftw/global-data'}
+def save(n,d):(out/n).write_text(json.dumps(d,ensure_ascii=False,indent=2,default=str))
+try:
+  base='https://data.source.coop/ftw/global-data/'
+  r=s.get(base+'catalog.json',timeout=40);r.raise_for_status();cat=r.json();save('catalog.json',cat)
+  links=[l for l in cat.get('links',[]) if l.get('rel') in ['child','collection']];print('ROOT LINKS',links,flush=True)
+  candidates=[urllib.parse.urljoin(base+'catalog.json',l['href']) for l in links if any(v in (l.get('title','')+' '+l['href']).lower() for v in ['vector','boundary','polygons'])]
+  queue=[(u,0) for u in candidates];visited=set();parquets=[]
+  while queue and len(visited)<70:
+    url,depth=queue.pop(0)
+    if url in visited:continue
+    visited.add(url);r=s.get(url,timeout=40);r.raise_for_status();d=r.json();save('catalog-'+str(len(visited))+'.json',d)
+    print('CAT',url, 'id',d.get('id'),'links',len(d.get('links',[])),flush=True)
+    for k,a in d.get('assets',{}).items():
+      u=urllib.parse.urljoin(url,a['href'])
+      if '.parquet' in u and ('hainan' in u.lower() or 'hainan' in str(d).lower()):parquets.append(u)
+    for l in d.get('links',[]):
+      if l.get('rel') not in ['child','item']:continue
+      u=urllib.parse.urljoin(url,l['href']);txt=(l.get('title','')+' '+l['href']).lower()
+      if 'hainan' in txt or 'china' in txt or '/cn/' in txt or 'country_code=cn' in txt or depth==0 and l.get('rel')=='child':queue.append((u,depth+1))
+    if parquets:break
+  report['catalogsVisited']=list(visited);report['parquetCandidates']=parquets
+  if not parquets:
+    # Public S3 object listing: resolve actual partition names rather than inventing URLs.
+    for prefix in ['ftw/global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/','tge-labs/ftw-global-data/predictions/vectors/alpha/results-by-admin-conf/admin:country_code=CN/']:
+      u='https://us-west-2.opendata.source.coop.s3.us-west-2.amazonaws.com/'
+      r=s.get(u,params={'list-type':2,'prefix':prefix},timeout=40);report['attempts'].append({'url':r.url,'status':r.status_code});
+      if r.ok:
+        (out/('listing-'+str(len(report['attempts']))+'.xml')).write_text(r.text)
+        keys=[e.text for e in ET.fromstring(r.text).iter() if e.tag.endswith('}Key')]
+        print('KEYS',keys,flush=True)
+        parquets += [u+k for k in keys if k.lower().endswith('.parquet') and 'hainan' in k.lower()]
+  report['parquetCandidates']=parquets
+  if parquets:
+    con=duckdb.connect();con.execute("INSTALL spatial;LOAD spatial;INSTALL httpfs;LOAD httpfs;SET memory_limit='3GB';SET threads=2;SET http_timeout=90;")
+    u=parquets[0];desc=con.execute(f"DESCRIBE SELECT * FROM read_parquet('{u}')").fetchall();save('schema.json',desc);print('SCHEMA',desc,flush=True)
+    b=report['bbox'];env=f'ST_MakeEnvelope({b[0]},{b[1]},{b[2]},{b[3]})'
+    query=f'''SELECT id, confidence, "metrics:area", "determination:datetime", ST_AsWKB(geometry) AS wkb FROM read_parquet('{u}') WHERE EXTRACT(year FROM "determination:datetime")=2025 AND ST_Intersects(geometry,{env}) LIMIT 3000'''
+    rows=con.execute(query).fetchall();features=[];geod=Geod(ellps='WGS84')
+    for oid,conf,area,date,geom in rows:
+      g=wkb.loads(bytes(geom))
+      if not g.is_valid or g.is_empty:continue
+      features.append({'type':'Feature','id':str(oid),'geometry':mapping(g),'properties':{'id':str(oid),'confidence':conf,'sourceAreaM2':area,'ellipsoidAreaHa':abs(geod.geometry_area_perimeter(g)[0])/10000,'year':2025,'determinationDatetime':str(date),'provenance':'public-ml-prediction','source':'Fields of The World / PRUE','sourceUrl':'https://source.coop/ftw/global-data','license':'CC-BY-4.0','note':'Remote-sensing field unit, not cadastral parcel. Confidence sampled from a 500 m layer, not a calibrated per-parcel correctness probability.'}})
+    save('ftw-fields-2025.geojson',{'type':'FeatureCollection','features':features,'metadata':{'retrievedAt':report['retrievedAt'],'partitionUrl':u,'query':query,'bbox':b,'truncated':len(rows)>=3000,'license':'CC-BY-4.0','method':'Original published prediction polygons, no local redrawing or geometry smoothing; only valid geometry and 2025 bbox intersection filter.'}});report['features']=len(features);report['ok']=True
+  else:report['ok']=False;report['reason']='No public Hainan partition resolved from catalog/listing.'
+except Exception as e:report['ok']=False;report['error']=str(e);traceback.print_exc()
+save('field-acquisition-report.json',report)

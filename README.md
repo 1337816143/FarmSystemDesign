@@ -1,65 +1,56 @@
-# FarmSystem Design
+# FarmSystem Design · v0.2.0
 
-**中文、多尺度、可解释的农业系统研究工作台。** 公开地理与气候背景、明确标记的虚拟经营系统、浏览器内的资源核算和候选搜索，以及方案快照与反馈。
+**空间证据 → 假设系统 → 约束核算 → 情景比较 → 结果记录**
 
-访问：https://1337816143.github.io/FarmSystemDesign/
+在线使用：https://1337816143.github.io/FarmSystemDesign/
 
-> 这是面向数字孪生的**研究原型**，不是经实测校准的数字孪生或实际农业生产建议。演示窗口位于海南崖州附近，不代表项目正式选定的村庄。没有使用真实居民的经营资料。
+一个可解释的多尺度农业系统研究工作台。不是经过农户实测校准的数字孪生，也不是FarmDESIGN/FarmSTEPS的官方实现。
 
-## 功能
+## 本版重点
 
-- 地图：本地OSM矢量快照、可选在线OSM底图、NASA MODIS浏览影像；WGS84坐标、缩放平移、对象选择、活动/主体/虚拟土壤因子着色。
-- 范围：单户/场、虚拟代表样本、多主体、单村、演示区域。范围与决策规则分开。
-- 组织模式：逐户独立、所选同村成员协作、所选范围集中协调假设。未选主体的资源不会自动进入公共池。
-- 系统核算：三个月水与劳动需求、种植/固定家禽/固定水产、粪肥内部转移与氮收支，整体及逐户结果。
-- 情景探索：资源配额、历史降雨倍率、蔬菜价格与预设冲击；离散候选搜索、可行性检查、五目标样本非支配集、参与收益底线。
-- 记录：方案保留当时输入、模型版本和结果；可比较两方案、标记拟采用、录入明确身份的反馈；不会把规划直接写成现实。
-- 数据：来源登记、GeoJSON/项目JSON/CSV导出、结构校验导入、本地编辑、手动重新获取NASA历史气象。
-- 离线：同源应用及已访问公开快照可缓存；不缓存或批量预取OSM在线栅格瓦片。首次访问需要网络。
+- 用**公开预测边界**替代随意生成的虚拟几何；所有源坐标不改动。
+- Sentinel-2 L2A 10m真彩色历史影像、Leaflet本地地图、对象检查器、影像对照、源图层和质控证据。
+- 110个预测单元、70.7836409ha，是明确规则筛选的演示集合，不是研究区完整农田或代表性抽样。
+- 真实经营者、作物、土壤值为未知；13个主体、3个协作组及生产参数是显式假设。
+- 独立、同组协作、集中配置情景；逐月水/劳动约束；简化氮收支；可复现候选搜索；方案及反馈版本快照。
+- 应用、模型、数据、构建源提交四类版本信息；旧本地工作区不覆盖。
 
-## 数据与使用边界
+## 使用与存储
 
-真实公开数据：NASA POWER 2025年12个月历史网格气候；OpenStreetMap 197个地理背景要素；NASA GIBS经非空像素检查的MODIS浏览快照。完整来源、获取时间、单位、原始响应与获取失败记录见 `data/public/`。
+无需账号。浏览器直接计算，数据仅在当前浏览器本地保存；没有云数据库或自动GitHub写回。
+第一次载入需联网；已缓存同源资源可离线使用。外部OSM底图和重新获取气象仍需网络。
+私密农户资料不要提交公共仓库；定期导出项目备份。浏览器容量不足时应保留导出文件。
 
-虚拟数据：3个示例村组、12个经营主体、36个地块；地块几何、种植、固定果园和鱼塘、家禽、土壤因子、资源配额和模型系数。以固定种子生成，面积由几何计算，**不是遥感解译结果**。
-
-当前未实现：真实地籍与经营权、田间校准、连续作物生长/轮作状态、完整水文/环境过程、共享数据库/账号权限、自动物联感知或执行、全球最优保证。核算窗口并非已核实的生育期。代理指标不等同完整食物保障、社会可接受性或环境影响。
-
-编辑只存于**当前浏览器的 localStorage**。没有登录、没有云同步、不会自动写回仓库。请经常导出完整项目包；私密资料不要上传公共GitHub。
-
-## 本地运行
-
-无需安装前端依赖。需要Python3用于静态HTTP服务；Node20+用于测试。
+## 开发
 
 ```bash
+npm test
+npm run check
 python3 -m http.server 4173
-# 浏览器打开 http://localhost:4173
-node --test tests/*.test.mjs
+# 首次需要 Python shapely / pyproj
+python3 tools/prepare_evidence.py
+# 通过已安装 Playwright Chromium 在真实HTTP上测试
+python3 tests/browser.py --url http://127.0.0.1:4173 --output test-results
+node tools/build.mjs
 ```
 
-也可使用 `npm start` / `npm test` / `npm run check`。不要直接双击HTML（模块、Worker与缓存需要HTTP或HTTPS）。
+`tools/prepare_evidence.py`只从库内公开快照确定性生成数据与结构质控，不修改源几何。
+`tools/acquire_spatial.py`和`tools/acquire_fields.py`保留原始获取方法。公开服务更新可能改变返回数据，当前研究版本以SHA-256所标识的冻结快照为准。
 
-## 代码结构
+## 结构
 
-```
-src/data.js             对象结构、合成示例、参数及校验
-src/model.js            独立于UI的核算、约束与候选搜索
-src/optimizer.worker.js 浏览器计算线程
-src/map.js              无第三方依赖的地理视图
-src/charts.js           SVG图表
-src/app.js              交互与本地工作区
-src/utils.js            导出与安全转义
-data/public/           原始公共快照与来源
-sw.js                   仅同源的离线缓存
-tests/                  单元与浏览器回归测试
-```
+- `src/version.js`, `version.json`, `CHANGELOG.md`：版本
+- `src/evidence.generated.js`：由源数据确定性生成的默认对象
+- `src/model.js`：可审计核算与探索；`src/optimizer.worker.js`：计算线程
+- `src/map.js`, `src/app.js`, `studio.css`：地图与界面
+- `data/evidence/`：FTW、OSM、Sentinel及质控
+- `data/public/`：NASA POWER和历史v0.1背景快照
+- `docs/SOURCES.md`, `docs/METHODS.md`, `docs/DATA_DICTIONARY.md`：来源、方法、字段
 
-地图是自包含的Web Mercator实现，输入仍为WGS84。无高德API密钥、不混合GCJ-02。不依赖CDN字体或JavaScript。
+## 数据使用边界
 
-## 部署与复现
+FTW / PRUE为10m遥感模型的连通田块预测单元，**不是地籍**。重叠筛选不能确认边界准确率，无法从RGB判定真实作物或权属；没有计算NDVI。
+NASA POWER为2025历史网格数据，非逐地块实测或实时气象。
+生产系数、价格、资源配额及关联全部是示例假设。模型结果不构成经营建议。
 
-`.github/workflows/site.yml` 检查代码、运行单元测试、执行浏览器交互测试并发布GitHub Pages。源文件使用相对路径，兼容仓库子路径。每次推送源代码可更新网站。
-
-公开数据获取工作流仅按手动触发或其定义修改时运行；**没有设置持续定时采集**。气候重新获取仍是同一个2025年历史窗口，不是获取当前天气。原始影像请求曾产生全黑图，质量检查保留失败记录并更换为有效日期；不要把HTTP200当作影像可用的证明。
-
-研究说明：[方法与假设](docs/METHODS.md) · [数据字典](docs/DATA_DICTIONARY.md) · [来源与许可](docs/SOURCES.md)。
+FTW CC-BY-4.0；OSM ODbL-1.0；Contains modified Copernicus Sentinel data (2025)。详见来源文档。Leaflet许可证随vendor保留。

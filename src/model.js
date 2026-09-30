@@ -19,25 +19,27 @@ function distributeManure(rows, mode){
       let need=Math.max(0,receiver.nNeed/.45-receiver.manureApplied);
       for(const donor of group){if(donor.id===receiver.id||need<=eps)continue;const n=Math.min(need,donor.manureRemaining);if(n<=eps)continue;
         donor.manureRemaining-=n;receiver.manureApplied+=n;need-=n;
-        receiver.transferCost+=n*2;
+        receiver.transferCost+=n*2;receiver.nTransferIn+=n;donor.nTransferOut+=n;
         transfers.push({from:donor.id,to:receiver.id,resource:'回收粪肥氮',quantity:n,unit:'kg N'});
       }
     }
   }
   return transfers;
 }
-export function evaluate(data, farmIds, allocation, config, climate, participationBase=null){
+export function evaluate(data, farmIds, allocation, config, climate, participationBase=null,contextHash=null){
   validateConfig(config);
   const selected=new Set(farmIds),farms=data.farms.filter(f=>selected.has(f.id));
+  if(selected.size!==farmIds.length||farms.length!==selected.size)throw new Error('经营主体ID重复或不存在');
   if(!farms.length)throw new Error('请选择至少一个经营主体');
   const plots=data.plots.filter(p=>selected.has(p.farmId)),rain=climateForQuarter(climate,config.quarter);
   const warnings=[];if(rain.some(x=>x===null))warnings.push('部分公开气候缺失：缺失月份按0 mm降雨进行保守需求核算，不代表真实天气。');
-  const rows=farms.map(f=>({id:f.id,name:f.name,villageId:f.villageId,area:0,revenue:f.poultry*28,cost:f.poultry*16,waterMonths:[0,0,0],labourMonths:[0,0,0],waterCapacity:f.water.map(v=>v*config.water),labourCapacity:f.labour.map(v=>v*config.labour),nNeed:0,nFix:0,nHarvest:f.poultry*.12,nFeed:f.poultry*.4,manureProduced:f.poultry*.22,manureRecovered:f.poultry*.22*.65,manureApplied:0,transferCost:0,energy:f.poultry*.008,production:[],crops:new Set()}));
+  const rows=farms.map(f=>({id:f.id,name:f.name,villageId:f.villageId,area:0,revenue:f.poultry*28,cost:f.poultry*16,waterMonths:[0,0,0],labourMonths:[0,0,0],waterCapacity:f.water.map(v=>v*config.water),labourCapacity:f.labour.map(v=>v*config.labour),nNeed:0,nFix:0,nHarvest:f.poultry*.12,nFeed:f.poultry*.4,manureProduced:f.poultry*.22,manureRecovered:f.poultry*.22*.65,manureApplied:0,transferCost:0,nTransferIn:0,nTransferOut:0,energy:f.poultry*.008,production:[],crops:new Set()}));
   const byId=Object.fromEntries(rows.map(r=>[r.id,r])),plotResults=[];
   const violations=[];
   for(const p of plots){
     const activity=allocation[p.id];if(!CROPS[activity])throw new Error(`地块 ${p.id} 的方案缺失或无效`);
     if((p.locked||!CROPS[p.crop].annual)&&activity!==p.crop)violations.push(`${p.id}：固定活动不允许改变`);
+    if(CROPS[p.crop].annual&&!CROPS[activity].annual&&activity!==p.crop)violations.push(`${p.id}：当前模型不支持无投资成本地新建固定活动`);
     const c=CROPS[activity],r=byId[p.farmId],a=p.areaHa,s=p.soilFactor,stress=Math.max(.35,1-config.shock*c.risk*2);
     const yieldFactor=s*stress,priceFactor=activity==='vegetable'?config.price:1;
     const waterMonths=c.waterCurve.map((w,m)=>Math.max(0,c.water*w-(rain[m]??0)*config.rain*10*(activity==='pond'?.15:.35))*a);
@@ -53,7 +55,8 @@ export function evaluate(data, farmIds, allocation, config, climate, participati
     r.water=sum(r.waterMonths);r.labour=sum(r.labourMonths);
     r.cost+=r.chemicalN*8+r.water*.35+r.labour*100+r.transferCost;
     r.margin=r.revenue-r.cost;
-    r.nInput=r.chemicalN+r.nFeed+r.nFix;r.nOutput=r.nHarvest;r.nSurplus=r.nInput-r.nOutput;
+    r.externalNInput=r.chemicalN+r.nFeed+r.nFix;r.externalNOutput=r.nHarvest;
+    r.nInput=r.externalNInput+r.nTransferIn;r.nOutput=r.externalNOutput+r.nTransferOut;r.nSurplus=r.nInput-r.nOutput;
     r.crops=[...r.crops];
     if(r.nSurplus<0)warnings.push(`${r.id} 氮收支为负，可能涉及土壤存量消耗或参数不一致，不解释为零环境负担。`);
     if(participationBase&&config.minIncomeRatio>0){const b=participationBase.find(x=>x.id===r.id)?.margin;
@@ -70,13 +73,15 @@ export function evaluate(data, farmIds, allocation, config, climate, participati
     if(demand>supply+eps)violations.push(`${key} · ${config.quarter*3+m+1}月${resource}超限 ${Math.round(demand-supply)}`);
   }
   const totals={};for(const k of ['area','revenue','cost','margin','water','labour','chemicalN','nInput','nOutput','nSurplus','manureProduced','manureRecovered','manureApplied','energy'])totals[k]=sum(rows.map(r=>r[k]));
+  totals.nInput=sum(rows.map(r=>r.externalNInput));totals.nOutput=sum(rows.map(r=>r.externalNOutput));
+  if(Object.values(totals).some(v=>!Number.isFinite(v)))throw new Error('计算出现非有限值，请检查参数与数据');
   totals.waterCapacity=sum(rows.map(r=>sum(r.waterCapacity)));totals.labourCapacity=sum(rows.map(r=>sum(r.labourCapacity)));
   const allCrops=new Set(plotResults.map(p=>p.activity));totals.diversity=allCrops.size;
   const outsideFarms=data.farms.filter(f=>!selected.has(f.id));
   return {modelVersion:MODEL_VERSION,allocation:{...allocation},totals,farms:rows,plots:plotResults,transfers,balances,feasible:violations.length===0,violations,warnings:[...new Set(warnings)],rainMonths:rain,
     boundary:{farmIds:[...selected],outsideReservedWater:sum(outsideFarms.map(f=>sum(f.water)))*config.water,note:'仅合并所选主体的配额；未选主体的水、劳动和粪肥不参与共享。'},
     sensitivity:{lowMargin:totals.revenue*.8-totals.cost,highMargin:totals.revenue*1.2-totals.cost,label:'仅收入±20%的确定性敏感性区间，不是置信区间'},
-    fingerprint:hash({data,config,climate,allocation,farmIds})};
+    fingerprint:hash({contextHash:contextHash||hash({data,farmIds,config,climate}),allocation})};
 }
 export function dominates(a,b){
   const x=a.totals,y=b.totals;
@@ -84,11 +89,11 @@ export function dominates(a,b){
     (x.margin>y.margin+eps||x.water<y.water-eps||Math.abs(x.nSurplus)<Math.abs(y.nSurplus)-eps||x.energy>y.energy+eps||x.labour<y.labour-eps);
 }
 export function search(data,farmIds,config,climate,onProgress=()=>{}){
-  validateConfig(config);const selected=new Set(farmIds),plots=data.plots.filter(p=>selected.has(p.farmId)),variable=plots.filter(p=>!p.locked&&CROPS[p.crop].annual);
+  validateConfig(config);const contextHash=hash({data,farmIds,config,climate});const selected=new Set(farmIds),plots=data.plots.filter(p=>selected.has(p.farmId)),variable=plots.filter(p=>!p.locked&&CROPS[p.crop].annual);
   const baseAllocation=baselineAllocation(plots),baseline=evaluate(data,farmIds,baseAllocation,config,climate),rand=rng(config.seed),seen=new Set(),candidates=[];
   let bestInfeasible=null;const add=allocation=>{
     const key=plots.map(p=>allocation[p.id]).join('|');if(seen.has(key))return;seen.add(key);
-    const result=evaluate(data,farmIds,allocation,config,climate,baseline.farms);result.id=`candidate-${seen.size}`;
+    const result=evaluate(data,farmIds,allocation,config,climate,baseline.farms,contextHash);result.id=`candidate-${seen.size}`;
     if(result.feasible)candidates.push(result);else if(!bestInfeasible||result.violations.length<bestInfeasible.violations.length)bestInfeasible=result;
   };
   add(baseAllocation);for(const activity of ANNUALS)add({...baseAllocation,...Object.fromEntries(variable.map(p=>[p.id,activity]))});
@@ -115,5 +120,5 @@ export function search(data,farmIds,config,climate,onProgress=()=>{}){
   onProgress(100);
   return {modelVersion:MODEL_VERSION,createdAt:new Date().toISOString(),config:{...config},farmIds:[...farmIds],baseline,candidates:fronts.slice(0,36),frontierCount:fronts.length,evaluated:seen.size,feasibleCount:candidates.length,exact,bestInfeasible:!candidates.length?bestInfeasible:null,
     method:exact?'小问题完整枚举（仅限当前离散候选集）':'固定种子随机候选 + 局部邻域搜索；非全局最优',
-    inputHash:hash({data,farmIds,config,climate}),dataVersion:data.version,climateRetrievedAt:climate?.retrievedAt||null};
+    inputHash:contextHash,dataVersion:data.version,climateRetrievedAt:climate?.retrievedAt||null};
 }
