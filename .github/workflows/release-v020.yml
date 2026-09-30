@@ -45,6 +45,10 @@ jobs:
             assert h(text.encode())==f['newSha256'],f'Output checksum mismatch: {p}'
             p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text)
             print('Verified',p)
+          p=Path('tests/browser.py');s=p.read_text()
+          s=s.replace("page.on('pageerror',lambda e:errors.append(str(e)))", "page.on('pageerror',lambda e:(errors.append(str(e)),print('BROWSER_ERROR',str(e),getattr(e,'stack',''),flush=True)))")
+          s=s.replace("    check('no JavaScript exceptions across workflow',not errors)", "    (out/'browser-errors.json').write_text(json.dumps({'checks':checks,'errors':errors},ensure_ascii=False,indent=2))\n    check('no JavaScript exceptions across workflow',not errors)")
+          p.write_text(s)
           PY
       - name: Restore auditable public evidence from acquisition artifacts
         env:
@@ -62,6 +66,7 @@ jobs:
           python tools/prepare_evidence.py
       - name: Syntax, 37 model invariants and independent spatial tests
         run: |
+          set -o pipefail
           mkdir -p test-results
           npm run check
           npm test | tee test-results/model-tests.txt
