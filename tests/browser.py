@@ -1,6 +1,6 @@
 """End-to-end UI test against a real static HTTP server; no external map tile scraping."""
 from pathlib import Path
-import argparse,json
+import argparse,json,os
 from playwright.sync_api import sync_playwright
 parser=argparse.ArgumentParser();parser.add_argument('--url',default='http://127.0.0.1:4173');parser.add_argument('--output',default='test-results');args=parser.parse_args()
 out=Path(args.output);out.mkdir(exist_ok=True,parents=True)
@@ -9,13 +9,29 @@ def check(name,value=True):
     assert value,name
     checks.append(name)
 with sync_playwright() as p:
-    browser=p.chromium.launch(headless=True)
+    browser=p.chromium.launch(headless=True,executable_path=os.environ.get('PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH'))
     context=browser.new_context(viewport={'width':1440,'height':1050},device_scale_factor=1,accept_downloads=True)
     # Do not trigger OSM raster tile loads from automated browsers. Local vector + NASA snapshot only.
     context.route('**/tile.openstreetmap.org/**',lambda route:route.abort())
     page=context.new_page();errors=[]
     page.on('pageerror',lambda e:(errors.append(str(e)),print('BROWSER_ERROR',str(e),getattr(e,'stack',''),flush=True)))
     page.goto(args.url,wait_until='networkidle');page.wait_for_selector('.research-switch');page.wait_for_timeout(200)
+    page.locator('button[data-language="en"]').click()
+    check('English mode translates research heading','Two research routes' in page.locator('h1').inner_text())
+    check('English mode sets document language',page.locator('html').get_attribute('lang')=='en')
+    for name in ['research','overview','resources','analysis','planner','feedback','data','evidence','guide']:
+        page.evaluate('(x)=>{location.hash=x}',name);page.wait_for_timeout(70)
+        check(f'{name} default UI has no untranslated Chinese in English mode',not page.evaluate('''() => /[\u3400-\u9fff]/.test(document.querySelector('main').innerText)'''))
+    page.evaluate('location.hash="research"');page.wait_for_timeout(70)
+    page.locator('.top-version').click()
+    check('English mode translates version dialog',not page.evaluate('''() => /[\u3400-\u9fff]/.test(document.querySelector('#modal').innerText)'''))
+    page.locator('#modal [data-action="close-modal"]').first.click()
+    page.locator('button[data-language="both"]').click()
+    check('bilingual mode shows Chinese and English together','两条研究路线' in page.locator('h1').inner_text() and 'Two research routes' in page.locator('h1').inner_text())
+    page.reload(wait_until='networkidle');page.wait_for_selector('.language-switch')
+    check('language preference survives reload',page.locator('button[data-language="both"]').get_attribute('aria-pressed')=='true')
+    page.locator('button[data-language="zh"]').click()
+    check('Chinese mode restores source wording','两条研究路线' in page.locator('h1').inner_text() and 'Two research routes' not in page.locator('h1').inner_text())
     check('dual-route research home is default','海南全域' in page.locator('h1').all_inner_texts()[0] or '两条研究路线' in page.locator('h1').inner_text())
     check('provincial official snapshot is marked as province-only','412.37' in page.locator('.research-kpis').inner_text() and '海南省总体' in page.locator('.research-snapshot').inner_text())
     check('regional optimization remains gated','0/3 阶段就绪' in page.locator('.stage-heading').inner_text())
@@ -28,7 +44,7 @@ with sync_playwright() as p:
     check('110 source prediction objects rendered',page.locator('.parcel').count()==110)
     check('no boot errors',not errors)
     page.screenshot(path=str(out/'overview-desktop.png'),full_page=True)
-    check('visible version badge',page.locator('.top-version').inner_text()=='v0.3.0')
+    check('visible version badge',page.locator('.top-version').inner_text()=='v0.3.1')
     page.locator('.top-version').click();check('independent model version in modal','screening-0.2.0' in page.locator('#modal').inner_text());page.screenshot(path=str(out/'version.png'));page.locator('[data-action="close-modal"]').first.click()
     page.locator('.parcel').first.dispatch_event('click');check('map updates inspector without replacing canvas',page.locator('.inspector').count()==1)
     page.locator('#show-osm').check();check('auxiliary source layer turns on',page.locator('.leaflet-source-pane path').count()==15)
@@ -69,9 +85,9 @@ with sync_playwright() as p:
     dl=event.value;dl.save_as(str(out/'weather.csv'))
     check('CSV export has actual twelve months',len((out/'weather.csv').read_text(encoding='utf-8-sig').splitlines())==13)
     with page.expect_download() as event:page.locator('[data-action="export-bundle"]').first.click()
-    event.value.save_as(str(out/'project.json'));bundle=json.loads((out/'project.json').read_text())
+    event.value.save_as(str(out/'project.json'));bundle=json.loads((out/'project.json').read_text(encoding='utf-8'))
     check('project export retains snapshots and observations',len(bundle['plans'])==2 and len(bundle['observations'])==1)
-    check('export distinguishes app, model and regional evidence',bundle['version']=='0.3.0' and bundle['modelVersion']=='screening-0.2.0' and bundle['regionalEvidenceVersion']=='hainan-audit-2026-09-30-r1')
+    check('export distinguishes app, model and regional evidence',bundle['version']=='0.3.1' and bundle['modelVersion']=='screening-0.2.0' and bundle['regionalEvidenceVersion']=='hainan-audit-2026-09-30-r1')
     page.locator('#import-file').set_input_files(str(out/'project.json'));page.wait_for_selector('#modal[open]');page.locator('#modal-form button[type="submit"]').click()
     check('project import round-trip',len(json.loads(page.evaluate("localStorage.getItem('farmsystem-workspace-v2')"))['plans'])==2)
     bad=out/'invalid.json';bad.write_text('{"schemaVersion":1,"crs":"GCJ-02"}')
@@ -88,8 +104,12 @@ with sync_playwright() as p:
     for name in ['research','overview','resources','analysis','planner','feedback','data','evidence','guide']:
         page.evaluate('(x)=>{location.hash=x}',name);page.wait_for_timeout(90)
         check(f'{name} mobile has no document overflow',page.evaluate('document.documentElement.scrollWidth <= innerWidth+1'))
-    (out/'browser-errors.json').write_text(json.dumps({'checks':checks,'errors':errors},ensure_ascii=False,indent=2))
+    page.locator('button[data-language="both"]').click()
+    for name in ['research','overview','resources','analysis','planner','feedback','data','evidence','guide']:
+        page.evaluate('(x)=>{location.hash=x}',name);page.wait_for_timeout(90)
+        check(f'{name} bilingual mobile has no document overflow',page.evaluate('document.documentElement.scrollWidth <= innerWidth+1'))
+    (out/'browser-errors.json').write_text(json.dumps({'checks':checks,'errors':errors},ensure_ascii=False,indent=2),encoding='utf-8')
     check('no JavaScript exceptions across workflow',not errors)
     browser.close()
-(out/'browser-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'errors':errors},ensure_ascii=False,indent=2))
+(out/'browser-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'errors':errors},ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({'passed':len(checks),'checks':checks,'errors':errors},ensure_ascii=False))
