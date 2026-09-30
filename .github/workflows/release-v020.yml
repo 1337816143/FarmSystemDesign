@@ -1,0 +1,164 @@
+name: Release v0.2.0 Spatial Evidence
+on:
+  push:
+    paths: ['.github/workflows/release-v020.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Apply checksum-verified, base-matched source update
+        run: |
+          python - <<'PY'
+          import base64,lzma,json,hashlib
+          from pathlib import Path
+          h=lambda b:hashlib.sha256(b).hexdigest()
+          encoded=''.join(Path(f'.delivery/v0.2.0/part-{i:02}.b64').read_text().strip() for i in range(4))
+          packed=base64.b64decode(encoded,validate=True)
+          assert h(packed)=='13e29ec12da01f7ce5f4f454a240b150ceedaf91e6adf42d2d6b4d44ffec0d63','Source package checksum mismatch'
+          package=json.loads(lzma.decompress(packed));assert package['release']=='0.2.0'
+          for f in package['files']:
+            p=Path(f['path']);assert not p.is_absolute() and '..' not in p.parts
+            if p.exists() and h(p.read_bytes())==f['newSha256']:continue
+            if 'new' in f:
+              assert not p.exists(),f'Unexpected existing path: {p}'
+              text=f['new']
+            else:
+              assert p.exists() and h(p.read_bytes())==f['oldSha256'],f'Concurrent source change: {p}'
+              text=p.read_text()
+              for a,b,replacement in reversed(f['edits']):text=text[:a]+replacement+text[b:]
+            assert h(text.encode())==f['newSha256'],f'Output checksum mismatch: {p}'
+            p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text)
+            print('Verified',p)
+          PY
+      - name: Restore auditable public evidence from acquisition artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 36577805764 --repo 1337816143/FarmSystemDesign --name spatial-evidence-v2 --dir /tmp/spatial
+          gh run download 36580361301 --repo 1337816143/FarmSystemDesign --name field-evidence-v2 --dir /tmp/fields
+          mkdir -p data/evidence vendor tools
+          cp /tmp/spatial/vendor/* vendor/
+          cp /tmp/fields/ftw-fields-2025.geojson /tmp/fields/field-acquisition-report.json data/evidence/
+          cp /tmp/spatial/agricultural-evidence.geojson /tmp/spatial/osm-context-v2.geojson /tmp/spatial/sentinel2-visual.webp /tmp/spatial/sentinel2-scl.png /tmp/spatial/sentinel-imagery.json /tmp/spatial/sentinel-item.json /tmp/spatial/acquisition-v2.json data/evidence/
+          cp /tmp/spatial/acquire-source.py tools/acquire_spatial.py
+          cp /tmp/fields/acquire-ftw.py tools/acquire_fields.py
+          python -m pip install shapely==2.1.2 pyproj==3.7.2
+          python tools/prepare_evidence.py
+      - name: Syntax, 37 model invariants and independent spatial tests
+        run: |
+          mkdir -p test-results
+          npm run check
+          npm test | tee test-results/model-tests.txt
+          python tests/spatial.py | tee test-results/spatial-tests.txt
+      - name: Install browser test runtime
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Actual HTTP browser, worker, storage, export and offline tests
+        run: |
+          python3 -m http.server 4173 > /tmp/farmsystem-http.log 2>&1 &
+          python tests/browser.py --url http://127.0.0.1:4173 --output test-results
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: v020-test-evidence
+          path: test-results
+          retention-days: 30
+      - name: Commit tested release without overwriting concurrent work
+        id: source
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html styles.css studio.css icon.svg package.json sw.js version.json CHANGELOG.md README.md src tools tests docs data/evidence vendor
+          if ! git diff --cached --quiet; then
+            git commit -m 'feat: v0.2.0 evidence-based spatial studio, provenance, model safeguards and versions'
+          fi
+          git push origin HEAD:main
+          if ! git rev-parse v0.2.0 >/dev/null 2>&1; then
+            git tag -a v0.2.0 -m 'Spatial Evidence research preview: source geometry, tested UI and explicit model/data identity'
+            git push origin v0.2.0
+          fi
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          git archive --format=zip --output=FarmSystemDesign-v0.2.0-source.zip HEAD
+      - name: Stamp source identity and build release
+        env:
+          SOURCE_SHA: ${{ steps.source.outputs.sha }}
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json,os
+          p=Path('version.json');v=json.loads(p.read_text());v['commit']=os.environ['SOURCE_SHA'];p.write_text(json.dumps(v,ensure_ascii=False,indent=2)+'\n')
+          PY
+          node tools/build.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FarmSystem-v0.2.0-source
+          path: FarmSystemDesign-v0.2.0-source.zip
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: FarmSystem-v0.2.0-site
+          path: _site
+          retention-days: 30
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy tested v0.2.0
+        id: deployment
+        uses: actions/deploy-pages@v4
+  verify:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+      - name: Verify public version and spatial assets
+        run: |
+          python - <<'PY'
+          import urllib.request,json,time,hashlib
+          root='https://1337816143.github.io/FarmSystemDesign/'
+          for attempt in range(12):
+            try:
+              def get(p):
+                with urllib.request.urlopen(root+p+'?release=v020&check='+str(time.time_ns()),timeout=30) as r:
+                  assert r.status==200
+                  return r.read()
+              version=json.loads(get('version.json'));assert version['version']=='0.2.0' and len(version['commit'])==40
+              html=get('index.html').decode();assert 'studio.css' in html and 'v0.2.0' in html
+              image=get('data/evidence/sentinel2-visual.webp');assert hashlib.sha256(image).hexdigest()=='82b49a273fa36c031b174e472fb2a6de774f683c64f221961c06ce304e44e717'
+              for path in ['src/evidence.generated.js','vendor/leaflet.js','studio.css','CHANGELOG.md']:
+                assert len(get(path))>100
+              report={'version':version,'url':root,'httpAssets':'passed','sentinelImageHash':'passed','checkedAtUtc':time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime())}
+              open('live-verification.json','w').write(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False));break
+            except Exception as e:
+              print('Retry',attempt,repr(e))
+              if attempt==11:raise
+              time.sleep(15)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: v020-live-verification
+          path: live-verification.json
+          retention-days: 30
