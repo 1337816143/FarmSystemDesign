@@ -1,0 +1,85 @@
+{
+  "product": "ESA WorldCover 2021 v200",
+  "geography": "Approximate Hainan main island, product-derived mask; excludes separate islands and Sansha",
+  "method": "100 m nearest-neighbor overview; four-neighbor connected land component at 19.0 N, 109.8 E; fill enclosed water holes; apply mask to native 10 m classes; ellipsoidal cell areas by latitude",
+  "not_for": "Official cultivated-land area, administrative area, field decisions, county statistics or classification accuracy",
+  "source_urls": [
+    "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N18E108_Map.tif",
+    "https://esa-worldcover.s3.eu-central-1.amazonaws.com/v200/2021/map/ESA_WorldCover_10m_2021_v200_N18E111_Map.tif"
+  ],
+  "source_sha256": {
+    "N18E108": "6fceb7876a47898297c9ddc7be7957bfc16382fe85489344addacac5b1b723fb",
+    "N18E111": "7530f38c58ce90ac6efde05c9b15dc3fe1fef2115f4333d24ab32599c550f77f"
+  },
+  "mask_overview_m": 100,
+  "mask_area_100m_km2": 33856.7,
+  "mask_area_200m_km2": 33912.34,
+  "mask_sampling_difference_percent": 0.164,
+  "masked_nodata_pixels": 0,
+  "total_classified_km2": 33856.7,
+  "classes": [
+    {
+      "code": 10,
+      "name": "Tree cover",
+      "pixels": 328824370,
+      "km2": 26586.75,
+      "percent": 78.53
+    },
+    {
+      "code": 20,
+      "name": "Shrubland",
+      "pixels": 7180,
+      "km2": 0.58,
+      "percent": 0.0
+    },
+    {
+      "code": 30,
+      "name": "Grassland",
+      "pixels": 24584645,
+      "km2": 1987.17,
+      "percent": 5.87
+    },
+    {
+      "code": 40,
+      "name": "Cropland",
+      "pixels": 40325186,
+      "km2": 3257.48,
+      "percent": 9.62
+    },
+    {
+      "code": 50,
+      "name": "Built-up",
+      "pixels": 14095144,
+      "km2": 1138.64,
+      "percent": 3.36
+    },
+    {
+      "code": 60,
+      "name": "Bare/sparse",
+      "pixels": 2955358,
+      "km2": 238.71,
+      "percent": 0.71
+    },
+    {
+      "code": 80,
+      "name": "Permanent water",
+      "pixels": 7058468,
+      "km2": 570.46,
+      "percent": 1.68
+    },
+    {
+      "code": 90,
+      "name": "Herbaceous wetland",
+      "pixels": 524237,
+      "km2": 42.3,
+      "percent": 0.12
+    },
+    {
+      "code": 95,
+      "name": "Mangroves",
+      "pixels": 429612,
+      "km2": 34.6,
+      "percent": 0.1
+    }
+  ]
+}

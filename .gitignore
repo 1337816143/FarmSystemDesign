@@ -3,6 +3,7 @@ data/hainan/source/
 node_modules/
 playwright-report/
 test-results/
+test-results-v*/
 .DS_Store
 __pycache__/
 .env

@@ -1,6 +1,6 @@
 // Research route register. Source confirmation is deliberately separate from
 // integration and scientific validation; no regional record enters the farm model.
-export const REGIONAL_EVIDENCE_VERSION = 'hainan-atlas-2026-10-01-r4';
+export const REGIONAL_EVIDENCE_VERSION = 'hainan-atlas-2026-10-01-r5';
 
 export const ROUTES = {
   farm: {
@@ -74,7 +74,7 @@ export const AUDIT = [
   {id:'admin-units',track:'province',name:'可追溯的现势市县边界与代码',status:'missing',grain:'市县 · 版本化',period:'待定',use:'空间汇总',gap:'历史 18 面含琼山市、缺五指山市；2023 年鉴行政表有 19 行（含三沙），农业表有 18 行。不能按行数把旧面与现势统计量连接。',url:'https://stats.hainan.gov.cn/tjj/tjsu/ndsj/2024/202412/P020250116308974141111.pdf'},
   {id:'historic-boundaries',track:'province',name:'geoBoundaries 历史县级位置参考',status:'display-only',grain:'海南岛 · 历史县级几何',period:'标称 2017；部分名称更早',use:'地图定位参考',gap:'已提取 18 个岛内要素；仅供叠加查看，默认关闭。不能用于现势市县数据连接或面积计算。',url:'https://www.geoboundaries.org/api/current/gbOpen/CHN/ADM2/'},
   {id:'climate-grid',track:'province',name:'ERA5-Land 气候重分析',status:'candidate',grain:'约 0.1° · 小时',period:'1950 年至今，按需选取',use:'气候暴露候选',gap:'未下载海南子集，尚未与行政单元匹配或本地观测交叉检验。',url:'https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land'},
-  {id:'land-eligibility',track:'province',name:'ESA WorldCover 土地覆被',status:'display-only',grain:'10 m 源数据 · 约 300 m 网页预览',period:'2021 v200',use:'海南岛空间背景',gap:'已接入真实分类图层；尚未核算市县面积。覆被不是法定土地用途、经营权或作物结构。',url:'https://esa-worldcover.org/en/data-access'},
+  {id:'land-eligibility',track:'province',name:'ESA WorldCover 土地覆被',status:'display-only',grain:'10 m 原始分类 · 约 300 m 地图预览',period:'2021 v200',use:'海南主岛空间背景与探索性面积',gap:'已按原始像元汇总产品派生主岛掩膜的类别面积；掩膜约 100 m 采样。尚无现势市县面积和海南本地分类精度验证。覆被不是法定土地用途或经营权。',url:'https://esa-worldcover.org/en/data-access'},
   {id:'soil-grid',track:'province',name:'ISRIC SoilGrids 表层 pH 与 SOC 预测',status:'display-only',grain:'250 m 源数据 · 0–5 cm',period:'SoilGrids 2.0',use:'海南岛土壤差异背景',gap:'已接入两项 WCS 栅格及可查询像元；仍需本地样点和不确定性核对，不能标成田块实测或优化参数。',url:'https://docs.isric.org/globaldata/soilgrids/'},
   {id:'regional-resources',track:'province',name:'区域水、劳动力和成本约束',status:'missing',grain:'需与分析单元和年份一致',period:'待定',use:'情景可行性',gap:'公开地图和省级总量都不能替代可分配资源、机会成本或水权。',url:''},
   {id:'regional-response',track:'province',name:'活动响应与跨尺度参数',status:'missing',grain:'分区／活动／季节',period:'待定',use:'区域模拟',gap:'需要来源、迁移范围和不确定性；不能复用虚拟农场系数。',url:''},

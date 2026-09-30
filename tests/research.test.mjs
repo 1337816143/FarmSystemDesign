@@ -47,3 +47,18 @@ test('regional evidence remains outside the farm model and export is route-speci
   assert.equal(version.regionalEvidenceVersion,REGIONAL_EVIDENCE_VERSION);
   assert.equal(version.modelVersion,'screening-0.2.0');
 });
+
+test('main-island cover summary preserves its source, mask and area accounting',()=>{
+  const summary=JSON.parse(fs.readFileSync(new URL('../data/hainan/landcover-main-island-summary.json',import.meta.url)));
+  assert.equal(summary.product,'ESA WorldCover 2021 v200');
+  assert.equal(summary.mask_overview_m,100);
+  assert.equal(summary.source_urls.length,2);
+  assert.ok(summary.source_urls.every(url=>url.startsWith('https://esa-worldcover.s3.eu-central-1.amazonaws.com/')));
+  assert.ok(Object.values(summary.source_sha256).every(hash=>/^[0-9a-f]{64}$/.test(hash)));
+  assert.ok(Math.abs(summary.classes.reduce((sum,row)=>sum+row.km2,0)-summary.total_classified_km2)<0.05);
+  assert.ok(Math.abs(summary.classes.reduce((sum,row)=>sum+row.percent,0)-100)<0.05);
+  assert.ok(Math.abs(summary.mask_area_100m_km2-summary.total_classified_km2)<0.05);
+  assert.ok(summary.mask_sampling_difference_percent<0.2);
+  assert.ok(summary.geography.includes('main island') && summary.not_for.includes('Official cultivated-land'));
+  assert.equal(AUDIT.find(row=>row.id==='land-eligibility').status,'display-only');
+});

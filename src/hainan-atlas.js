@@ -8,6 +8,8 @@ const COVER_CLASSES = [
   ['#0096a0','草本湿地','Herbaceous wetland'],['#00cf75','红树林','Mangroves'],
   ['#fae6a0','苔藓地衣','Moss/lichen'],
 ];
+const SUMMARY_CODES = [10, 40, 30, 50, 80];
+const CODE_LABELS = new Map([[10,COVER_CLASSES[0]],[30,COVER_CLASSES[2]],[40,COVER_CLASSES[3]],[50,COVER_CLASSES[4]],[80,COVER_CLASSES[7]]]);
 const WORDS = {
   zh: {
     eyebrow: '海南空间证据 / 首批真实图层', title: '从全岛底图开始，逐层核对区域差异',
@@ -28,6 +30,9 @@ const WORDS = {
     unitHistorical: '历史参考面', unitOfficial: '2023 行政行', unitAgriculture: '2023 农业行',
     unitMismatch: '历史图层含琼山市、缺五指山市；2023 年官方农业表恰有五指山市、无琼山市。行数相同不代表单元相同。',
     unitSource: '查看边界与统计单元核对',
+    areaTitle: '2021 主岛覆被面积 · 探索性估计', areaTotal: '分类总面积', areaOther: '其他类别',
+    areaMethod: '10 m 原始分类值汇总；主岛掩膜由产品约 100 m 概览推得。不是官方耕地面积，未作海南本地精度验证。',
+    areaUnavailable: '分类面积暂不可用。', areaSource: '计算方法与来源',
     mapExtent: '图幅包含海南岛及邻近大陆、海域；不覆盖海南省全部离岛与三沙。',
     coords: '坐标', overlay: '图层透明度',
   },
@@ -50,6 +55,9 @@ const WORDS = {
     unitHistorical: 'historic shapes', unitOfficial: '2023 admin rows', unitAgriculture: '2023 farm rows',
     unitMismatch: 'The historic layer includes Qiongshan but omits Wuzhishan. The official 2023 agricultural table has Wuzhishan and no Qiongshan. Equal counts do not mean matching units.',
     unitSource: 'Read the boundary and statistical unit audit',
+    areaTitle: '2021 main-island cover · exploratory estimate', areaTotal: 'Classified area', areaOther: 'Other classes',
+    areaMethod: 'Summed native 10 m classes with an island mask derived from an about 100 m product overview. This is not official cultivated-land area and has no local Hainan accuracy validation.',
+    areaUnavailable: 'Cover area summary unavailable.', areaSource: 'Method and source',
     mapExtent: 'The map window includes Hainan Island and nearby mainland and sea; it does not cover all outlying islands or Sansha.',
     coords: 'Coordinates', overlay: 'Layer opacity',
   },
@@ -69,7 +77,8 @@ export function atlasMarkup(language = 'zh') {
       <button type="button" data-atlas="soil" aria-pressed="false">${label('soil')}</button>
       <button type="button" data-atlas="soc" aria-pressed="false">${label('soc')}</button>
       <label><input id="atlas-boundaries" type="checkbox"> ${label('borders')}</label>
-    </div><div id="hainan-atlas-map" class="atlas-map" role="img" aria-label="Hainan spatial evidence map"></div><div class="atlas-map-foot"><span id="atlas-inspect" role="status" aria-live="polite">${label('click')}</span><strong id="atlas-load-label" hidden>${label('loading')}</strong><strong id="atlas-error-label" hidden>${label('loadError')}</strong><label>${label('overlay')} <input id="atlas-opacity" type="range" min="30" max="100" value="95"></label></div></div>
+    </div><div id="hainan-atlas-map" class="atlas-map" role="img" aria-label="Hainan spatial evidence map"></div><div class="atlas-map-foot"><span id="atlas-inspect" role="status" aria-live="polite">${label('click')}</span><strong id="atlas-load-label" hidden>${label('loading')}</strong><strong id="atlas-error-label" hidden>${label('loadError')}</strong><label>${label('overlay')} <input id="atlas-opacity" type="range" min="30" max="100" value="95"></label></div>
+    <div class="atlas-area" id="atlas-cover-summary"><strong>${label('areaTitle')}</strong><div id="atlas-area-chart" role="group" aria-label="${t.areaTitle}">${label('areaUnavailable')}</div><p>${label('areaMethod')}</p><a href="./docs/Hainan_DATA_SOURCE_AUDIT.md" target="_blank" rel="noopener noreferrer">${label('areaSource')} ↗</a></div></div>
     <aside class="atlas-aside"><div class="atlas-layer-id"><b id="atlas-current-title">${label('land')}</b><p id="atlas-current-type">${label('landType')}</p></div>
       <div class="atlas-unit-check"><strong>${label('unitTitle')}</strong><div class="atlas-unit-counts"><span><b>18</b>${label('unitHistorical')}</span><span><b>19</b>${label('unitOfficial')}</span><span><b>18</b>${label('unitAgriculture')}</span></div><p>${label('unitMismatch')}</p><a href="./docs/HAINAN_ADMIN_STAT_UNITS_AUDIT.md" target="_blank" rel="noopener noreferrer">${label('unitSource')} ↗</a></div>
       <div class="atlas-land-legend" id="atlas-land-legend">${coverLegend}</div>
@@ -96,6 +105,7 @@ export class HainanAtlas {
     this.switchToken = 0;
     this.loadValues('soil', './data/hainan/soil-ph-values.png');
     this.loadValues('soc', './data/hainan/soil-soc-values.png');
+    this.loadLandcoverSummary();
     this.loadBorders();
     this.clickHandler = event => this.handleClick(event);
     element.addEventListener('click', this.clickHandler);
@@ -115,6 +125,28 @@ export class HainanAtlas {
       this.valueCanvases[key] = canvas;
     };
     image.src = path;
+  }
+
+  async loadLandcoverSummary() {
+    try {
+      const response = await fetch('./data/hainan/landcover-main-island-summary.json');
+      if (!response.ok) return;
+      const data = await response.json();
+      if (!this.map || data.product !== 'ESA WorldCover 2021 v200' || !Number.isFinite(data.total_classified_km2) || !Array.isArray(data.classes)) return;
+      const classes = new Map(data.classes.map(row => [row.code,row]));
+      const values = SUMMARY_CODES.map(code => classes.get(code));
+      if (values.some(row => !row || !Number.isFinite(row.km2) || !Number.isFinite(row.percent) || row.percent < 0 || row.percent > 100)) return;
+      const other = data.classes.filter(row => !SUMMARY_CODES.includes(row.code)).reduce((sum,row) => sum + row.km2, 0);
+      const t = WORDS[this.language === 'en' ? 'en' : 'zh'];
+      const rows = values.map((row,index) => {
+        const [color,zh,en] = CODE_LABELS.get(SUMMARY_CODES[index]);
+        return `<div class="atlas-area-row"><span>${duo(zh,en,this.language)}</span><b>${row.percent.toFixed(1)}%</b><i><em style="width:${row.percent}%;background:${color}"></em></i><small>${row.km2.toLocaleString(this.language === 'en' ? 'en-US' : 'zh-CN',{maximumFractionDigits:0})} km²</small></div>`;
+      });
+      rows.push(`<div class="atlas-area-row"><span>${duo(t.areaOther,WORDS.en.areaOther,this.language)}</span><b>${(other / data.total_classified_km2 * 100).toFixed(1)}%</b><i><em style="width:${other / data.total_classified_km2 * 100}%;background:#aab4aa"></em></i><small>${other.toFixed(0)} km²</small></div>`);
+      const chart = this.host.querySelector('#atlas-area-chart');
+      chart.innerHTML = `<div class="atlas-area-total"><span>${duo(t.areaTotal,WORDS.en.areaTotal,this.language)}</span><b>${data.total_classified_km2.toLocaleString(this.language === 'en' ? 'en-US' : 'zh-CN',{maximumFractionDigits:0})} km²</b></div>${rows.join('')}`;
+      chart.setAttribute('aria-label',`${t.areaTitle}: ${data.total_classified_km2.toFixed(0)} km²`);
+    } catch { /* the declared unavailable state remains visible */ }
   }
 
   async loadBorders() {
@@ -166,6 +198,7 @@ export class HainanAtlas {
     this.host.querySelector('#atlas-current-title').innerHTML = duo(t[titleKey], WORDS.en[titleKey], this.language);
     this.host.querySelector('#atlas-current-type').innerHTML = duo(t[typeKey], WORDS.en[typeKey], this.language);
     this.host.querySelector('#atlas-land-legend').hidden = soil || soc;
+    this.host.querySelector('#atlas-cover-summary').hidden = soil || soc;
     this.host.querySelector('#atlas-soil-legend').hidden = !soil;
     this.host.querySelector('#atlas-soc-legend').hidden = !soc;
   }

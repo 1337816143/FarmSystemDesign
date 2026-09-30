@@ -10,6 +10,13 @@ const ATTRIBUTES = ['aria-label', 'title', 'placeholder', 'alt'];
 
 // Reviewed research terms take precedence over the generated draft catalog.
 const REVIEWED = {
+  '10 m 原始分类 · 约 300 m 地图预览': '10 m native classes · about 300 m map preview',
+  '海南主岛空间背景与探索性面积': 'Hainan main-island context and exploratory area',
+  '已按原始像元汇总产品派生主岛掩膜的类别面积；掩膜约 100 m 采样。尚无现势市县面积和海南本地分类精度验证。覆被不是法定土地用途或经营权。': 'Native class pixels were summarized for a product-derived main-island mask sampled at about 100 m. Current county areas and local Hainan classification accuracy remain unverified. Cover is not legal land use or management rights.',
+  '从 ESA WorldCover 2021 两幅原始 10 m 分类瓦片计算海南主岛探索性覆被面积': 'Calculated exploratory Hainan main-island cover areas from two native ESA WorldCover 2021 10 m tiles',
+  '地图侧栏增加类别面积条形图，明确产品派生掩膜与官方土地统计的区别': 'Added class-area bars to the map, distinguishing the product-derived mask from official land statistics',
+  '复核 100 m 与 200 m 掩膜采样的面积敏感性，记录处理脚本和源文件哈希': 'Checked area sensitivity to 100 m and 200 m mask sampling and recorded the processing script and source hashes',
+  '现势市县面积、本地分类精度验证与区域优化仍未完成': 'Current county areas, local classification accuracy validation and regional optimization remain incomplete',
   '2023 年单表已核读；时序待核对': 'One 2023 table reviewed; time series pending',
   '2024 版年鉴表 12-1 已核读 2023 年 18 个岛内农业行；最新年鉴、逐年口径和可再发布范围仍待核对。': 'Table 12-1 in the 2024 yearbook was reviewed for 18 island agricultural rows in 2023. The latest yearbook, year-by-year definitions and republication rights still need checking.',
   '历史 18 面含琼山市、缺五指山市；2023 年鉴行政表有 19 行（含三沙），农业表有 18 行。不能按行数把旧面与现势统计量连接。': 'The 18 historic shapes include Qiongshan but omit Wuzhishan. The 2023 yearbook has 19 administrative rows including Sansha and 18 agricultural rows. Equal counts do not permit joining old shapes to current statistics.',
