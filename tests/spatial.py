@@ -5,7 +5,7 @@ from shapely.geometry import shape,box
 from shapely.ops import transform,unary_union
 from pyproj import Geod,Transformer
 R=Path(__file__).resolve().parents[1];E=R/'data/evidence'
-get=lambda n:json.loads((E/n).read_text())
+get=lambda n:json.loads((E/n).read_text(encoding='utf-8'))
 src={str(f['properties']['id']):f for f in get('ftw-fields-2025.geojson')['features']}
 selected=get('selected-fields.geojson')['features'];quality=get('quality-report.json');im=get('sentinel-imagery.json');g=Geod(ellps='WGS84');proj=Transformer.from_crs(4326,32649,always_xy=True).transform
 land=unary_union([transform(proj,shape(f['geometry'])) for f in get('agricultural-evidence.geojson')['features']]);checks=[]
@@ -21,6 +21,11 @@ check('interior label anchors',all(shape(f['geometry']).covers(__import__('shape
 check('all selected meet documented projected overlap',all((lambda p:p.intersection(land).area/p.area>=.9-1e-9)(transform(proj,shape(f['geometry']))) for f in selected))
 metric=[transform(proj,shape(f['geometry'])) for f in selected]
 check('no hidden overlapping double-counted geometry',all(p.intersection(q).area<=.01 for i,p in enumerate(metric) for q in metric[:i] if p.intersects(q)))
-check('source snapshot digests',all(hashlib.sha256((E/k).read_bytes()).hexdigest()==v for k,v in quality['sourceHashes'].items()))
+def source_hash_ok(name, expected):
+ raw=(E/name).read_bytes()
+ if hashlib.sha256(raw).hexdigest()==expected:return True
+ # Git for Windows may check out tracked JSON with CRLF; the published source is LF.
+ return Path(name).suffix in {'.json','.geojson'} and hashlib.sha256(raw.replace(b'\r\n',b'\n')).hexdigest()==expected
+check('source snapshot digests',all(source_hash_ok(k,v) for k,v in quality['sourceHashes'].items()))
 check('all 110 source confidence fields remain missing',len(selected)==110 and all(f['properties']['sourceConfidence'] is None for f in selected))
-out=R/'test-results';out.mkdir(exist_ok=True);(out/'spatial-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'note':'Software geometry QA, NOT field accuracy validation.'},indent=2));print(json.dumps({'passed':len(checks),'checks':checks}))
+out=R/'test-results';out.mkdir(exist_ok=True);(out/'spatial-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'note':'Software geometry QA, NOT field accuracy validation.'},indent=2),encoding='utf-8');print(json.dumps({'passed':len(checks),'checks':checks}))

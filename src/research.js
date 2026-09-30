@@ -1,6 +1,6 @@
 // Research route register. Source confirmation is deliberately separate from
 // integration and scientific validation; no regional record enters the farm model.
-export const REGIONAL_EVIDENCE_VERSION = 'hainan-audit-2026-09-30-r2';
+export const REGIONAL_EVIDENCE_VERSION = 'hainan-atlas-2026-10-01-r3';
 
 export const ROUTES = {
   farm: {
@@ -71,10 +71,11 @@ export const AUDIT = [
   {id:'province-snapshot',track:'province',name:'2025 年全省农业总量',status:'display-only',grain:'省级 · 年度',period:'2025',use:'描述性背景',gap:'已在平台展示；未进入分析模型。不能反推市县或农场。',url:OFFICIAL_SNAPSHOT.url},
   {id:'dong-nutrient-boundaries',track:'province',name:'Dong 等（2026）海南氮磷边界研究',status:'source-confirmed',grain:'全岛模型 · 年度／2030 情景',period:'1988–2020；2030 情景',use:'营养约束候选与跨尺度问题定义',gap:'已核读论文；补充材料、原始数据及模型参数未接入。全岛阈值不能直接下推市县或农场。',url:NUTRIENT_BOUNDARY_STUDY.url},
   {id:'county-series',track:'province',name:'市县农业生产时序',status:'source-confirmed',grain:'市县 · 年度',period:'逐年核对',use:'区域诊断',gap:'年鉴入口已确认；表格、年份、行政区划变动和统计口径尚未提取核对。',url:'https://stats.hainan.gov.cn/tjj/tjsu/ndsj/2025/18gb_list.html'},
-  {id:'admin-units',track:'province',name:'可追溯的市县边界与代码',status:'missing',grain:'市县 · 版本化',period:'待定',use:'空间汇总',gap:'须确定法定统计单元及边界版本，不能用演示地块拼成全省地图。',url:''},
+  {id:'admin-units',track:'province',name:'可追溯的现势市县边界与代码',status:'missing',grain:'市县 · 版本化',period:'待定',use:'空间汇总',gap:'2017 年第三方参考边界已作位置示意，但名称明显过时，不能对应现势 19 个统计单元。须核对法定统计单元与边界版本。',url:''},
+  {id:'historic-boundaries',track:'province',name:'geoBoundaries 历史县级位置参考',status:'display-only',grain:'海南岛 · 历史县级几何',period:'标称 2017；部分名称更早',use:'地图定位参考',gap:'已提取 18 个岛内要素；仅供叠加查看，默认关闭。不能用于现势市县数据连接或面积计算。',url:'https://www.geoboundaries.org/api/current/gbOpen/CHN/ADM2/'},
   {id:'climate-grid',track:'province',name:'ERA5-Land 气候重分析',status:'candidate',grain:'约 0.1° · 小时',period:'1950 年至今，按需选取',use:'气候暴露候选',gap:'未下载海南子集，尚未与行政单元匹配或本地观测交叉检验。',url:'https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land'},
-  {id:'land-eligibility',track:'province',name:'ESA WorldCover 土地覆盖',status:'candidate',grain:'10 m · 分类栅格',period:'2020 / 2021',use:'土地背景候选',gap:'不是作物经营权或每年种植结构；需另行核对分类精度和适用年份。',url:'https://esa-worldcover.org/en'},
-  {id:'soil-grid',track:'province',name:'ISRIC SoilGrids 土壤预测',status:'candidate',grain:'250 m · 预测栅格',period:'产品版本待核对',use:'土壤差异候选',gap:'尚未取数与本地样点验证，不能标成逐田块实测。',url:'https://docs.isric.org/globaldata/soilgrids/'},
+  {id:'land-eligibility',track:'province',name:'ESA WorldCover 土地覆被',status:'display-only',grain:'10 m 源数据 · 约 300 m 网页预览',period:'2021 v200',use:'海南岛空间背景',gap:'已接入真实分类图层；尚未核算市县面积。覆被不是法定土地用途、经营权或作物结构。',url:'https://esa-worldcover.org/en/data-access'},
+  {id:'soil-grid',track:'province',name:'ISRIC SoilGrids 表层 pH 与 SOC 预测',status:'display-only',grain:'250 m 源数据 · 0–5 cm',period:'SoilGrids 2.0',use:'海南岛土壤差异背景',gap:'已接入两项 WCS 栅格及可查询像元；仍需本地样点和不确定性核对，不能标成田块实测或优化参数。',url:'https://docs.isric.org/globaldata/soilgrids/'},
   {id:'regional-resources',track:'province',name:'区域水、劳动力和成本约束',status:'missing',grain:'需与分析单元和年份一致',period:'待定',use:'情景可行性',gap:'公开地图和省级总量都不能替代可分配资源、机会成本或水权。',url:''},
   {id:'regional-response',track:'province',name:'活动响应与跨尺度参数',status:'missing',grain:'分区／活动／季节',period:'待定',use:'区域模拟',gap:'需要来源、迁移范围和不确定性；不能复用虚拟农场系数。',url:''},
   {id:'farm-bridge',track:'province',name:'典型农户／农场与区域分型连接',status:'missing',grain:'经营主体 · 类型 · 分区',period:'待抽样',use:'措施可实施性与跨尺度检验',gap:'需定义选样、类型、经营权限及权重；少数案例不能直接代表全省。',url:''},

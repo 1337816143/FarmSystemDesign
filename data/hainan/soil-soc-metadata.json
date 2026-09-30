@@ -1,0 +1,22 @@
+{
+  "dataset": "ISRIC SoilGrids 2.0 soc_0-5cm_mean",
+  "identity": "model prediction, not a field measurement",
+  "source": "https://maps.isric.org/mapserv?map=/map/soc.map",
+  "access": "WCS 2.0.1 GetCoverage; X(108.5,111.5), Y(17.8,20.5), EPSG:4326",
+  "documentation": "https://docs.isric.org/globaldata/soilgrids/",
+  "license": "CC BY 4.0",
+  "source_sha256": "d1f8e14055fb0725f35798aaccc1c168cada54bc3a665c12f8c3b85b818caa65",
+  "bounds_wsen": [
+    108.5,
+    17.799999999999997,
+    111.5,
+    20.5
+  ],
+  "width": 1327,
+  "height": 1130,
+  "native_resolution": "250 m in native SoilGrids product; returned WCS grid is ~0.00226 degrees",
+  "value_encoding": "PNG red + 256 * green, divided by 10 = SOC g/kg; 0 = no prediction",
+  "valid_cells": 531689,
+  "minimum_g_kg": 12.9,
+  "maximum_g_kg": 123.3
+}
