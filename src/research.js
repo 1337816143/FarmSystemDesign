@@ -19,13 +19,13 @@ export const ROUTES = {
   province: {
     title: '路线二 · 海南全域',
     status: '待导师组确认',
-    unit: '市县／经论证的农业生态分区',
-    question: '海南各地生产结构、资源压力和气候风险如何变化；哪些区域调整方向值得进一步检验？',
-    outputs: ['同口径的区域差异与变化诊断', '明确决策权限的区域情景比较', '由典型经营系统检验参数和可实施性'],
+    unit: '市县／农业生态分区；省域汇总与协调',
+    question: '面对海南各地生产条件与风险差异，哪些分区措施组合能改善食物供给、经营收益和资源表现，并能随新信息调整？',
+    outputs: ['市县时序与农业系统分型', '区域措施组合及固定／分阶段策略比较', '典型农户、农场的可实施性检验'],
     boundary: '省级汇总数不能拆成市县或地块；区域情景不能假定全省土地由单一主体自由调配。',
     stages: [
       {name:'市县时序诊断', needs:['county-series','admin-units']},
-      {name:'空间情景比较', needs:['county-series','admin-units','land-eligibility','regional-resources']},
+      {name:'区域情景与典型系统检验', needs:['county-series','admin-units','land-eligibility','regional-resources','farm-bridge']},
       {name:'可验证的区域优化', needs:['county-series','admin-units','land-eligibility','regional-resources','regional-response','regional-validation']}
     ]
   }
@@ -56,6 +56,7 @@ export const AUDIT = [
   {id:'soil-grid',track:'province',name:'ISRIC SoilGrids 土壤预测',status:'candidate',grain:'250 m · 预测栅格',period:'产品版本待核对',use:'土壤差异候选',gap:'尚未取数与本地样点验证，不能标成逐田块实测。',url:'https://docs.isric.org/globaldata/soilgrids/'},
   {id:'regional-resources',track:'province',name:'区域水、劳动力和成本约束',status:'missing',grain:'需与分析单元和年份一致',period:'待定',use:'情景可行性',gap:'公开地图和省级总量都不能替代可分配资源、机会成本或水权。',url:''},
   {id:'regional-response',track:'province',name:'活动响应与跨尺度参数',status:'missing',grain:'分区／活动／季节',period:'待定',use:'区域模拟',gap:'需要来源、迁移范围和不确定性；不能复用虚拟农场系数。',url:''},
+  {id:'farm-bridge',track:'province',name:'典型农户／农场与区域分型连接',status:'missing',grain:'经营主体 · 类型 · 分区',period:'待抽样',use:'措施可实施性与跨尺度检验',gap:'需定义选样、类型、经营权限及权重；少数案例不能直接代表全省。',url:''},
   {id:'regional-validation',track:'province',name:'区域独立验证资料',status:'missing',grain:'与目标结果匹配',period:'待定',use:'检验情景结论',gap:'需与建模输入分离；不能用优化得分验证优化本身。',url:''},
   {id:'farm-management',track:'farm',name:'农户—地块—活动管理资料',status:'missing',grain:'经营主体 · 地块 · 季节',period:'待调查',use:'真实基准',gap:'经营权、实际作物、投入和产出均未核验。',url:''},
   {id:'farm-resources',track:'farm',name:'逐期水、养分、劳动力与成本',status:'missing',grain:'经营主体 · 时段',period:'待调查',use:'资源约束',gap:'当前配额、价格和生产系数均为演示假设。',url:''},
