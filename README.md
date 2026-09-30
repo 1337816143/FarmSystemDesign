@@ -1,10 +1,20 @@
-# FarmSystem Design · v0.2.0
+# FarmSystem Design · v0.3.0
 
-**空间证据 → 假设系统 → 约束核算 → 情景比较 → 结果记录**
+**研究路线 → 数据审计 → 空间证据 → 约束核算 → 情景比较**
 
 在线使用：https://1337816143.github.io/FarmSystemDesign/
 
-一个可解释的多尺度农业系统研究工作台。不是经过农户实测校准的数字孪生，也不是FarmDESIGN/FarmSTEPS的官方实现。
+一个可解释的农业系统研究工作台。当前同时展示 proposal 的农场系统主线和待导师组确认的海南全域备选路线。不是经过农户实测校准的数字孪生，也不是FarmDESIGN/FarmSTEPS的官方实现。
+
+## v0.3 双路线研究台
+
+- 首页分别说明农场／地块与海南市县／分区的决策单元、研究问题、产出和边界。
+- 接入海南省统计局 2025 年省级农业总量作为描述性背景；它不进入农场模型，也不被拆成县级或地块估计。
+- 逐项列出数据来源状态、时空粒度、用途及缺口，支持导出 CSV 审计清单。
+- 就绪关口只接受“已接入并核验”的资料；当前海南全域分析与优化均未标为就绪。
+- 农场案例、模型和本地项目仍沿用 v0.2 数据版本。区域来源审计有独立版本号。
+
+研究路线、实施顺序和验收边界见 [docs/RESEARCH_ROUTES.md](docs/RESEARCH_ROUTES.md)。
 
 ## 本版重点
 
@@ -40,6 +50,7 @@ node tools/build.mjs
 ## 结构
 
 - `src/version.js`, `version.json`, `CHANGELOG.md`：版本
+- `src/research.js`, `research.css`, `docs/RESEARCH_ROUTES.md`：双路线、区域数据审计与呈现
 - `src/evidence.generated.js`：由源数据确定性生成的默认对象
 - `src/model.js`：可审计核算与探索；`src/optimizer.worker.js`：计算线程
 - `src/map.js`, `src/app.js`, `studio.css`：地图与界面
