@@ -40,3 +40,44 @@
 @media(max-width:760px){.hainan-atlas{padding:17px}.atlas-heading>a{white-space:normal}.atlas-map{height:350px}.atlas-toolbar{flex-wrap:wrap}.atlas-toolbar label{margin-left:0}.atlas-aside{grid-template-columns:1fr}.atlas-map-foot{align-items:flex-start;flex-direction:column}}
 .regional-data-card{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px;padding:20px 24px;border-left:3px solid #4a936e}.regional-data-card h2{font-size:16px;margin:5px 0 7px;color:#31674f}.regional-data-card p,.regional-data-card li{font-size:11px;line-height:1.7;color:#6c8270}.regional-data-card ul{display:flex;flex-wrap:wrap;gap:5px 17px;padding-left:17px;margin:9px 0}.regional-data-card .regional-data-warning{color:#8b6d43}.regional-data-card small{display:block;font-size:10px;color:#849a88}.regional-data-links{display:flex;flex-wrap:wrap;gap:8px;flex:none}.regional-data-links a{font-size:11px;color:#39795b;padding:8px 10px;background:#eef6ef;border-radius:7px}.regional-data-links a:hover{background:#e2efe5}
 @media(max-width:950px){.regional-data-card{align-items:flex-start;flex-direction:column}.regional-data-links{flex:none}}@media(max-width:760px){.regional-data-card{padding:17px}}
+
+/* A reading surface for the research route, with the map as the visual anchor. */
+.research-switch small,.research-intro p,.research-boundary,.research-pending p,.research-proposal p,.research-questions p,.research-snapshot .research-section-head p,.research-stages p,.research-decisions p,.research-nutrient-boundary{font-size:13px;line-height:1.7}
+.research-section-head h2,.atlas-heading h2{font-size:20px;line-height:1.35}
+.research-section-head p,.atlas-heading p{font-size:13px;line-height:1.65}
+.research-aims h3,.research-scales h3,.research-question-grid h3{font-size:14px}
+.research-kpis small,.research-kpis span,.research-case-facts span{font-size:12px}
+.research-audit th,.research-audit td{font-size:12px}
+.hainan-atlas{padding:28px;background:linear-gradient(180deg,#fff 0%,#fbfdfb 100%)}
+.hainan-atlas .research-index{color:#537c65}
+.hainan-atlas small{font-size:11px}
+.atlas-heading{align-items:center}
+.atlas-heading>a{font-size:12px;white-space:normal}
+.atlas-layout{grid-template-columns:minmax(0,1fr) 310px;gap:20px;margin-top:22px}
+.atlas-map-wrap{border-color:#cdded4;box-shadow:0 8px 28px #193c2a0d}
+.atlas-toolbar{gap:7px;padding:10px}
+.atlas-toolbar button{font-size:12px;line-height:1.3;padding:9px 11px;border:1px solid transparent}
+.atlas-toolbar button:hover{border-color:#accbbb;background:#fff}
+.atlas-toolbar button:focus-visible,.atlas-toolbar input:focus-visible,.atlas-map-foot input:focus-visible{outline:2px solid #1e694c;outline-offset:2px}
+.atlas-toolbar label{font-size:12px;line-height:1.4}
+.atlas-map{height:500px}
+.atlas-map-foot{font-size:12px;min-height:48px;padding:10px 14px;flex-wrap:wrap}
+.atlas-map-foot strong,.atlas-layer-id p,.atlas-border-note,.atlas-extent,.atlas-caution{font-size:12px}
+.atlas-map-foot input{width:98px}
+.atlas-aside{gap:11px}
+.atlas-layer-id{padding:17px 18px}
+.atlas-layer-id b{font-size:16px}
+.atlas-unit-check{padding:17px 18px;border:1px solid #d7cba7;border-left:4px solid #bb9451;border-radius:9px;background:#fffaf0;color:#68512d}
+.atlas-unit-check>strong{display:block;font-size:13px;line-height:1.5}
+.atlas-unit-counts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;margin:12px 0}
+.atlas-unit-counts span{min-width:0;padding:8px 5px;text-align:center;background:#fff;border:1px solid #ebe0c6;border-radius:6px;font-size:10px;line-height:1.35;color:#806a46}
+.atlas-unit-counts b{display:block;font-size:19px;line-height:1.2;color:#674d27;font-variant-numeric:tabular-nums}
+.atlas-unit-check p{font-size:12px;line-height:1.65}
+.atlas-unit-check a{display:inline-block;margin-top:9px;color:#6e572b;font-size:12px;text-decoration:underline;text-underline-offset:3px}
+.atlas-land-legend,.atlas-soil-legend{font-size:12px;line-height:1.45;padding:14px}
+.atlas-land-legend{gap:9px 8px}
+.atlas-land-legend i{width:13px;height:13px}
+.atlas-source-links{font-size:12px;line-height:1.5}
+.atlas-attribution{font-size:10px}
+@media(max-width:1180px){.atlas-layout{grid-template-columns:1fr}.atlas-aside{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:start}.atlas-unit-check{grid-row:span 2}}
+@media(max-width:760px){.hainan-atlas{padding:18px}.atlas-layout{gap:13px}.atlas-map{height:380px}.atlas-toolbar{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px}.atlas-toolbar button{padding:8px 4px;font-size:11px}.atlas-toolbar label{grid-column:1/-1;margin:3px 0 0;padding:3px 4px}.atlas-aside{grid-template-columns:1fr}.atlas-unit-check{grid-row:auto}.atlas-map-foot{font-size:11px}.research-section-head h2,.atlas-heading h2{font-size:18px}}

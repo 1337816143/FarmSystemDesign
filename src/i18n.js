@@ -10,6 +10,13 @@ const ATTRIBUTES = ['aria-label', 'title', 'placeholder', 'alt'];
 
 // Reviewed research terms take precedence over the generated draft catalog.
 const REVIEWED = {
+  '2023 年单表已核读；时序待核对': 'One 2023 table reviewed; time series pending',
+  '2024 版年鉴表 12-1 已核读 2023 年 18 个岛内农业行；最新年鉴、逐年口径和可再发布范围仍待核对。': 'Table 12-1 in the 2024 yearbook was reviewed for 18 island agricultural rows in 2023. The latest yearbook, year-by-year definitions and republication rights still need checking.',
+  '历史 18 面含琼山市、缺五指山市；2023 年鉴行政表有 19 行（含三沙），农业表有 18 行。不能按行数把旧面与现势统计量连接。': 'The 18 historic shapes include Qiongshan but omit Wuzhishan. The 2023 yearbook has 19 administrative rows including Sansha and 18 agricultural rows. Equal counts do not permit joining old shapes to current statistics.',
+  '核对 2023 年海南行政统计行、农业统计行与历史边界，标明琼山和五指山不匹配': 'Checked Hainan 2023 administrative and agricultural rows against historic borders, identifying the Qiongshan–Wuzhishan mismatch',
+  '图谱显式展示统计单元差异与核对文档，禁止旧边界直接承载现势填色图': 'The atlas now shows unit differences and an audit link; old borders cannot directly support a current county choropleth',
+  '提高研究页文字和地图可读性，调整桌面与移动端布局': 'Improved readability of research text and maps on desktop and mobile',
+  '保持空间图层仅供背景展示，区域优化继续等待参数和独立验证': 'Spatial layers remain background evidence; regional optimization still awaits parameters and independent validation',
   '切换地图图层时显示加载状态，避免旧图像配新图例': 'Show a loading state while switching map layers so the old image is never paired with the new legend',
   '研究预览 · 2026-10-01': 'Research preview · 01-10-2026',
   '接入 ESA WorldCover 2021 海南土地覆被预览与 ISRIC SoilGrids 0–5 cm pH 预测栅格': 'Added an ESA WorldCover 2021 Hainan land-cover preview and ISRIC SoilGrids 0–5 cm pH prediction raster',

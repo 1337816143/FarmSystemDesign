@@ -24,6 +24,10 @@ const WORDS = {
     county: '历史县级参考单元', unknown: '边界名称未核定',
     sources: '数据说明与处理记录', landSource: 'ESA WorldCover 2021 v200', soilSource: 'ISRIC SoilGrids 2.0',
     caution: '尚无按市县核验的土地面积、土壤均值或作物经营资料；不据此进行分区优化。',
+    unitTitle: '统计单元核对 · 暂不能制作市县填色图',
+    unitHistorical: '历史参考面', unitOfficial: '2023 行政行', unitAgriculture: '2023 农业行',
+    unitMismatch: '历史图层含琼山市、缺五指山市；2023 年官方农业表恰有五指山市、无琼山市。行数相同不代表单元相同。',
+    unitSource: '查看边界与统计单元核对',
     mapExtent: '图幅包含海南岛及邻近大陆、海域；不覆盖海南省全部离岛与三沙。',
     coords: '坐标', overlay: '图层透明度',
   },
@@ -42,6 +46,10 @@ const WORDS = {
     county: 'Historical county reference unit', unknown: 'Boundary name unverified',
     sources: 'Source and processing record', landSource: 'ESA WorldCover 2021 v200', soilSource: 'ISRIC SoilGrids 2.0',
     caution: 'Verified county land area, soil means and operating data are still missing; no regional optimization is supported.',
+    unitTitle: 'Unit check · county choropleth unavailable',
+    unitHistorical: 'historic shapes', unitOfficial: '2023 admin rows', unitAgriculture: '2023 farm rows',
+    unitMismatch: 'The historic layer includes Qiongshan but omits Wuzhishan. The official 2023 agricultural table has Wuzhishan and no Qiongshan. Equal counts do not mean matching units.',
+    unitSource: 'Read the boundary and statistical unit audit',
     mapExtent: 'The map window includes Hainan Island and nearby mainland and sea; it does not cover all outlying islands or Sansha.',
     coords: 'Coordinates', overlay: 'Layer opacity',
   },
@@ -61,8 +69,9 @@ export function atlasMarkup(language = 'zh') {
       <button type="button" data-atlas="soil" aria-pressed="false">${label('soil')}</button>
       <button type="button" data-atlas="soc" aria-pressed="false">${label('soc')}</button>
       <label><input id="atlas-boundaries" type="checkbox"> ${label('borders')}</label>
-    </div><div id="hainan-atlas-map" class="atlas-map" role="img" aria-label="Hainan spatial evidence map"></div><div class="atlas-map-foot"><span id="atlas-inspect">${label('click')}</span><strong id="atlas-load-label" hidden>${label('loading')}</strong><strong id="atlas-error-label" hidden>${label('loadError')}</strong><label>${label('overlay')} <input id="atlas-opacity" type="range" min="30" max="100" value="95"></label></div></div>
+    </div><div id="hainan-atlas-map" class="atlas-map" role="img" aria-label="Hainan spatial evidence map"></div><div class="atlas-map-foot"><span id="atlas-inspect" role="status" aria-live="polite">${label('click')}</span><strong id="atlas-load-label" hidden>${label('loading')}</strong><strong id="atlas-error-label" hidden>${label('loadError')}</strong><label>${label('overlay')} <input id="atlas-opacity" type="range" min="30" max="100" value="95"></label></div></div>
     <aside class="atlas-aside"><div class="atlas-layer-id"><b id="atlas-current-title">${label('land')}</b><p id="atlas-current-type">${label('landType')}</p></div>
+      <div class="atlas-unit-check"><strong>${label('unitTitle')}</strong><div class="atlas-unit-counts"><span><b>18</b>${label('unitHistorical')}</span><span><b>19</b>${label('unitOfficial')}</span><span><b>18</b>${label('unitAgriculture')}</span></div><p>${label('unitMismatch')}</p><a href="./docs/HAINAN_ADMIN_STAT_UNITS_AUDIT.md" target="_blank" rel="noopener noreferrer">${label('unitSource')} ↗</a></div>
       <div class="atlas-land-legend" id="atlas-land-legend">${coverLegend}</div>
       <div class="atlas-soil-legend" id="atlas-soil-legend" hidden><div class="atlas-gradient"></div><div><span>4.0</span><span>5.0</span><span>6.0</span><span>7.0</span></div><p>${label('soilLegend')}</p></div>
       <div class="atlas-soil-legend" id="atlas-soc-legend" hidden><div class="atlas-gradient soc"></div><div><span>0</span><span>25</span><span>50</span><span>75</span><span>100+</span></div><p>${label('socLegend')}</p></div>
