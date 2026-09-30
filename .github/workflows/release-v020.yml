@@ -49,6 +49,9 @@ jobs:
           s=s.replace("page.on('pageerror',lambda e:errors.append(str(e)))", "page.on('pageerror',lambda e:(errors.append(str(e)),print('BROWSER_ERROR',str(e),getattr(e,'stack',''),flush=True)))")
           s=s.replace("    check('no JavaScript exceptions across workflow',not errors)", "    (out/'browser-errors.json').write_text(json.dumps({'checks':checks,'errors':errors},ensure_ascii=False,indent=2))\n    check('no JavaScript exceptions across workflow',not errors)")
           p.write_text(s)
+          p=Path('src/map.js');s=p.read_text();old='destroy(){this.resize?.disconnect();this.map?.off();this.map?.remove();}'
+          new='destroy(){this.resize?.disconnect();if(this.map){\n  // Leaflet 1.9.4 leaves a 250 ms zoom-transition timer after remove().\n  // Disarm it before disposing the pane; otherwise rapid navigation dereferences a removed map.\n  this.map._animatingZoom=false;this.map.stop();this.map.off();this.map.remove();this.map=null;\n }}'
+          assert old in s,'Unexpected map lifecycle implementation';p.write_text(s.replace(old,new))
           PY
       - name: Restore auditable public evidence from acquisition artifacts
         env:
