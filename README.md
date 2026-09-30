@@ -1,4 +1,4 @@
-# FarmSystem Design · v0.3.3
+# FarmSystem Design · v0.3.4
 
 **研究路线 → 数据审计 → 空间证据 → 约束核算 → 情景比较**
 
@@ -18,6 +18,7 @@
 - 农场案例、模型和本地项目仍沿用 v0.2 数据版本。区域来源审计有独立版本号。
 
 研究路线、实施顺序和验收边界见 [docs/RESEARCH_ROUTES.md](docs/RESEARCH_ROUTES.md)。
+路线二的可检验研究设计见[研究协议](docs/ROUTE2_PROTOCOL.md)，四级通用系统的对象与迁移顺序见[平台架构](docs/PLATFORM_ARCHITECTURE.md)，方法与年鉴目录核对见[证据笔记](docs/REGIONAL_METHOD_EVIDENCE.md)，核心术语见[术语表](GLOSSARY.md)。
 
 ## 本版重点
 

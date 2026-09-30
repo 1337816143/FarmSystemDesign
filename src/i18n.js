@@ -10,6 +10,23 @@ const ATTRIBUTES = ['aria-label', 'title', 'placeholder', 'alt'];
 
 // Reviewed research terms take precedence over the generated draft catalog.
 const REVIEWED = {
+  '方案如何接受检验': 'How the proposal will be tested',
+  '三个研究问题，以及可能推翻方案的证据': 'Three research questions and evidence that could overturn the proposal',
+  '先完成可重复的市县时序与分型；措施效应和适应性优势都需要响应参数与独立验证。': 'First build reproducible county time series and typologies. Intervention effects and adaptive gains require response parameters and independent validation.',
+  '拟检验 · 无结果': 'Proposed tests · no results',
+  'Q1 · 类型是否有用？': 'Q1 · Are the types useful?',
+  '用留出年份或地区比较区域分型与统一基准；分型不稳就报告连续差异。': 'Compare regional types with a common baseline using held-out years or areas. If types are unstable, report continuous differences.',
+  'Q2 · 分区措施有何不同？': 'Q2 · Do regional packages differ?',
+  '在相同预算与资源边界下比较分区和统一措施；差异小于不确定性就不宣称优越。': 'Compare tailored and uniform measures under the same budget and resource limits. Do not claim superiority if differences are within uncertainty.',
+  'Q3 · 何时值得调整？': 'Q3 · When is adaptation worthwhile?',
+  '固定与分阶段策略使用相同情景、信息到达时点和转换成本，检验较差情景表现。': 'Test fixed and staged strategies using the same scenarios, information timing and switching costs, including performance in poor outcomes.',
+  '第一步：核对官方年鉴中的市县农业表与统计修订；目录存在不等于数据已接入。': 'First, check county agricultural tables and statistical revisions in the official yearbooks. A listed table is not integrated data.',
+  '阅读完整研究协议 ↗': 'Read the full research protocol ↗',
+  '查看方法与数据来源 ↗': 'Review methods and data sources ↗',
+  '查看平台对象与迁移顺序 ↗': 'Review platform entities and migration steps ↗',
+  '路线二补充可证伪的三个研究问题与研究协议': 'Route 2 now includes three falsifiable questions and a research protocol.',
+  '明确四级尺度的权限、跨尺度连接条件及资料不足时的结论边界': 'Defined decision rights at four scales, cross-scale linking conditions and conclusions supported when evidence is limited.',
+  '核对区域农场分型方法及海南年鉴市县农业表目录；尚未提取表内数值': 'Checked regional farm-typology methods and the Hainan yearbook contents for county agricultural tables; table values have not been extracted.',
   '已核读文献 · 尚未接入模型': 'Full-text literature reviewed · not integrated into the model',
   '海南农业增产目标与氮磷环境边界': 'Hainan production targets and nitrogen–phosphorus boundaries',
   'NUFER 作物—畜牧氮磷物质流与生产／环境阈值；历史 1988–2020，情景 2030 BAU、S1–S5。': 'NUFER crop–livestock N and P flows with production and environmental thresholds; history 1988–2020, scenarios 2030 BAU and S1–S5.',

@@ -1,5 +1,7 @@
 # 数据字典与导入
 
+通用平台的下一版数据契约见[路线二研究协议](ROUTE2_PROTOCOL.md)。本页描述当前农场演示资源格式；其中 `villages` 是假设协作组，不等同于通用平台中的真实村落或海南行政单元。相关领域用语见[术语表](../GLOSSARY.md)。
+
 ## 完整资源 JSON
 
 `schemaVersion:1`, `version:string`, `crs:'EPSG:4326'`, `center:[lon,lat]`, `extent:[west,south,east,north]`, `villages:[]`, `farms:[]`, `plots:[]`。
