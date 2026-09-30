@@ -19,6 +19,7 @@ const WORDS = {
     borderType: 'geoBoundaries 来源标称 2017 年，部分名称更早；仅供定位，不能直接对应现势统计单元。',
     soilLegend: '预测 pH (H₂O)', socLegend: '预测 SOC (g/kg)', click: '点击地图查看坐标；土壤图层可查询预测像元。',
     noSoil: '该位置没有土壤预测值或在裁剪范围外。', ph: '预测 pH', socValue: '预测 SOC',
+    loading: '正在加载所选图层…', loadError: '图层加载失败，请重试。',
     noCounty: '县级参考边界暂未加载；不绘制猜测边界。',
     county: '历史县级参考单元', unknown: '边界名称未核定',
     sources: '数据说明与处理记录', landSource: 'ESA WorldCover 2021 v200', soilSource: 'ISRIC SoilGrids 2.0',
@@ -36,6 +37,7 @@ const WORDS = {
     borderType: 'geoBoundaries is labeled 2017, but some names are older. For orientation only; it cannot be joined directly to current statistical units.',
     soilLegend: 'Predicted pH (H₂O)', socLegend: 'Predicted SOC (g/kg)', click: 'Click for coordinates; soil layers also report a predicted pixel.',
     noSoil: 'No soil prediction here, or the point is outside the crop.', ph: 'Predicted pH', socValue: 'Predicted SOC',
+    loading: 'Loading the selected layer…', loadError: 'The layer could not be loaded. Please retry.',
     noCounty: 'County reference borders are unavailable; no guessed borders are drawn.',
     county: 'Historical county reference unit', unknown: 'Boundary name unverified',
     sources: 'Source and processing record', landSource: 'ESA WorldCover 2021 v200', soilSource: 'ISRIC SoilGrids 2.0',
@@ -59,7 +61,7 @@ export function atlasMarkup(language = 'zh') {
       <button type="button" data-atlas="soil" aria-pressed="false">${label('soil')}</button>
       <button type="button" data-atlas="soc" aria-pressed="false">${label('soc')}</button>
       <label><input id="atlas-boundaries" type="checkbox"> ${label('borders')}</label>
-    </div><div id="hainan-atlas-map" class="atlas-map" role="img" aria-label="Hainan spatial evidence map"></div><div class="atlas-map-foot"><span id="atlas-inspect">${label('click')}</span><label>${label('overlay')} <input id="atlas-opacity" type="range" min="30" max="100" value="95"></label></div></div>
+    </div><div id="hainan-atlas-map" class="atlas-map" role="img" aria-label="Hainan spatial evidence map"></div><div class="atlas-map-foot"><span id="atlas-inspect">${label('click')}</span><strong id="atlas-load-label" hidden>${label('loading')}</strong><strong id="atlas-error-label" hidden>${label('loadError')}</strong><label>${label('overlay')} <input id="atlas-opacity" type="range" min="30" max="100" value="95"></label></div></div>
     <aside class="atlas-aside"><div class="atlas-layer-id"><b id="atlas-current-title">${label('land')}</b><p id="atlas-current-type">${label('landType')}</p></div>
       <div class="atlas-land-legend" id="atlas-land-legend">${coverLegend}</div>
       <div class="atlas-soil-legend" id="atlas-soil-legend" hidden><div class="atlas-gradient"></div><div><span>4.0</span><span>5.0</span><span>6.0</span><span>7.0</span></div><p>${label('soilLegend')}</p></div>
@@ -82,6 +84,7 @@ export class HainanAtlas {
     this.overlay = L.imageOverlay('./data/hainan/landcover-preview.png', BOX, {opacity: .95}).addTo(this.map);
     this.borderLayer = null;
     this.valueCanvases = {};
+    this.switchToken = 0;
     this.loadValues('soil', './data/hainan/soil-ph-values.png');
     this.loadValues('soc', './data/hainan/soil-soc-values.png');
     this.loadBorders();
@@ -122,11 +125,33 @@ export class HainanAtlas {
   handleClick(event) {
     const button = event.target.closest('[data-atlas]');
     if (!button || !this.host.contains(button)) return;
+    if (button.dataset.atlas === this.layer && !this.host.classList.contains('atlas-error')) return;
     this.layer = button.dataset.atlas;
     const soil = this.layer === 'soil', soc = this.layer === 'soc';
+    const token = ++this.switchToken;
+    const t = WORDS[this.language === 'en' ? 'en' : 'zh'];
+    this.host.classList.remove('atlas-error');
+    this.host.classList.add('atlas-loading');
+    this.host.querySelector('#atlas-load-label').hidden = false;
+    this.host.querySelector('#atlas-error-label').hidden = true;
+    this.overlay.setOpacity(0);
+    this.overlay.once('load', () => {
+      if (token !== this.switchToken || !this.map) return;
+      this.host.classList.remove('atlas-loading');
+      this.host.classList.remove('atlas-error');
+      this.host.querySelector('#atlas-load-label').hidden = true;
+      this.overlay.setOpacity(Number(this.host.querySelector('#atlas-opacity').value) / 100);
+      this.host.querySelector('#atlas-inspect').textContent = t.click;
+    });
+    this.overlay.once('error', () => {
+      if (token !== this.switchToken || !this.map) return;
+      this.host.classList.remove('atlas-loading');
+      this.host.classList.add('atlas-error');
+      this.host.querySelector('#atlas-load-label').hidden = true;
+      this.host.querySelector('#atlas-error-label').hidden = false;
+    });
     this.overlay.setUrl(`./data/hainan/${soil ? 'soil-ph' : soc ? 'soil-soc' : 'landcover'}-preview.png`);
     for (const el of this.host.querySelectorAll('[data-atlas]')) el.setAttribute('aria-pressed', String(el === button));
-    const t = WORDS[this.language === 'en' ? 'en' : 'zh'];
     const titleKey = soil ? 'soil' : soc ? 'soc' : 'land';
     const typeKey = soil ? 'soilType' : soc ? 'socType' : 'landType';
     this.host.querySelector('#atlas-current-title').innerHTML = duo(t[titleKey], WORDS.en[titleKey], this.language);
@@ -137,7 +162,7 @@ export class HainanAtlas {
   }
 
   handleInput(event) {
-    if (event.target.id === 'atlas-opacity') this.overlay.setOpacity(Number(event.target.value) / 100);
+    if (event.target.id === 'atlas-opacity' && !this.host.classList.contains('atlas-loading')) this.overlay.setOpacity(Number(event.target.value) / 100);
     if (event.target.id === 'atlas-boundaries' && this.borderLayer) {
       if (event.target.checked) this.borderLayer.addTo(this.map); else this.map.removeLayer(this.borderLayer);
     }
@@ -145,6 +170,7 @@ export class HainanAtlas {
 
   inspect(latlng) {
     const t = WORDS[this.language === 'en' ? 'en' : 'zh'];
+    if (this.host.classList.contains('atlas-loading') || this.host.classList.contains('atlas-error')) return;
     let value = this.layer === 'landcover' ? '' : t.noSoil;
     const canvas = this.valueCanvases[this.layer];
     if (canvas && latlng.lng >= BOX[0][1] && latlng.lng <= BOX[1][1] && latlng.lat >= BOX[0][0] && latlng.lat <= BOX[1][0]) {

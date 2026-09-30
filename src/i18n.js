@@ -10,6 +10,7 @@ const ATTRIBUTES = ['aria-label', 'title', 'placeholder', 'alt'];
 
 // Reviewed research terms take precedence over the generated draft catalog.
 const REVIEWED = {
+  '切换地图图层时显示加载状态，避免旧图像配新图例': 'Show a loading state while switching map layers so the old image is never paired with the new legend',
   '研究预览 · 2026-10-01': 'Research preview · 01-10-2026',
   '接入 ESA WorldCover 2021 海南土地覆被预览与 ISRIC SoilGrids 0–5 cm pH 预测栅格': 'Added an ESA WorldCover 2021 Hainan land-cover preview and ISRIC SoilGrids 0–5 cm pH prediction raster',
   '接入 ESA WorldCover 2021 海南土地覆被预览与 ISRIC SoilGrids 0–5 cm pH 与 SOC 预测栅格': 'Added ESA WorldCover 2021 Hainan land cover and ISRIC SoilGrids 0–5 cm pH and SOC prediction rasters',

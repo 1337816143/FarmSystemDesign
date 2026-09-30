@@ -28,8 +28,8 @@
 .atlas-toolbar button{padding:7px 11px;border-radius:7px;font-size:11px;color:#557063;background:transparent}
 .atlas-toolbar button[aria-pressed=true]{color:#215a42;background:#fff;box-shadow:0 1px 5px #163c2318;font-weight:600}
 .atlas-toolbar label{margin-left:auto;display:flex;align-items:center;gap:5px;white-space:nowrap;color:#667f70;font-size:10px;padding:0 7px}
-.atlas-map{height:440px;width:100%;z-index:0}.atlas-map .leaflet-container{background:#dcecf0}
-.atlas-map-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:39px;padding:7px 12px;background:#f7faf8;border-top:1px solid #dce8e4;color:#587364;font-size:10px;line-height:1.5}
+.atlas-map{height:440px;width:100%;z-index:0}.atlas-map .leaflet-container{background:#dcecf0}.atlas-loading .atlas-map{background:#dcecf0}.atlas-loading .leaflet-image-layer{opacity:0!important}.atlas-loading .atlas-map::after{content:"";position:absolute;z-index:900;top:50%;left:50%;width:25px;height:25px;border:3px solid #84ad9e;border-top-color:#276d52;border-radius:50%;animation:atlas-spin .8s linear infinite;pointer-events:none}@keyframes atlas-spin{to{transform:rotate(360deg)}}
+.atlas-map-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;min-height:39px;padding:7px 12px;background:#f7faf8;border-top:1px solid #dce8e4;color:#587364;font-size:10px;line-height:1.5}.atlas-map-foot strong{font-size:10px;color:#426e57}
 .atlas-map-foot label{white-space:nowrap;display:flex;align-items:center;gap:6px}.atlas-map-foot input{width:75px;accent-color:#447f62}
 .atlas-aside{display:flex;flex-direction:column;gap:12px;min-width:0}.atlas-layer-id{padding:14px;background:#edf5ef;border:1px solid #dce9df;border-radius:9px}.atlas-layer-id b{font-size:13px;color:#2c674c}.atlas-layer-id p{font-size:10px;color:#63836b;line-height:1.7;margin-top:7px}
 .atlas-land-legend,.atlas-soil-legend,.atlas-border-note,.atlas-extent,.atlas-caution{padding:12px;background:#f8faf8;border:1px solid #e4ece5;border-radius:9px;font-size:10px;line-height:1.65;color:#647b69}
