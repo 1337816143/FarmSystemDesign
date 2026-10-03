@@ -1,4 +1,5 @@
 // Hainan evidence atlas. The geospatial products never enter the farm model.
+import {validCoverSummary, coverSummaryCsv} from './cover-summary.js';
 const BOX = [[17.8, 108.5], [20.5, 111.5]];
 const COVER_CLASSES = [
   ['#006400','树木覆盖','Tree cover'],['#ffbb22','灌丛','Shrubland'],
@@ -33,6 +34,9 @@ const WORDS = {
     areaTitle: '2021 主岛覆被面积 · 探索性估计', areaTotal: '分类总面积', areaOther: '其他类别',
     areaMethod: '10 m 原始分类值汇总；主岛掩膜由产品约 100 m 概览推得。不是官方耕地面积，未作海南本地精度验证。',
     areaUnavailable: '分类面积暂不可用。', areaSource: '计算方法与来源',
+    areaExport: '导出完整分类 CSV', areaJson: '下载来源快照 JSON',
+    areaSensitivity: '掩膜采样敏感性：100 m 与 200 m 的总面积差',
+    areaBoundary: '仅反映掩膜采样差异，不是置信区间、分类误差或海南本地精度。百分比分母为分类总面积，含永久水体；不是耕地占行政面积比例。',
     mapExtent: '图幅包含海南岛及邻近大陆、海域；不覆盖海南省全部离岛与三沙。',
     coords: '坐标', overlay: '图层透明度',
   },
@@ -58,6 +62,9 @@ const WORDS = {
     areaTitle: '2021 main-island cover · exploratory estimate', areaTotal: 'Classified area', areaOther: 'Other classes',
     areaMethod: 'Summed native 10 m classes with an island mask derived from an about 100 m product overview. This is not official cultivated-land area and has no local Hainan accuracy validation.',
     areaUnavailable: 'Cover area summary unavailable.', areaSource: 'Method and source',
+    areaExport: 'Export all classes as CSV', areaJson: 'Download source snapshot JSON',
+    areaSensitivity: 'Mask sampling sensitivity: total-area difference between 100 m and 200 m',
+    areaBoundary: 'Only mask sampling sensitivity; not a confidence interval, classification error or local Hainan accuracy. Percentages use classified area including permanent water, not administrative or cultivated-land area.',
     mapExtent: 'The map window includes Hainan Island and nearby mainland and sea; it does not cover all outlying islands or Sansha.',
     coords: 'Coordinates', overlay: 'Layer opacity',
   },
@@ -132,7 +139,7 @@ export class HainanAtlas {
       const response = await fetch('./data/hainan/landcover-main-island-summary.json');
       if (!response.ok) return;
       const data = await response.json();
-      if (!this.map || data.product !== 'ESA WorldCover 2021 v200' || !Number.isFinite(data.total_classified_km2) || !Array.isArray(data.classes)) return;
+      if (!this.map || !validCoverSummary(data)) return;
       const classes = new Map(data.classes.map(row => [row.code,row]));
       const values = SUMMARY_CODES.map(code => classes.get(code));
       if (values.some(row => !row || !Number.isFinite(row.km2) || !Number.isFinite(row.percent) || row.percent < 0 || row.percent > 100)) return;
@@ -146,6 +153,27 @@ export class HainanAtlas {
       const chart = this.host.querySelector('#atlas-area-chart');
       chart.innerHTML = `<div class="atlas-area-total"><span>${duo(t.areaTotal,WORDS.en.areaTotal,this.language)}</span><b>${data.total_classified_km2.toLocaleString(this.language === 'en' ? 'en-US' : 'zh-CN',{maximumFractionDigits:0})} km²</b></div>${rows.join('')}`;
       chart.setAttribute('aria-label',`${t.areaTitle}: ${data.total_classified_km2.toFixed(0)} km²`);
+      const detail = document.createElement('div');
+      detail.className = 'atlas-summary-detail';
+      detail.innerHTML = `<p>${duo(t.areaBoundary,WORDS.en.areaBoundary,this.language)}</p>`;
+      if ([data.mask_area_100m_km2,data.mask_area_200m_km2,data.mask_sampling_difference_percent].every(Number.isFinite)) {
+        const sensitivity = document.createElement('p');
+        sensitivity.innerHTML = `${duo(t.areaSensitivity,WORDS.en.areaSensitivity,this.language)}: <b>${data.mask_sampling_difference_percent}%</b> (${data.mask_area_100m_km2} / ${data.mask_area_200m_km2} km²)`;
+        detail.append(sensitivity);
+      }
+      const button = document.createElement('button');
+      button.type = 'button'; button.dataset.atlasExport = 'csv';
+      button.innerHTML = duo(t.areaExport,WORDS.en.areaExport,this.language);
+      button.addEventListener('click', () => {
+        const url = URL.createObjectURL(new Blob([coverSummaryCsv(data)], {type:'text/csv;charset=utf-8'}));
+        const link = document.createElement('a'); link.href = url; link.download = 'hainan-worldcover-2021-exploratory.csv';
+        link.click(); setTimeout(() => URL.revokeObjectURL(url),1000);
+      });
+      const source = document.createElement('a');
+      source.href = './data/hainan/landcover-main-island-summary.json'; source.download = 'hainan-worldcover-2021-source.json';
+      source.innerHTML = duo(t.areaJson,WORDS.en.areaJson,this.language);
+      detail.append(button,document.createTextNode(' · '),source);
+      chart.append(detail);
     } catch { /* the declared unavailable state remains visible */ }
   }
 

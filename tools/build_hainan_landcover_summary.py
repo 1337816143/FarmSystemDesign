@@ -89,6 +89,11 @@ def main() -> None:
         raise ValueError(f"Unexpected island extent: {total:.1f} km2")
     output = {
         "product": "ESA WorldCover 2021 v200",
+        "license": "CC BY 4.0",
+        "license_url": "https://creativecommons.org/licenses/by/4.0/",
+        "attribution": "© ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium",
+        "citation": "Zanaga et al. (2022). ESA WorldCover 10 m 2021 v200. https://doi.org/10.5281/zenodo.7254221",
+        "citation_url": "https://doi.org/10.5281/zenodo.7254221",
         "geography": "Approximate Hainan main island, product-derived mask; excludes separate islands and Sansha",
         "method": "100 m nearest-neighbor overview; four-neighbor connected land component at 19.0 N, 109.8 E; fill enclosed water holes; apply mask to native 10 m classes; ellipsoidal cell areas by latitude",
         "not_for": "Official cultivated-land area, administrative area, field decisions, county statistics or classification accuracy",
