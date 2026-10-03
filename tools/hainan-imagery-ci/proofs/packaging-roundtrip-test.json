@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "test_kind": "synthetic packaging roundtrip only",
+  "zip_groups": 4,
+  "files_reassembled": 10,
+  "every_member_identical": true
+}

@@ -1,0 +1,7 @@
+generated/
+work/
+artifacts/
+selftest-output/
+selftest-work/
+__pycache__/
+*.pyc

@@ -1,0 +1,151 @@
+name: Generate verified Hainan mainland imagery
+on:
+  push:
+    branches: [review/hainan-mainland-generation]
+permissions:
+  contents: read
+concurrency:
+  group: hainan-mainland-generation
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check disk capacity and install official distribution packages
+        run: |
+          python3 -c "import shutil; n=shutil.disk_usage('.').free; print('Free bytes:',n); assert n >= 4*1024**3"
+          sudo apt-get update
+          sudo apt-get install -y ca-certificates python3 python3-gdal python3-numpy python3-scipy python3-pil python3-pyproj
+      - name: Generate exact-transform grids and verify every required output
+        timeout-minutes: 54
+        env:
+          WORKERS: '2'
+        run: |
+          mkdir -p tools/hainan-imagery-ci/ci-diagnostics
+          bash tools/hainan-imagery-ci/ci-run.sh 2>&1 | tee tools/hainan-imagery-ci/ci-diagnostics/generation.log
+          python3 -c "import json; x=json.load(open('tools/hainan-imagery-ci/artifacts/artifact-index.json')); assert 1 <= len(x['parts']) <= 12; print('Verified part count:',len(x['parts']))"
+      - name: Preserve verified imagery part 001
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-001
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-001.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 002
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-002
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-002.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 003
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-003
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-003.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 004
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-004
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-004.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 005
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-005
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-005.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 006
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-006
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-006.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 007
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-007
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-007.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 008
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-008
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-008.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 009
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-009
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-009.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 010
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-010
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-010.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 011
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-011
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-011.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verified imagery part 012
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-imagery-part-012
+          path: tools/hainan-imagery-ci/artifacts/hainan-imagery-part-012.zip
+          if-no-files-found: ignore
+          compression-level: 0
+          retention-days: 14
+      - name: Preserve verification index and bounded diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: hainan-mainland-imagery-verification
+          path: |
+            tools/hainan-imagery-ci/artifacts/artifact-index.json
+            tools/hainan-imagery-ci/generated/verification.json
+            tools/hainan-imagery-ci/generated/manifest.json
+            tools/hainan-imagery-ci/generated/progress.json
+            tools/hainan-imagery-ci/ci-diagnostics/generation.log
+          if-no-files-found: warn
+          retention-days: 14

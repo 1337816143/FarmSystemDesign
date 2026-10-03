@@ -1,0 +1,133 @@
+{
+  "schema": "kit-sha256-v1",
+  "method_version": "v2-exact-transform",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 79,
+      "sha256": "5db9373f986e7c9aa6b5f0562e6079ce61d61955d2310a0b031973b343c5d47a"
+    },
+    {
+      "path": "PORTABLE_CHANGES.md",
+      "bytes": 787,
+      "sha256": "3edc96366105fd6d7d07b3bbdc8e1dcd1ae488ab1829925f5c0611e936aea012"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7393,
+      "sha256": "90a3ab87228b8dc1fd75850767ab01153f075dbbc83f4c16147b210ffdc05c12"
+    },
+    {
+      "path": "ci-run.sh",
+      "bytes": 682,
+      "sha256": "a0f012f48fc7bd1f497a4c90d9860f041fa23833827b3881134e40bdf7ba235d"
+    },
+    {
+      "path": "inputs/grid.json",
+      "bytes": 81987,
+      "sha256": "3c49f14e1807b37083de7ebacf8757f864a8aae2b79b395a5466f0193569b14d"
+    },
+    {
+      "path": "inputs/main-island-mask-100m.tif",
+      "bytes": 85790,
+      "sha256": "dfa47207f6d2b8f7a59256b6a6a98725a57e1a4806bd31ca5b41b5bc6a2bc5fd"
+    },
+    {
+      "path": "inputs/overview-provenance.json",
+      "bytes": 3401,
+      "sha256": "4aa69c6da481935ae2cbd84be440779afd2311b6f6a5a4778ad0e908db3e7996"
+    },
+    {
+      "path": "inputs/overview-source-index.npz",
+      "bytes": 178766,
+      "sha256": "3ac750a14e97c1a2b1b83f312f270b743cce16dea1ee0e85ec0b31121b878d94"
+    },
+    {
+      "path": "inputs/source-catalog.json",
+      "bytes": 79587,
+      "sha256": "6f1720f1b630e3575cdd4bacbbc78603a99a3c3f0d3d53bf00f65745b5233b44"
+    },
+    {
+      "path": "inputs/source-notices.json",
+      "bytes": 961,
+      "sha256": "98ddd13e74839d829286551f2c8c83a09162405737bafc1c31a42425dd80ad9f"
+    },
+    {
+      "path": "proofs/exact-transform-tests.json",
+      "bytes": 652,
+      "sha256": "a7b5fde2732bf0ef22e25452fd74c41bc307592dfddcabd42c48703694c8d786"
+    },
+    {
+      "path": "proofs/grid-and-mask-tests.json",
+      "bytes": 609,
+      "sha256": "d49277b888162e639b1064a9bc375c0daef05de493cb8439d1b584f827c22b4a"
+    },
+    {
+      "path": "proofs/packaging-roundtrip-test.json",
+      "bytes": 158,
+      "sha256": "3886dfd0e0f6b641277188c2e7ca7fa2c82a4cde27ae217f5674e44aab94fd1f"
+    },
+    {
+      "path": "requirements-apt.txt",
+      "bytes": 92,
+      "sha256": "0bcd26c2a5705e9bb455166b2a8f4eeb580840513519a716d1953c1167a5e801"
+    },
+    {
+      "path": "scripts/build_lod.py",
+      "bytes": 6641,
+      "sha256": "c6b7fc55defbdd089ba2bcf2ef3a931538abf01afb85d68097ee6af2f504c6e4"
+    },
+    {
+      "path": "scripts/build_tiles.py",
+      "bytes": 12986,
+      "sha256": "4113ea4bf2df050c64f978d621d5397929577cb2d05f2e92a424de09f3678b89"
+    },
+    {
+      "path": "scripts/generate.py",
+      "bytes": 2309,
+      "sha256": "5192d1cb31c089461b4c1709e633b51d03438e9a714705961c2fa6e913fa68bb"
+    },
+    {
+      "path": "scripts/package_artifacts.py",
+      "bytes": 3423,
+      "sha256": "ac09e2fb11112d7fe7fe189e6c097b77d6726120c5ddd8eca596447c8ec0937f"
+    },
+    {
+      "path": "scripts/paths.py",
+      "bytes": 746,
+      "sha256": "f5a02979bad7212b7412f874eda32e7655c20e778242f38fb64fc37a61b7cda9"
+    },
+    {
+      "path": "scripts/reassemble_artifacts.py",
+      "bytes": 2332,
+      "sha256": "b96a1b5534917960511e7d4fd005a06a97f08ff65895056c4ccc4a2d2147e6b1"
+    },
+    {
+      "path": "scripts/test_core.py",
+      "bytes": 2531,
+      "sha256": "5db6a4d5c5c858507319f2e63be2474fac5ab7a229e4bdc5e60f3abd2281b2ec"
+    },
+    {
+      "path": "scripts/test_exact_warp.py",
+      "bytes": 3040,
+      "sha256": "312601a9948889bdddeea57ad0dd03e620527b3b81d4efc61bc15242caf9971f"
+    },
+    {
+      "path": "scripts/test_packaging.py",
+      "bytes": 1717,
+      "sha256": "b894f9c9e2af68d9146da7d08696c835676eee42f2376929f73d0749a3fabe15"
+    },
+    {
+      "path": "scripts/verify.py",
+      "bytes": 4651,
+      "sha256": "ae25a2b179908b3c1d9574524bc801c2c407ce7ebb14e4a4115dc5e289e0c797"
+    },
+    {
+      "path": "scripts/verify_kit.py",
+      "bytes": 1493,
+      "sha256": "01e4ee48cab6c508fd9c2b042cb5c7a66f342703e42907357961dc606c6ad65e"
+    }
+  ],
+  "source_scope": "63 official public C1 L2A TCI/SCL COGs; no credentials or private content",
+  "excluded": "work/generated/cache/logs/old approximate imagery/raw scene COGs"
+}
