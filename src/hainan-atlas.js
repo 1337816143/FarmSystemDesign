@@ -3,6 +3,7 @@ import {REGIONAL_INFO,regionalLayer,regionInventory,inspectRegional} from './reg
 import {createLandcoverLayer} from './landcover-layer.js';
 import {CLASS_COLORS} from './local-classification.js';
 import {viewScaleText,classifiedTileText} from './atlas-status.js';
+import {intersects} from './regional-raster.js';
 // Hainan evidence atlas. The geospatial products never enter the farm model.
 import {validCoverSummary, coverSummaryCsv} from './cover-summary.js';
 const BOX = [[17.8, 108.5], [20.5, 111.5]];
@@ -114,6 +115,31 @@ export function atlasMarkup(language = 'zh') {
     </aside></div></section>`;
 }
 
+export function atlasCoverageSummary({layer,config,id='main',zoom=8,bounds,en=false,failed=false}){
+  const title=REGIONAL_INFO[layer]?.[en?'en':'zh']||({classes2025:en?'2025 full land cover':'2025完整土地覆盖',crops2025:en?'2025 Crops only':'2025仅作物类别',landcover:en?'2021 WorldCover':'2021 WorldCover土地覆被'})[layer]||layer;
+  const lead=title+' · ';
+  if(failed)return lead+(en?'Layer read failed. Current-layer coverage is unverified; retry.':'图层读取失败；当前图层覆盖未核，可重试。');
+  if(layer==='classes2025'||layer==='crops2025')return lead+(en?'Native10m classification, displayed by viewport. No current-view area or coverage percentage is reported. Class10 is cloud and source0 is no-data.':'10m来源分类，按视窗显示；此处不报告当前视窗面积或覆盖比例。类别10为云，来源码0为无数据。')+(layer==='crops2025'?(en?' Only class5 is shown; other valid classes are transparent.':'仅显示类别5，其他有效类别也透明。'):'');
+  if(layer==='landcover')return lead+(en?'Historical classification with an about300m preview. The separate main-island area summary is exploratory and is not current-view coverage.':'历史分类，网页预览约300m；单独列示的主岛面积是探索性汇总，不是当前视窗覆盖率。');
+  if(config?.kind!==layer)config=null;
+  if(!config)return lead+(en?'Reading the current layer catalog; coverage statistics are not available yet.':'正在读取当前图层目录；暂无当前图层覆盖统计。');
+  const z=Math.round(zoom),eligible=r=>z>=(r.min_zoom??0)&&z<=(r.max_zoom??24);
+  if(layer==='dsm'&&bounds&&config.records.some(r=>r.level==='continuous-native-grid-tile'&&eligible(r)&&intersects(bounds,r.bounds_wsen)))return lead+(en?'This viewport uses continuous about30m mainland blocks. Availability is reported per loaded tile, not as a current-view or whole-island coverage percentage. Surface elevation includes vegetation/buildings; source zeros and missing data remain distinct.':'当前视窗采用本岛连续约30m分块；有效像元按已加载瓦片分别报告，不作为当前视窗或全岛覆盖率。地表高程包含植被和建筑，源零值与缺测分别保留。');
+  if(id.startsWith('county-'))return lead+(en?'County reference view. Tile availability is not a validated county statistic.':'市县参考视图；瓦片可见情况不是已经核验的市县统计量。');
+  const r=config.records.find(x=>eligible(x)&&(x.id===id||x.id.endsWith('-'+id)));
+  if(!r)return lead+(layer==='imagery'?(en?'No precomputed overview for this geographic group. Original COG windows start at zoom12; absent previews do not establish source completeness.':'该地理分组尚无整组预览。影像12级起读取原始COG；没有预览不能解释为原始源完整。'):(en?'No source-window record matches this selection and zoom. This does not establish regional data completeness.':'当前选择与缩放没有匹配的来源窗口记录；不能据此推断区域数据完整率。'));
+  const c=r.coverage||{},accepted=c.accepted_pixels??c.valid_cells,total=c.total_bbox_pixels??c.grid_cells;
+  let text=lead+(config.period?config.period+' · ':'')+(en?'Selected source-window record (does not follow panning). ':'所选来源窗口记录（不随平移改变）。');
+  if(Number.isFinite(accepted)&&total)text+=`${en?'Window accepted/valid cells':'窗口接受/有效格'}: ${accepted.toLocaleString()} / ${total.toLocaleString()} (${(100*accepted/total).toFixed(2)}%). `;
+  text+=en?'Rectangle includes sea; not administrative land completeness. ':'矩形分母含海域，不是行政陆地完整率。';
+  if(r.approx_main_island_land_audit)text+=(en?'Inferred main-island mask display acceptance':'推测主岛掩膜内显示格接受率')+`: ${r.approx_main_island_land_audit.accepted_land_percent}%. `;
+  if(r.actual_contributing_dates?.length)text+=(en?'Contributing dates':'实际贡献日期')+`: ${r.actual_contributing_dates[0]} – ${r.actual_contributing_dates.at(-1)}. `;
+  if(r.status==='coarse-context-only')text+=en?'Coarse context only; this small island is not spatially resolved. ':'仅粗格网背景，不能单独解析这个小岛。';
+  if(r.status?.startsWith('unresolved'))text+=en?'Source-zero surface remains unresolved; no measured terrain claim. ':'来源零值尚未解析，不作为已知地形。';
+  if(r.status?.startsWith('unavailable'))text+=en?'No supported prediction/source at this window. ':'该窗口无受支持来源/预测。';
+  return text+(layer==='imagery'?(en?'Native and overview support differ. SCL is not a cloud-free guarantee; mainland-China access untested.':'原始与概览尺度不同。SCL不保证无云；中国大陆网络未测。'):(en?'Source-grid resolution and displayed pixels differ; this is not field observation.':'来源格网分辨率与网页显示像元分别解释；这些资料不是田间实测。'));
+}
+
 export class HainanAtlas {
   constructor(element, language = 'zh') {
     this.host = element;
@@ -135,12 +161,13 @@ export class HainanAtlas {
     this.loadSanshaBorders();
     this.loadRegionalInventory();
     this.coveragePanel=new CoveragePanel(element,()=>this.map,language);
-    this.map.on('moveend',()=>{this.updateRasterViewStatus();this.updateScaleStatus();});
+    this.map.on('moveend',()=>{this.updateRasterViewStatus();this.updateScaleStatus();this.updateCoverage();});
     this.clickHandler = event => this.handleClick(event);
     element.addEventListener('click', this.clickHandler);
     this.inputHandler = event => this.handleInput(event);
     element.addEventListener('input', this.inputHandler);
     this.map.on('click', event => this.inspect(event.latlng));
+    this.updateCoverage();
     setTimeout(() => this.map?.invalidateSize(), 0);
   }
 
@@ -249,6 +276,7 @@ export class HainanAtlas {
     this.host.querySelector('#atlas-runtime-coverage').textContent='';this.host.querySelector('#atlas-retry-raster').hidden=true;
     this.hasChosenLayer=true;
     this.layer = button.dataset.atlas;
+    this.coverageFailure=false;this.updateCoverage();
     this.host.querySelector('#atlas-month-control').hidden=!['monthlyRain','temperature'].includes(this.layer);
     this.updateScaleStatus();this.updateDataLinks();
     if(REGIONAL_INFO[this.layer]){this.selectRegional(button);return;}
@@ -298,6 +326,7 @@ export class HainanAtlas {
       this.host.classList.add('atlas-error');
       this.host.querySelector('#atlas-load-label').hidden = true;
       this.host.querySelector('#atlas-error-label').hidden = false;
+      this.coverageFailure=true;this.updateCoverage();
     });
     this.overlay.setUrl(`./data/hainan/${soil ? 'soil-ph' : soc ? 'soil-soc' : 'landcover'}-preview.png`);
     for (const el of this.host.querySelectorAll('[data-atlas]')) el.setAttribute('aria-pressed', String(el === button));
@@ -346,19 +375,8 @@ export class HainanAtlas {
 
 
   updateCoverage(){
-    const config=this.remoteLayer?.regionalConfig;if(!config)return;const id=this.host.querySelector('#atlas-region').value||'main';const r=config.records.find(x=>x.id===id||x.id.endsWith('-'+id));const target=this.host.querySelector('#atlas-regional-status');const en=this.language==='en';
-    if(id.startsWith('county-')){target.textContent=en?'County reference view. The map reads the current viewport; tile availability is not a county-level validated statistic.':'市县参考视图。地图按当前视窗读取；瓦片可见情况不是已经核验的市县统计量。';return;}
-    if(!r){target.textContent=en?'No precomputed overview for this geographic group. Imagery loads original COG windows from zoom12; absence of an overview is not proof of native-source completeness.':'该地理分组尚无整组预览。影像12级起按任意视窗读取原始COG；没有预览不能解释为原始源完整。';return;}
-    const c=r.coverage||{},accepted=c.accepted_pixels??c.valid_cells,total=c.total_bbox_pixels??c.grid_cells;let text=Number.isFinite(accepted)&&total?`${en?'Window accepted/valid cells':'窗口接受/有效格'}: ${accepted.toLocaleString()} / ${total.toLocaleString()} (${(100*accepted/total).toFixed(2)}%). `:'';
-    if(config.period)text=`${config.period} · `+text;
-    text=(en?'Selected-window record (does not follow panning). ':'所选样窗记录（不随平移改变）。')+text;
-    text+=en?'Rectangle includes sea; not administrative land completeness. ':'矩形分母含海域，不是行政陆地完整率。';
-    if(r.approx_main_island_land_audit){const a=r.approx_main_island_land_audit;text+=(en?'Inferred main-island mask display acceptance':'推测主岛掩膜内显示格接受率')+`: ${a.accepted_land_percent}%. `;}
-    if(r.actual_contributing_dates?.length)text+=(en?'Contributing dates':'实际贡献日期')+`: ${r.actual_contributing_dates[0]} – ${r.actual_contributing_dates.at(-1)}. `;
-    if(r.status==='coarse-context-only')text+=en?'Coarse context only; this small island is not spatially resolved. ':'仅粗格网背景，不能单独解析这个小岛。';
-    if(r.status?.startsWith('unresolved'))text+=en?'Source-zero surface remains unresolved; no measured terrain claim. ':'来源零值尚未解析，不作为已知地形。';
-    if(r.status?.startsWith('unavailable'))text+=en?'No supported prediction/source at this window. ':'该窗口无受支持来源/预测。';
-    text+=en?'Native and overview support differ. SCL is not a cloud-free guarantee; mainland-China access untested.':'原始与概览尺度不同。SCL不保证无云；中国大陆网络未测。';target.textContent=text;
+    if(!this.map)return;const b=this.map.getBounds();
+    this.host.querySelector('#atlas-regional-status').textContent=atlasCoverageSummary({layer:this.layer,config:this.remoteLayer?.regionalConfig,id:this.host.querySelector('#atlas-region').value||'main',zoom:this.map.getZoom(),bounds:[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()],en:this.language==='en',failed:this.coverageFailure});
   }
 
   async loadRegionalInventory(){
@@ -388,6 +406,7 @@ export class HainanAtlas {
       layer.addTo(this.map);this.updateRasterViewStatus();
     }catch{
       if(token!==this.switchToken||!this.map)return;this.host.classList.remove('atlas-loading');this.host.classList.add('atlas-error');this.host.querySelector('#atlas-load-label').hidden=true;this.host.querySelector('#atlas-error-label').hidden=false;
+      this.coverageFailure=true;this.updateCoverage();
       this.host.querySelector('#atlas-runtime-coverage').textContent=this.language==='en'?'Layer metadata request failed. Source coverage is unknown; retry.':'图层目录请求失败；不能由此判断源覆盖，可重试。';this.host.querySelector('#atlas-retry-raster').hidden=false;
     }
   }

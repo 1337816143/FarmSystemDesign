@@ -21,6 +21,29 @@ with sync_playwright() as p:
   page.goto(a.url+'/#research',wait_until='domcontentloaded');page.wait_for_selector('#atlas-region:not([disabled])',timeout=30000)
   inventory=page.request.get(a.url+'/data/hainan/regional/aoi-inventory.json').json()
   bounds={r['id']:r['bbox'] for r in inventory['groups']+inventory['places']}
+  settled_view="""layer=>{
+   const host=document.querySelector('.hainan-atlas'),map=document.querySelector('#hainan-atlas-map'),selected=document.querySelector('[data-atlas="'+layer+'"]');
+   if(!host||!map||selected?.getAttribute('aria-pressed')!=='true'||host.classList.contains('atlas-loading')||host.classList.contains('atlas-error')||!document.querySelector('#atlas-load-label').hidden||!document.querySelector('#atlas-error-label').hidden||map.classList.contains('leaflet-zoom-anim'))return false;
+   const b=map.getBoundingClientRect(),tiles=[...map.querySelectorAll('canvas.leaflet-tile')].filter(c=>{const r=c.getBoundingClientRect(),controller=c._abort||c._classController;return controller&&!controller.signal.aborted&&r.width>0&&r.height>0&&r.right>b.left&&r.left<b.right&&r.bottom>b.top&&r.top<b.bottom;});
+   if(!tiles.length)return false;
+   let visiblePixels=0;
+   for(const c of tiles){
+    const state=c._coverage||c._classCoverage,style=getComputedStyle(c);
+    if(!state||state.pending||c._classPending||['loading','partial-loading','read-error','incomplete-read','partial-read','quality-unavailable','timeout'].includes(state.status))return false;
+    if(!c.classList.contains('leaflet-tile-loaded')||style.visibility!=='visible'||Number(style.opacity)<.99)return false;
+    const pixels=c.getContext('2d').getImageData(0,0,256,256).data;for(let i=3;i<pixels.length;i+=4)if(pixels[i])visiblePixels++;
+   }
+   return visiblePixels>1000;
+  }"""
+  def wait_for_settled(layer,target=page):
+   target.wait_for_function(settled_view,arg=layer,timeout=120000)
+   # Leaflet fades for200ms and prunes old zoom levels after250ms. Verify again
+   # after that transition so screenshots cannot capture a transient first tile.
+   target.wait_for_timeout(350)
+   target.wait_for_function(settled_view,arg=layer,timeout=120000)
+  def coverage_matches(label):
+   text=page.locator('#atlas-regional-status').inner_text()
+   return label in text and all(old not in text for old in ['1,316,924','1,640,250','80.29'])
   native_at_point="""([lon,lat])=>Array.from(document.querySelectorAll('#hainan-atlas-map canvas[data-mode="native-cog-window"]')).some(c=>{const q=c._regionalCoords;if(!q||q.z<12||Number(c.dataset.validPixels)<=1000)return false;const n=2**q.z,x=Math.floor((lon+180)/360*n),y=Math.floor((1-Math.asinh(Math.tan(lat*Math.PI/180))/Math.PI)/2*n);return q.x===x&&q.y===y;})"""
   def choose(layer,place=None,native=False):
    if place:
@@ -41,7 +64,9 @@ with sync_playwright() as p:
    page.wait_for_function("!document.querySelector('.hainan-atlas').classList.contains('atlas-loading')",timeout=120000)
    if native:check('native COG pixels visible at selected window '+place,page.evaluate(native_at_point,center))
    canvases=page.locator('#hainan-atlas-map canvas.leaflet-tile').evaluate_all("els=>els.map(c=>({mode:c.dataset.mode,pixels:Number(c.dataset.validPixels||0)}))")
-   check('actual raster pixels '+layer+' '+str(place),any(c['pixels']>1000 for c in canvases));report['views'].append({'layer':layer,'place':place,'tiles':canvases});page.screenshot(path=str(out/f'{layer}-{place or "view"}.png'),full_page=True)
+   check('actual raster pixels '+layer+' '+str(place),any(c['pixels']>1000 for c in canvases));report['views'].append({'layer':layer,'place':place,'tiles':canvases})
+   if layer in ['dsm','classes2025','crops2025']:wait_for_settled(layer)
+   page.screenshot(path=str(out/f'{layer}-{place or "view"}.png'),full_page=True)
   choose('imagery','main')
   check('whole island overview is present',page.locator('#hainan-atlas-map canvas[data-mode="local-overview"]').count()>0)
   panel=page.locator('#atlas-coverage-panel')
@@ -94,15 +119,22 @@ with sync_playwright() as p:
   # Current user-facing mainland layers must work through real controls, beyond named samples.
   page.locator('nav [data-nav="atlas"]').click();page.wait_for_selector('#atlas-region:not([disabled])')
   check('direct data map exposes18 county reference views',page.locator('#atlas-region option[value^="county-"]').count()==18)
-  choose('dsm','main');page.locator('#atlas-native-view').click()
+  choose('dsm','main')
+  check('DSM overview statistics are explicitly labeled with their own layer','地表高程 DSM' in page.locator('#atlas-regional-status').inner_text() and '80.29' in page.locator('#atlas-regional-status').inner_text())
+  page.locator('#atlas-native-view').click()
   page.wait_for_function("document.querySelector('#atlas-load-label').hidden && Array.from(document.querySelectorAll('#hainan-atlas-map canvas')).some(c=>c._regionalCoords?.z>=11&&Number(c.dataset.validPixels)>1000)",timeout=60000)
   check('mainland elevation detail button loads continuous source-scale data','来源 30 m' in page.locator('#atlas-scale-status').inner_text())
+  wait_for_settled('dsm')
+  check('DSM detail replaces the old overview denominator',coverage_matches('连续约30m分块') and 'SCL' not in page.locator('#atlas-regional-status').inner_text())
   page.screenshot(path=str(out/'mainland-elevation-detail.png'),full_page=True)
   choose('classes2025','main');check('mainland2025 classification uses local class-code tiles',page.locator('canvas[data-mode=local-classification]').count()>0)
   page.locator('#atlas-native-view').click();page.wait_for_function("document.querySelector('#atlas-load-label').hidden && Array.from(document.querySelectorAll('canvas[data-mode=local-classification]')).some(c=>Number(c.dataset.validPixels)>1000)",timeout=60000)
   check('2025 detail classification remains local at close zoom',page.locator('#atlas-scale-status').inner_text().find('来源 10 m')>=0)
+  wait_for_settled('classes2025')
+  check('classification coverage never retains DSM statistics',coverage_matches('2025完整土地覆盖') and 'DSM' not in page.locator('#atlas-regional-status').inner_text())
   page.screenshot(path=str(out/'mainland-landcover-detail.png'),full_page=True)
   choose('crops2025','main');check('crop-only transparency is explained','仅显示类别5' in page.locator('#atlas-runtime-coverage').inner_text())
+  check('crop-only coverage has its own label and no prior denominator',coverage_matches('2025仅作物类别'))
   choose('monthlyRain','main');page.locator('#atlas-month').select_option('2025-01');page.wait_for_function("document.querySelector('#atlas-load-label').hidden",timeout=60000)
   january=page.locator('#hainan-atlas-map canvas').evaluate_all("es=>es.reduce((n,c)=>n+c.getContext('2d').getImageData(0,0,256,256).data.reduce((a,v)=>a+v,0),0)")
   page.locator('#atlas-month').select_option('2025-07');page.wait_for_function("document.querySelector('#atlas-load-label').hidden",timeout=60000)
@@ -113,11 +145,14 @@ with sync_playwright() as p:
   for layer in ['soil','imagery','rain','dsm','classes2025','soc','landcover']:
    page.locator(f'[data-atlas="{layer}"]').click()
   page.wait_for_timeout(1200);check('rapid switching retains final selected layer',page.locator('[data-atlas="landcover"]').get_attribute('aria-pressed')=='true')
+  check('historical2021 coverage replaces the previous layer statistics',coverage_matches('2021 WorldCover') and 'SCL' not in page.locator('#atlas-regional-status').inner_text())
   page.locator('#hainan-atlas-map .leaflet-control-zoom-in').click()
   page.locator('[data-nav="overview"]').click();page.wait_for_selector('.parcel');page.wait_for_timeout(500);check('zoom then navigation has no disposal exception',not report['errors']);check('FTW110 original geometries preserved',page.locator('.parcel').count()==110)
   for mode in ['crops2025','classes2025','prediction']:page.locator('#spatial-data-mode').select_option(mode)
   check('source mode round trip preserves110 plots',page.locator('.parcel').count()==110)
-  page.set_viewport_size({'width':390,'height':844});page.locator('[data-action="menu"]').click();page.locator('nav [data-nav="atlas"]').click();page.wait_for_selector('#atlas-region:not([disabled])');check('mobile directly opens the Hainan data map',page.locator('.atlas-workspace').count()==1);check('mobile map begins within the first screen',page.locator('#hainan-atlas-map').evaluate('e=>e.getBoundingClientRect().top<innerHeight'));page.screenshot(path=str(out/'mainland-home-mobile.png'),full_page=True);page.locator('[data-action="menu"]').click();page.locator('[data-nav="research"]').click();page.wait_for_selector('#atlas-region:not([disabled])');page.wait_for_timeout(1200);check('mobile page has no horizontal overflow',page.evaluate('document.documentElement.scrollWidth<=innerWidth'));page.screenshot(path=str(out/'regional-mobile.png'),full_page=True)
+  page.set_viewport_size({'width':390,'height':844});page.locator('[data-action="menu"]').click();page.locator('nav [data-nav="atlas"]').click();page.wait_for_selector('#atlas-region:not([disabled])');check('mobile directly opens the Hainan data map',page.locator('.atlas-workspace').count()==1);check('mobile map begins within the first screen',page.locator('#hainan-atlas-map').evaluate('e=>e.getBoundingClientRect().top<innerHeight'))
+  wait_for_settled('imagery');check('mobile homepage imagery fully settles without tile errors before capture',page.evaluate(settled_view,'imagery'));page.screenshot(path=str(out/'mainland-home-mobile.png'),full_page=True)
+  page.locator('[data-action="menu"]').click();page.locator('[data-nav="research"]').click();page.wait_for_selector('#atlas-region:not([disabled])');wait_for_settled('imagery');check('mobile page has no horizontal overflow',page.evaluate('document.documentElement.scrollWidth<=innerWidth'));page.screenshot(path=str(out/'regional-mobile.png'),full_page=True)
   page.locator('button[data-language="en"]').click();page.wait_for_timeout(1000);check('regional English UI contains no untranslated Chinese',not page.evaluate("/[\\u3400-\\u9fff]/.test(document.querySelector('main').innerText)"))
   # An isolated context has no prior preview cache. A failed image request must be recoverable.
   failed_context=browser.new_context(viewport={'width':1200,'height':1000},service_workers='block')
@@ -143,8 +178,12 @@ with sync_playwright() as p:
   check('early county-boundary toggle survives asynchronous data loading',True);boundary_context.close()
   # Local classification failure and retry must recover visibly, not only alter counters.
   class_context=browser.new_context(viewport={'width':1200,'height':1000},service_workers='block');class_context.route('**/landcover-local-manifest.json',lambda r:r.abort())
-  cp=class_context.new_page();cp.goto(a.url+'/#atlas',wait_until='domcontentloaded');cp.locator('[data-atlas="classes2025"]').click();cp.wait_for_selector('#atlas-retry-raster:not([hidden])',timeout=60000)
+  cp=class_context.new_page();cp.goto(a.url+'/#atlas',wait_until='domcontentloaded');cp.wait_for_selector('#atlas-region:not([disabled])');cp.locator('[data-atlas="dsm"]').click();wait_for_settled('dsm',cp)
+  check('failure regression starts from a real DSM overview denominator','80.29' in cp.locator('#atlas-regional-status').inner_text())
+  cp.locator('[data-atlas="classes2025"]').click();cp.wait_for_selector('#atlas-retry-raster:not([hidden])',timeout=60000)
   check('classification request failure has visible retry feedback','请求失败' in cp.locator('#atlas-runtime-coverage').inner_text())
+  failed_coverage=cp.locator('#atlas-regional-status').inner_text()
+  check('failed classification cannot retain prior DSM coverage','2025完整土地覆盖' in failed_coverage and all(old not in failed_coverage for old in ['1,316,924','1,640,250','80.29','DSM']))
   class_context.unroute('**/landcover-local-manifest.json');cp.locator('#atlas-retry-raster').click()
   cp.wait_for_function("Array.from(document.querySelectorAll('canvas[data-mode=\"local-classification\"]')).some(c=>Number(c.dataset.validPixels)>1000&&c.classList.contains('leaflet-tile-loaded')&&getComputedStyle(c).visibility==='visible')",timeout=60000)
   check('classification retry restores visible source-backed pixels',True);class_context.close()
