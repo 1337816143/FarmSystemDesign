@@ -54,7 +54,7 @@ with sync_playwright() as p:
   page.locator('[data-nav="overview"]').click();page.wait_for_selector('.parcel');page.wait_for_timeout(500);check('zoom then navigation has no disposal exception',not report['errors']);check('FTW110 original geometries preserved',page.locator('.parcel').count()==110)
   for mode in ['crops2025','classes2025','prediction']:page.locator('#spatial-data-mode').select_option(mode)
   check('source mode round trip preserves110 plots',page.locator('.parcel').count()==110)
-  page.set_viewport_size({'width':390,'height':844});page.locator('[data-nav="research"]').click();page.wait_for_selector('#atlas-region:not([disabled])');page.wait_for_timeout(1200);check('mobile page has no horizontal overflow',page.evaluate('document.documentElement.scrollWidth<=innerWidth'));page.screenshot(path=str(out/'regional-mobile.png'),full_page=True)
+  page.set_viewport_size({'width':390,'height':844});page.locator('[data-action="menu"]').click();page.locator('[data-nav="research"]').click();page.wait_for_selector('#atlas-region:not([disabled])');page.wait_for_timeout(1200);check('mobile page has no horizontal overflow',page.evaluate('document.documentElement.scrollWidth<=innerWidth'));page.screenshot(path=str(out/'regional-mobile.png'),full_page=True)
   page.locator('button[data-language="en"]').click();page.wait_for_timeout(1000);check('regional English UI contains no untranslated Chinese',not page.evaluate("/[\\u3400-\\u9fff]/.test(document.querySelector('main').innerText)"))
   check('range-supported source pixels were really requested',sum(r['status']==206 and bool(r['range']) for r in report['cog_responses'])>=4)
   check('no browser exceptions',not report['errors']);report['success']=True
