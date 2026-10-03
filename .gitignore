@@ -8,3 +8,5 @@ test-results-v*/
 __pycache__/
 .env
 .env.*
+.playwright-cli/
+output/playwright/

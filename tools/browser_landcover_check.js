@@ -1,0 +1,36 @@
+async (page) => {
+  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
+  const checks=[];
+  const check=(name,ok)=>{if(!ok)throw new Error(name);checks.push(name);};
+  await page.locator('[data-atlas="crops2025"]').click();
+  await page.waitForFunction(()=>Array.from(document.querySelectorAll('#hainan-atlas-map img.leaflet-tile')).some(i=>i.complete&&i.naturalWidth===256),null,{timeout:45000});
+  check('2025 crop tiles render',await page.locator('[data-atlas="crops2025"]').getAttribute('aria-pressed')==='true');
+  check('old summary hidden in 2025 mode',await page.locator('#atlas-cover-summary').isHidden());
+  await page.locator('[data-atlas="classes2025"]').click();
+  check('cloud legend shown', (await page.locator('#atlas-land-legend').innerText()).includes('10'));
+  await page.locator('[data-atlas="landcover"]').click();
+  await page.waitForFunction(()=>document.querySelector('#hainan-atlas-map .leaflet-image-layer')?.style.opacity==='0.95');
+  check('legacy 2021 restored with original summary',await page.locator('#atlas-cover-summary').isVisible());
+  await page.locator('button[data-language="en"]').click();
+  check('research English mode has no Chinese',!await page.locator('main').evaluate(el=>/[\u3400-\u9fff]/.test(el.innerText)));
+  await page.locator('[data-nav="overview"]').click();
+  check('original polygons preserved',await page.locator('.parcel').count()===110);
+  await page.locator('#spatial-data-mode').selectOption('crops2025');
+  await page.waitForFunction(()=>Array.from(document.querySelectorAll('#farm-map img.leaflet-tile')).some(i=>i.complete&&i.naturalWidth===256),null,{timeout:45000});
+  check('farm crop mode renders remote tiles',await page.locator('#spatial-data-mode').inputValue()==='crops2025');
+  check('old boundaries hidden in crop mode',await page.locator('#farm-map .leaflet-parcels-pane').evaluate(el=>getComputedStyle(el).display==='none'));
+  check('farm English mode has no Chinese',!await page.locator('main').evaluate(el=>/[\u3400-\u9fff]/.test(el.innerText)));
+  await page.setViewportSize({width:390,height:844});
+  await page.waitForTimeout(500);
+  check('mobile no horizontal page overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=window.innerWidth));
+  await page.screenshot({path:'output/playwright/landcover2025-mobile.png',fullPage:true});
+  await page.locator('#spatial-data-mode').selectOption('classes2025');
+  await page.locator('#spatial-data-mode').selectOption('prediction');
+  check('original geometry restored',await page.locator('.parcel').count()===110&&await page.locator('#farm-map .leaflet-parcels-pane').evaluate(el=>getComputedStyle(el).display!=='none'));
+  await page.setViewportSize({width:1440,height:1050});
+  await page.locator('[data-nav="research"]').click();
+  await page.locator('[data-atlas="classes2025"]').click();
+  await page.screenshot({path:'output/playwright/landcover2025-desktop.png',fullPage:true});
+  check('no browser exceptions',errors.length===0);
+  return {checks,errors};
+}

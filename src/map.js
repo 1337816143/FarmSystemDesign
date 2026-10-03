@@ -1,5 +1,6 @@
 /** Local Leaflet engine, georeferenced historical imagery and untouched source polygons. */
 import {CROPS,centroid} from './data.js';
+import {createLandcoverLayer} from './landcover-layer.js';
 import {esc,fmt,icon} from './utils.js';
 export function project([lon,lat],z){const n=256*2**z,s=Math.sin(lat*Math.PI/180);return [(lon+180)/360*n,(.5-Math.log((1+s)/(1-s))/(4*Math.PI))*n];}
 export function unproject([x,y],z){const n=256*2**z;return [x/n*360-180,Math.atan(Math.sinh(Math.PI*(1-2*y/n)))*180/Math.PI];}
@@ -11,7 +12,7 @@ export class FarmMap{
   if(!globalThis.L){el.innerHTML='<div class="empty">地图引擎未加载，请刷新；未用虚构地图替代。</div>';return;}
   const L=globalThis.L;this.L=L;
   el.innerHTML='<div class="leaflet-host"></div><div class="map-location"><span class="map-dot"></span><div><b>YAZHOU · HAINAN</b><small>空间证据窗口 / 非已确认研究区</small></div></div><div class="map-north" aria-label="地图正北向上"><span>N</span>↑</div><div class="map-coordinate">WGS84 · EPSG:4326</div><div class="map-mini-legend"><span><i></i>公开预测边界 · 未地面核验</span><span><i class="sel"></i>选中单元</span></div>';
-  const m=this.map=L.map(el.querySelector('.leaflet-host'),{zoomControl:false,attributionControl:true,zoomSnap:.25,zoomDelta:.5,minZoom:11,maxZoom:18,preferCanvas:false,fadeAnimation:true,zoomAnimation:true});
+  const m=this.map=L.map(el.querySelector('.leaflet-host'),{zoomControl:false,attributionControl:true,zoomSnap:.25,zoomDelta:.5,minZoom:6,maxZoom:18,preferCanvas:false,fadeAnimation:true,zoomAnimation:true});
   m.attributionControl.setPrefix(false);
   m.attributionControl.addAttribution('<a href="https://source.coop/ftw/global-data" target="_blank" rel="noreferrer">FTW/PRUE · CC-BY-4.0</a> · <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap · ODbL</a>');
   m.createPane('imagery');m.getPane('imagery').style.zIndex=210;
@@ -22,6 +23,8 @@ export class FarmMap{
   this.plotGroup=L.featureGroup().addTo(m);this.connectionGroup=L.featureGroup().addTo(m);
   this.setBasemap(options.basemap||'satellite');
   this.setSourceLayers();
+  this.setDataMode(options.dataMode || 'prediction');
+  if(options.dataMode&&options.dataMode!=='prediction'){const note=document.createElement('small');note.textContent='10 m 原生；17/18级仅放大';this.el.querySelector('.map-mini-legend').append(note);}
   const selected=new Set(options.selectedIds),owners=options.data.farms.map(f=>f.id);
   for(const p of options.data.plots){
     const active=selected.has(p.farmId),crop=CROPS[options.allocation?.[p.id]||p.crop];
@@ -49,6 +52,21 @@ export class FarmMap{
  highlight(id){this.o.selectedPlot=id;Object.values(this.plotLayers).forEach(l=>this.styleLayer(l));this.plotLayers[id]?.bringToFront();}
  setOpacity(v){this.o.opacity=v;Object.values(this.plotLayers).forEach(l=>this.styleLayer(l));}
  fit(animate=true){const {L,map:m,o}=this;const ps=o.data.plots.filter(p=>o.selectedIds.includes(p.farmId));const b=L.geoJSON({type:'FeatureCollection',features:ps.map(p=>({type:'Feature',geometry:p.geometry}))}).getBounds();if(b.isValid())m.fitBounds(b,{padding:[44,44],maxZoom:16,animate,duration:.6});}
+ setDataMode(mode){
+  this.o.dataMode=mode;
+  if(this.classLayer)this.map.removeLayer(this.classLayer);
+  this.classLayer=null;
+  this.map.getPane('parcels').style.display=mode==='prediction'?'':'none';
+  this.map.getPane('source').style.display=mode==='prediction'?'':'none';
+  if(mode!=='prediction'){
+    this.classLayer=createLandcoverLayer(this.L,{cropsOnly:mode==='crops2025',pane:'source',opacity:.85}).addTo(this.map);
+    this.classLayer.on('tileerror',()=>{this.el.querySelector('.map-coordinate').textContent='2025 分类服务暂不可用 / Classification service unavailable';});
+    this.map.getPane('source').style.display='';
+    if(this.layers.allFields)this.map.removeLayer(this.layers.allFields);
+    if(this.layers.osmEvidence)this.map.removeLayer(this.layers.osmEvidence);
+  }
+  this.el.querySelector('.map-mini-legend').textContent=mode==='prediction'?'FTW 2025 预测边界；非地籍 / Predicted field boundaries':mode==='crops2025'?'2025 Crops=5；透明区可能是其他类别、云或无数据，切换完整分类核查 / Crops class only':'2025 分类：云=10；透明=无数据 / Clouds=10; transparent=no data';
+ }
  setSourceLayers(){const {o,L,map:m}=this;if(o.osmPatches&&o.showOSM)this.layers.osmEvidence=L.geoJSON(o.osmPatches,{pane:'source',interactive:false,style:{color:'#ffc775',weight:1.6,fill:false,dashArray:'6 5',opacity:.8}}).addTo(m);if(o.allFields&&o.showAllFields)this.layers.allFields=L.geoJSON(o.allFields,{pane:'source',interactive:false,style:{color:'#a9c6d9',weight:.7,fill:false,opacity:.48}}).addTo(m);}
  setBasemap(type){const {o,L,map:m}=this;this.o.basemap=type;if(this.base)m.removeLayer(this.base);if(this.contextLayer)m.removeLayer(this.contextLayer);this.base=null;this.el.classList.toggle('vector-mode',type==='context');
   if(type==='satellite'&&o.imagery){const im=o.imagery;this.base=L.imageOverlay('./data/evidence/'+im.filename,[[im.bbox[1],im.bbox[0]],[im.bbox[3],im.bbox[2]]],{pane:'imagery',className:'satellite-snapshot',opacity:1,attribution:'Contains modified Copernicus Sentinel data (2025) · 2025-03-22 · 10 m'}).addTo(m);this.base.on('error',()=>{this.el.querySelector('.map-coordinate').textContent='影像加载失败 · 边界不是影像替代';});}

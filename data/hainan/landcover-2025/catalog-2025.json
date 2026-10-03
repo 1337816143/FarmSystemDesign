@@ -1,0 +1,33 @@
+{
+  "objectIdFieldName": "OBJECTID",
+  "fields": [
+    {
+      "name": "OBJECTID",
+      "type": "esriFieldTypeOID",
+      "alias": "OBJECTID",
+      "domain": null
+    },
+    {
+      "name": "Year",
+      "type": "esriFieldTypeSmallInteger",
+      "alias": "Year",
+      "domain": null
+    },
+    {
+      "name": "Name",
+      "type": "esriFieldTypeString",
+      "alias": "Name",
+      "domain": null,
+      "length": 200
+    }
+  ],
+  "features": [
+    {
+      "attributes": {
+        "OBJECTID": 9,
+        "Year": 2025,
+        "Name": "Sentinel_2_10m_LandCover_2025"
+      }
+    }
+  ]
+}

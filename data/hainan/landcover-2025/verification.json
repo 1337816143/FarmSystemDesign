@@ -1,0 +1,132 @@
+{
+  "retrievedAt": "2026-10-03T02:39:55.420646+00:00",
+  "year": 2025,
+  "source": "https://ic.imagery1.arcgis.com/arcgis/rest/services/Sentinel2_10m_LandCover/ImageServer",
+  "itemId": "cfcb7609de5f478eb7666240902d4d3d",
+  "latestVerifiedYearInThisService": 2025,
+  "nativeResolutionM": 10,
+  "classCode": 5,
+  "className": "Crops",
+  "sourceLicense": "CC-BY-4.0",
+  "serviceLicense": "Esri Master License Agreement; see item.json licenseInfo",
+  "attribution": "Impact Observatory, Microsoft, and Esri",
+  "classification": "annual deep-learning land-cover class, not cadastral or statutory cultivated land",
+  "cloudClass": 10,
+  "probes": [
+    {
+      "name": "main-island",
+      "bbox_wsen": [
+        108.5,
+        17.8,
+        111.5,
+        20.5
+      ],
+      "request_url": "https://ic.imagery1.arcgis.com/arcgis/rest/services/Sentinel2_10m_LandCover/ImageServer/exportImage?f=image&bbox=108.5%2C17.8%2C111.5%2C20.5&bboxSR=4326&imageSR=4326&size=256%2C256&format=png32&interpolation=RSP_NearestNeighbor&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22where%22%3A+%22Year+%3D+2025%22%7D&renderingRule=%7B%22rasterFunction%22%3A+%22Cartographic+Renderer+for+Visualization+and+Analysis%22%7D",
+      "sha256": "3a768de149b09427e590d96ebabc289b2b4168ea6b05014b7298d0b65501850e",
+      "bytes": 13978,
+      "size": [
+        256,
+        256
+      ],
+      "nontransparent_pixels": 31920,
+      "total_pixels": 65536,
+      "interpretation": "coarse rendered window probe; includes ocean; not complete land coverage or native-class statistics"
+    },
+    {
+      "name": "yazhou",
+      "bbox_wsen": [
+        109.108,
+        18.354,
+        109.151,
+        18.397
+      ],
+      "request_url": "https://ic.imagery1.arcgis.com/arcgis/rest/services/Sentinel2_10m_LandCover/ImageServer/exportImage?f=image&bbox=109.108%2C18.354%2C109.151%2C18.397&bboxSR=4326&imageSR=4326&size=256%2C256&format=png32&interpolation=RSP_NearestNeighbor&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22where%22%3A+%22Year+%3D+2025%22%7D&renderingRule=%7B%22rasterFunction%22%3A+%22Cartographic+Renderer+for+Visualization+and+Analysis%22%7D",
+      "sha256": "5b04b0e8c0d53ca36b7e4ab9b1cd66e4b2664773f42e1b1cfab4da59694161ff",
+      "bytes": 6665,
+      "size": [
+        256,
+        256
+      ],
+      "nontransparent_pixels": 65536,
+      "total_pixels": 65536,
+      "interpretation": "coarse rendered window probe; includes ocean; not complete land coverage or native-class statistics"
+    },
+    {
+      "name": "xisha-window",
+      "bbox_wsen": [
+        111.5,
+        15.5,
+        113,
+        17.5
+      ],
+      "request_url": "https://ic.imagery1.arcgis.com/arcgis/rest/services/Sentinel2_10m_LandCover/ImageServer/exportImage?f=image&bbox=111.5%2C15.5%2C113%2C17.5&bboxSR=4326&imageSR=4326&size=256%2C256&format=png32&interpolation=RSP_NearestNeighbor&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22where%22%3A+%22Year+%3D+2025%22%7D&renderingRule=%7B%22rasterFunction%22%3A+%22Cartographic+Renderer+for+Visualization+and+Analysis%22%7D",
+      "sha256": "f0c7c79be43254456998dce1f0837a6d033c32da7352634e83606c7e1d5fbf2d",
+      "bytes": 1581,
+      "size": [
+        256,
+        256
+      ],
+      "nontransparent_pixels": 6012,
+      "total_pixels": 65536,
+      "interpretation": "coarse rendered window probe; includes ocean; not complete land coverage or native-class statistics"
+    },
+    {
+      "name": "nansha-window",
+      "bbox_wsen": [
+        109,
+        3,
+        118,
+        12
+      ],
+      "request_url": "https://ic.imagery1.arcgis.com/arcgis/rest/services/Sentinel2_10m_LandCover/ImageServer/exportImage?f=image&bbox=109%2C3%2C118%2C12&bboxSR=4326&imageSR=4326&size=256%2C256&format=png32&interpolation=RSP_NearestNeighbor&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22where%22%3A+%22Year+%3D+2025%22%7D&renderingRule=%7B%22rasterFunction%22%3A+%22Cartographic+Renderer+for+Visualization+and+Analysis%22%7D",
+      "sha256": "92ffae7173b146fe5de8446ed2ce27088538c023307e94c761466cce8efd4eea",
+      "bytes": 5084,
+      "size": [
+        256,
+        256
+      ],
+      "nontransparent_pixels": 12776,
+      "total_pixels": 65536,
+      "interpretation": "coarse rendered window probe; includes ocean; not complete land coverage or native-class statistics"
+    }
+  ],
+  "classSample": {
+    "file": "yazhou-classes-sample.tif",
+    "request_url": "https://ic.imagery1.arcgis.com/arcgis/rest/services/Sentinel2_10m_LandCover/ImageServer/exportImage?f=image&bbox=109.108%2C18.354%2C109.151%2C18.397&bboxSR=4326&imageSR=4326&size=256%2C256&format=tiff&pixelType=U8&interpolation=RSP_NearestNeighbor&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22where%22%3A+%22Year+%3D+2025%22%7D&renderingRule=%7B%22rasterFunction%22%3A+%22None%22%7D",
+    "counts": {
+      "1": 5827,
+      "2": 1159,
+      "4": 68,
+      "5": 31378,
+      "7": 23454,
+      "8": 250,
+      "11": 3400
+    },
+    "total": 65536,
+    "interpretation": "bounded 256x256 nearest-neighbour raw-class sample, not native-area or province-wide statistics"
+  },
+  "coverage": {
+    "mainIsland": "rendered window verified; full pixel completeness not established",
+    "outlyingIslands": "not individually enumerated or validated",
+    "sansha": "Xisha/Nansha window probes only; every island/reef not validated"
+  },
+  "budget": {
+    "requests": 10,
+    "maximumExportPixelsPerRequest": 65536,
+    "cogRangeBytes": 65536,
+    "bulkRasterDownload": false
+  },
+  "hashes": {
+    "49Q-cog-range-verification.json": "1474bf7787bf591ae45ea8319d41c27b03f1528c98219727f5d79cf1fa88cada",
+    "catalog-2025.json": "2feef5d4e62743a972f374a936b2c5fad83f3a5aa256642e2ba1ece824e8c4ce",
+    "crop-class-consistency.json": "ea5aeaeb9a8acadde56c789dd7e8b5cf0d4da42df716e30eb4bf3d77a1908ac4",
+    "item.json": "cd25bef49cc7f3413d017c90c502765aaf5d0f8c53d5fb48f2319c72e1d77cb4",
+    "main-island-probe.png": "3a768de149b09427e590d96ebabc289b2b4168ea6b05014b7298d0b65501850e",
+    "nansha-window-probe.png": "92ffae7173b146fe5de8446ed2ce27088538c023307e94c761466cce8efd4eea",
+    "service.json": "eb7cd5dca45e98cca81ff055b9d0db478878e2e00439b87890fa310adac13bd5",
+    "xisha-window-probe.png": "f0c7c79be43254456998dce1f0837a6d033c32da7352634e83606c7e1d5fbf2d",
+    "yazhou-classes-sample.tif": "26a58b508135a3a2d55712a46c65a367b999e5b10655a31aa80bbeb714fb7cd9",
+    "yazhou-crops-probe.png": "ace335f6562fabb72ba774ceb24c58aa4ee0e6a0adde26528fb9e46b5655b426",
+    "yazhou-probe.png": "5b04b0e8c0d53ca36b7e4ab9b1cd66e4b2664773f42e1b1cfab4da59694161ff"
+  }
+}

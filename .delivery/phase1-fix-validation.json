@@ -1,0 +1,9 @@
+{
+  "base":"c2192c43e7b0d6b349b2d07e20252a523615bfd6",
+  "fixes":["Evidence JSON uses LF in both production writer and Git checkout; exact SHA256 manifest regenerated", "Classification maxNativeZoom16 and maxZoom18 retain imagery at zoom17/18 with explicit enlargement notice"],
+  "gitArchiveTests":{"passed":49,"failed":0,"allSixEvidenceJsonFilesLf":true},
+  "browserChecks":["Crops zoom16 native16", "Crops zoom17 native16", "Crops zoom18 native16", "All classes zoom16 native16", "All classes zoom17 native16", "All classes zoom18 native16", "Enlargement meaning visible", "Original110 polygons restore", "No browser exceptions"],
+  "browserErrors":[],
+  "hashPolicy":"Exact committed bytes, no newline-insensitive verification",
+  "phase2Included":false
+}

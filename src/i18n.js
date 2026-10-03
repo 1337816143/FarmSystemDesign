@@ -10,6 +10,17 @@ const ATTRIBUTES = ['aria-label', 'title', 'placeholder', 'alt'];
 
 // Reviewed research terms take precedence over the generated draft catalog.
 const REVIEWED = {
+  '10 m 原生；17/18级仅放大': 'Native 10 m; zoom 17/18 enlarged only',
+  '空间数据模式 / Spatial data': 'Spatial data mode',
+  '空间数据模式': 'Spatial data mode',
+  '原版 FTW 2025 田块预测': 'Original FTW 2025 field prediction',
+  '新版 2025 Crops 分类=5': 'New 2025 Crops class=5',
+  '2025 完整分类（含云类）': '2025 All classes (including clouds)',
+  '依据与覆盖范围': 'Basis and coverage',
+  'FTW 2025 预测边界；非地籍 / Predicted field boundaries': 'FTW 2025 predicted field boundaries; not cadastral',
+  '2025 Crops=5；透明区可能是其他类别、云或无数据，切换完整分类核查 / Crops class only': '2025 Crops=5; transparent may be other classes, cloud or no data. Check all classes.',
+  '2025 分类：云=10；透明=无数据 / Clouds=10; transparent=no data': '2025 classes: clouds=10; transparent=no data',
+
   '10 m 原始分类 · 约 300 m 地图预览': '10 m native classes · about 300 m map preview',
   '海南主岛空间背景与探索性面积': 'Hainan main-island context and exploratory area',
   '已按原始像元汇总产品派生主岛掩膜的类别面积；掩膜约 100 m 采样。尚无现势市县面积和海南本地分类精度验证。覆被不是法定土地用途或经营权。': 'Native class pixels were summarized for a product-derived main-island mask sampled at about 100 m. Current county areas and local Hainan classification accuracy remain unverified. Cover is not legal land use or management rights.',

@@ -1,0 +1,9 @@
+{
+  "url": "https://lulctimeseries.blob.core.windows.net/lulctimeseriesv003/lc2025/49Q_20250101-20251231.tif",
+  "status": 206,
+  "contentRange": "bytes 0-65535/136217448",
+  "cors": "*",
+  "sampleBytes": 65536,
+  "sampleSha256": "ab143ec7afba5cfad1bacea5760fa3bf9e44f57d56f13a990d015478572cd3fb",
+  "interpretation": "64KiB header range verification only; NOT a full-file hash or validated province coverage; public 2025 tile 49Q covers main-island region"
+}

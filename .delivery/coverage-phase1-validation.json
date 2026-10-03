@@ -1,0 +1,25 @@
+{
+  "base": "4b794b028d266a4b4999970fd9ffe4f631a58b28",
+  "scope": "First phase: original prediction preserved, switchable pinned 2025 Crops and all-class evidence layers",
+  "nodeTests": {"passed":49,"failed":0},
+  "syntaxCheck":"passed",
+  "staticBuild":"passed",
+  "browserChecks": [
+    "2025 crop tiles render in atlas",
+    "2021 summary hidden in 2025 modes",
+    "2025 all-class cloud legend",
+    "2021 layer and summary restored",
+    "research English mode no untranslated Chinese",
+    "original 110 prediction polygons preserved",
+    "2025 farm-map crop tiles render",
+    "old prediction pane hidden in crop mode",
+    "farm English mode no untranslated Chinese",
+    "390px mobile no horizontal page overflow",
+    "original prediction pane and polygons restored",
+    "no browser JavaScript exceptions"
+  ],
+  "dataEvidence":"data/hainan/landcover-2025/verification.json",
+  "coverageLimit":"Main-island and Yazhou rendered windows plus Xisha/Nansha probes only; complete province and per-island coverage remains unvalidated",
+  "remainingWork":["Current administrative boundary reconciliation", "Complete 10m RGB scene coverage with SCL clouds/no-data", "Per-island and Sansha validation", "DEM and climate grids", "Native full-region classification statistics and independent accuracy validation"],
+  "publishing":"Prepared for parent to integrate and publish on main; this branch does not push main"
+}

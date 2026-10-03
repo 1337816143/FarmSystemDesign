@@ -1,3 +1,4 @@
+import {createLandcoverLayer} from './landcover-layer.js';
 // Hainan evidence atlas. The geospatial products never enter the farm model.
 import {validCoverSummary, coverSummaryCsv} from './cover-summary.js';
 const BOX = [[17.8, 108.5], [20.5, 111.5]];
@@ -81,6 +82,9 @@ export function atlasMarkup(language = 'zh') {
     <div class="research-section-head atlas-heading"><div><span class="research-index">${label('eyebrow')}</span><h2>${label('title')}</h2><p>${label('intro')}</p></div><a href="./docs/Hainan_DATA_SOURCE_AUDIT.md" target="_blank" rel="noopener noreferrer">${label('sources')} ↗</a></div>
     <div class="atlas-layout"><div class="atlas-map-wrap"><div class="atlas-toolbar" role="group" aria-label="Hainan map layers">
       <button type="button" data-atlas="landcover" aria-pressed="true">${label('land')}</button>
+      <button type="button" data-atlas="crops2025" aria-pressed="false">${language==='en'?'2025 Crops class=5':'2025 Crops 分类=5'}</button>
+      <button type="button" data-atlas="classes2025" aria-pressed="false">${language==='en'?'2025 All classes':'2025 完整分类 / All classes'}</button>
+      <a href="./docs/SPATIAL_COVERAGE_PHASE1.md" target="_blank" rel="noreferrer">${language==='en'?'2025 Source and coverage':'2025 来源与覆盖 / Coverage'}</a>
       <button type="button" data-atlas="soil" aria-pressed="false">${label('soil')}</button>
       <button type="button" data-atlas="soc" aria-pressed="false">${label('soc')}</button>
       <label><input id="atlas-boundaries" type="checkbox"> ${label('borders')}</label>
@@ -195,7 +199,32 @@ export class HainanAtlas {
     const button = event.target.closest('[data-atlas]');
     if (!button || !this.host.contains(button)) return;
     if (button.dataset.atlas === this.layer && !this.host.classList.contains('atlas-error')) return;
+    if(this.remoteLayer){this.map.removeLayer(this.remoteLayer);this.remoteLayer=null;}
     this.layer = button.dataset.atlas;
+    if(this.layer==='crops2025'||this.layer==='classes2025'){
+      ++this.switchToken;
+      this.overlay.setOpacity(0);
+      this.host.classList.remove('atlas-loading','atlas-error');
+      this.host.querySelector('#atlas-load-label').hidden=true;
+      this.host.querySelector('#atlas-error-label').hidden=true;
+      this.remoteLayer=createLandcoverLayer(L,{cropsOnly:this.layer==='crops2025',opacity:Number(this.host.querySelector('#atlas-opacity').value)/100}).addTo(this.map);
+      this.remoteLayer.on('tileerror',()=>{if(!this.map)return;this.host.querySelector('#atlas-error-label').hidden=false;});
+      this.host.querySelector('#atlas-current-title').textContent=this.layer==='crops2025'?'2025 Crops=5':'2025 All classes';
+      this.host.querySelector('#atlas-current-type').textContent=this.language==='en'?'Impact Observatory / Microsoft / Esri · 10 m native · on demand. Annual model classification; not cadastral or statutory cultivated land.':'Impact Observatory / Microsoft / Esri · 10 m 原生 · 按视野加载。年度模型分类；非地籍或法定耕地。';
+      this.host.querySelector('#atlas-inspect').textContent=this.language==='en'?'Clouds=10; transparent may be no data or hidden non-Crops classes. Main island/outlying islands/Sansha coverage not fully validated.':'云=10；透明可能是无数据（Crops 模式也隐藏其他类别）。本岛/离岛/三沙覆盖未逐像元核验。';
+      for(const key of ['soil','soc'])this.host.querySelector(`#atlas-${key}-legend`).hidden=true;
+      const legend=this.host.querySelector('#atlas-land-legend');legend.hidden=false;
+      const attribution=this.host.querySelector('.atlas-attribution');
+      if(!this.originalAttribution)this.originalAttribution=attribution.textContent;
+      attribution.textContent='Impact Observatory, Microsoft, Esri · 2025 · source CC BY 4.0; online service Esri terms. Metadata: data/hainan/landcover-2025/item.json';
+      if(!this.oldLandLegend)this.oldLandLegend=legend.innerHTML;
+      legend.textContent=this.language==='en'?'1 Water · 2 Trees · 4 Flooded vegetation · 5 Crops · 7 Built area · 8 Bare ground · 9 Snow/ice · 10 Clouds · 11 Rangeland':'1 水体 · 2 树木 · 4 淹水植被 · 5 作物 · 7 建成区 · 8 裸地 · 9 冰雪 · 10 云（无有效分类） · 11 草灌地';
+      this.host.querySelector('#atlas-cover-summary').hidden=true;
+      for(const el of this.host.querySelectorAll('[data-atlas]'))el.setAttribute('aria-pressed',String(el===button));
+      return;
+    }
+    if(this.oldLandLegend)this.host.querySelector('#atlas-land-legend').innerHTML=this.oldLandLegend;
+    if(this.originalAttribution)this.host.querySelector('.atlas-attribution').textContent=this.originalAttribution;
     const soil = this.layer === 'soil', soc = this.layer === 'soc';
     const token = ++this.switchToken;
     const t = WORDS[this.language === 'en' ? 'en' : 'zh'];
@@ -232,7 +261,7 @@ export class HainanAtlas {
   }
 
   handleInput(event) {
-    if (event.target.id === 'atlas-opacity' && !this.host.classList.contains('atlas-loading')) this.overlay.setOpacity(Number(event.target.value) / 100);
+    if (event.target.id === 'atlas-opacity' && !this.host.classList.contains('atlas-loading')) (this.remoteLayer||this.overlay).setOpacity(Number(event.target.value) / 100);
     if (event.target.id === 'atlas-boundaries' && this.borderLayer) {
       if (event.target.checked) this.borderLayer.addTo(this.map); else this.map.removeLayer(this.borderLayer);
     }
@@ -241,7 +270,7 @@ export class HainanAtlas {
   inspect(latlng) {
     const t = WORDS[this.language === 'en' ? 'en' : 'zh'];
     if (this.host.classList.contains('atlas-loading') || this.host.classList.contains('atlas-error')) return;
-    let value = this.layer === 'landcover' ? '' : t.noSoil;
+    let value = this.remoteLayer ? (this.language==='en'?'2025 classes; native pixel not queried; clouds=10, transparent may be no data':'2025 分类；此处未查询原始像元；云=10，透明可能是无数据') : this.layer === 'landcover' ? '' : t.noSoil;
     const canvas = this.valueCanvases[this.layer];
     if (canvas && latlng.lng >= BOX[0][1] && latlng.lng <= BOX[1][1] && latlng.lat >= BOX[0][0] && latlng.lat <= BOX[1][0]) {
       const x = Math.min(canvas.width-1, Math.max(0, Math.floor((latlng.lng-BOX[0][1])/(BOX[1][1]-BOX[0][1])*canvas.width)));

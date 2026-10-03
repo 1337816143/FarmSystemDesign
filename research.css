@@ -24,7 +24,7 @@
 .atlas-heading>a{white-space:nowrap;font-size:11px;color:#407b62;text-decoration:underline;text-underline-offset:3px}
 .atlas-layout{display:grid;grid-template-columns:minmax(0,1fr) 240px;gap:16px;margin-top:17px}
 .atlas-map-wrap{min-width:0;border:1px solid #dce8e4;border-radius:11px;overflow:hidden;background:#e5f0f0}
-.atlas-toolbar{display:flex;align-items:stretch;gap:5px;padding:7px;background:#f5f8f6;border-bottom:1px solid #dce8e4}
+.atlas-toolbar{display:flex;flex-wrap:wrap;align-items:stretch;gap:5px;padding:7px;background:#f5f8f6;border-bottom:1px solid #dce8e4}
 .atlas-toolbar button{padding:7px 11px;border-radius:7px;font-size:11px;color:#557063;background:transparent}
 .atlas-toolbar button[aria-pressed=true]{color:#215a42;background:#fff;box-shadow:0 1px 5px #163c2318;font-weight:600}
 .atlas-toolbar label{margin-left:auto;display:flex;align-items:center;gap:5px;white-space:nowrap;color:#667f70;font-size:10px;padding:0 7px}

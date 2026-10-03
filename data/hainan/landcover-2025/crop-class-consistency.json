@@ -1,0 +1,9 @@
+{
+  "year": 2025,
+  "class": 5,
+  "rawClassPixels": 31378,
+  "renderedNontransparentPixels": 31378,
+  "passed": true,
+  "request_url": "https://ic.imagery1.arcgis.com/arcgis/rest/services/Sentinel2_10m_LandCover/ImageServer/exportImage?f=image&bbox=109.108%2C18.354%2C109.151%2C18.397&bboxSR=4326&imageSR=4326&size=256%2C256&format=png32&interpolation=RSP_NearestNeighbor&mosaicRule=%7B%22mosaicMethod%22%3A+%22esriMosaicAttribute%22%2C+%22where%22%3A+%22Year+%3D+2025%22%7D&renderingRule=%7B%22rasterFunction%22%3A+%22Isolate+Crops+for+Visualization+and+Analysis%22%7D",
+  "interpretation": "same bounded sample; confirms class-isolation rendering matches raw Crops codes; not full-region area"
+}
