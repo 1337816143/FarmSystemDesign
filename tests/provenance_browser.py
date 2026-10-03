@@ -161,7 +161,7 @@ class ProvenanceBrowser:
         self.page.wait_for_function('''() => window.provenanceDigestGate.completed.includes(
           'FarmSystemDesign/FrozenRun/v1/computational')''')
         self.settle()
-        self.page.evaluate('crypto.subtle.digest = window.provenanceDigestGate.original')
+        self.page.evaluate('() => { crypto.subtle.digest = window.provenanceDigestGate.original; }')
 
     def verify_interrupted_save(self):
         for newer_intent in ['version', 'metric-contracts', 'navigation', 'candidate']:
