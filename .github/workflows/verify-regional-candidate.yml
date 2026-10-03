@@ -41,6 +41,10 @@ jobs:
           name: hainan-mainland-ui-evidence
           path: |
             test-results/hainan-home-desktop.png
+            test-results/planner*.png
+            test-results/pareto-*.png
+            test-results/browser-report.json
+            test-results/pareto-browser-metrics.json
             test-results/regional/mainland-*.png
             test-results/regional/report.json
           retention-days: 14

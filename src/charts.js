@@ -1,5 +1,6 @@
 import {esc,fmt} from './utils.js';
 import {CROPS} from './data.js';
+import {CANDIDATES_PER_PAGE} from './results.js';
 export function climateChart(climate,quarter=0){
  const rows=climate?.records||[];if(!rows.length)return '<div class="empty compact">尚无公开气候数据。数据中心可尝试获取 NASA POWER；不会展示伪造气象曲线。</div>';
  const w=710,h=210,l=40,r=36,t=18,b=32,W=w-l-r,H=h-t-b,max=Math.ceil(Math.max(100,...rows.map(x=>x.precipitationMmMonth||0))/100)*100;
@@ -18,12 +19,12 @@ export function capacityChart(balances,resource){
  const monthly={};for(const b of balances.filter(b=>b.resource===resource)){monthly[b.month]??={demand:0,capacity:0};monthly[b.month].demand+=b.demand;monthly[b.month].capacity+=b.capacity;}
  return `<div class="capacity-chart">${Object.entries(monthly).map(([m,b])=>{const ratio=b.capacity?b.demand/b.capacity:(b.demand?Infinity:0);return `<div class="capacity-row"><span>${m}月</span><div class="capacity-track"><span class="${ratio>1?'over':''}" style="width:${Math.min(100,ratio*100)}%"></span></div><strong>${fmt(b.demand)} / ${fmt(b.capacity)}</strong></div>`;}).join('')}<p class="micro">需求 / 配额 · ${resource==='水'?'m³':'工日'}；这里汇总显示，实际约束按决策单元逐月检查。</p></div>`;
 }
-export function paretoChart(results,selectedId){
- const points=results.candidates;if(!points.length)return '<div class="empty compact">当前约束下未找到可行候选方案。</div>';
- const all=[...points,results.baseline],xs=all.map(p=>p.totals.water),ys=all.map(p=>p.totals.margin/10000),minX=Math.min(...xs)*.9,maxX=Math.max(...xs)*1.06,minY=Math.min(...ys)-.5,maxY=Math.max(...ys)+.5;
+export function paretoChart(results,selectedId,points=results.candidates.slice(0,CANDIDATES_PER_PAGE)){
+ if(!points.length)return '<div class="empty compact">当前约束下未找到可行候选方案。</div>';
+ const all=[...results.candidates,results.baseline],xs=all.map(p=>p.totals.water),ys=all.map(p=>p.totals.margin/10000),minX=Math.min(...xs)*.9,maxX=Math.max(...xs)*1.06,minY=Math.min(...ys)-.5,maxY=Math.max(...ys)+.5;
  const w=720,h=275,l=55,r=28,t=20,b=48,x=v=>l+(v-minX)/(maxX-minX||1)*(w-l-r),y=v=>h-b-(v-minY)/(maxY-minY||1)*(h-t-b);let shapes='';
  for(let i=0;i<=4;i++){const yp=t+i*(h-t-b)/4;shapes+=`<path d="M${l} ${yp}H${w-r}" class="chart-grid"/><text x="${l-9}" y="${yp+4}" text-anchor="end">${fmt(maxY-i*(maxY-minY)/4,1)}</text>`;const xp=l+i*(w-l-r)/4;shapes+=`<text x="${xp}" y="${h-b+22}" text-anchor="middle">${fmt(minX+i*(maxX-minX)/4)}</text>`;}
  for(const p of points){const active=p.id===selectedId;shapes+=`<circle data-candidate="${esc(p.id)}" cx="${x(p.totals.water)}" cy="${y(p.totals.margin/10000)}" r="${active?7:4.5}" fill="${active?'#ca994e':'#699d88'}" stroke="white" stroke-width="1.6" role="button" tabindex="0" aria-label="候选${esc(p.id)},收益${fmt(p.totals.margin)}元，用水${fmt(p.totals.water)}立方米"><title>${esc(p.id)} · 收益 ${fmt(p.totals.margin)}元 / 水 ${fmt(p.totals.water)}m³</title></circle>`;}
  const bs=results.baseline;shapes+=`<rect x="${x(bs.totals.water)-5}" y="${y(bs.totals.margin/10000)-5}" width="10" height="10" fill="#8b9294"><title>同情景基准安排${bs.feasible?'':'（资源约束不满足）'}</title></rect><text x="${l}" y="12">收益 / 万元</text><text x="${w-r}" y="${h-4}" text-anchor="end">用水量 / m³ →</text>`;
- return `<div class="chart-key"><span><i style="background:#699d88"></i>候选集非支配方案</span><span><i style="background:#ca994e"></i>当前查看</span><span><i style="background:#8b9294"></i>同情景基准</span></div><svg class="pareto-chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="收益与用水权衡散点图，点可选择；完整数值见方案表">${shapes}</svg><p class="micro">图中仅画出两个指标；非支配筛选同时考虑收益、水、氮收支余量绝对值、能量与劳动。最多展示36个排序后的方案。</p>`;
+ return `<div class="chart-key"><span><i style="background:#699d88"></i>候选集非支配方案</span><span><i style="background:#ca994e"></i>当前查看</span><span><i style="background:#8b9294"></i>同情景基准</span></div><svg class="pareto-chart" viewBox="0 0 ${w} ${h}" role="img" aria-label="收益与用水权衡散点图，点可选择；完整数值见方案表">${shapes}</svg><p class="micro">图中仅画出当前页的两个指标，坐标范围涵盖完整非支配集；非支配筛选同时考虑收益、水、氮收支余量绝对值、能量与劳动。每页最多36个方案，可翻页查看全部候选。</p>`;
 }

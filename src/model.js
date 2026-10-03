@@ -88,6 +88,19 @@ export function dominates(a,b){
   return x.margin>=y.margin-eps&&x.water<=y.water+eps&&Math.abs(x.nSurplus)<=Math.abs(y.nSurplus)+eps&&x.energy>=y.energy-eps&&x.labour<=y.labour+eps&&
     (x.margin>y.margin+eps||x.water<y.water-eps||Math.abs(x.nSurplus)<Math.abs(y.nSurplus)-eps||x.energy>y.energy+eps||x.labour<y.labour-eps);
 }
+/** Reorder the complete frontier without changing search inputs, IDs or accounting results. */
+export function rankResults(result,objective=result.ranking.objective){
+  const range=result.ranking.range;
+  const norm=(c,k,lower=false)=>{const [lo,hi]=range[k],v=k==='nSurplus'?Math.abs(c.totals[k]):c.totals[k];const n=hi-lo>eps?(v-lo)/(hi-lo):.5;return lower?1-n:n;};
+  const candidates=result.candidates.map(c=>{
+    const m=norm(c,'margin'),w=norm(c,'water',true),n=norm(c,'nSurplus',true),e=norm(c,'energy');
+    const score=objective==='income'?m:objective==='water'?w:objective==='environment'?n:objective==='food'?e:.45*m+.2*w+.15*n+.2*e;
+    return {...c,score};
+  });
+  // IDs retain enumeration order, so equal scores do not depend on the previous preference.
+  candidates.sort((a,b)=>b.score-a.score||Number(a.id.slice(10))-Number(b.id.slice(10)));
+  return {...result,candidates,ranking:{objective,range}};
+}
 export function search(data,farmIds,config,climate,onProgress=()=>{}){
   validateConfig(config);const contextHash=hash({data,farmIds,config,climate});const selected=new Set(farmIds),plots=data.plots.filter(p=>selected.has(p.farmId)),variable=plots.filter(p=>!p.locked&&CROPS[p.crop].annual);
   const baseAllocation=baselineAllocation(plots),baseline=evaluate(data,farmIds,baseAllocation,config,climate),rand=rng(config.seed),seen=new Set(),candidates=[];
@@ -113,12 +126,9 @@ export function search(data,farmIds,config,climate,onProgress=()=>{}){
   }
   onProgress(85);
   const fronts=[];for(const a of candidates){if(fronts.some(b=>dominates(b,a)))continue;for(let i=fronts.length-1;i>=0;i--)if(dominates(a,fronts[i]))fronts.splice(i,1);fronts.push(a);}
-  const range={};for(const key of ['margin','water','nSurplus','energy']){const vs=candidates.map(c=>key==='nSurplus'?Math.abs(c.totals[key]):c.totals[key]);range[key]=[Math.min(...vs),Math.max(...vs)];}
-  const norm=(c,k,lower=false)=>{const [lo,hi]=range[k],v=k==='nSurplus'?Math.abs(c.totals[k]):c.totals[k];const n=hi-lo>eps?(v-lo)/(hi-lo):.5;return lower?1-n:n;};
-  for(const c of fronts){const m=norm(c,'margin'),w=norm(c,'water',true),n=norm(c,'nSurplus',true),e=norm(c,'energy');c.score=config.objective==='income'?m:config.objective==='water'?w:config.objective==='environment'?n:config.objective==='food'?e:.45*m+.2*w+.15*n+.2*e;}
-  fronts.sort((a,b)=>b.score-a.score);
+  const range={};for(const key of ['margin','water','nSurplus','energy']){const vs=candidates.map(c=>key==='nSurplus'?Math.abs(c.totals[key]):c.totals[key]);range[key]=vs.length?[Math.min(...vs),Math.max(...vs)]:[0,0];}
   onProgress(100);
-  return {modelVersion:MODEL_VERSION,createdAt:new Date().toISOString(),config:{...config},farmIds:[...farmIds],baseline,candidates:fronts.slice(0,36),frontierCount:fronts.length,evaluated:seen.size,feasibleCount:candidates.length,exact,bestInfeasible:!candidates.length?bestInfeasible:null,
+  return rankResults({modelVersion:MODEL_VERSION,createdAt:new Date().toISOString(),config:{...config},farmIds:[...farmIds],baseline,candidates:fronts,ranking:{objective:config.objective,range},frontierCount:fronts.length,evaluated:seen.size,feasibleCount:candidates.length,exact,bestInfeasible:!candidates.length?bestInfeasible:null,
     method:exact?'小问题完整枚举（仅限当前离散候选集）':'固定种子随机候选 + 局部邻域搜索；非全局最优',
-    inputHash:contextHash,dataVersion:data.version,climateRetrievedAt:climate?.retrievedAt||null};
+    inputHash:contextHash,dataVersion:data.version,climateRetrievedAt:climate?.retrievedAt||null});
 }

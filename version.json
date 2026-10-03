@@ -1,6 +1,6 @@
 {
-  "version": "0.3.12",
-  "name": "Continuous Hainan Imagery",
+  "version": "0.3.13",
+  "name": "Complete Pareto Results",
   "channel": "research-preview",
   "releasedOn": "2026-10-03",
   "modelVersion": "screening-0.2.0",
@@ -10,9 +10,9 @@
   "storageVersion": 2,
   "commit": "local-preview",
   "changes": [
-    "本岛114个连续近10m卫星显示细块与56个分级预览，按视野加载",
-    "14级起显示最细图格，质量透明区保留；来源日期、覆盖CSV和方法可查",
-    "本岛不再实时拼接远程COG，离岸区域仍保留原来源读取",
-    "原FTW预测边界与农场假设模型保持原有行为"
+    "完整保留本次搜索的全部非支配候选，导出与方案选择不再受36条展示限制",
+    "图表与表格每页最多36个方案，可翻页或输入页码查看",
+    "切换偏好即时重排完整候选集，保留候选ID、原搜索输入与指纹",
+    "完整搜索仅在当前会话保留；方案库与项目包仍只持久保存已选快照"
   ]
 }

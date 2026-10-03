@@ -8,3 +8,6 @@
 
 /* Use one layout system; Leaflet path styling is controlled by real feature state. */
 .shell{display:block}.workspace{display:block;min-width:0}.sidebar .nav-label{margin:42px 12px 12px;color:#789c8d;font-size:9px;letter-spacing:1.8px}.inspector-title small.mono{color:#839272}.evidence-dl dt{color:#7e9172}.evidence-dl dd{color:#526f4f}.evidence-ribbon{color:#72876f}.page-heading p{color:#71877b}.spacious .mono{word-break:break-all}.knowledge-row{color:#7b8f71}.qc-row p{color:#7e9274}.evidence-intro p{color:#819473}.map-coordinate{background:#1b392b88;border-radius:3px;padding:2px 4px}.map-north{z-index:700}.leaflet-pane .parcel{vector-effect:non-scaling-stroke}.leaflet-host{touch-action:none}
+
+/* Frontier pages keep the full result out of the DOM, including on narrow screens. */
+.candidate-pagination{gap:8px;margin:12px 0}.candidate-pagination input{width:76px;min-width:0}.candidate-pagination label{font-size:12px}.candidate-pagination .candidate-range{margin-left:auto}.result-retention{margin:12px 0}

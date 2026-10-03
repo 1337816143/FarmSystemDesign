@@ -355,6 +355,21 @@ const REVIEWED = {
   '可把经校准的Python/R模型放到未来后端，以版本化JSON作为输入输出接口，不必将全部科研计算重写进网页。PhD1提供的种植系统、作物序列与实验响应需经过口径对齐后接入，而非当作现成已接入的数据。': 'A calibrated Python or R model could run in a future backend with versioned JSON inputs and outputs; research calculations need not all be rewritten for the browser. Any PhD1 cropping-system, crop-sequence or experimental response data would require aligned variables and units before integration. They are not currently integrated.',
   '可调整地块≤5时完整枚举当前离散集；更大问题采用固定种子的随机候选与局部邻域探索。显示的非支配集只相对于已检验候选，不宣称真实全局最优。最多展示排序后的36个候选。': 'With at most five adjustable fields, the current discrete choices are fully enumerated. Larger problems use seeded random candidates and local neighbourhood search. The displayed non-dominated set applies only to tested candidates; global optimality is not claimed. Up to 36 ranked candidates are shown.',
   '核算收益、资源需求和氮收支已有原型。平衡偏好按候选集归一化：收益0.45、节水0.20、氮收支余量绝对值0.15、食物能量0.20；这是显式偏好，非科学结论。可食能量仅为食物保障代理；劳动与参与底线仅反映部分社会条件；氮余量不是完整环境评价。无法把这些代理量直接称作已验证的全部五类绩效。': 'The prototype calculates accounting margin, resource demand and nitrogen balance. The balanced preference normalizes candidates using weights of 0.45 for margin, 0.20 for water saving, 0.15 for absolute nitrogen balance and 0.20 for food energy. These are stated preferences, not scientific findings. Food energy is only a food-security proxy; labour and participation thresholds cover only part of the social dimension; nitrogen balance is not a complete environmental assessment. The proxies do not establish five validated performance dimensions.',
+  "研究预览": "Research preview",
+  "候选方案分页": "Candidate pages",
+  "候选页码": "Candidate page number",
+  "上一页": "Previous page",
+  "下一页": "Next page",
+  "页码": "Page",
+  "当前显示": "Showing",
+  "完整非支配候选仅保留在当前会话中；刷新或重新搜索会替换本次结果。导出本次计算包含全部候选；方案库及项目包只保存已选方案快照。": "The complete non-dominated set is kept only in this session; reloading or running another search replaces it. Export this calculation to retain every candidate. The plan library and project package store only selected plan snapshots.",
+  "保存当前选中方案及完整输入、边界与模型版本，不保存本次搜索的全部候选。不更新地块现状，也不代表已采用。最多保留30个快照，建议定期导出。": "Save the selected plan with its complete inputs, boundaries and model version; this does not save the entire search collection. It does not update current fields or indicate adoption. Up to 30 snapshots can be stored; export regularly.",
+  "可调整地块≤5时完整枚举当前离散集；更大问题采用固定种子的随机候选与局部邻域探索。完整非支配集只相对于已检验候选，不宣称真实全局最优。每页展示36个排序后的候选；可翻页查看全部结果。": "With at most five adjustable fields, the current discrete choices are fully enumerated. Larger problems use seeded random candidates and local neighbourhood search. The complete non-dominated set applies only to tested candidates; global optimality is not claimed. Ranked candidates are shown in pages of 36; every result is accessible.",
+  "图中仅画出当前页的两个指标，坐标范围涵盖完整非支配集；非支配筛选同时考虑收益、水、氮收支余量绝对值、能量与劳动。每页最多36个方案，可翻页查看全部候选。": "The chart shows two indicators for the current page, with axes covering the complete frontier. Non-dominated screening considers margin, water, absolute nitrogen balance, energy and labour. Each page shows up to 36 plans; all candidates are accessible across pages.",
+  "完整保留本次搜索的全部非支配候选，导出与方案选择不再受36条展示限制": "Retains every non-dominated candidate from the search; export and selection are no longer limited to 36 displayed results",
+  "图表与表格每页最多36个方案，可翻页或输入页码查看": "Charts and tables show up to 36 plans per page, with page buttons and direct page-number access",
+  "切换偏好即时重排完整候选集，保留候选ID、原搜索输入与指纹": "Preference changes rerank the complete collection while preserving candidate IDs, original search inputs and fingerprints",
+  "完整搜索仅在当前会话保留；方案库与项目包仍只持久保存已选快照": "The complete search stays in the current session; the plan library and project package persist only selected snapshots",
 };
 
 const CATALOG = {...BASE_TRANSLATIONS, ...REVIEWED};
