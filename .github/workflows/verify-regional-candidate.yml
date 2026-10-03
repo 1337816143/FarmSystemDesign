@@ -1,0 +1,36 @@
+name: Verify regional candidate without deployment
+on:
+  push:
+    branches: [review/hainan-regional-phase2]
+permissions:
+  contents: read
+concurrency:
+  group: regional-candidate-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax, model invariants, raster source and regression tests
+        run: npm run check && npm test
+      - name: Test runtime
+        run: |
+          python -m pip install shapely==2.1.2 pyproj==3.7.2 playwright
+          python -m playwright install --with-deps chromium
+      - name: Independent geometry and full browser regression
+        run: |
+          python tests/spatial.py
+          python3 -m http.server 4173 > /tmp/farmsystem-http.log 2>&1 &
+          python tests/browser.py --url http://127.0.0.1:4173 --output test-results
+          python tests/regional_browser.py --url http://127.0.0.1:4173 --output test-results/regional
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: regional-candidate-browser-evidence
+          path: test-results
+          retention-days: 14

@@ -1,0 +1,55 @@
+{
+  "id": "rain-2025-nansha",
+  "kind": "rain",
+  "bounds_wsen": [
+    109.50000431388617,
+    3.4999991580843925,
+    118.00000444054604,
+    12.499999292194843
+  ],
+  "width": 170,
+  "height": 180,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-nansha-preview.png",
+  "values": "rain-2025-nansha-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 30600,
+    "valid_cells": 4580,
+    "nodata_cells": 26020,
+    "valid_percent": 14.9673,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 1934.218017578125,
+    "max": 5773.49169921875,
+    "mean": 3717.27734375
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "20776f3493b55835e03ff0ecc3bbbdab71457ee381e06ec70290df37b0934f70",
+    "values": "9c266be4ece7175988f59a0f3f9ad87418c6390ac5e375f34f0ffe7bfa179197",
+    "geotiff": "11e0319b8c66c6897ad0036a8c66a31f3634ba5a15234c30d0ca0d4d02ce67a6"
+  },
+  "geotiff": "rain-2025-nansha.tif",
+  "aoi": "nansha",
+  "group": "nansha",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

@@ -1,0 +1,95 @@
+{
+  "product": "Esri / Impact Observatory / Microsoft Sentinel-2 10 m land cover 2025 v003",
+  "year": 2025,
+  "native_resolution_m": 10,
+  "source_crs": "EPSG:32649",
+  "source_url": "https://lulctimeseries.blob.core.windows.net/lulctimeseriesv003/lc2025/49Q_20250101-20251231.tif",
+  "source_sha256": "8188a102f7ab2d131b74f74c22da2b5f1a63a977132e696684abb4aa514bdc90",
+  "source_bytes": 136217448,
+  "license": "CC BY 4.0",
+  "attribution": "Impact Observatory, Microsoft, Esri. Contains modified Copernicus Sentinel data (2025)",
+  "geography": "Inferred Hainan main island only; excludes detached islands and Sansha",
+  "method": "Source-native class counts within connected main-island component from 100 m nearest-neighbor classification; enclosed water holes filled. Seed 109.8E,19N. Areas are projected UTM grid areas (100 m²/pixel), not equal-area/geodesic areas. Projection distortion and mask uncertainty apply.",
+  "not_for": "Official cultivated-land or administrative area, county statistics, cadastral interpretation, local classification accuracy, or direct cross-product change claims. Trees can include orchards/rubber/coconut; Crops=5 is not all agriculture.",
+  "mask_area_100m_km2": 33732.8,
+  "mask_area_200m_km2": 33808.4,
+  "mask_sampling_difference_percent": 0.2241,
+  "masked_nodata_pixels": 0,
+  "cloud_pixels": 42971,
+  "classified_pixels": 337285029,
+  "total_classified_km2": 33728.5,
+  "classes": [
+    {
+      "code": 1,
+      "name": "Water",
+      "pixels": 11685775,
+      "km2": 1168.5775,
+      "percent": 3.4647,
+      "valid_class": true
+    },
+    {
+      "code": 2,
+      "name": "Trees",
+      "pixels": 173438022,
+      "km2": 17343.8022,
+      "percent": 51.4218,
+      "valid_class": true
+    },
+    {
+      "code": 4,
+      "name": "Flooded vegetation",
+      "pixels": 1096519,
+      "km2": 109.6519,
+      "percent": 0.3251,
+      "valid_class": true
+    },
+    {
+      "code": 5,
+      "name": "Crops",
+      "pixels": 92113868,
+      "km2": 9211.3868,
+      "percent": 27.3104,
+      "valid_class": true
+    },
+    {
+      "code": 7,
+      "name": "Built area",
+      "pixels": 42692542,
+      "km2": 4269.2542,
+      "percent": 12.6577,
+      "valid_class": true
+    },
+    {
+      "code": 8,
+      "name": "Bare ground",
+      "pixels": 359423,
+      "km2": 35.9423,
+      "percent": 0.1066,
+      "valid_class": true
+    },
+    {
+      "code": 9,
+      "name": "Snow/ice",
+      "pixels": 0,
+      "km2": 0.0,
+      "percent": 0.0,
+      "valid_class": true
+    },
+    {
+      "code": 10,
+      "name": "Clouds",
+      "pixels": 42971,
+      "km2": 4.2971,
+      "percent": 0.0127,
+      "valid_class": false
+    },
+    {
+      "code": 11,
+      "name": "Rangeland",
+      "pixels": 15898880,
+      "km2": 1589.888,
+      "percent": 4.7138,
+      "valid_class": true
+    }
+  ]
+}

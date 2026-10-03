@@ -1,0 +1,232 @@
+{
+  "id": "dsm-nansha",
+  "kind": "dsm",
+  "bounds_wsen": [
+    109.5,
+    3.495555555555555,
+    117.99777777777777,
+    12.5
+  ],
+  "width": 956,
+  "height": 1013,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.008888888888888889,
+    0.008888888888888889
+  ],
+  "preview": "dsm-nansha-preview.png",
+  "values": "dsm-nansha-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 500) / 1",
+    "nodata": "alpha == 0",
+    "units": "m"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 968428,
+    "valid_cells": 409937,
+    "nodata_cells": 558491,
+    "valid_percent": 42.3301,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class",
+    "positive_surface_cells": 122765,
+    "zero_height_cells": 287160
+  },
+  "statistics": {
+    "min": -0.025531847029924393,
+    "max": 3871.2763671875,
+    "mean": 108.96822357177734
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "c146d29d22938ea0a435fbc351d6454a65c8dd9d5eaeac1d467e9685f861e64b",
+    "values": "26a953fbf27bfa71c7de4633eed677b089e6012f646a101371602bdf7678d30f"
+  },
+  "preview_note": "Zero-height cells are transparent in preview (usually ocean); numerical grid preserves source zero. Not a coastline or verified land mask.",
+  "aoi": "nansha",
+  "group": "nansha",
+  "level": "overview",
+  "native_resolution": "1 arcsecond (~30 m latitude); source DSM, not bare-earth terrain",
+  "render_resolution": "32 arcseconds (~989 m latitude)",
+  "period": "TanDEM-X mainly 2011–2015; infill can be older; catalog 2021 publication is not observation date",
+  "source_tiles": [
+    {
+      "id": "Copernicus_DSM_COG_10_N12_00_E109_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N12_00_E109_00_DEM/Copernicus_DSM_COG_10_N12_00_E109_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N11_00_E115_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N11_00_E115_00_DEM/Copernicus_DSM_COG_10_N11_00_E115_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N11_00_E114_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N11_00_E114_00_DEM/Copernicus_DSM_COG_10_N11_00_E114_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N11_00_E109_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N11_00_E109_00_DEM/Copernicus_DSM_COG_10_N11_00_E109_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N10_00_E118_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N10_00_E118_00_DEM/Copernicus_DSM_COG_10_N10_00_E118_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N10_00_E115_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N10_00_E115_00_DEM/Copernicus_DSM_COG_10_N10_00_E115_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N10_00_E114_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N10_00_E114_00_DEM/Copernicus_DSM_COG_10_N10_00_E114_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N09_00_E118_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N09_00_E118_00_DEM/Copernicus_DSM_COG_10_N09_00_E118_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N09_00_E117_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N09_00_E117_00_DEM/Copernicus_DSM_COG_10_N09_00_E117_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N09_00_E115_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N09_00_E115_00_DEM/Copernicus_DSM_COG_10_N09_00_E115_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N09_00_E114_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N09_00_E114_00_DEM/Copernicus_DSM_COG_10_N09_00_E114_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N09_00_E109_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N09_00_E109_00_DEM/Copernicus_DSM_COG_10_N09_00_E109_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N08_00_E118_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E118_00_DEM/Copernicus_DSM_COG_10_N08_00_E118_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N08_00_E117_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E117_00_DEM/Copernicus_DSM_COG_10_N08_00_E117_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N08_00_E116_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E116_00_DEM/Copernicus_DSM_COG_10_N08_00_E116_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N08_00_E115_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E115_00_DEM/Copernicus_DSM_COG_10_N08_00_E115_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N08_00_E113_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E113_00_DEM/Copernicus_DSM_COG_10_N08_00_E113_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N08_00_E112_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E112_00_DEM/Copernicus_DSM_COG_10_N08_00_E112_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N08_00_E111_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E111_00_DEM/Copernicus_DSM_COG_10_N08_00_E111_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N07_00_E118_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N07_00_E118_00_DEM/Copernicus_DSM_COG_10_N07_00_E118_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N07_00_E117_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N07_00_E117_00_DEM/Copernicus_DSM_COG_10_N07_00_E117_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N07_00_E116_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N07_00_E116_00_DEM/Copernicus_DSM_COG_10_N07_00_E116_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N07_00_E113_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N07_00_E113_00_DEM/Copernicus_DSM_COG_10_N07_00_E113_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N06_00_E118_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N06_00_E118_00_DEM/Copernicus_DSM_COG_10_N06_00_E118_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N06_00_E117_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N06_00_E117_00_DEM/Copernicus_DSM_COG_10_N06_00_E117_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N06_00_E116_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N06_00_E116_00_DEM/Copernicus_DSM_COG_10_N06_00_E116_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N06_00_E115_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N06_00_E115_00_DEM/Copernicus_DSM_COG_10_N06_00_E115_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N05_00_E118_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N05_00_E118_00_DEM/Copernicus_DSM_COG_10_N05_00_E118_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N05_00_E117_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N05_00_E117_00_DEM/Copernicus_DSM_COG_10_N05_00_E117_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N05_00_E116_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N05_00_E116_00_DEM/Copernicus_DSM_COG_10_N05_00_E116_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N05_00_E115_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N05_00_E115_00_DEM/Copernicus_DSM_COG_10_N05_00_E115_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N05_00_E114_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N05_00_E114_00_DEM/Copernicus_DSM_COG_10_N05_00_E114_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N04_00_E118_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E118_00_DEM/Copernicus_DSM_COG_10_N04_00_E118_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N04_00_E117_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E117_00_DEM/Copernicus_DSM_COG_10_N04_00_E117_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N04_00_E116_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E116_00_DEM/Copernicus_DSM_COG_10_N04_00_E116_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N04_00_E115_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E115_00_DEM/Copernicus_DSM_COG_10_N04_00_E115_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N04_00_E114_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E114_00_DEM/Copernicus_DSM_COG_10_N04_00_E114_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N04_00_E113_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E113_00_DEM/Copernicus_DSM_COG_10_N04_00_E113_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N03_00_E117_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E117_00_DEM/Copernicus_DSM_COG_10_N03_00_E117_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N03_00_E116_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E116_00_DEM/Copernicus_DSM_COG_10_N03_00_E116_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N03_00_E115_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E115_00_DEM/Copernicus_DSM_COG_10_N03_00_E115_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N03_00_E114_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E114_00_DEM/Copernicus_DSM_COG_10_N03_00_E114_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N03_00_E113_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E113_00_DEM/Copernicus_DSM_COG_10_N03_00_E113_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N03_00_E112_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E112_00_DEM/Copernicus_DSM_COG_10_N03_00_E112_00_DEM.tif"
+    }
+  ],
+  "raster_scale": 1,
+  "raster_offset": 0
+}

@@ -1,0 +1,523 @@
+{
+  "verified_utc": "2026-10-03",
+  "checks": [
+    {
+      "aoi": "danzhou",
+      "status": "passed",
+      "accepted_pixels": 1839754,
+      "rgba_sha256": "636ac5e2d4495f2f0a033695f33450e7530a149592afd322a97b7eba3174a46d",
+      "failed_sources": 0
+    },
+    {
+      "aoi": "haikou",
+      "status": "passed",
+      "accepted_pixels": 1025491,
+      "rgba_sha256": "8a24b3fc6eddad037b2bd4b142ad79a110ce20d03af1036c654e7c866047cfbb",
+      "failed_sources": 0
+    },
+    {
+      "aoi": "huangyan",
+      "status": "passed",
+      "accepted_pixels": 1720512,
+      "rgba_sha256": "4df69ac4f41da13583ab81ad2352e14ff4c1cc43347cf53fbeaf3020e2902e58",
+      "failed_sources": 0
+    },
+    {
+      "aoi": "main",
+      "status": "passed",
+      "accepted_pixels": 4284698,
+      "rgba_sha256": "554c7a0d0026f5e86318338aeacbdd2971b0f91dfd3631cce7d710e144fc017b",
+      "failed_sources": 0
+    },
+    {
+      "aoi": "sanya",
+      "status": "passed",
+      "accepted_pixels": 1354447,
+      "rgba_sha256": "2e930f4188b74d1a4c379752034fdaca4576d06057c1abe7a69504c88230b67e",
+      "failed_sources": 0
+    },
+    {
+      "aoi": "wenchang",
+      "status": "passed",
+      "accepted_pixels": 1409536,
+      "rgba_sha256": "b735f2454aaac8ab08b4a3f447fb6883b00a3f0283ef37f33b6fe7876e166e96",
+      "failed_sources": 0
+    },
+    {
+      "aoi": "wuzhishan",
+      "status": "passed",
+      "accepted_pixels": 1468185,
+      "rgba_sha256": "904adf6550e9910239725fe887188d1a6c3a04a374e0d0c460190d80fc8fa3c8",
+      "failed_sources": 0
+    },
+    {
+      "aoi": "xidao",
+      "status": "passed",
+      "accepted_pixels": 238476,
+      "rgba_sha256": "829b3a4a877fd145034c1687d9f17ca9676d94e05bc397408e4e82c88834ccfa",
+      "failed_sources": 0
+    },
+    {
+      "aoi": "yongshu",
+      "status": "passed",
+      "accepted_pixels": 2905219,
+      "rgba_sha256": "19e1a5a2f5837d4996c5258ebd27fabe88d8f902bf5caaa1e93867b59adb1120",
+      "failed_sources": 0
+    },
+    {
+      "aoi": "yongxing",
+      "status": "passed",
+      "accepted_pixels": 756454,
+      "rgba_sha256": "a47c56c54abf549ad3e8d64fee78095e523b68434e729bfcb91ef8f015ff6fe2",
+      "failed_sources": 0
+    },
+    {
+      "aoi": "zhubi",
+      "status": "passed",
+      "accepted_pixels": 862687,
+      "rgba_sha256": "a99627f059c19ada642b542e60fcd1cab0eb474f3213dd244f16e3a0f4a4203a",
+      "failed_sources": 0
+    }
+  ],
+  "file_count": 80,
+  "total_bytes": 12236326,
+  "below_30mb": true,
+  "source_scene_count": 522,
+  "mgrs_count": 170,
+  "query_groups": [
+    {
+      "id": "main",
+      "unique_items": 2860,
+      "number_matched": 2860,
+      "pages": 4,
+      "pagination_exhausted": true
+    },
+    {
+      "id": "xisha",
+      "unique_items": 1511,
+      "number_matched": 1511,
+      "pages": 3,
+      "pagination_exhausted": true
+    },
+    {
+      "id": "zhongsha",
+      "unique_items": 2751,
+      "number_matched": 2751,
+      "pages": 4,
+      "pagination_exhausted": true
+    },
+    {
+      "id": "nansha",
+      "unique_items": 15976,
+      "number_matched": 15976,
+      "pages": 17,
+      "pagination_exhausted": true
+    }
+  ],
+  "software": {
+    "python": "3.13.5",
+    "gdal": "3100300"
+  },
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 8397,
+      "sha256": "611a49bc3f6ee9408dfbb7005764d2b52dace1d183285658ad970d10a245d759"
+    },
+    {
+      "path": "aoi-additional-candidates.json",
+      "bytes": 1267,
+      "sha256": "82c92d73a29b8fcae2e454ab3e942ffb925e28d0e4d17dbb58c2bb4fb42698a9"
+    },
+    {
+      "path": "aoi-inventory.json",
+      "bytes": 4574,
+      "sha256": "a73b041b5a788ec641ee09885f9e94cdd14333bbf4623f28f70de46f8170ea22"
+    },
+    {
+      "path": "main-gap-additional-candidates.json",
+      "bytes": 565,
+      "sha256": "901a3664398f4959f7fe6418c7d189864de88449b5b55d37e8d03e8ef4182a38"
+    },
+    {
+      "path": "main-island-mask-100m.tif",
+      "bytes": 85790,
+      "sha256": "dfa47207f6d2b8f7a59256b6a6a98725a57e1a4806bd31ca5b41b5bc6a2bc5fd"
+    },
+    {
+      "path": "mask-regression-tests.json",
+      "bytes": 314,
+      "sha256": "565820ddd3b3c541b2c60f5608d57dd158b3e2e371273f87eedb434c923180bf"
+    },
+    {
+      "path": "preview-manifest-haikou-sanya-danzhou-wuzhishan-wenchang-xidao-yongxing-yongshu-zhubi-huangyan.json",
+      "bytes": 41427,
+      "sha256": "03812524cf2f9ab9a03817be000592b0252787873d6e1d9983fc29c52a27f444"
+    },
+    {
+      "path": "preview-manifest-main.json",
+      "bytes": 19637,
+      "sha256": "9d6e5ab13b80818be5d0f3bd04b54e32c445e353943c72b4f5dc3842f9780961"
+    },
+    {
+      "path": "preview-manifest.json",
+      "bytes": 15720,
+      "sha256": "b54833b50c3997e0e0df41bb6dab0df7ff27becda1d82691385cdd8bcdb35d39"
+    },
+    {
+      "path": "previews/danzhou-clear-count.png",
+      "bytes": 48379,
+      "sha256": "a902451cc7e86bcdafb505bba3114c057309024a269d8b08e5460c6774c0519f"
+    },
+    {
+      "path": "previews/danzhou-qa.npz",
+      "bytes": 97167,
+      "sha256": "dec5e457cbfedfa936847924ca9b01d1c0d4f852760ed3f41c094b32350051bb"
+    },
+    {
+      "path": "previews/danzhou-source-doy.png",
+      "bytes": 34602,
+      "sha256": "8ce6da3e0a727c09bacfd0d4cd9c794a3c3c45596d8c0243a714aea388d0ce5c"
+    },
+    {
+      "path": "previews/danzhou-status.png",
+      "bytes": 4569,
+      "sha256": "d6638d2bb0a3d6217af5a1700f1f532b10d8f11a2d31cb0790224b377ca0ce38"
+    },
+    {
+      "path": "previews/danzhou.json",
+      "bytes": 3409,
+      "sha256": "35b159c38d8e92c5abf3372f5976668c69d4f6854ed95f62fb0cd2cbe05eda25"
+    },
+    {
+      "path": "previews/danzhou.webp",
+      "bytes": 312168,
+      "sha256": "636ac5e2d4495f2f0a033695f33450e7530a149592afd322a97b7eba3174a46d"
+    },
+    {
+      "path": "previews/haikou-clear-count.png",
+      "bytes": 12855,
+      "sha256": "b608918f446dc38f536d08df2c049a666c4267442a930600c02825fc76000547"
+    },
+    {
+      "path": "previews/haikou-qa.npz",
+      "bytes": 30744,
+      "sha256": "3a41005a676f3693975360d8081b81fc9ea68916f1a1a800ef48418cc509e7d0"
+    },
+    {
+      "path": "previews/haikou-source-doy.png",
+      "bytes": 13499,
+      "sha256": "a573566bb57808010a8bd79cab7fb036340a48423b01a201927b2a02e12cc608"
+    },
+    {
+      "path": "previews/haikou-status.png",
+      "bytes": 2957,
+      "sha256": "bc182b4060b15bfd5046784d9ffadb343a15ef870b61f34a491d2f4454b94304"
+    },
+    {
+      "path": "previews/haikou.json",
+      "bytes": 3397,
+      "sha256": "b7eb2933e6515ff99beb6b4cf8b6346d5dbe3ee805e74e459de0f396574dbaa2"
+    },
+    {
+      "path": "previews/haikou.webp",
+      "bytes": 215156,
+      "sha256": "8a24b3fc6eddad037b2bd4b142ad79a110ce20d03af1036c654e7c866047cfbb"
+    },
+    {
+      "path": "previews/huangyan-clear-count.png",
+      "bytes": 47198,
+      "sha256": "79cc577ddc8d046624c100cc7089dfae27c15ff7d71745c0428f46846e3d65ea"
+    },
+    {
+      "path": "previews/huangyan-qa.npz",
+      "bytes": 87240,
+      "sha256": "bc7947f682b5b05a917591c1b8bd0e32a4aba841f62ce400d32cc5a6da2d917e"
+    },
+    {
+      "path": "previews/huangyan-source-doy.png",
+      "bytes": 11955,
+      "sha256": "658c303d198ec1b54eb7ada75a09ec39554586ce68c810d90b5f27168285ee8d"
+    },
+    {
+      "path": "previews/huangyan-status.png",
+      "bytes": 4430,
+      "sha256": "da5b880fa334dbb2611b76bfcd5351a065219276141c7e0dc5673d3984cbab13"
+    },
+    {
+      "path": "previews/huangyan.json",
+      "bytes": 4268,
+      "sha256": "af913f582413827c9875504706fb5e3ce3f0174cf0903bb998abe51cd8bab614"
+    },
+    {
+      "path": "previews/huangyan.webp",
+      "bytes": 125298,
+      "sha256": "4df69ac4f41da13583ab81ad2352e14ff4c1cc43347cf53fbeaf3020e2902e58"
+    },
+    {
+      "path": "previews/main-clear-count.png",
+      "bytes": 410092,
+      "sha256": "8fbbb7ca87a90b431d308cf243f9027d9a655ff6b5ace71e59989c2ca97ffd7b"
+    },
+    {
+      "path": "previews/main-qa.npz",
+      "bytes": 880715,
+      "sha256": "3c4ae956447589ce8c6c9d3c4e42c186de33324819ea11e6942bcc8b4414ae55"
+    },
+    {
+      "path": "previews/main-source-doy.png",
+      "bytes": 238002,
+      "sha256": "9a21aa0cbf5e82a41be594bc0a861cd8dc4e1b7419f743b50043fe04c86c53f9"
+    },
+    {
+      "path": "previews/main-status.png",
+      "bytes": 30145,
+      "sha256": "b41cf2c3e35145d617d017a02aa42af1750535748c6a1b447df364cac1024aaf"
+    },
+    {
+      "path": "previews/main.json",
+      "bytes": 17790,
+      "sha256": "65a8f8e38e2edac044ff0497f82f49a08795384b2c474b2d341dfa62b856ef4a"
+    },
+    {
+      "path": "previews/main.webp",
+      "bytes": 579470,
+      "sha256": "554c7a0d0026f5e86318338aeacbdd2971b0f91dfd3631cce7d710e144fc017b"
+    },
+    {
+      "path": "previews/sanya-clear-count.png",
+      "bytes": 29404,
+      "sha256": "c8353f80aa27a2228a9ebd54fd958778d3e36a7297a29abfdbdfc02626220a5a"
+    },
+    {
+      "path": "previews/sanya-qa.npz",
+      "bytes": 34952,
+      "sha256": "6e56fc8113db5c60894e740d8966f57a9361b9694a8d3e35057df94c4ee4ee30"
+    },
+    {
+      "path": "previews/sanya-source-doy.png",
+      "bytes": 6641,
+      "sha256": "6bd9523a6284007818aee695b3a79ffe0cd2caf92d67990cdec46247efc82b43"
+    },
+    {
+      "path": "previews/sanya-status.png",
+      "bytes": 3886,
+      "sha256": "169593db4de59d4f6581bd370a63d9b25e6cbfd3d4c5cadbab77a759ad7f470e"
+    },
+    {
+      "path": "previews/sanya.json",
+      "bytes": 3395,
+      "sha256": "24186ba2839cc44a4836ddc77e2ca579d082547fffa74cf05f33a5fadd96d919"
+    },
+    {
+      "path": "previews/sanya.webp",
+      "bytes": 275776,
+      "sha256": "2e930f4188b74d1a4c379752034fdaca4576d06057c1abe7a69504c88230b67e"
+    },
+    {
+      "path": "previews/wenchang-clear-count.png",
+      "bytes": 83527,
+      "sha256": "fb8f96fc6d0444684d2961bd821a00edfab98069fc353c70265da72774489920"
+    },
+    {
+      "path": "previews/wenchang-qa.npz",
+      "bytes": 150308,
+      "sha256": "dcfa4dc228c7a670675d73be56ad9c2c19803658deb7a895fc1cc088aa976788"
+    },
+    {
+      "path": "previews/wenchang-source-doy.png",
+      "bytes": 37959,
+      "sha256": "8f24ab2fa3c2d6fcf1d548eabd3e4782c8bd567eeb7f50152aadd56be626b723"
+    },
+    {
+      "path": "previews/wenchang-status.png",
+      "bytes": 4096,
+      "sha256": "4bd92e8b0d6efde9e2186b4659f4bdd45bfee5aadeddc29ebb3d1ac42361b4f0"
+    },
+    {
+      "path": "previews/wenchang.json",
+      "bytes": 3415,
+      "sha256": "6172b5ab1b0031cf50f2eb86bf0fceac543dd917c7fadb646e593956315e8aa0"
+    },
+    {
+      "path": "previews/wenchang.webp",
+      "bytes": 381990,
+      "sha256": "b735f2454aaac8ab08b4a3f447fb6883b00a3f0283ef37f33b6fe7876e166e96"
+    },
+    {
+      "path": "previews/wuzhishan-clear-count.png",
+      "bytes": 14558,
+      "sha256": "b8e85c59a257bdf523b9c35e13f28280920377d6527dd9f9f8564e6c28720159"
+    },
+    {
+      "path": "previews/wuzhishan-qa.npz",
+      "bytes": 22521,
+      "sha256": "c1188067921268d2b61193dfe0e370fa72ccaa4e7a78089dca9438acd6993744"
+    },
+    {
+      "path": "previews/wuzhishan-source-doy.png",
+      "bytes": 7203,
+      "sha256": "51b59ae53d1cfecd139f83c4a15f415bc2648ca9210b628d110a63d8ec193a8f"
+    },
+    {
+      "path": "previews/wuzhishan-status.png",
+      "bytes": 3639,
+      "sha256": "c05bbedbbfd0fe00b21c48ef32116ca61d5eede6fe58426b8cbb2870ef4aed49"
+    },
+    {
+      "path": "previews/wuzhishan.json",
+      "bytes": 4096,
+      "sha256": "6596af66b2b690c610a797e38aa8191b1bcba8f847a37c01c5b8acb140d94f70"
+    },
+    {
+      "path": "previews/wuzhishan.webp",
+      "bytes": 255062,
+      "sha256": "904adf6550e9910239725fe887188d1a6c3a04a374e0d0c460190d80fc8fa3c8"
+    },
+    {
+      "path": "previews/xidao-clear-count.png",
+      "bytes": 1902,
+      "sha256": "55a1615169dd837f3d8bc0570fde9759333b19f96993355a0774f83d6de60401"
+    },
+    {
+      "path": "previews/xidao-qa.npz",
+      "bytes": 3535,
+      "sha256": "b5ed0ed411e295e78301ce909c5c46b885712f38f24c728257a44865465b6c9e"
+    },
+    {
+      "path": "previews/xidao-source-doy.png",
+      "bytes": 1821,
+      "sha256": "4945b1312b156308d3425476cc2152a8c53e2767d1bc95f737550e51f1c63059"
+    },
+    {
+      "path": "previews/xidao-status.png",
+      "bytes": 1145,
+      "sha256": "8692db3cfe5b55a5234cb26905bc80fe103764bbd36090a8bf3269766b48f47f"
+    },
+    {
+      "path": "previews/xidao.json",
+      "bytes": 3372,
+      "sha256": "0d9f3876f32186a64d83a08945eba7ba898cce68a81ab6481d31cdddd257e03d"
+    },
+    {
+      "path": "previews/xidao.webp",
+      "bytes": 11540,
+      "sha256": "829b3a4a877fd145034c1687d9f17ca9676d94e05bc397408e4e82c88834ccfa"
+    },
+    {
+      "path": "previews/yongshu-clear-count.png",
+      "bytes": 51999,
+      "sha256": "e65e285a2898c9b8aa77ffce49698672f5b0cca289e9b57a1241796198d5b00b"
+    },
+    {
+      "path": "previews/yongshu-qa.npz",
+      "bytes": 140679,
+      "sha256": "ea1a1d9d1a009bcf3aaf4560abbcd611660d82ef658c81a81a2c82ffb30fbc69"
+    },
+    {
+      "path": "previews/yongshu-source-doy.png",
+      "bytes": 21584,
+      "sha256": "cfd46978578723ea114e9d11e1fd45434ddd5b01a96e2955c89d6e0cca0aa6e5"
+    },
+    {
+      "path": "previews/yongshu-status.png",
+      "bytes": 7478,
+      "sha256": "eda6a27f884905c80dddaed581c85caead2702a03cb11385c7ba4776645408f9"
+    },
+    {
+      "path": "previews/yongshu.json",
+      "bytes": 4218,
+      "sha256": "738d88217d14018bea2f90374d2f7b3157b682ff85449318cebb9778f686b46c"
+    },
+    {
+      "path": "previews/yongshu.webp",
+      "bytes": 164860,
+      "sha256": "19e1a5a2f5837d4996c5258ebd27fabe88d8f902bf5caaa1e93867b59adb1120"
+    },
+    {
+      "path": "previews/yongxing-clear-count.png",
+      "bytes": 5454,
+      "sha256": "86debb9d468e6123fff38b59490089298c72589b8e7c9dec85c5cb5e23007527"
+    },
+    {
+      "path": "previews/yongxing-qa.npz",
+      "bytes": 10361,
+      "sha256": "fc21602e3c4deb21207bc1dc3f889265dd4fbda8fdd58d1582f8dd6e710e6919"
+    },
+    {
+      "path": "previews/yongxing-source-doy.png",
+      "bytes": 4342,
+      "sha256": "fd0157cda53f2c2b34b1a19075858440ddb6b057c0413fe0411b9b16ba8bbf8f"
+    },
+    {
+      "path": "previews/yongxing-status.png",
+      "bytes": 2936,
+      "sha256": "237d5b35290ddeaa083316185049128880a211774728a3eb67848df1e6b6d183"
+    },
+    {
+      "path": "previews/yongxing.json",
+      "bytes": 3518,
+      "sha256": "6ea4db92342d1ee7c4b54d260b9fed8632c42060370031b378d276cfb7d83567"
+    },
+    {
+      "path": "previews/yongxing.webp",
+      "bytes": 30962,
+      "sha256": "a47c56c54abf549ad3e8d64fee78095e523b68434e729bfcb91ef8f015ff6fe2"
+    },
+    {
+      "path": "previews/zhubi-clear-count.png",
+      "bytes": 38971,
+      "sha256": "02eec4dee4d39688c4b19b5b5c2d5044ead1ad0f68751ba3cbe44e68d059380b"
+    },
+    {
+      "path": "previews/zhubi-qa.npz",
+      "bytes": 113173,
+      "sha256": "7cb1902e5f22977418e86fc7ef9857b31574da297a7e04df5f06f7b5e9b7f452"
+    },
+    {
+      "path": "previews/zhubi-source-doy.png",
+      "bytes": 27808,
+      "sha256": "0c17c54f6f86dbac54736eb194333bcf9a7bb72156a259c0169f6eda6c9598e8"
+    },
+    {
+      "path": "previews/zhubi-status.png",
+      "bytes": 5192,
+      "sha256": "d55f96536a64bc78fcb2b92a225d2ee0966e17e03ecaaf008d294e6618c751c4"
+    },
+    {
+      "path": "previews/zhubi.json",
+      "bytes": 4211,
+      "sha256": "52e70d24641a5193f03a7f8011b80cfe50efa426949478ba719afc8579b13ac5"
+    },
+    {
+      "path": "previews/zhubi.webp",
+      "bytes": 108584,
+      "sha256": "a99627f059c19ada642b542e60fcd1cab0eb474f3213dd244f16e3a0f4a4203a"
+    },
+    {
+      "path": "real-source-mask-diagnostic.json",
+      "bytes": 1054,
+      "sha256": "a0924a9c48937f25c93947899b8c6a6f4addc9bd941e519a67b5a3c9cbb7275c"
+    },
+    {
+      "path": "reproduce-imagery.zip",
+      "bytes": 4258417,
+      "sha256": "e0a8af0d3ed558b0f4836220b0be53800d5fb7ca6ca137b530785582185c7036"
+    },
+    {
+      "path": "scene-catalog-main-xisha-zhongsha-nansha.json",
+      "bytes": 1174072,
+      "sha256": "f87140cde64d1d9bd08eb63be2e57a538ffd5753b230203d5fd1f0ae68fa0185"
+    },
+    {
+      "path": "scene-catalog-main.json",
+      "bytes": 143065,
+      "sha256": "fbb93d3c8c30f9f7ae93f50cac984ff7658e74bafe2e1c4e62acab2670ff8486"
+    },
+    {
+      "path": "scene-catalog.json",
+      "bytes": 1174449,
+      "sha256": "b561f32abae694d9db922c5c949d7f5506670b51327564a1a055f18189cfde65"
+    }
+  ]
+}

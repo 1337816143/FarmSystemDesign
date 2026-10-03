@@ -1,0 +1,520 @@
+{
+  "collection": "sentinel-2-c1-l2a",
+  "period": "2025-01-01/2025-12-31",
+  "attribution": "Contains modified Copernicus Sentinel data(2025), processed from Element84 Earth Search C1 L2A COGs",
+  "scope": "Main-island/nearshore and offshore geographic envelopes plus named display windows; not administrative boundaries or exhaustive provincial island coverage.",
+  "scene_catalog": "scene-catalog.json",
+  "selection": "For each MGRS grid within each query envelope, choose three distinct acquisitions ranked by scene cloud_percent + 0.35*nodata_percent. Scene metadata ranking is not pixel-quality verification. Full 2025 catalog pagination exhausted in each query envelope. Overlapping envelopes can contribute different top-three scenes for the same MGRS grid; global candidate IDs are deduplicated.",
+  "records": [
+    {
+      "id": "danzhou",
+      "name_zh": "儋州样窗",
+      "group": "main",
+      "preview": "previews/danzhou.webp",
+      "bounds_wsen": [
+        109.4,
+        19.43,
+        109.7,
+        19.64
+      ],
+      "pixel_size_degrees": [
+        0.0001905972045743311,
+        0.00017964071856287498
+      ],
+      "width": 1574,
+      "height": 1169,
+      "metadata": "previews/danzhou.json",
+      "status_preview": "previews/danzhou-status.png",
+      "clear_count_preview": "previews/danzhou-clear-count.png",
+      "source_date_preview": "previews/danzhou-source-doy.png",
+      "qa_npz": "previews/danzhou-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        19.995959054254385,
+        19.997604790419242
+      ],
+      "coverage": {
+        "total_bbox_pixels": 1840006,
+        "accepted_pixels": 1839754,
+        "observed_but_rejected_pixels": 252,
+        "no_source_observation_pixels": 0
+      },
+      "approx_main_island_land_audit": null,
+      "actual_contributing_dates": [
+        "2025-01-06",
+        "2025-03-02",
+        "2025-03-27"
+      ],
+      "failed_sources": 0
+    },
+    {
+      "id": "haikou",
+      "name_zh": "海口样窗",
+      "group": "main",
+      "preview": "previews/haikou.webp",
+      "bounds_wsen": [
+        110.22,
+        19.94,
+        110.44,
+        20.1
+      ],
+      "pixel_size_degrees": [
+        0.00019113814074717537,
+        0.0001795735129068464
+      ],
+      "width": 1151,
+      "height": 891,
+      "metadata": "previews/haikou.json",
+      "status_preview": "previews/haikou-status.png",
+      "clear_count_preview": "previews/haikou-clear-count.png",
+      "source_date_preview": "previews/haikou-source-doy.png",
+      "qa_npz": "previews/haikou-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        19.99176621128327,
+        19.99012345679014
+      ],
+      "coverage": {
+        "total_bbox_pixels": 1025541,
+        "accepted_pixels": 1025491,
+        "observed_but_rejected_pixels": 50,
+        "no_source_observation_pixels": 0
+      },
+      "approx_main_island_land_audit": null,
+      "actual_contributing_dates": [
+        "2025-01-06",
+        "2025-01-11",
+        "2025-03-27"
+      ],
+      "failed_sources": 0
+    },
+    {
+      "id": "huangyan",
+      "name_zh": "黄岩岛地理样窗",
+      "group": "zhongsha",
+      "preview": "previews/huangyan.webp",
+      "bounds_wsen": [
+        117.68,
+        15.02,
+        117.91,
+        15.27
+      ],
+      "pixel_size_degrees": [
+        0.00018608414239481373,
+        0.00017959770114942528
+      ],
+      "width": 1236,
+      "height": 1392,
+      "metadata": "previews/huangyan.json",
+      "status_preview": "previews/huangyan-status.png",
+      "clear_count_preview": "previews/huangyan-clear-count.png",
+      "source_date_preview": "previews/huangyan-source-doy.png",
+      "qa_npz": "previews/huangyan-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        19.995411762051777,
+        19.992816091954023
+      ],
+      "coverage": {
+        "total_bbox_pixels": 1720512,
+        "accepted_pixels": 1720512,
+        "observed_but_rejected_pixels": 0,
+        "no_source_observation_pixels": 0
+      },
+      "approx_main_island_land_audit": null,
+      "actual_contributing_dates": [
+        "2025-02-06",
+        "2025-03-13",
+        "2025-04-16",
+        "2025-04-19",
+        "2025-06-16"
+      ],
+      "failed_sources": 0
+    },
+    {
+      "id": "main",
+      "name_zh": "海南岛与近岸",
+      "group": "main",
+      "preview": "previews/main.webp",
+      "bounds_wsen": [
+        108.5,
+        17.8,
+        111.5,
+        20.5
+      ],
+      "pixel_size_degrees": [
+        0.0013636363636363637,
+        0.0013636363636363633
+      ],
+      "width": 2200,
+      "height": 1980,
+      "metadata": "previews/main.json",
+      "status_preview": "previews/main-status.png",
+      "clear_count_preview": "previews/main-clear-count.png",
+      "source_date_preview": "previews/main-source-doy.png",
+      "qa_npz": "previews/main-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        143.39984353639088,
+        151.79999999999995
+      ],
+      "coverage": {
+        "total_bbox_pixels": 4356000,
+        "accepted_pixels": 4284698,
+        "observed_but_rejected_pixels": 20491,
+        "no_source_observation_pixels": 50811
+      },
+      "approx_main_island_land_audit": {
+        "mask": "Esri2025 connected-main-island 100m source-class mask with interior lakes filled; nearest resampled to display grid. Not an administrative boundary; small islands excluded.",
+        "land_display_pixels": 1558758,
+        "accepted_land_display_pixels": 1545072,
+        "observed_but_rejected_land_display_pixels": 13686,
+        "no_source_land_display_pixels": 0,
+        "accepted_land_percent": 99.122,
+        "mask_source_path": "main-island-mask-100m.tif",
+        "uncertainty": "Display-grid fraction, not native 10m land completeness or area. Includes 100m mask and mixed/coastal-pixel uncertainty."
+      },
+      "actual_contributing_dates": [
+        "2025-01-03",
+        "2025-01-04",
+        "2025-01-06",
+        "2025-01-11",
+        "2025-01-19",
+        "2025-01-21",
+        "2025-01-24",
+        "2025-01-31",
+        "2025-02-02",
+        "2025-03-02",
+        "2025-03-22",
+        "2025-03-24",
+        "2025-03-25",
+        "2025-03-27",
+        "2025-04-03",
+        "2025-04-21",
+        "2025-04-23",
+        "2025-06-25",
+        "2025-07-17",
+        "2025-09-15",
+        "2025-10-03",
+        "2025-10-16",
+        "2025-11-15",
+        "2025-11-22",
+        "2025-12-20"
+      ],
+      "failed_sources": 0
+    },
+    {
+      "id": "sanya",
+      "name_zh": "三亚样窗",
+      "group": "main",
+      "preview": "previews/sanya.webp",
+      "bounds_wsen": [
+        109.38,
+        18.18,
+        109.61,
+        18.38
+      ],
+      "pixel_size_degrees": [
+        0.00018914473684210855,
+        0.0001795332136445236
+      ],
+      "width": 1216,
+      "height": 1114,
+      "metadata": "previews/sanya.json",
+      "status_preview": "previews/sanya-status.png",
+      "clear_count_preview": "previews/sanya-clear-count.png",
+      "source_date_preview": "previews/sanya-source-doy.png",
+      "qa_npz": "previews/sanya-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        19.993022151658444,
+        19.985637342908365
+      ],
+      "coverage": {
+        "total_bbox_pixels": 1354624,
+        "accepted_pixels": 1354447,
+        "observed_but_rejected_pixels": 177,
+        "no_source_observation_pixels": 0
+      },
+      "approx_main_island_land_audit": null,
+      "actual_contributing_dates": [
+        "2025-01-06",
+        "2025-01-11",
+        "2025-03-22"
+      ],
+      "failed_sources": 0
+    },
+    {
+      "id": "wenchang",
+      "name_zh": "文昌样窗",
+      "group": "main",
+      "preview": "previews/wenchang.webp",
+      "bounds_wsen": [
+        110.65,
+        19.51,
+        110.88,
+        19.72
+      ],
+      "pixel_size_degrees": [
+        0.00019071310116085388,
+        0.00017964071856287195
+      ],
+      "width": 1206,
+      "height": 1169,
+      "metadata": "previews/wenchang.json",
+      "status_preview": "previews/wenchang-status.png",
+      "clear_count_preview": "previews/wenchang-clear-count.png",
+      "source_date_preview": "previews/wenchang-source-doy.png",
+      "qa_npz": "previews/wenchang-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        19.998186432398846,
+        19.997604790418904
+      ],
+      "coverage": {
+        "total_bbox_pixels": 1409814,
+        "accepted_pixels": 1409536,
+        "observed_but_rejected_pixels": 278,
+        "no_source_observation_pixels": 0
+      },
+      "approx_main_island_land_audit": null,
+      "actual_contributing_dates": [
+        "2025-01-11",
+        "2025-01-21",
+        "2025-03-27"
+      ],
+      "failed_sources": 0
+    },
+    {
+      "id": "wuzhishan",
+      "name_zh": "五指山样窗",
+      "group": "main",
+      "preview": "previews/wuzhishan.webp",
+      "bounds_wsen": [
+        109.42,
+        18.7,
+        109.67,
+        18.9
+      ],
+      "pixel_size_degrees": [
+        0.00018968133535660092,
+        0.0001795332136445236
+      ],
+      "width": 1318,
+      "height": 1114,
+      "metadata": "previews/wuzhishan.json",
+      "status_preview": "previews/wuzhishan-status.png",
+      "clear_count_preview": "previews/wuzhishan-clear-count.png",
+      "source_date_preview": "previews/wuzhishan-source-doy.png",
+      "qa_npz": "previews/wuzhishan-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        19.98880797345966,
+        19.985637342908365
+      ],
+      "coverage": {
+        "total_bbox_pixels": 1468252,
+        "accepted_pixels": 1468185,
+        "observed_but_rejected_pixels": 67,
+        "no_source_observation_pixels": 0
+      },
+      "approx_main_island_land_audit": null,
+      "actual_contributing_dates": [
+        "2025-01-06",
+        "2025-01-11",
+        "2025-03-22",
+        "2025-03-27"
+      ],
+      "failed_sources": 0
+    },
+    {
+      "id": "xidao",
+      "name_zh": "西岛近岸样窗",
+      "group": "main",
+      "preview": "previews/xidao.webp",
+      "bounds_wsen": [
+        109.35,
+        18.215,
+        109.395,
+        18.26
+      ],
+      "pixel_size_degrees": [
+        9.453781512605401e-05,
+        8.982035928144053e-05
+      ],
+      "width": 476,
+      "height": 501,
+      "metadata": "previews/xidao.json",
+      "status_preview": "previews/xidao-status.png",
+      "clear_count_preview": "previews/xidao-clear-count.png",
+      "source_date_preview": "previews/xidao-source-doy.png",
+      "qa_npz": "previews/xidao-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        9.995304496889386,
+        9.99880239520996
+      ],
+      "coverage": {
+        "total_bbox_pixels": 238476,
+        "accepted_pixels": 238476,
+        "observed_but_rejected_pixels": 0,
+        "no_source_observation_pixels": 0
+      },
+      "approx_main_island_land_audit": null,
+      "actual_contributing_dates": [
+        "2025-01-06",
+        "2025-01-11"
+      ],
+      "failed_sources": 0
+    },
+    {
+      "id": "yongshu",
+      "name_zh": "永暑礁样窗",
+      "group": "nansha",
+      "preview": "previews/yongshu.webp",
+      "bounds_wsen": [
+        112.89,
+        9.49,
+        113.03,
+        9.66
+      ],
+      "pixel_size_degrees": [
+        9.108653220559569e-05,
+        8.980454305335442e-05
+      ],
+      "width": 1537,
+      "height": 1893,
+      "metadata": "previews/yongshu.json",
+      "status_preview": "previews/yongshu-status.png",
+      "clear_count_preview": "previews/yongshu-clear-count.png",
+      "source_date_preview": "previews/yongshu-source-doy.png",
+      "qa_npz": "previews/yongshu-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        9.998492926813089,
+        9.997041732699415
+      ],
+      "coverage": {
+        "total_bbox_pixels": 2909541,
+        "accepted_pixels": 2905219,
+        "observed_but_rejected_pixels": 4322,
+        "no_source_observation_pixels": 0
+      },
+      "approx_main_island_land_audit": null,
+      "actual_contributing_dates": [
+        "2025-04-12",
+        "2025-07-04",
+        "2025-10-02",
+        "2025-12-01"
+      ],
+      "failed_sources": 0
+    },
+    {
+      "id": "yongxing",
+      "name_zh": "永兴岛样窗",
+      "group": "xisha",
+      "preview": "previews/yongxing.webp",
+      "bounds_wsen": [
+        112.3,
+        16.79,
+        112.38,
+        16.87
+      ],
+      "pixel_size_degrees": [
+        9.378663540445286e-05,
+        8.978675645342519e-05
+      ],
+      "width": 853,
+      "height": 891,
+      "metadata": "previews/yongxing.json",
+      "status_preview": "previews/yongxing-status.png",
+      "clear_count_preview": "previews/yongxing-clear-count.png",
+      "source_date_preview": "previews/yongxing-source-doy.png",
+      "qa_npz": "previews/yongxing-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        9.99314842268977,
+        9.995061728395292
+      ],
+      "coverage": {
+        "total_bbox_pixels": 760023,
+        "accepted_pixels": 756454,
+        "observed_but_rejected_pixels": 3569,
+        "no_source_observation_pixels": 0
+      },
+      "approx_main_island_land_audit": null,
+      "actual_contributing_dates": [
+        "2025-01-23",
+        "2025-04-15",
+        "2025-12-31"
+      ],
+      "failed_sources": 0
+    },
+    {
+      "id": "zhubi",
+      "name_zh": "渚碧礁样窗",
+      "group": "nansha",
+      "preview": "previews/zhubi.webp",
+      "bounds_wsen": [
+        114.03,
+        10.875,
+        114.12,
+        10.955
+      ],
+      "pixel_size_degrees": [
+        9.146341463414981e-05,
+        8.97867564534232e-05
+      ],
+      "width": 984,
+      "height": 891,
+      "metadata": "previews/zhubi.json",
+      "status_preview": "previews/zhubi-status.png",
+      "clear_count_preview": "previews/zhubi-clear-count.png",
+      "source_date_preview": "previews/zhubi-source-doy.png",
+      "qa_npz": "previews/zhubi-qa.npz",
+      "source_date_encoding": "uint16 day-of-year in2025;0nodata",
+      "native_rgb_m": 10,
+      "native_scl_m": 20,
+      "display_pixel_m_at_center": [
+        9.99751182135888,
+        9.99506172839507
+      ],
+      "coverage": {
+        "total_bbox_pixels": 876744,
+        "accepted_pixels": 862687,
+        "observed_but_rejected_pixels": 14057,
+        "no_source_observation_pixels": 0
+      },
+      "approx_main_island_land_audit": null,
+      "actual_contributing_dates": [
+        "2025-03-26",
+        "2025-03-28",
+        "2025-04-17",
+        "2025-05-15",
+        "2025-12-01"
+      ],
+      "failed_sources": 0
+    }
+  ],
+  "status": "Derived real RGB with transparent missing/rejected pixels. Cloud/haze and completeness not independently certified."
+}

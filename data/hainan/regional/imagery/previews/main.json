@@ -1,0 +1,599 @@
+{
+  "id": "main",
+  "name_zh": "海南岛与近岸",
+  "name_en": "Hainan Island and nearshore",
+  "bbox": [
+    108.5,
+    17.8,
+    111.5,
+    20.5
+  ],
+  "quality_mask_revision": "v2_nonzero_false_true_encoding",
+  "image": "previews/main.webp",
+  "status_image": "previews/main-status.png",
+  "clear_count_image": "previews/main-clear-count.png",
+  "source_doy_image": "previews/main-source-doy.png",
+  "qa_npz": "previews/main-qa.npz",
+  "width": 2200,
+  "height": 1980,
+  "crs": "EPSG:4326",
+  "transform": [
+    0.0013636363636363637,
+    0,
+    108.5,
+    0,
+    -0.0013636363636363633,
+    20.5
+  ],
+  "display_pixel_m_at_center": [
+    143.39984353639088,
+    151.79999999999995
+  ],
+  "native_rgb_resolution_m": 10,
+  "native_scl_resolution_m": 20,
+  "stats": {
+    "total_bbox_pixels": 4356000,
+    "accepted_pixels": 4284698,
+    "observed_but_rejected_pixels": 20491,
+    "no_source_observation_pixels": 50811
+  },
+  "accepted_bbox_percent": 98.363,
+  "denominator": "All display cells in this rectangular geographic window, including water and any unrelated land. Not administrative land coverage.",
+  "sources": [
+    {
+      "index": 1,
+      "id": "S2C_T49QCB_20250327T031111_L2A",
+      "datetime": "2025-03-27T03:23:01.728000Z",
+      "contributing_pixels": 519556,
+      "clear_pixels": 519556,
+      "observed_pixels": 559668
+    },
+    {
+      "index": 2,
+      "id": "S2C_T49QEA_20250403T030857_L2A",
+      "datetime": "2025-04-03T03:13:15.768000Z",
+      "contributing_pixels": 266738,
+      "clear_pixels": 266738,
+      "observed_pixels": 267543
+    },
+    {
+      "index": 3,
+      "id": "S2C_T49QDC_20250327T031111_L2A",
+      "datetime": "2025-03-27T03:22:43.772000Z",
+      "contributing_pixels": 361744,
+      "clear_pixels": 365642,
+      "observed_pixels": 392721
+    },
+    {
+      "index": 4,
+      "id": "S2A_T49QDC_20250106T032130_L2A",
+      "datetime": "2025-01-06T03:22:20.058000Z",
+      "contributing_pixels": 23611,
+      "clear_pixels": 387163,
+      "observed_pixels": 392721
+    },
+    {
+      "index": 5,
+      "id": "S2B_T49QDC_20250111T031956_L2A",
+      "datetime": "2025-01-11T03:22:22.366000Z",
+      "contributing_pixels": 428,
+      "clear_pixels": 383141,
+      "observed_pixels": 392721
+    },
+    {
+      "index": 6,
+      "id": "S2B_T49QCC_20250421T031621_L2A",
+      "datetime": "2025-04-21T03:22:27.641000Z",
+      "contributing_pixels": 306339,
+      "clear_pixels": 376093,
+      "observed_pixels": 395293
+    },
+    {
+      "index": 7,
+      "id": "S2A_T49QCC_20250106T032130_L2A",
+      "datetime": "2025-01-06T03:22:23.430000Z",
+      "contributing_pixels": 7662,
+      "clear_pixels": 384413,
+      "observed_pixels": 395293
+    },
+    {
+      "index": 8,
+      "id": "S2A_T49QCV_20250717T032110_L2A",
+      "datetime": "2025-07-17T03:23:28.962000Z",
+      "contributing_pixels": 154722,
+      "clear_pixels": 154722,
+      "observed_pixels": 158949
+    },
+    {
+      "index": 9,
+      "id": "S2C_T49QBV_20250327T031111_L2A",
+      "datetime": "2025-03-27T03:23:33.999000Z",
+      "contributing_pixels": 89127,
+      "clear_pixels": 100840,
+      "observed_pixels": 105286
+    },
+    {
+      "index": 10,
+      "id": "S2A_T49QCA_20250106T032130_L2A",
+      "datetime": "2025-01-06T03:22:52.479000Z",
+      "contributing_pixels": 449857,
+      "clear_pixels": 541039,
+      "observed_pixels": 556687
+    },
+    {
+      "index": 11,
+      "id": "S2B_T49QEA_20250717T030848_L2A",
+      "datetime": "2025-07-17T03:12:56.003000Z",
+      "contributing_pixels": 64,
+      "clear_pixels": 264931,
+      "observed_pixels": 267543
+    },
+    {
+      "index": 12,
+      "id": "S2B_T49QCV_20250322T031553_L2A",
+      "datetime": "2025-03-22T03:23:12.665000Z",
+      "contributing_pixels": 3352,
+      "clear_pixels": 158100,
+      "observed_pixels": 158949
+    },
+    {
+      "index": 13,
+      "id": "S2B_T49QCA_20250111T031956_L2A",
+      "datetime": "2025-01-11T03:22:54.786000Z",
+      "contributing_pixels": 5589,
+      "clear_pixels": 537289,
+      "observed_pixels": 556687
+    },
+    {
+      "index": 14,
+      "id": "S2C_T49QEB_20250324T030806_L2A",
+      "datetime": "2025-03-24T03:13:00.599000Z",
+      "contributing_pixels": 226505,
+      "clear_pixels": 251172,
+      "observed_pixels": 260606
+    },
+    {
+      "index": 15,
+      "id": "S2C_T48QZH_20251115T032458_L2A",
+      "datetime": "2025-11-15T03:32:35.258000Z",
+      "contributing_pixels": 159092,
+      "clear_pixels": 159092,
+      "observed_pixels": 163886
+    },
+    {
+      "index": 16,
+      "id": "S2B_T49QCC_20250121T031456_L2A",
+      "datetime": "2025-01-21T03:22:26.681000Z",
+      "contributing_pixels": 1032,
+      "clear_pixels": 370928,
+      "observed_pixels": 395293
+    },
+    {
+      "index": 17,
+      "id": "S2B_T48QZH_20250104T032739_L2A",
+      "datetime": "2025-01-04T03:32:26.041000Z",
+      "contributing_pixels": 3993,
+      "clear_pixels": 163046,
+      "observed_pixels": 164379
+    },
+    {
+      "index": 18,
+      "id": "S2C_T49QCV_20250205T031432_L2A",
+      "datetime": "2025-02-05T03:23:36.562000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 158022,
+      "observed_pixels": 158949
+    },
+    {
+      "index": 19,
+      "id": "S2C_T49QEB_20250423T030824_L2A",
+      "datetime": "2025-04-23T03:13:00.144000Z",
+      "contributing_pixels": 9005,
+      "clear_pixels": 255039,
+      "observed_pixels": 261584
+    },
+    {
+      "index": 20,
+      "id": "S2B_T49QCB_20250302T032220_L2A",
+      "datetime": "2025-03-02T03:22:43.636000Z",
+      "contributing_pixels": 2439,
+      "clear_pixels": 455164,
+      "observed_pixels": 559668
+    },
+    {
+      "index": 21,
+      "id": "S2B_T49QEB_20250717T030848_L2A",
+      "datetime": "2025-07-17T03:12:41.553000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 257320,
+      "observed_pixels": 260003
+    },
+    {
+      "index": 22,
+      "id": "S2A_T49QCB_20250106T032130_L2A",
+      "datetime": "2025-01-06T03:22:38.012000Z",
+      "contributing_pixels": 26996,
+      "clear_pixels": 509549,
+      "observed_pixels": 559668
+    },
+    {
+      "index": 23,
+      "id": "S2B_T49QEA_20251015T031138_L2A",
+      "datetime": "2025-10-15T03:12:52.325000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 261420,
+      "observed_pixels": 267543
+    },
+    {
+      "index": 24,
+      "id": "S2C_T49QDB_20250327T031111_L2A",
+      "datetime": "2025-03-27T03:22:58.217000Z",
+      "contributing_pixels": 358077,
+      "clear_pixels": 471698,
+      "observed_pixels": 559725
+    },
+    {
+      "index": 25,
+      "id": "S2B_T49QDB_20250111T031956_L2A",
+      "datetime": "2025-01-11T03:22:36.822000Z",
+      "contributing_pixels": 56063,
+      "clear_pixels": 520837,
+      "observed_pixels": 559725
+    },
+    {
+      "index": 26,
+      "id": "S2B_T49QBA_20250322T031553_L2A",
+      "datetime": "2025-03-22T03:23:01.538000Z",
+      "contributing_pixels": 284037,
+      "clear_pixels": 359000,
+      "observed_pixels": 373684
+    },
+    {
+      "index": 27,
+      "id": "S2A_T49QBV_20250717T032110_L2A",
+      "datetime": "2025-07-17T03:23:32.216000Z",
+      "contributing_pixels": 1533,
+      "clear_pixels": 104679,
+      "observed_pixels": 105286
+    },
+    {
+      "index": 28,
+      "id": "S2C_T49QBA_20250625T032039_L2A",
+      "datetime": "2025-06-25T03:23:18.523000Z",
+      "contributing_pixels": 3769,
+      "clear_pixels": 344259,
+      "observed_pixels": 373684
+    },
+    {
+      "index": 29,
+      "id": "S2B_T49QBV_20250322T031553_L2A",
+      "datetime": "2025-03-22T03:23:15.915000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 104711,
+      "observed_pixels": 105286
+    },
+    {
+      "index": 30,
+      "id": "S2B_T49QBA_20250131T031502_L2A",
+      "datetime": "2025-01-31T03:23:01.082000Z",
+      "contributing_pixels": 561,
+      "clear_pixels": 343641,
+      "observed_pixels": 373684
+    },
+    {
+      "index": 31,
+      "id": "S2B_T48QZG_20250104T032739_L2A",
+      "datetime": "2025-01-04T03:32:40.385000Z",
+      "contributing_pixels": 122622,
+      "clear_pixels": 150702,
+      "observed_pixels": 153218
+    },
+    {
+      "index": 32,
+      "id": "S2A_T49QCB_20250717T032110_L2A",
+      "datetime": "2025-07-17T03:22:59.945000Z",
+      "contributing_pixels": 500,
+      "clear_pixels": 436637,
+      "observed_pixels": 559668
+    },
+    {
+      "index": 33,
+      "id": "S2B_T49QCA_20250322T031553_L2A",
+      "datetime": "2025-03-22T03:22:58.129000Z",
+      "contributing_pixels": 462,
+      "clear_pixels": 457273,
+      "observed_pixels": 556687
+    },
+    {
+      "index": 34,
+      "id": "S2C_T49QBA_20251122T031501_L2A",
+      "datetime": "2025-11-22T03:23:07.853000Z",
+      "contributing_pixels": 414,
+      "clear_pixels": 356433,
+      "observed_pixels": 373684
+    },
+    {
+      "index": 35,
+      "id": "S2B_T49QBC_20250104T032739_L2A",
+      "datetime": "2025-01-04T03:32:24.673000Z",
+      "contributing_pixels": 24339,
+      "clear_pixels": 182509,
+      "observed_pixels": 183902
+    },
+    {
+      "index": 36,
+      "id": "S2B_T49QEV_20250717T030848_L2A",
+      "datetime": "2025-07-17T03:13:10.682000Z",
+      "contributing_pixels": 46544,
+      "clear_pixels": 69015,
+      "observed_pixels": 77804
+    },
+    {
+      "index": 37,
+      "id": "S2A_T49QEC_20250103T030544_L2A",
+      "datetime": "2025-01-03T03:12:23.175000Z",
+      "contributing_pixels": 112767,
+      "clear_pixels": 132978,
+      "observed_pixels": 134492
+    },
+    {
+      "index": 38,
+      "id": "S2C_T49QBC_20251115T032458_L2A",
+      "datetime": "2025-11-15T03:32:33.904000Z",
+      "contributing_pixels": 4,
+      "clear_pixels": 176337,
+      "observed_pixels": 180751
+    },
+    {
+      "index": 39,
+      "id": "S2B_T49QDB_20250121T031456_L2A",
+      "datetime": "2025-01-21T03:22:37.758000Z",
+      "contributing_pixels": 5734,
+      "clear_pixels": 337208,
+      "observed_pixels": 559725
+    },
+    {
+      "index": 40,
+      "id": "S2C_T49QEV_20250202T030955_L2A",
+      "datetime": "2025-02-02T03:13:34.574000Z",
+      "contributing_pixels": 7228,
+      "clear_pixels": 75196,
+      "observed_pixels": 77804
+    },
+    {
+      "index": 41,
+      "id": "S2C_T49QEV_20250423T030824_L2A",
+      "datetime": "2025-04-23T03:13:29.273000Z",
+      "contributing_pixels": 197,
+      "clear_pixels": 68401,
+      "observed_pixels": 77804
+    },
+    {
+      "index": 42,
+      "id": "S2B_T48QZG_20250124T032212_L2A",
+      "datetime": "2025-01-24T03:32:42.055000Z",
+      "contributing_pixels": 246,
+      "clear_pixels": 144735,
+      "observed_pixels": 152041
+    },
+    {
+      "index": 43,
+      "id": "S2C_T49QEC_20250423T030824_L2A",
+      "datetime": "2025-04-23T03:12:45.590000Z",
+      "contributing_pixels": 2751,
+      "clear_pixels": 136289,
+      "observed_pixels": 137911
+    },
+    {
+      "index": 44,
+      "id": "S2C_T48QZE_20250327T031111_L2A",
+      "datetime": "2025-03-27T03:23:35.416000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 48543,
+      "observed_pixels": 50361
+    },
+    {
+      "index": 45,
+      "id": "S2C_T48QZH_20250906T033101_L2A",
+      "datetime": "2025-09-06T03:32:42.504000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 96339,
+      "observed_pixels": 163917
+    },
+    {
+      "index": 46,
+      "id": "S2C_T49QEC_20250324T030806_L2A",
+      "datetime": "2025-03-24T03:12:46.040000Z",
+      "contributing_pixels": 57,
+      "clear_pixels": 112848,
+      "observed_pixels": 135748
+    },
+    {
+      "index": 47,
+      "id": "S2A_T49QBC_20250119T032600_L2A",
+      "datetime": "2025-01-19T03:32:23.280000Z",
+      "contributing_pixels": 889,
+      "clear_pixels": 183419,
+      "observed_pixels": 184798
+    },
+    {
+      "index": 48,
+      "id": "S2B_T49QDV_20250302T032220_L2A",
+      "datetime": "2025-03-02T03:23:08.779000Z",
+      "contributing_pixels": 113899,
+      "clear_pixels": 121871,
+      "observed_pixels": 138524
+    },
+    {
+      "index": 49,
+      "id": "S2B_T49QBB_20250131T031502_L2A",
+      "datetime": "2025-01-31T03:22:46.452000Z",
+      "contributing_pixels": 124292,
+      "clear_pixels": 333252,
+      "observed_pixels": 364483
+    },
+    {
+      "index": 50,
+      "id": "S2C_T49QBB_20250327T031111_L2A",
+      "datetime": "2025-03-27T03:23:04.991000Z",
+      "contributing_pixels": 13952,
+      "clear_pixels": 353727,
+      "observed_pixels": 364300
+    },
+    {
+      "index": 51,
+      "id": "S2A_T49QBB_20250106T032130_L2A",
+      "datetime": "2025-01-06T03:22:41.253000Z",
+      "contributing_pixels": 4852,
+      "clear_pixels": 359449,
+      "observed_pixels": 363487
+    },
+    {
+      "index": 52,
+      "id": "S2A_T49QDA_20250915T032107_L2A",
+      "datetime": "2025-09-15T03:23:04.607000Z",
+      "contributing_pixels": 313311,
+      "clear_pixels": 410754,
+      "observed_pixels": 540387
+    },
+    {
+      "index": 53,
+      "id": "S2B_T48QZF_20250325T032419_L2A",
+      "datetime": "2025-03-25T03:32:57.601000Z",
+      "contributing_pixels": 17,
+      "clear_pixels": 33130,
+      "observed_pixels": 34632
+    },
+    {
+      "index": 54,
+      "id": "S2B_T48QZF_20251220T033030_L2A",
+      "datetime": "2025-12-20T03:32:53.006000Z",
+      "contributing_pixels": 68,
+      "clear_pixels": 36279,
+      "observed_pixels": 37842
+    },
+    {
+      "index": 55,
+      "id": "S2C_T49QDA_20251003T032032_L2A",
+      "datetime": "2025-10-03T03:23:06.594000Z",
+      "contributing_pixels": 35860,
+      "clear_pixels": 393764,
+      "observed_pixels": 536843
+    },
+    {
+      "index": 56,
+      "id": "S2A_T49QDV_20250915T032107_L2A",
+      "datetime": "2025-09-15T03:23:19.025000Z",
+      "contributing_pixels": 4456,
+      "clear_pixels": 123228,
+      "observed_pixels": 140141
+    },
+    {
+      "index": 57,
+      "id": "S2C_T48QZG_20251016T032926_L2A",
+      "datetime": "2025-10-16T03:32:50.883000Z",
+      "contributing_pixels": 13,
+      "clear_pixels": 118572,
+      "observed_pixels": 155342
+    },
+    {
+      "index": 58,
+      "id": "S2A_T49QDA_20250106T032130_L2A",
+      "datetime": "2025-01-06T03:22:48.727000Z",
+      "contributing_pixels": 16438,
+      "clear_pixels": 434838,
+      "observed_pixels": 541909
+    },
+    {
+      "index": 59,
+      "id": "S2B_T48QZF_20250315T032508_L2A",
+      "datetime": "2025-03-15T03:32:56.699000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 33069,
+      "observed_pixels": 35495
+    },
+    {
+      "index": 60,
+      "id": "S2A_T48QZE_20250717T032110_L2A",
+      "datetime": "2025-07-17T03:23:33.644000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 49939,
+      "observed_pixels": 50361
+    },
+    {
+      "index": 61,
+      "id": "S2A_T49QDA_20250717T032110_L2A",
+      "datetime": "2025-07-17T03:23:10.640000Z",
+      "contributing_pixels": 10865,
+      "clear_pixels": 329747,
+      "observed_pixels": 536309
+    },
+    {
+      "index": 62,
+      "id": "S2C_T49QDV_20251003T032032_L2A",
+      "datetime": "2025-10-03T03:23:21.027000Z",
+      "contributing_pixels": 30,
+      "clear_pixels": 116411,
+      "observed_pixels": 138184
+    },
+    {
+      "index": 63,
+      "id": "S2B_T48QZE_20250322T031553_L2A",
+      "datetime": "2025-03-22T03:23:17.337000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 49945,
+      "observed_pixels": 50361
+    }
+  ],
+  "failures": [],
+  "actual_contributing_dates": [
+    "2025-01-03",
+    "2025-01-04",
+    "2025-01-06",
+    "2025-01-11",
+    "2025-01-19",
+    "2025-01-21",
+    "2025-01-24",
+    "2025-01-31",
+    "2025-02-02",
+    "2025-03-02",
+    "2025-03-22",
+    "2025-03-24",
+    "2025-03-25",
+    "2025-03-27",
+    "2025-04-03",
+    "2025-04-21",
+    "2025-04-23",
+    "2025-06-25",
+    "2025-07-17",
+    "2025-09-15",
+    "2025-10-03",
+    "2025-10-16",
+    "2025-11-15",
+    "2025-11-22",
+    "2025-12-20"
+  ],
+  "image_bytes": 579470,
+  "image_sha256": "554c7a0d0026f5e86318338aeacbdd2971b0f91dfd3631cce7d710e144fc017b",
+  "status_legend": {
+    "0": "No source observation among selected scenes (transparent)",
+    "1": "Observed but no accepted clear pixel (transparent); includes cloud/shadow/cirrus, unclassified, saturated/snow or mask-edge rejection",
+    "2": "Accepted display pixel"
+  },
+  "processing": {
+    "rgb": "Native 10m TCI display values (uint8) read by HTTP Range and bilinear reprojected. No reflectance scaling applied to TCI.",
+    "scl": "Mask warp uses explicit false=1,true=2 to prevent zero exclusion by statistical resampling; threshold1.999. Read native 20m SCL. Accept classes2,4,5,6. Reject0,1,3,7,8,9,10,11. Dilate cloud/shadow/cirrus classes3,8,9,10 by3native pixels(60m); require >=99.9% clear fraction for each output cell. For broad main-island preview only, conservative4x4 all-clear blocks reduce native20m mask to80m before reprojection; observed mask uses any-observed blocks.",
+    "mosaic": "First accepted pixel in scene cloud%+0.35*nodata% rank order. Multi-date best-available display; not a median, single-date image, or independently certified cloud-free product.",
+    "cloud_audit_limit": "SCL may miss haze/thin cloud or misclassify land/water; overviews and resampling lower display detail. Remaining holes stay transparent. Counts cover selected candidates only, not all 2025 observations."
+  },
+  "approx_main_island_land_audit": {
+    "mask": "Esri2025 connected-main-island 100m source-class mask with interior lakes filled; nearest resampled to display grid. Not an administrative boundary; small islands excluded.",
+    "land_display_pixels": 1558758,
+    "accepted_land_display_pixels": 1545072,
+    "observed_but_rejected_land_display_pixels": 13686,
+    "no_source_land_display_pixels": 0,
+    "accepted_land_percent": 99.122,
+    "mask_source_path": "main-island-mask-100m.tif",
+    "uncertainty": "Display-grid fraction, not native 10m land completeness or area. Includes 100m mask and mixed/coastal-pixel uncertainty."
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "id": "rain-2025-wuzhishan",
+  "kind": "rain",
+  "bounds_wsen": [
+    109.40000431239605,
+    18.699999384582043,
+    109.65000431612134,
+    18.899999387562275
+  ],
+  "width": 5,
+  "height": 4,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-wuzhishan-preview.png",
+  "values": "rain-2025-wuzhishan-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 20,
+    "valid_cells": 20,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 2284.266357421875,
+    "max": 2672.058349609375,
+    "mean": 2500.2177734375
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "b1cb99ac32ccb43c48fdec5cf5a9eaff65ea2105e65ce43185cd06e802a9ead0",
+    "values": "2e420aff07f6d8d810cd66072dfaf0d12e5352d5c5e8959de545dce7da9e0875",
+    "geotiff": "3e68be166a948605c0174f747a755c877ca2e5908b2792b8704b4e71f5963c40"
+  },
+  "geotiff": "rain-2025-wuzhishan.tif",
+  "aoi": "wuzhishan",
+  "group": "main",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

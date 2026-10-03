@@ -1,0 +1,114 @@
+{
+  "id": "wuzhishan",
+  "group": "main",
+  "name_zh": "五指山样窗",
+  "name_en": "Wuzhishan sample",
+  "bbox": [
+    109.42,
+    18.7,
+    109.67,
+    18.9
+  ],
+  "kind": "main-island-sample",
+  "quality_mask_revision": "v2_nonzero_false_true_encoding",
+  "image": "previews/wuzhishan.webp",
+  "status_image": "previews/wuzhishan-status.png",
+  "clear_count_image": "previews/wuzhishan-clear-count.png",
+  "source_doy_image": "previews/wuzhishan-source-doy.png",
+  "qa_npz": "previews/wuzhishan-qa.npz",
+  "width": 1318,
+  "height": 1114,
+  "crs": "EPSG:4326",
+  "transform": [
+    0.00018968133535660092,
+    0,
+    109.42,
+    0,
+    -0.0001795332136445236,
+    18.9
+  ],
+  "display_pixel_m_at_center": [
+    19.98880797345966,
+    19.985637342908365
+  ],
+  "native_rgb_resolution_m": 10,
+  "native_scl_resolution_m": 20,
+  "stats": {
+    "total_bbox_pixels": 1468252,
+    "accepted_pixels": 1468185,
+    "observed_but_rejected_pixels": 67,
+    "no_source_observation_pixels": 0
+  },
+  "accepted_bbox_percent": 99.995,
+  "denominator": "All display cells in this rectangular geographic window, including water and any unrelated land. Not administrative land coverage.",
+  "sources": [
+    {
+      "index": 1,
+      "id": "S2C_T49QCB_20250327T031111_L2A",
+      "datetime": "2025-03-27T03:23:01.728000Z",
+      "contributing_pixels": 11362,
+      "clear_pixels": 11362,
+      "observed_pixels": 12249
+    },
+    {
+      "index": 2,
+      "id": "S2A_T49QCA_20250106T032130_L2A",
+      "datetime": "2025-01-06T03:22:52.479000Z",
+      "contributing_pixels": 1450343,
+      "clear_pixels": 1461705,
+      "observed_pixels": 1468252
+    },
+    {
+      "index": 3,
+      "id": "S2B_T49QCA_20250111T031956_L2A",
+      "datetime": "2025-01-11T03:22:54.786000Z",
+      "contributing_pixels": 6410,
+      "clear_pixels": 1433592,
+      "observed_pixels": 1468252
+    },
+    {
+      "index": 4,
+      "id": "S2B_T49QCB_20250302T032220_L2A",
+      "datetime": "2025-03-02T03:22:43.636000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 11409,
+      "observed_pixels": 12249
+    },
+    {
+      "index": 5,
+      "id": "S2A_T49QCB_20250106T032130_L2A",
+      "datetime": "2025-01-06T03:22:38.012000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 11592,
+      "observed_pixels": 12249
+    },
+    {
+      "index": 6,
+      "id": "S2B_T49QCA_20250322T031553_L2A",
+      "datetime": "2025-03-22T03:22:58.129000Z",
+      "contributing_pixels": 70,
+      "clear_pixels": 1458962,
+      "observed_pixels": 1468252
+    }
+  ],
+  "failures": [],
+  "actual_contributing_dates": [
+    "2025-01-06",
+    "2025-01-11",
+    "2025-03-22",
+    "2025-03-27"
+  ],
+  "image_bytes": 255062,
+  "image_sha256": "904adf6550e9910239725fe887188d1a6c3a04a374e0d0c460190d80fc8fa3c8",
+  "status_legend": {
+    "0": "No source observation among selected scenes (transparent)",
+    "1": "Observed but no accepted clear pixel (transparent); includes cloud/shadow/cirrus, unclassified, saturated/snow or mask-edge rejection",
+    "2": "Accepted display pixel"
+  },
+  "processing": {
+    "rgb": "Native 10m TCI display values (uint8) read by HTTP Range and bilinear reprojected. No reflectance scaling applied to TCI.",
+    "scl": "Mask warp uses explicit false=1,true=2 to prevent zero exclusion by statistical resampling; threshold1.999. Read native 20m SCL. Accept classes2,4,5,6. Reject0,1,3,7,8,9,10,11. Dilate cloud/shadow/cirrus classes3,8,9,10 by3native pixels(60m); require >=99.9% clear fraction for each output cell. For broad main-island preview only, conservative4x4 all-clear blocks reduce native20m mask to80m before reprojection; observed mask uses any-observed blocks.",
+    "mosaic": "First accepted pixel in scene cloud%+0.35*nodata% rank order. Multi-date best-available display; not a median, single-date image, or independently certified cloud-free product.",
+    "cloud_audit_limit": "SCL may miss haze/thin cloud or misclassify land/water; overviews and resampling lower display detail. Remaining holes stay transparent. Counts cover selected candidates only, not all 2025 observations."
+  }
+}

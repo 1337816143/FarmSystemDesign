@@ -1,0 +1,805 @@
+{
+  "files": {
+    "soil-ph-huangyan-preview.png": {
+      "bytes": 121,
+      "sha256": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb"
+    },
+    "rain-2025-huangyan-values.png": {
+      "bytes": 140,
+      "sha256": "7c6f9d0e7059674890fb20474f0de21a9cbb09bd9f5297f32584a48c9c7bca2d"
+    },
+    "soil-soc-main.tif": {
+      "bytes": 766189,
+      "sha256": "d604affb685379501b396d3a6f30169e49588ce8657d03016794350bb016a70d"
+    },
+    "rain-2025-huangyan.tif": {
+      "bytes": 842,
+      "sha256": "d83fe786ef207f8fde9a510fba516cb449877d7185104900d0baa688faedcd8e"
+    },
+    "soil-soc-xidao.json": {
+      "bytes": 1554,
+      "sha256": "0e55cffe40b473a430c738cdc11115ac0541dcf9d558daa5ac2f920ca9e99d89"
+    },
+    "rain-2025-sanya-preview.png": {
+      "bytes": 122,
+      "sha256": "0de126ec4746980769b5592d68bc9c66f92567bb185cb8753dff82354e3b6137"
+    },
+    "soil-soc-yongshu-values.png": {
+      "bytes": 97,
+      "sha256": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731"
+    },
+    "soil-soc-huangyan.json": {
+      "bytes": 1980,
+      "sha256": "4e5a2d49f13932a2d626e0ff553742c6fdda92f11da6b715e89dfb41aacddd1f"
+    },
+    "dsm-yongxing-preview.png": {
+      "bytes": 4196,
+      "sha256": "38e9ad0da476dfa9b08dcf19168e44e41effbedcff34eb12997908bfc9a2f069"
+    },
+    "dsm-xidao-values.png": {
+      "bytes": 2569,
+      "sha256": "181f22dfa8ad5f845db2b679a16df1e80bfb700bccbdb710cdc09f89496d86ee"
+    },
+    "soil-ph-haikou.json": {
+      "bytes": 1557,
+      "sha256": "c0e82685bdca72c9d490c5ffbc030c829af12539b9f4ad21b436b7cd5743526b"
+    },
+    "dsm-nansha-preview.png": {
+      "bytes": 254697,
+      "sha256": "c146d29d22938ea0a435fbc351d6454a65c8dd9d5eaeac1d467e9685f861e64b"
+    },
+    "dsm-zhubi-values.png": {
+      "bytes": 814,
+      "sha256": "0ef75cb7c54188417a26dc0cd106194119dfc68e2378e39610c0582f891d15d4"
+    },
+    "soil-ph-yongshu-values.png": {
+      "bytes": 97,
+      "sha256": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731"
+    },
+    "dsm-sanya-values.png": {
+      "bytes": 303137,
+      "sha256": "d98bc4cf681912277ce1738c1a8ad15bd5afa2d863817c0a92e518bcf706e5a8"
+    },
+    "rain-2025-nansha.tif": {
+      "bytes": 17190,
+      "sha256": "11e0319b8c66c6897ad0036a8c66a31f3634ba5a15234c30d0ca0d4d02ce67a6"
+    },
+    "dsm-danzhou-values.png": {
+      "bytes": 510164,
+      "sha256": "cd4fca105c108df767f50ee474bdb7e26525e850358d9ca7e13efe253ced8855"
+    },
+    "dsm-xidao-preview.png": {
+      "bytes": 3972,
+      "sha256": "e629f540d5ba9d92f4ff1a089b6d119b451db306190aa5cc4e7fb58ddf669254"
+    },
+    "rain-2025-yongxing.tif": {
+      "bytes": 705,
+      "sha256": "15e0172ffe9a1695df8556fac384cb24d7aca7a82e95467f6b346af544161fe6"
+    },
+    "soil-ph-xidao.json": {
+      "bytes": 1546,
+      "sha256": "0ef6e32598f9024c3287a54d6b6232e4947ae99cd582a57f1758aaaa73c572a3"
+    },
+    "dsm-yongxing.tif": {
+      "bytes": 12892,
+      "sha256": "49512f4c9f8321ba11cd10e391f593f049db186b839163dd1ac1cb4882243ffc"
+    },
+    "soil-soc-haikou-values.png": {
+      "bytes": 4678,
+      "sha256": "8fd5029c463546280f0ab9cc1001f9de65ba435f3d6e70c59878787982103e52"
+    },
+    "dsm-yongxing-values.png": {
+      "bytes": 3316,
+      "sha256": "bc7306aed97abafd2eb7cf3e5e6aef3306cbd97ae59fcbad1c2ed397bfd73599"
+    },
+    "dsm-danzhou.json": {
+      "bytes": 2179,
+      "sha256": "f79b7b63db29578e2f8ced15eeef2a5dd1b88641818b6271d61d061af0aa7f98"
+    },
+    "soil-soc-sanya-preview.png": {
+      "bytes": 11896,
+      "sha256": "af108427252e15540cb6860b1b5369f5e2fef307e938de9a3d476e6d51bc3ed6"
+    },
+    "rain-2025-xidao-preview.png": {
+      "bytes": 70,
+      "sha256": "193aa5b37393f09a03fd4b348a5f4e4ac198d2835ac4bc1fef666fe4b120086a"
+    },
+    "soil-soc-haikou-preview.png": {
+      "bytes": 6676,
+      "sha256": "e880cc315716576c94fdbe0531f54381a96d1ff541f403feb9dec2710324df26"
+    },
+    "soil-ph-wuzhishan-preview.png": {
+      "bytes": 5881,
+      "sha256": "c726b05e8f4ad592c3578832d98c9decdd43501f52894c3589ace3778f10b72d"
+    },
+    "soil-soc-yongxing-values.png": {
+      "bytes": 84,
+      "sha256": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8"
+    },
+    "soil-ph-wenchang-values.png": {
+      "bytes": 5281,
+      "sha256": "5b007f8756029c87f22a233365384132fc3fbbbe846c3b31ccdf3d1f04a1801a"
+    },
+    "rain-2025-yongshu-values.png": {
+      "bytes": 69,
+      "sha256": "1afd0f79fda44b9c451cfbb6f194123f9ca1e45e6546d80cb3b7667bc5b8b9b3"
+    },
+    "rain-2025-zhubi-preview.png": {
+      "bytes": 68,
+      "sha256": "391590d092f57b13968ea0174fda8726918550f84594de498c72482f1f2e9623"
+    },
+    "dsm-wenchang-preview.png": {
+      "bytes": 565758,
+      "sha256": "f8a3fcce2a7bd0858b45c0c2a38736408c7fe7fd922b160bb97da9bb4336459a"
+    },
+    "soil-ph-wuzhishan.json": {
+      "bytes": 1569,
+      "sha256": "12b15732d96da9e3f799e866cb3160f701a4efb7e5ee09830530c609ab379659"
+    },
+    "soil-ph-xidao-preview.png": {
+      "bytes": 110,
+      "sha256": "a90eb08f6a7afb3e02ff5906a13be72a6d1feb65723c6f32caab809ba1a84591"
+    },
+    "dsm-wuzhishan.tif": {
+      "bytes": 1759952,
+      "sha256": "aa8f42193ee5bfdc1f3ccb6ff861e0153055b96b8078ddf28ba94d2c0a586603"
+    },
+    "soil-soc-wuzhishan-preview.png": {
+      "bytes": 16466,
+      "sha256": "43a3a79545de8b17d1cc13f903ad0e45b882f597fa80ef646c9ab770e272e71b"
+    },
+    "rain-2025-xisha-values.png": {
+      "bytes": 87,
+      "sha256": "8dfb8e2d7aaf21a343ce5593cfb7cc246d94ffaf609ccc4e0da8cd08584a3d82"
+    },
+    "dsm-xidao.tif": {
+      "bytes": 10500,
+      "sha256": "4bbfcd19ff0a444097852ffdeb572cc48c3d04b50056c72d22f9e916c89af5d2"
+    },
+    "soil-manifest.json": {
+      "bytes": 43860,
+      "sha256": "4f6246c4f2854487422705ec1f2885f03841105f8520e949524cb9d0619a6c71"
+    },
+    "rain-2025-wenchang.tif": {
+      "bytes": 836,
+      "sha256": "1f4d9102cd2371accc6c1d6bd6d6aab042968ba0cd5ef82ede679e4e20519261"
+    },
+    "rain-2025-haikou.json": {
+      "bytes": 1845,
+      "sha256": "5744dccec9f9bc78d26b8a237e8fab9da718379b6f6589b4652130b6533f9325"
+    },
+    "soil-ph-zhubi.json": {
+      "bytes": 1971,
+      "sha256": "4508819eb785e10b573d621167490bce7faf6e1aa7cc9a4bc2cf29a343799e96"
+    },
+    "soil-soc-danzhou.json": {
+      "bytes": 1572,
+      "sha256": "8f80fc93b8561d2691d343b95ff6b4d11bbd0abe4bec27608b0bb600e8480723"
+    },
+    "dsm-sanya.json": {
+      "bytes": 2172,
+      "sha256": "5528b17f09f77e2f297412a759d22d6c40a6f78d19de5f62be07fc4a774e69cc"
+    },
+    "dsm-wuzhishan-preview.png": {
+      "bytes": 427781,
+      "sha256": "2d48ca5940a6ff929dae79739d1073912383aac798fa00485507d6cb18fb2755"
+    },
+    "dsm-zhubi-preview.png": {
+      "bytes": 444,
+      "sha256": "90bac9be52761a2281fe8bd7d51ed8b14db8a5e684c5fb675f8e366b3424c450"
+    },
+    "rain-2025-zhubi.json": {
+      "bytes": 1817,
+      "sha256": "7b7d2bbe339c9ccaa84bc64104a17d62aae641623d153d19c5970969af222787"
+    },
+    "rain-2025-wenchang.json": {
+      "bytes": 1853,
+      "sha256": "7070aa8cd44d06fa13d809a5fee2b8f7f8a7a52712078a83a295db8c75563f65"
+    },
+    "soil-soc-yongxing-preview.png": {
+      "bytes": 84,
+      "sha256": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8"
+    },
+    "soil-soc-huangyan-values.png": {
+      "bytes": 121,
+      "sha256": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb"
+    },
+    "soil-soc-zhubi.json": {
+      "bytes": 1974,
+      "sha256": "05a71effdbe956f5016594cc8877696b45beacb65cdcef388026c7d9b549a78f"
+    },
+    "soil-ph-main.json": {
+      "bytes": 2448,
+      "sha256": "44f5e095f70d829154fe3d584f4c47f0f2c9562b04863aff9c4a8bae363aa15e"
+    },
+    "dsm-zhubi.json": {
+      "bytes": 2287,
+      "sha256": "84cb5aa13d709f3a42850794c9952a0b0edfd8762dae29806151b81331df918e"
+    },
+    "soil-soc-wenchang-preview.png": {
+      "bytes": 18079,
+      "sha256": "131be3edb8b8a893d364d7d1c0bf05917605d548ecec8906aea51f6676ab96a1"
+    },
+    "rain-2025-wuzhishan-preview.png": {
+      "bytes": 117,
+      "sha256": "b1cb99ac32ccb43c48fdec5cf5a9eaff65ea2105e65ce43185cd06e802a9ead0"
+    },
+    "soil-soc-danzhou-preview.png": {
+      "bytes": 25824,
+      "sha256": "ae1432707e5edda748530a007eb25af7dc6179beafa93fbd0a1d123e368dbb76"
+    },
+    "rain-2025-nansha-preview.png": {
+      "bytes": 6672,
+      "sha256": "20776f3493b55835e03ff0ecc3bbbdab71457ee381e06ec70290df37b0934f70"
+    },
+    "dsm-haikou-preview.png": {
+      "bytes": 309793,
+      "sha256": "b370141d56840c7a87de99f274e151e3e1dd494f945869fe5b2280e879ad6fc0"
+    },
+    "dsm-yongshu-preview.png": {
+      "bytes": 1280,
+      "sha256": "8436d1659a4d62300473799ea8fc846009baede68eff5e8e158ebbfe1e5231e9"
+    },
+    "dsm-wenchang-values.png": {
+      "bytes": 343243,
+      "sha256": "7da02a6d8d8d21a340bf0a40db0951e1d14a1acc213b7a5dc0c4f82a29eaede0"
+    },
+    "dsm-yongxing.json": {
+      "bytes": 2169,
+      "sha256": "0f691a1432d8b3b6495ba1238c33127455b4b03bdc3b527b54e137e21331535c"
+    },
+    "dsm-xidao.json": {
+      "bytes": 2169,
+      "sha256": "d06b58b0b1ff578c62275ac13d5fceff594c8cfddb0328f130ac8ee912dc70d5"
+    },
+    "soil-soc-sanya.tif": {
+      "bytes": 11023,
+      "sha256": "767d1b6678178a6517ffebf902b8771d5fafdafff030a531b75cf6ccf45c3569"
+    },
+    "dsm-manifest.json": {
+      "bytes": 68218,
+      "sha256": "0305d1c8b8c7ff4f9e8196e00b5ca7f5fbc61e883e6d318d4e7a3ddf29e5679d"
+    },
+    "rain-2025-yongxing.json": {
+      "bytes": 1831,
+      "sha256": "8278003a93cca931ee4be1792dddda7e13eccc2778e75b31114d4be4efb0fafd"
+    },
+    "soil-soc-zhubi-values.png": {
+      "bytes": 85,
+      "sha256": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871"
+    },
+    "rain-2025-zhongsha-values.png": {
+      "bytes": 202,
+      "sha256": "b0a5e97f8d722f4cd040ee586ca23433b562a0b81267b9fc96488f83c81ae428"
+    },
+    "soil-soc-wuzhishan-values.png": {
+      "bytes": 13624,
+      "sha256": "cfe74bf7811d2a0193b4a3ed26818f82282de2a01a7129daf0eab6fecc2340ae"
+    },
+    "dsm-huangyan-values.png": {
+      "bytes": 4223,
+      "sha256": "fce32da4c64ec2e27ba158bbc3a8e2af7dec793f5b771f052bc4a84032358653"
+    },
+    "rain-2025-yongxing-preview.png": {
+      "bytes": 68,
+      "sha256": "391590d092f57b13968ea0174fda8726918550f84594de498c72482f1f2e9623"
+    },
+    "rain-2025-huangyan.json": {
+      "bytes": 2021,
+      "sha256": "bd419f45c3643a33ab13c251be735f4e13f69c286ffd10a8c2b5c0a678a7483d"
+    },
+    "soil-soc-wenchang-values.png": {
+      "bytes": 12486,
+      "sha256": "7d29f4438bb730cda9391179054ae1b639793586a6da2d6b9679a668dbe2f9d2"
+    },
+    "dsm-zhongsha.json": {
+      "bytes": 2153,
+      "sha256": "8b810624930333f33906465dd17d86c27cebb3c81b419e350c433b50b80da910"
+    },
+    "dsm-sanya-preview.png": {
+      "bytes": 418133,
+      "sha256": "1e82798613bae31d0464cc531a1672001590bda70850b7644ac8cac7df2ac199"
+    },
+    "rain-2025-wuzhishan-values.png": {
+      "bytes": 131,
+      "sha256": "2e420aff07f6d8d810cd66072dfaf0d12e5352d5c5e8959de545dce7da9e0875"
+    },
+    "rain-2025-main.tif": {
+      "bytes": 6875,
+      "sha256": "1b3a8092bfcf18a250242a60a7c681c0c33246e8b8b74b2d8d6594ef067a619e"
+    },
+    "soil-ph-yongxing-preview.png": {
+      "bytes": 84,
+      "sha256": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8"
+    },
+    "soil-soc-yongxing.tif": {
+      "bytes": 1467,
+      "sha256": "7897895c5e2c8dcb31ace479f2babfbb5eebff714d544c17e19c660065be7a5a"
+    },
+    "rain-2025-main.json": {
+      "bytes": 1842,
+      "sha256": "992de9c14a32e484814bcf424a81d0b1c42c52f493a822665c7995c1361a9d8d"
+    },
+    "soil-ph-wenchang-preview.png": {
+      "bytes": 8352,
+      "sha256": "4779eb607c0c0ac76046b5c4c5a71b77f8f061b1a386721e69fa73b17fe2e496"
+    },
+    "soil-soc-haikou.json": {
+      "bytes": 1566,
+      "sha256": "0168253b6c70354f8640172be282b52e6b02bb9e90807245cbf73b716e4aaf42"
+    },
+    "soil-ph-sanya.json": {
+      "bytes": 1551,
+      "sha256": "6aab15c2fb7c02c7441565364205ecde4eb14ae980ac96feb0761df5a73089ce"
+    },
+    "dsm-yongshu.json": {
+      "bytes": 1918,
+      "sha256": "0a97609d29031553a4895219ec06fd408fd62436ba0a7ef1c27cdb2af610a88c"
+    },
+    "soil-ph-sanya.tif": {
+      "bytes": 6219,
+      "sha256": "c6f96456e67b0e02c3801c01ac4ee0cfa8804e8fffd2f175222a9880887bd77e"
+    },
+    "rain-2025-haikou-values.png": {
+      "bytes": 111,
+      "sha256": "a4fbd9142e53ce579b3a0e944513600fcc9445173e819c68e5b8c922eb5d4180"
+    },
+    "rain-2025-danzhou.tif": {
+      "bytes": 856,
+      "sha256": "d67d132847537d845fd09e9ae381919fb8b990320905e0afd880dda93406ac22"
+    },
+    "dsm-haikou-values.png": {
+      "bytes": 188645,
+      "sha256": "ea9ea0928e075243de9462067af447ccf9426d7c8188b70599a3fe4fe9bdfe85"
+    },
+    "dsm-yongshu.tif": {
+      "bytes": 7734,
+      "sha256": "0b1e9db652d03daac8f7c241e694f95532d0230bb4366a6ba9d82857c1a1a5fd"
+    },
+    "rain-2025-xidao-values.png": {
+      "bytes": 70,
+      "sha256": "c67c1cfc41845ce64d973cf56a624510f1c1d8f52f014d16fd4e765970a0ffdc"
+    },
+    "soil-ph-huangyan.json": {
+      "bytes": 1977,
+      "sha256": "0d5bdadf0faae8339398c623c8729161c294d9f120975df1fcf53c681d040135"
+    },
+    "soil-ph-sanya-values.png": {
+      "bytes": 3620,
+      "sha256": "5c402dbe77b0454f37d42c5194220a92afdb826d88b75c62055ea46c2929a2a8"
+    },
+    "rain-2025-xisha.json": {
+      "bytes": 1824,
+      "sha256": "e9efbbb9f5e0a057729557ef07c822b43a9766a4fa46aa225d4258a07b6f065b"
+    },
+    "soil-soc-wenchang.json": {
+      "bytes": 1577,
+      "sha256": "359f0ff9739867d2ee4a1484f76ad238804025a29fc8325a0070175881c097fd"
+    },
+    "environment-manifest.json": {
+      "sha256": "1de8695f84b6704e17f8142beec8eaa55a67210b4229b80808a162d08dfef264",
+      "bytes": 187609
+    },
+    "rain-2025-danzhou.json": {
+      "bytes": 1849,
+      "sha256": "30516fb88dee6e40767446e00047f95d58c28a6260e9acdaf5ba648f4763731f"
+    },
+    "soil-soc-main.json": {
+      "bytes": 2472,
+      "sha256": "6c56b8d9a79f9358e9e3b78daae02dde16ea8189b1989ce88fc9f173d932348b"
+    },
+    "soil-ph-wenchang.json": {
+      "bytes": 1567,
+      "sha256": "20abe094acd2fbbe10301f388e9394fbcc9c38a2aa41b13d09a1735045504884"
+    },
+    "rain-2025-danzhou-preview.png": {
+      "bytes": 125,
+      "sha256": "cf8e325f5b1d547a051c1f19984b9bffa7bc9c29feaed75d604148cc3ddb51ca"
+    },
+    "soil-ph-haikou-values.png": {
+      "bytes": 2034,
+      "sha256": "23128bc6d91545d8eb20888c495e7b7478ff3ae92072b6f6e64aa3f0b2710b23"
+    },
+    "dsm-main.json": {
+      "bytes": 3831,
+      "sha256": "ac9221268708b30ca11ba5685a3397d84fd01a96b7b3d7a490a093f49c106df5"
+    },
+    "rain-2025-xisha-preview.png": {
+      "bytes": 87,
+      "sha256": "8dfb8e2d7aaf21a343ce5593cfb7cc246d94ffaf609ccc4e0da8cd08584a3d82"
+    },
+    "rain-2025-yongxing-values.png": {
+      "bytes": 68,
+      "sha256": "391590d092f57b13968ea0174fda8726918550f84594de498c72482f1f2e9623"
+    },
+    "soil-ph-haikou.tif": {
+      "bytes": 4843,
+      "sha256": "be66510f60ce9f5372bfbde582aabec78ca0ffb7b972e539fbedce0b21d03089"
+    },
+    "soil-ph-main-preview.png": {
+      "bytes": 391437,
+      "sha256": "306e3cd9c935a0f63ebf8d47511fc2fed342924eaa8ce02f746fce44105f56d6"
+    },
+    "soil-soc-yongshu.tif": {
+      "bytes": 1617,
+      "sha256": "5bb6c91f52c5fdde5fc4f58019747a48ff2e626ebf5976b425879534a34633e0"
+    },
+    "soil-soc-main-values.png": {
+      "bytes": 848555,
+      "sha256": "e572719f51fe12eb15278c8c94af6bc72a423192cfd5f061b97a9a271c76643d"
+    },
+    "rain-2025-nansha.json": {
+      "bytes": 1859,
+      "sha256": "f3a6a3ee29e337e24a8a3c2a5fe7e0bd87775fbc0d4bd85ccb9c75f121e009a0"
+    },
+    "rain-2025-huangyan-preview.png": {
+      "bytes": 139,
+      "sha256": "eaaa66195cb43e56b58cbc2109098bc027d848f0e02ccfbbf84fc67f7191edec"
+    },
+    "rain-2025-zhongsha.tif": {
+      "bytes": 1046,
+      "sha256": "52022abe47b2ff5cc24204617f08bb93d77845d55e9825ae954ef57cbff167e1"
+    },
+    "soil-ph-yongshu.tif": {
+      "bytes": 1615,
+      "sha256": "6eb59783331fc82747dd7cbed7da6b2b9fbfdae2d8b8b989f5e15e5eef9f4b42"
+    },
+    "soil-ph-wuzhishan-values.png": {
+      "bytes": 4027,
+      "sha256": "695496262aea7b70bde7c585ab3aa3893d3f72924a80e5c2418f321c34f5e99e"
+    },
+    "soil-soc-danzhou.tif": {
+      "bytes": 19671,
+      "sha256": "21a0ae32713230da7033d079cbd81974a00f06cc7db4d16e3bed698f80867938"
+    },
+    "dsm-xisha-values.png": {
+      "bytes": 5090,
+      "sha256": "bfa9095b9a8d47bbe061893d380bc1fac19419faee4f38f80106ad08327ae5ad"
+    },
+    "dsm-nansha.json": {
+      "bytes": 11844,
+      "sha256": "1432a2283d606329e76a26a63cb5daac932a2607e423c363c7e9fae23f7af729"
+    },
+    "soil-soc-yongshu-preview.png": {
+      "bytes": 97,
+      "sha256": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731"
+    },
+    "dsm-xisha.json": {
+      "bytes": 2463,
+      "sha256": "bd9547eadf2116f7bf02a76969e1970a7cb13b36fb55d1859e8fde59d3d70212"
+    },
+    "soil-ph-yongshu-preview.png": {
+      "bytes": 97,
+      "sha256": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731"
+    },
+    "dsm-danzhou.tif": {
+      "bytes": 2294186,
+      "sha256": "b2bde12305a16fccd3bb2e490b062b5fdeda51fd37b7da34bb92c89ac58b7212"
+    },
+    "rain-2025-danzhou-values.png": {
+      "bytes": 147,
+      "sha256": "1780ada46330a19c581c006fd13528e7b28c9b50072f6663c12bd2e7eae27ea9"
+    },
+    "soil-ph-xidao-values.png": {
+      "bytes": 105,
+      "sha256": "962a8a403692692450c4413e33d74c1ecb4f53df647697e022100b7d7ded495b"
+    },
+    "soil-ph-yongxing.json": {
+      "bytes": 1991,
+      "sha256": "f5d28735b451480c5276787b0bf8a8b570db5fced91fc3cbded1c3eaa4f24b59"
+    },
+    "rain-2025-zhubi-values.png": {
+      "bytes": 68,
+      "sha256": "391590d092f57b13968ea0174fda8726918550f84594de498c72482f1f2e9623"
+    },
+    "soil-soc-yongxing.json": {
+      "bytes": 1994,
+      "sha256": "ecb8dcf6ba9f5546fa9bd29ec33ff1318bddb4524060a85321adccc2c24cec5d"
+    },
+    "dsm-huangyan-preview.png": {
+      "bytes": 2975,
+      "sha256": "66cd19d6266018a3a92ac64a6237792723b73e9d93135e909a60345026b3a83b"
+    },
+    "rain-2025-yongshu-preview.png": {
+      "bytes": 69,
+      "sha256": "1afd0f79fda44b9c451cfbb6f194123f9ca1e45e6546d80cb3b7667bc5b8b9b3"
+    },
+    "dsm-main-values.png": {
+      "bytes": 704544,
+      "sha256": "5fd26219fb5c05ae0a709f581e8d64697b92d9dd41d6ef93e29036a8e6dfb1fb"
+    },
+    "dsm-danzhou-preview.png": {
+      "bytes": 407674,
+      "sha256": "3b5564a9c6dd66a9e35703101a69c4b5f3074e76042b3cd20edf27fdfd5fa00e"
+    },
+    "soil-ph-main-values.png": {
+      "bytes": 287470,
+      "sha256": "e92da77b60c4f4f28612149f342049da09d45bcd1f8d8e17ebed44f66951e573"
+    },
+    "rain-2025-wenchang-values.png": {
+      "bytes": 140,
+      "sha256": "1db815adca831df81cc86eed9ab23f0c3fda370a74475c0d99ed2586e6ef49ec"
+    },
+    "dsm-xisha-preview.png": {
+      "bytes": 4647,
+      "sha256": "99a8b6a79783d0446eb84ba5436c40a3ce3820997507ad474a5b1f8aad800d1f"
+    },
+    "dsm-haikou.json": {
+      "bytes": 2392,
+      "sha256": "33138f691bad1543166c255f1177b95d811380a268c62d047ea39bd5798cdb3d"
+    },
+    "soil-ph-yongshu.json": {
+      "bytes": 1987,
+      "sha256": "3f9fecfa7ed96cf9ab354157609145b83b4c385e12ffb312e66f7320b4ca087f"
+    },
+    "soil-soc-yongshu.json": {
+      "bytes": 1990,
+      "sha256": "e2ce03963f5edee560ade897c1936393c3443ed42fe61311f7b2249334dc68b6"
+    },
+    "dsm-main-preview.png": {
+      "bytes": 847555,
+      "sha256": "088ff8f6908dc1cabad8e36b20396507aee2054b5c85f570aabec1271d1aded0"
+    },
+    "soil-ph-main.tif": {
+      "bytes": 303041,
+      "sha256": "c7f53d2340d555d8b077b229622b416f1d30caa30ee78221ccbaa04e0f85ea11"
+    },
+    "rain-2025-haikou-preview.png": {
+      "bytes": 103,
+      "sha256": "738ae2f78966d773bae19d260dbec216f93d1c44e4ad63cd408f6e5b94287e73"
+    },
+    "dsm-yongshu-values.png": {
+      "bytes": 1280,
+      "sha256": "8436d1659a4d62300473799ea8fc846009baede68eff5e8e158ebbfe1e5231e9"
+    },
+    "rain-2025-wenchang-preview.png": {
+      "bytes": 119,
+      "sha256": "29bb8a7f8fab786ac1bd015e341626e419b3a1a246eeccaf97a7bec6f7cff18b"
+    },
+    "rain-2025-wuzhishan.json": {
+      "bytes": 1860,
+      "sha256": "fced7d365463a466ec6f8784db098867ce40ed9d2fb4b2c9c1c07decfc61cbf7"
+    },
+    "dsm-sanya.tif": {
+      "bytes": 1271820,
+      "sha256": "410288f9ae980685e97428762c7907ebc36356a9d452ff1a4e62a1dea2ac4e59"
+    },
+    "soil-ph-danzhou-values.png": {
+      "bytes": 6017,
+      "sha256": "b4a08530be865694ff4cc4ef9facb8445f82f49b76055cd60aac60da3f58785b"
+    },
+    "rain-2025-nansha-values.png": {
+      "bytes": 11301,
+      "sha256": "9c266be4ece7175988f59a0f3f9ad87418c6390ac5e375f34f0ffe7bfa179197"
+    },
+    "rain-2025-main-preview.png": {
+      "bytes": 2923,
+      "sha256": "989e83ec4443d4afa3fabbdf45478ba764b634d6bb45b6d997a46867a7331a2a"
+    },
+    "soil-ph-yongxing.tif": {
+      "bytes": 1465,
+      "sha256": "1fac2424a8545628de9494add075a10bd757c57313ee46a5b7244c4ca851568a"
+    },
+    "rain-2025-sanya.json": {
+      "bytes": 1842,
+      "sha256": "144869ad4a69b1f3ac87b97eed6e649dc2f6c40b232b297b9c7bf4943e612be1"
+    },
+    "soil-soc-xidao-preview.png": {
+      "bytes": 109,
+      "sha256": "d40e9d60af9a99a410424ceb34745cc9319ae97ede9b82a59090f03d9c8b5f8c"
+    },
+    "dsm-zhongsha-preview.png": {
+      "bytes": 7003,
+      "sha256": "94db327cdc7c504874bb2777d57d11579d952a61b339ff37e233d823d38d91db"
+    },
+    "soil-ph-huangyan.tif": {
+      "bytes": 1763,
+      "sha256": "1192a71446ce362e716e22f705edc5f97d2dfd3725da87571f0c5caa5f6475e5"
+    },
+    "rain-2025-zhubi.tif": {
+      "bytes": 705,
+      "sha256": "cecdc180e12acc5a0f302f4dca582f050153cea1643c73cdfbe2626cc59860eb"
+    },
+    "rain-2025-sanya.tif": {
+      "bytes": 839,
+      "sha256": "564d207823c13484eaaeaa82e60b3dc543f38243a8f3fc27ef02b307c4b2168c"
+    },
+    "rain-2025-haikou.tif": {
+      "bytes": 775,
+      "sha256": "524f937d7a1172b7bc1200417941d0862ea87b9708ab88c21ee203ecf72ae693"
+    },
+    "rain-2025-xidao.json": {
+      "bytes": 2000,
+      "sha256": "da02e1f6a51e58a9d2b278ee89e188949c095c83559e48e2c1f4e4a09ab784be"
+    },
+    "rain-2025-main-values.png": {
+      "bytes": 3895,
+      "sha256": "9b091d2d6283cbbb473eac27b49396ab78ea37f7bc64c015461d40e34e6662bb"
+    },
+    "dsm-nansha-values.png": {
+      "bytes": 202753,
+      "sha256": "26a953fbf27bfa71c7de4633eed677b089e6012f646a101371602bdf7678d30f"
+    },
+    "rain-2025-yongshu.tif": {
+      "bytes": 709,
+      "sha256": "2ab5504474632aa66b5eac90cd6fc78632dbf1bbf7d8ece563be4e2a3d078e81"
+    },
+    "soil-soc-zhubi.tif": {
+      "bytes": 1471,
+      "sha256": "b6ce19245769f67957fbf4608f0828181a67cfc7ca9b84f99954480bd1e1ee98"
+    },
+    "soil-soc-main-preview.png": {
+      "bytes": 1094980,
+      "sha256": "122fc8c85492b6616b8ff7ddb28ccf0f0dc230c565ab7dea9ffc246de1235898"
+    },
+    "soil-ph-sanya-preview.png": {
+      "bytes": 5876,
+      "sha256": "67ea6e914880e10c2299b33eae1a7293584539132cba5c98046542ddba675ce2"
+    },
+    "soil-ph-xidao.tif": {
+      "bytes": 1475,
+      "sha256": "a0b951623cd3f6e10b02783839f7d34cbf8e96d5c594211ef9e998c472322c01"
+    },
+    "soil-soc-sanya-values.png": {
+      "bytes": 8828,
+      "sha256": "a70aadf861bcea9f7f7d3a52276bdcfca6fa0da9403025ac06539af82b05ba43"
+    },
+    "rain-2025-wuzhishan.tif": {
+      "bytes": 834,
+      "sha256": "3e68be166a948605c0174f747a755c877ca2e5908b2792b8704b4e71f5963c40"
+    },
+    "dsm-zhongsha-values.png": {
+      "bytes": 8076,
+      "sha256": "e894e124690958f29dfcfa1553ca3f7801c0c380d8775a312f7d4075737ea0de"
+    },
+    "dsm-haikou.tif": {
+      "bytes": 1008184,
+      "sha256": "cfa6af9237e8d331e7594d459bb8a4651153202dac0612198d1a41bda85782d9"
+    },
+    "soil-soc-haikou.tif": {
+      "bytes": 6711,
+      "sha256": "843ada87409e557ffb0bbd8ba979d533bb7e99397c69d78127d5a33f6a84b45a"
+    },
+    "soil-soc-xidao.tif": {
+      "bytes": 1487,
+      "sha256": "2c58357ddd918e5af6c8b651dc0941b121ca465ec2655c62ae400ebdd14c7649"
+    },
+    "soil-ph-danzhou.json": {
+      "bytes": 1563,
+      "sha256": "2635e43e31ef38bb2b9816caef0dfd41e9775717560c0d02fb36eed1128f8695"
+    },
+    "soil-soc-huangyan.tif": {
+      "bytes": 1765,
+      "sha256": "9640f1fca717430b0f89ddaf3f9ef22805fa2aeb5dbfd46d7fb91041736694b0"
+    },
+    "rain-2025-xisha.tif": {
+      "bytes": 870,
+      "sha256": "5fc82c984a57bb32cde65c6ec5874d410ac35a11ef496a521f3895a6f8f3e4bd"
+    },
+    "rain-2025-sanya-values.png": {
+      "bytes": 130,
+      "sha256": "ed831b70ed04cef9b3039b638fd1a66ae2f4b71f7a7a11fad4b9f9d24ef38964"
+    },
+    "rain-2025-yongshu.json": {
+      "bytes": 1825,
+      "sha256": "c85be65ddfb4f72da987eed9f3b385aef3796d1c22d052cb538e48b5df703138"
+    },
+    "soil-ph-haikou-preview.png": {
+      "bytes": 2674,
+      "sha256": "b0ebe636a514e6ad7a995a1a3b31712930aa0c25cf9c997bd541654adef59ec5"
+    },
+    "soil-soc-sanya.json": {
+      "bytes": 1561,
+      "sha256": "cc76e4aca9c04ec1a442c50bb3fbc465ead33484af81d8f10999ac69eeecb131"
+    },
+    "soil-ph-zhubi-preview.png": {
+      "bytes": 85,
+      "sha256": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871"
+    },
+    "soil-soc-wuzhishan.tif": {
+      "bytes": 14387,
+      "sha256": "dfcd1fd5437a82a766b01abe7537bb4da3b548cd28cfd2814b554d1e40516734"
+    },
+    "dsm-zhubi.tif": {
+      "bytes": 2080,
+      "sha256": "52314f43552cc100443177715ce6b7d0068326e90634649c63914e8a859baa4b"
+    },
+    "soil-soc-zhubi-preview.png": {
+      "bytes": 85,
+      "sha256": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871"
+    },
+    "soil-soc-xidao-values.png": {
+      "bytes": 101,
+      "sha256": "ba1179ddc646fd3f406ad1ae2ab7085f8de9b3084d1bf15d157ea241431192ff"
+    },
+    "rain-2025-xidao.tif": {
+      "bytes": 703,
+      "sha256": "2f2b67f6fd423d6568f024ec1ad323a64296a929efe47c3edcaa44cfbc3dc86d"
+    },
+    "soil-soc-wuzhishan.json": {
+      "bytes": 1577,
+      "sha256": "a5a083e6f2ea3a7f21af6278cea1ba5b2d8bb8b723d82df39140d561f2d06fa4"
+    },
+    "soil-ph-zhubi.tif": {
+      "bytes": 1469,
+      "sha256": "916f938385485d549a5dfccf6b019771114145cf696b640dc930ddce073b21ce"
+    },
+    "soil-ph-zhubi-values.png": {
+      "bytes": 85,
+      "sha256": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871"
+    },
+    "rain-2025-zhongsha-preview.png": {
+      "bytes": 205,
+      "sha256": "8886be094d8d95aeaa39c11b50a04bd0a554ff9d5204a35f721874e3ff6acb57"
+    },
+    "soil-ph-wuzhishan.tif": {
+      "bytes": 5461,
+      "sha256": "a6d52ff4250c1e6bb81e1568c9982024e99167880ced5b7dce8ee3d58895eaee"
+    },
+    "dsm-wuzhishan-values.png": {
+      "bytes": 553596,
+      "sha256": "745cdfa371e0a95446eef438ae19888aaef865c2e08d3cbd26a7877387d99731"
+    },
+    "dsm-wenchang.tif": {
+      "bytes": 1722266,
+      "sha256": "e3505e06c390ee9a1e8aef1ccf1602557127940ab44f00911083d88eb01dc510"
+    },
+    "dsm-huangyan.tif": {
+      "bytes": 5584,
+      "sha256": "2e215693e0ebffbae45b5fc6405f0daba861294dec27fb69a62b2755191bafeb"
+    },
+    "soil-soc-huangyan-preview.png": {
+      "bytes": 121,
+      "sha256": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb"
+    },
+    "soil-ph-wenchang.tif": {
+      "bytes": 7151,
+      "sha256": "e74df5c5563ca127b9db1957a6fdb147f7bfe8e4d8df781479d0b587a71ebd58"
+    },
+    "soil-ph-danzhou.tif": {
+      "bytes": 7687,
+      "sha256": "ea28afc3c25d8fe128504de7115a6eea7def04ceefce71a078d237914a7127de"
+    },
+    "dsm-huangyan.json": {
+      "bytes": 2307,
+      "sha256": "40828c3db4687c8358dcbe8f01a5f590e8932ad9ce0de9f86e294e632f5f7cb9"
+    },
+    "dsm-wenchang.json": {
+      "bytes": 2173,
+      "sha256": "107af9d6bebb671dbd6d457bde0b12ef306e3a21ca351157df347900f5d56494"
+    },
+    "dsm-wuzhishan.json": {
+      "bytes": 2186,
+      "sha256": "f0a9846e0b44c2060d5509b7d8352697f4c82e0d6eb94ddc90ee2e7d9fed9b2a"
+    },
+    "soil-soc-danzhou-values.png": {
+      "bytes": 18075,
+      "sha256": "529c253d8ff3adbc3242dccc375e2fb1329975031cab814c6333dae48be10508"
+    },
+    "soil-ph-yongxing-values.png": {
+      "bytes": 84,
+      "sha256": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8"
+    },
+    "soil-soc-wenchang.tif": {
+      "bytes": 14009,
+      "sha256": "cbac67c84ab20930ecea124cbbb39ab9ef1b1acab325580d467d6b9fe4d50828"
+    },
+    "soil-ph-danzhou-preview.png": {
+      "bytes": 8563,
+      "sha256": "40d1954eb0871ee7dbba42f3d32c6b12e082810242a38c603035c5ac4cbf866d"
+    },
+    "soil-ph-huangyan-values.png": {
+      "bytes": 121,
+      "sha256": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb"
+    },
+    "rain-2025-zhongsha.json": {
+      "bytes": 1869,
+      "sha256": "8efa1def85ba4dedaf5ad369882ee7b738471253dd36ee7a6dc1cac346153a5b"
+    },
+    "rain-manifest.json": {
+      "bytes": 30613,
+      "sha256": "9ce8c9bc66d8c023334cbd675fce6213c816c6003837deed4c93e6517ea7c567"
+    }
+  },
+  "total_bytes": 18677360
+}

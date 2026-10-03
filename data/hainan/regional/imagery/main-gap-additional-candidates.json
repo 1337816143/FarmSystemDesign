@@ -1,0 +1,26 @@
+[
+  {
+    "id": "S2A_T49QDA_20250717T032110_L2A",
+    "target_gap_centroid_wgs84": [
+      110.2676334695114,
+      18.78068609591957
+    ],
+    "target_gap_pixels_at_selection": 22208
+  },
+  {
+    "id": "S2C_T49QBA_20251122T031501_L2A",
+    "target_gap_centroid_wgs84": [
+      108.7485401459854,
+      18.590431320504315
+    ],
+    "target_gap_pixels_at_selection": 274
+  },
+  {
+    "id": "S2A_T49QCB_20250717T032110_L2A",
+    "target_gap_centroid_wgs84": [
+      110.00552837290098,
+      19.098993920092646
+    ],
+    "target_gap_pixels_at_selection": 157
+  }
+]

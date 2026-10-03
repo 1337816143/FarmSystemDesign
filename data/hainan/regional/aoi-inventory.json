@@ -1,0 +1,189 @@
+{
+  "version": "2026-10-03-cloud-v1",
+  "crs": "EPSG:4326",
+  "status": "geographic-query-envelopes-not-administrative-boundaries",
+  "scope_note": "Four broad query envelopes cover the main island and offshore archipelagos. They include ocean and may include land outside the intended administrative scope. They do not assert sovereignty, a maritime claim, or an exhaustive island inventory. Named windows are display/validation samples, not land masks. No territorial boundary is inferred.",
+  "groups": [
+    {
+      "id": "main",
+      "name_zh": "海南岛与近岸",
+      "name_en": "Hainan Island and nearshore",
+      "bbox": [
+        108.5,
+        17.8,
+        111.5,
+        20.5
+      ]
+    },
+    {
+      "id": "xisha",
+      "name_zh": "西沙地理范围",
+      "name_en": "Xisha / Paracel geographic window",
+      "bbox": [
+        111,
+        15.5,
+        113.1,
+        17.6
+      ]
+    },
+    {
+      "id": "zhongsha",
+      "name_zh": "中沙地理范围",
+      "name_en": "Zhongsha geographic window",
+      "bbox": [
+        113.2,
+        14.8,
+        118.1,
+        16.6
+      ]
+    },
+    {
+      "id": "nansha",
+      "name_zh": "南沙地理范围",
+      "name_en": "Nansha / Spratly geographic window",
+      "bbox": [
+        109.5,
+        3.5,
+        118,
+        12.5
+      ]
+    }
+  ],
+  "places": [
+    {
+      "id": "haikou",
+      "group": "main",
+      "name_zh": "海口样窗",
+      "name_en": "Haikou sample",
+      "bbox": [
+        110.22,
+        19.94,
+        110.44,
+        20.1
+      ],
+      "kind": "main-island-sample"
+    },
+    {
+      "id": "sanya",
+      "group": "main",
+      "name_zh": "三亚样窗",
+      "name_en": "Sanya sample",
+      "bbox": [
+        109.38,
+        18.18,
+        109.61,
+        18.38
+      ],
+      "kind": "main-island-sample"
+    },
+    {
+      "id": "danzhou",
+      "group": "main",
+      "name_zh": "儋州样窗",
+      "name_en": "Danzhou sample",
+      "bbox": [
+        109.4,
+        19.43,
+        109.7,
+        19.64
+      ],
+      "kind": "main-island-sample"
+    },
+    {
+      "id": "wuzhishan",
+      "group": "main",
+      "name_zh": "五指山样窗",
+      "name_en": "Wuzhishan sample",
+      "bbox": [
+        109.42,
+        18.7,
+        109.67,
+        18.9
+      ],
+      "kind": "main-island-sample"
+    },
+    {
+      "id": "wenchang",
+      "group": "main",
+      "name_zh": "文昌样窗",
+      "name_en": "Wenchang sample",
+      "bbox": [
+        110.65,
+        19.51,
+        110.88,
+        19.72
+      ],
+      "kind": "main-island-sample"
+    },
+    {
+      "id": "xidao",
+      "group": "main",
+      "name_zh": "西岛近岸样窗",
+      "name_en": "Xidao nearshore sample",
+      "bbox": [
+        109.35,
+        18.215,
+        109.395,
+        18.26
+      ],
+      "kind": "nearshore-sample"
+    },
+    {
+      "id": "yongxing",
+      "group": "xisha",
+      "name_zh": "永兴岛样窗",
+      "name_en": "Yongxing / Woody Island sample",
+      "bbox": [
+        112.3,
+        16.79,
+        112.38,
+        16.87
+      ],
+      "kind": "island-sample",
+      "coordinate_reference": "https://qxj.xlgl.gov.cn/qxj/xwdt/39b0c849a6684cb795593fc01ef186c8/index.html"
+    },
+    {
+      "id": "yongshu",
+      "group": "nansha",
+      "name_zh": "永暑礁样窗",
+      "name_en": "Yongshu / Fiery Cross Reef sample",
+      "bbox": [
+        112.89,
+        9.49,
+        113.03,
+        9.66
+      ],
+      "kind": "island-sample",
+      "coordinate_reference": "https://rdswxb.hainanu.edu.cn/cn/article/doi/10.15886/j.cnki.rdswxb.2020.01.007"
+    },
+    {
+      "id": "zhubi",
+      "group": "nansha",
+      "name_zh": "渚碧礁样窗",
+      "name_en": "Zhubi / Subi Reef sample",
+      "bbox": [
+        114.03,
+        10.875,
+        114.12,
+        10.955
+      ],
+      "kind": "island-sample",
+      "coordinate_reference": "https://rdswxb.hainanu.edu.cn/cn/article/doi/10.15886/j.cnki.rdswxb.2020.01.007"
+    },
+    {
+      "id": "huangyan",
+      "group": "zhongsha",
+      "name_zh": "黄岩岛地理样窗",
+      "name_en": "Huangyan / Scarborough Shoal geographic sample",
+      "bbox": [
+        117.68,
+        15.02,
+        117.91,
+        15.27
+      ],
+      "kind": "reef-sample",
+      "note": "Geographic display window; territorial status is disputed. Not an administrative assignment."
+    }
+  ],
+  "completion_gate": "Exhaustive named island inventory and current reusable administrative polygons remain unresolved; queried envelopes and these samples must not be called full provincial land coverage."
+}

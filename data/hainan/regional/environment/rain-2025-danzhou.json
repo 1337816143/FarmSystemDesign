@@ -1,0 +1,55 @@
+{
+  "id": "rain-2025-danzhou",
+  "kind": "rain",
+  "bounds_wsen": [
+    109.40000431239605,
+    19.449999395757914,
+    109.7000043168664,
+    19.649999398738146
+  ],
+  "width": 6,
+  "height": 4,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-danzhou-preview.png",
+  "values": "rain-2025-danzhou-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 24,
+    "valid_cells": 24,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 2335.430419921875,
+    "max": 3062.348876953125,
+    "mean": 2760.2958984375
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "cf8e325f5b1d547a051c1f19984b9bffa7bc9c29feaed75d604148cc3ddb51ca",
+    "values": "1780ada46330a19c581c006fd13528e7b28c9b50072f6663c12bd2e7eae27ea9",
+    "geotiff": "d67d132847537d845fd09e9ae381919fb8b990320905e0afd880dda93406ac22"
+  },
+  "geotiff": "rain-2025-danzhou.tif",
+  "aoi": "danzhou",
+  "group": "main",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

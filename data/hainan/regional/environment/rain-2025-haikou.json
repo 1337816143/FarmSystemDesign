@@ -1,0 +1,55 @@
+{
+  "id": "rain-2025-haikou",
+  "kind": "rain",
+  "bounds_wsen": [
+    110.20000432431698,
+    19.949999403208494,
+    110.40000432729721,
+    20.09999940544367
+  ],
+  "width": 4,
+  "height": 3,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-haikou-preview.png",
+  "values": "rain-2025-haikou-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 12,
+    "valid_cells": 12,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 2371.948974609375,
+    "max": 2582.31494140625,
+    "mean": 2477.794189453125
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "738ae2f78966d773bae19d260dbec216f93d1c44e4ad63cd408f6e5b94287e73",
+    "values": "a4fbd9142e53ce579b3a0e944513600fcc9445173e819c68e5b8c922eb5d4180",
+    "geotiff": "524f937d7a1172b7bc1200417941d0862ea87b9708ab88c21ee203ecf72ae693"
+  },
+  "geotiff": "rain-2025-haikou.tif",
+  "aoi": "haikou",
+  "group": "main",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

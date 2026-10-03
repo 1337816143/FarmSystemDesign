@@ -1,3 +1,4 @@
+import {regionalLayer} from './regional-atlas-layers.js';
 /** Local Leaflet engine, georeferenced historical imagery and untouched source polygons. */
 import {CROPS,centroid} from './data.js';
 import {createLandcoverLayer} from './landcover-layer.js';
@@ -68,12 +69,13 @@ export class FarmMap{
   this.el.querySelector('.map-mini-legend').textContent=mode==='prediction'?'FTW 2025 预测边界；非地籍 / Predicted field boundaries':mode==='crops2025'?'2025 Crops=5；透明区可能是其他类别、云或无数据，切换完整分类核查 / Crops class only':'2025 分类：云=10；透明=无数据 / Clouds=10; transparent=no data';
  }
  setSourceLayers(){const {o,L,map:m}=this;if(o.osmPatches&&o.showOSM)this.layers.osmEvidence=L.geoJSON(o.osmPatches,{pane:'source',interactive:false,style:{color:'#ffc775',weight:1.6,fill:false,dashArray:'6 5',opacity:.8}}).addTo(m);if(o.allFields&&o.showAllFields)this.layers.allFields=L.geoJSON(o.allFields,{pane:'source',interactive:false,style:{color:'#a9c6d9',weight:.7,fill:false,opacity:.48}}).addTo(m);}
- setBasemap(type){const {o,L,map:m}=this;this.o.basemap=type;if(this.base)m.removeLayer(this.base);if(this.contextLayer)m.removeLayer(this.contextLayer);this.base=null;this.el.classList.toggle('vector-mode',type==='context');
+ setBasemap(type){const {o,L,map:m}=this;this.o.basemap=type;const baseToken=this.baseToken=(this.baseToken||0)+1;if(this.base)m.removeLayer(this.base);if(this.contextLayer)m.removeLayer(this.contextLayer);this.base=null;this.el.classList.toggle('vector-mode',type==='context');
+  if(type==='regional'){this.el.querySelector('.map-coordinate').textContent='2025 多日期影像加载中 · 云区保留缺口';regionalLayer(L,'imagery',{pane:'imagery',opacity:1,attribution:'Copernicus Sentinel-2 C1 L2A · 2025 multi-date · RGB 10 m / SCL 20 m'}).then(layer=>{if(!this.map||this.baseToken!==baseToken)return;this.base=layer.addTo(m);layer.on('tileerror',()=>{if(this.map&&this.base===layer)this.el.querySelector('.map-coordinate').textContent='影像服务暂不可用；可在海南图谱查看同源整岛概览';});layer.on('load',()=>{if(this.map&&this.base===layer)this.el.querySelector('.map-coordinate').textContent='2025多日期 · RGB原生10m · WGS84 · 无数据透明';});}).catch(()=>{if(this.map&&this.baseToken===baseToken)this.el.querySelector('.map-coordinate').textContent='全域影像暂不可用，请重试';});}
   if(type==='satellite'&&o.imagery){const im=o.imagery;this.base=L.imageOverlay('./data/evidence/'+im.filename,[[im.bbox[1],im.bbox[0]],[im.bbox[3],im.bbox[2]]],{pane:'imagery',className:'satellite-snapshot',opacity:1,attribution:'Contains modified Copernicus Sentinel data (2025) · 2025-03-22 · 10 m'}).addTo(m);this.base.on('error',()=>{this.el.querySelector('.map-coordinate').textContent='影像加载失败 · 边界不是影像替代';});}
   if(type==='osm')this.base=L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{maxZoom:19,attribution:'© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap contributors</a>'}).addTo(m);
   if(type==='context'||type==='satellite'&&!o.imagery){this.contextLayer=L.geoJSON(o.context||{type:'FeatureCollection',features:[]},{pane:'context',interactive:false,style:f=>{const t=f.properties?.tags||f.properties||{};const water=t.waterway||t.natural==='water';return {color:water?'#83aab5':t.highway?'#b2b9ad':'#7a9e88',weight:t.highway?1.8:1,fillColor:water?'#bad8df':t.landuse==='farmland'?'#dce8d8':'#ebeee7',fillOpacity:.75,opacity:.8};}}).addTo(m);}
  }
- destroy(){this.resize?.disconnect();if(this.map){
+ destroy(){this.baseToken=(this.baseToken||0)+1;this.resize?.disconnect();if(this.map){
   // Leaflet 1.9.4 leaves a 250 ms zoom-transition timer after remove().
   // Disarm it before disposing the pane; otherwise rapid navigation dereferences a removed map.
   this.map._animatingZoom=false;this.map.stop();this.map.off();this.map.remove();this.map=null;

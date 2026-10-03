@@ -1,0 +1,63 @@
+{
+  "id": "dsm-zhubi",
+  "kind": "dsm",
+  "bounds_wsen": [
+    114.02986111111112,
+    10.87486111111111,
+    114.12013888888889,
+    10.955138888888888
+  ],
+  "width": 325,
+  "height": 289,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.0002777777777777778,
+    0.0002777777777777778
+  ],
+  "preview": "dsm-zhubi-preview.png",
+  "values": "dsm-zhubi-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 500) / 1",
+    "nodata": "alpha == 0",
+    "units": "m"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 93925,
+    "valid_cells": 93925,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class",
+    "positive_surface_cells": 0,
+    "zero_height_cells": 93925
+  },
+  "statistics": {
+    "min": 0.0,
+    "max": 0.0,
+    "mean": 0.0
+  },
+  "status": "unresolved-source-zero-surface",
+  "sha256": {
+    "preview": "90bac9be52761a2281fe8bd7d51ed8b14db8a5e684c5fb675f8e366b3424c450",
+    "values": "0ef75cb7c54188417a26dc0cd106194119dfc68e2378e39610c0582f891d15d4",
+    "geotiff": "52314f43552cc100443177715ce6b7d0068326e90634649c63914e8a859baa4b"
+  },
+  "preview_note": "Zero-height cells are transparent in preview (usually ocean); numerical grid preserves source zero. Not a coastline or verified land mask.",
+  "geotiff": "dsm-zhubi.tif",
+  "aoi": "zhubi",
+  "group": "nansha",
+  "level": "native-grid-window",
+  "native_resolution": "1 arcsecond (~30 m latitude); source DSM, not bare-earth terrain",
+  "render_resolution": "1 arcsecond (~30 m latitude)",
+  "period": "TanDEM-X mainly 2011–2015; infill can be older; catalog 2021 publication is not observation date",
+  "source_tiles": [
+    {
+      "id": "Copernicus_DSM_COG_10_N10_00_E114_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N10_00_E114_00_DEM/Copernicus_DSM_COG_10_N10_00_E114_00_DEM.tif"
+    }
+  ],
+  "coverage_note": "The source tile exists but this entire window has only zero-height cells. Do not treat this as measured island terrain.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

@@ -1,0 +1,56 @@
+{
+  "id": "rain-2025-huangyan",
+  "kind": "rain",
+  "bounds_wsen": [
+    117.65000443533063,
+    15.049999330192804,
+    117.90000443905592,
+    15.299999333918095
+  ],
+  "width": 5,
+  "height": 5,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-huangyan-preview.png",
+  "values": "rain-2025-huangyan-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 25,
+    "valid_cells": 15,
+    "nodata_cells": 10,
+    "valid_percent": 60.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 3045.648681640625,
+    "max": 3471.49365234375,
+    "mean": 3179.961181640625
+  },
+  "status": "coarse-context-only",
+  "sha256": {
+    "preview": "eaaa66195cb43e56b58cbc2109098bc027d848f0e02ccfbbf84fc67f7191edec",
+    "values": "7c6f9d0e7059674890fb20474f0de21a9cbb09bd9f5297f32584a48c9c7bca2d",
+    "geotiff": "d83fe786ef207f8fde9a510fba516cb449877d7185104900d0baa688faedcd8e"
+  },
+  "geotiff": "rain-2025-huangyan.tif",
+  "aoi": "huangyan",
+  "group": "zhongsha",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "coverage_note": "Valid ~5.5 km cell context does not resolve the named small island or reef; no island-specific rainfall estimate is established.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

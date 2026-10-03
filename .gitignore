@@ -10,3 +10,4 @@ __pycache__/
 .env.*
 .playwright-cli/
 output/playwright/
+.data-cache/

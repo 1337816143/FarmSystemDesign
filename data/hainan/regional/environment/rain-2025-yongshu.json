@@ -1,0 +1,55 @@
+{
+  "id": "rain-2025-yongshu",
+  "kind": "rain",
+  "bounds_wsen": [
+    112.85000436380506,
+    9.549999248236418,
+    113.00000436604023,
+    9.699999250471592
+  ],
+  "width": 3,
+  "height": 3,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-yongshu-preview.png",
+  "values": "rain-2025-yongshu-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 9,
+    "valid_cells": 0,
+    "nodata_cells": 9,
+    "valid_percent": 0.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": null,
+    "max": null,
+    "mean": null
+  },
+  "status": "unavailable-no-prediction",
+  "sha256": {
+    "preview": "1afd0f79fda44b9c451cfbb6f194123f9ca1e45e6546d80cb3b7667bc5b8b9b3",
+    "values": "1afd0f79fda44b9c451cfbb6f194123f9ca1e45e6546d80cb3b7667bc5b8b9b3",
+    "geotiff": "2ab5504474632aa66b5eac90cd6fc78632dbf1bbf7d8ece563be4e2a3d078e81"
+  },
+  "geotiff": "rain-2025-yongshu.tif",
+  "aoi": "yongshu",
+  "group": "nansha",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

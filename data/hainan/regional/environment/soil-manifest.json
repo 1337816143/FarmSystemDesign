@@ -1,0 +1,1195 @@
+{
+  "dataset": "ISRIC SoilGrids 2.0 predicted mean pH(H2O) and SOC, 0–5 cm depth",
+  "native_resolution_m": 250,
+  "license": "CC-BY-4.0",
+  "license_url": "https://docs.isric.org/globaldata/soilgrids/SoilGrids_faqs_02.html",
+  "attribution": "ISRIC — World Soil Information; SoilGrids 2.0",
+  "accessed": "2026-10-03",
+  "coverage_warning": "Main island restored WCS raster plus explicit offshore sample audit; broad offshore soil coverage has NOT been established. Zero means no prediction. No filling from nearby land.",
+  "records": [
+    {
+      "id": "soil-ph-main",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        108.5,
+        17.799999999999997,
+        111.5,
+        20.5
+      ],
+      "width": 1327,
+      "height": 1130,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-ph-main-preview.png",
+      "values": "soil-ph-main-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 1499510,
+        "valid_cells": 531705,
+        "nodata_cells": 967805,
+        "valid_percent": 35.4586,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 4.1,
+        "max": 7.1,
+        "mean": 5.421060550493225
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "306e3cd9c935a0f63ebf8d47511fc2fed342924eaa8ce02f746fce44105f56d6",
+        "values": "e92da77b60c4f4f28612149f342049da09d45bcd1f8d8e17ebed44f66951e573",
+        "geotiff": "c7f53d2340d555d8b077b229622b416f1d30caa30ee78221ccbaa04e0f85ea11"
+      },
+      "geotiff": "soil-ph-main.tif",
+      "aoi": "main",
+      "group": "main",
+      "level": "historical-restored-WCS-window",
+      "source_record": {
+        "dataset": "ISRIC SoilGrids 2.0 phh2o_0-5cm_mean",
+        "identity": "model prediction, not a field measurement",
+        "source": "https://maps.isric.org/mapserv?map=/map/phh2o.map",
+        "access": "WCS 2.0.1 GetCoverage; X(108.5,111.5), Y(17.8,20.5), EPSG:4326",
+        "documentation": "https://docs.isric.org/globaldata/soilgrids/",
+        "license": "CC BY 4.0",
+        "source_sha256": "ab1ff3fb2593648b73e6d2660a227ea713748703c9fd5bd7feecbd2ba94fe96a",
+        "bounds_wsen": [
+          108.5,
+          17.799999999999997,
+          111.5,
+          20.5
+        ],
+        "width": 1327,
+        "height": 1130,
+        "native_resolution": "250 m in native SoilGrids product; returned WCS grid is ~0.00226 degrees",
+        "value_encoding": "PNG grayscale value / 10 = pH (H2O); 0 = no prediction",
+        "valid_cells": 531705,
+        "minimum_ph": 4.1,
+        "maximum_ph": 7.1
+      },
+      "native_resolution_m": 250,
+      "period": "SoilGrids 2.0 model; not an annual soil survey",
+      "value_scale_to_physical": 0.1,
+      "source": "https://maps.isric.org/mapserv?map=/map/phh2o.map"
+    },
+    {
+      "id": "soil-ph-haikou",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        110.21816126601357,
+        19.940884955752214,
+        110.43745290128109,
+        20.100973451327434
+      ],
+      "width": 97,
+      "height": 67,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-ph-haikou-preview.png",
+      "values": "soil-ph-haikou-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 6499,
+        "valid_cells": 2197,
+        "nodata_cells": 4302,
+        "valid_percent": 33.8052,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 5.2,
+        "max": 6.3,
+        "mean": 5.823441055985435
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "b0ebe636a514e6ad7a995a1a3b31712930aa0c25cf9c997bd541654adef59ec5",
+        "values": "23128bc6d91545d8eb20888c495e7b7478ff3ae92072b6f6e64aa3f0b2710b23",
+        "geotiff": "be66510f60ce9f5372bfbde582aabec78ca0ffb7b972e539fbedce0b21d03089"
+      },
+      "geotiff": "soil-ph-haikou.tif",
+      "aoi": "haikou",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-ph-sanya",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        109.379427279578,
+        18.179911504424776,
+        109.61002260738508,
+        18.380619469026545
+      ],
+      "width": 102,
+      "height": 84,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-ph-sanya-preview.png",
+      "values": "soil-ph-sanya-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 8568,
+        "valid_cells": 4776,
+        "nodata_cells": 3792,
+        "valid_percent": 55.7423,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 5.1,
+        "max": 6.8,
+        "mean": 5.884882747068676
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "67ea6e914880e10c2299b33eae1a7293584539132cba5c98046542ddba675ce2",
+        "values": "5c402dbe77b0454f37d42c5194220a92afdb826d88b75c62055ea46c2929a2a8",
+        "geotiff": "c6f96456e67b0e02c3801c01ac4ee0cfa8804e8fffd2f175222a9880887bd77e"
+      },
+      "geotiff": "soil-ph-sanya.tif",
+      "aoi": "sanya",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-ph-danzhou",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        109.39977392614921,
+        19.431946902654865,
+        109.70045214770158,
+        19.64221238938053
+      ],
+      "width": 133,
+      "height": 88,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-ph-danzhou-preview.png",
+      "values": "soil-ph-danzhou-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 11704,
+        "valid_cells": 11157,
+        "nodata_cells": 547,
+        "valid_percent": 95.3264,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 4.5,
+        "max": 6.0,
+        "mean": 5.141364165994443
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "40d1954eb0871ee7dbba42f3d32c6b12e082810242a38c603035c5ac4cbf866d",
+        "values": "b4a08530be865694ff4cc4ef9facb8445f82f49b76055cd60aac60da3f58785b",
+        "geotiff": "ea28afc3c25d8fe128504de7115a6eea7def04ceefce71a078d237914a7127de"
+      },
+      "geotiff": "soil-ph-danzhou.tif",
+      "aoi": "danzhou",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-ph-wuzhishan",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        109.4178598342125,
+        18.700796460176992,
+        109.6688018085908,
+        18.90150442477876
+      ],
+      "width": 111,
+      "height": 84,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-ph-wuzhishan-preview.png",
+      "values": "soil-ph-wuzhishan-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 9324,
+        "valid_cells": 9248,
+        "nodata_cells": 76,
+        "valid_percent": 99.1849,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 4.4,
+        "max": 6.0,
+        "mean": 5.0082936851211075
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "c726b05e8f4ad592c3578832d98c9decdd43501f52894c3589ace3778f10b72d",
+        "values": "695496262aea7b70bde7c585ab3aa3893d3f72924a80e5c2418f321c34f5e99e",
+        "geotiff": "a6d52ff4250c1e6bb81e1568c9982024e99167880ced5b7dce8ee3d58895eaee"
+      },
+      "geotiff": "soil-ph-wuzhishan.tif",
+      "aoi": "wuzhishan",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-ph-wenchang",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        110.64996232102487,
+        19.51079646017699,
+        110.88055764883195,
+        19.721061946902655
+      ],
+      "width": 102,
+      "height": 88,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-ph-wenchang-preview.png",
+      "values": "soil-ph-wenchang-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 8976,
+        "valid_cells": 7571,
+        "nodata_cells": 1405,
+        "valid_percent": 84.3471,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 4.3,
+        "max": 6.2,
+        "mean": 5.101175538238014
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "4779eb607c0c0ac76046b5c4c5a71b77f8f061b1a386721e69fa73b17fe2e496",
+        "values": "5b007f8756029c87f22a233365384132fc3fbbbe846c3b31ccdf3d1f04a1801a",
+        "geotiff": "e74df5c5563ca127b9db1957a6fdb147f7bfe8e4d8df781479d0b587a71ebd58"
+      },
+      "geotiff": "soil-ph-wenchang.tif",
+      "aoi": "wenchang",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-ph-xidao",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        109.34777694046721,
+        18.21575221238938,
+        109.39299171062547,
+        18.261150442477874
+      ],
+      "width": 20,
+      "height": 19,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-ph-xidao-preview.png",
+      "values": "soil-ph-xidao-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 380,
+        "valid_cells": 5,
+        "nodata_cells": 375,
+        "valid_percent": 1.3158,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 6.2,
+        "max": 6.7,
+        "mean": 6.4799999999999995
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "a90eb08f6a7afb3e02ff5906a13be72a6d1feb65723c6f32caab809ba1a84591",
+        "values": "962a8a403692692450c4413e33d74c1ecb4f53df647697e022100b7d7ded495b",
+        "geotiff": "a0b951623cd3f6e10b02783839f7d34cbf8e96d5c594211ef9e998c472322c01"
+      },
+      "geotiff": "soil-ph-xidao.tif",
+      "aoi": "xidao",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-soc-main",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        108.5,
+        17.799999999999997,
+        111.5,
+        20.5
+      ],
+      "width": 1327,
+      "height": 1130,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-soc-main-preview.png",
+      "values": "soil-soc-main-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 1499510,
+        "valid_cells": 531689,
+        "nodata_cells": 967821,
+        "valid_percent": 35.4575,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 12.9,
+        "max": 123.3,
+        "mean": 43.984767975263736
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "122fc8c85492b6616b8ff7ddb28ccf0f0dc230c565ab7dea9ffc246de1235898",
+        "values": "e572719f51fe12eb15278c8c94af6bc72a423192cfd5f061b97a9a271c76643d",
+        "geotiff": "d604affb685379501b396d3a6f30169e49588ce8657d03016794350bb016a70d"
+      },
+      "geotiff": "soil-soc-main.tif",
+      "aoi": "main",
+      "group": "main",
+      "level": "historical-restored-WCS-window",
+      "source_record": {
+        "dataset": "ISRIC SoilGrids 2.0 soc_0-5cm_mean",
+        "identity": "model prediction, not a field measurement",
+        "source": "https://maps.isric.org/mapserv?map=/map/soc.map",
+        "access": "WCS 2.0.1 GetCoverage; X(108.5,111.5), Y(17.8,20.5), EPSG:4326",
+        "documentation": "https://docs.isric.org/globaldata/soilgrids/",
+        "license": "CC BY 4.0",
+        "source_sha256": "d1f8e14055fb0725f35798aaccc1c168cada54bc3a665c12f8c3b85b818caa65",
+        "bounds_wsen": [
+          108.5,
+          17.799999999999997,
+          111.5,
+          20.5
+        ],
+        "width": 1327,
+        "height": 1130,
+        "native_resolution": "250 m in native SoilGrids product; returned WCS grid is ~0.00226 degrees",
+        "value_encoding": "PNG red + 256 * green, divided by 10 = SOC g/kg; 0 = no prediction",
+        "valid_cells": 531689,
+        "minimum_g_kg": 12.9,
+        "maximum_g_kg": 123.3
+      },
+      "native_resolution_m": 250,
+      "period": "SoilGrids 2.0 model; not an annual soil survey",
+      "value_scale_to_physical": 0.1,
+      "source": "https://maps.isric.org/mapserv?map=/map/soc.map"
+    },
+    {
+      "id": "soil-soc-haikou",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        110.21816126601357,
+        19.940884955752214,
+        110.43745290128109,
+        20.100973451327434
+      ],
+      "width": 97,
+      "height": 67,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-soc-haikou-preview.png",
+      "values": "soil-soc-haikou-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 6499,
+        "valid_cells": 2197,
+        "nodata_cells": 4302,
+        "valid_percent": 33.8052,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 15.0,
+        "max": 72.2,
+        "mean": 25.72881201638598
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "e880cc315716576c94fdbe0531f54381a96d1ff541f403feb9dec2710324df26",
+        "values": "8fd5029c463546280f0ab9cc1001f9de65ba435f3d6e70c59878787982103e52",
+        "geotiff": "843ada87409e557ffb0bbd8ba979d533bb7e99397c69d78127d5a33f6a84b45a"
+      },
+      "geotiff": "soil-soc-haikou.tif",
+      "aoi": "haikou",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-soc-sanya",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        109.379427279578,
+        18.179911504424776,
+        109.61002260738508,
+        18.380619469026545
+      ],
+      "width": 102,
+      "height": 84,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-soc-sanya-preview.png",
+      "values": "soil-soc-sanya-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 8568,
+        "valid_cells": 4776,
+        "nodata_cells": 3792,
+        "valid_percent": 55.7423,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 26.1,
+        "max": 113.7,
+        "mean": 52.67056113902847
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "af108427252e15540cb6860b1b5369f5e2fef307e938de9a3d476e6d51bc3ed6",
+        "values": "a70aadf861bcea9f7f7d3a52276bdcfca6fa0da9403025ac06539af82b05ba43",
+        "geotiff": "767d1b6678178a6517ffebf902b8771d5fafdafff030a531b75cf6ccf45c3569"
+      },
+      "geotiff": "soil-soc-sanya.tif",
+      "aoi": "sanya",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-soc-danzhou",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        109.39977392614921,
+        19.431946902654865,
+        109.70045214770158,
+        19.64221238938053
+      ],
+      "width": 133,
+      "height": 88,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-soc-danzhou-preview.png",
+      "values": "soil-soc-danzhou-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 11704,
+        "valid_cells": 11157,
+        "nodata_cells": 547,
+        "valid_percent": 95.3264,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 16.2,
+        "max": 96.3,
+        "mean": 44.70532401183114
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "ae1432707e5edda748530a007eb25af7dc6179beafa93fbd0a1d123e368dbb76",
+        "values": "529c253d8ff3adbc3242dccc375e2fb1329975031cab814c6333dae48be10508",
+        "geotiff": "21a0ae32713230da7033d079cbd81974a00f06cc7db4d16e3bed698f80867938"
+      },
+      "geotiff": "soil-soc-danzhou.tif",
+      "aoi": "danzhou",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-soc-wuzhishan",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        109.4178598342125,
+        18.700796460176992,
+        109.6688018085908,
+        18.90150442477876
+      ],
+      "width": 111,
+      "height": 84,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-soc-wuzhishan-preview.png",
+      "values": "soil-soc-wuzhishan-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 9324,
+        "valid_cells": 9248,
+        "nodata_cells": 76,
+        "valid_percent": 99.1849,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 29.6,
+        "max": 111.0,
+        "mean": 64.2032223183391
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "43a3a79545de8b17d1cc13f903ad0e45b882f597fa80ef646c9ab770e272e71b",
+        "values": "cfe74bf7811d2a0193b4a3ed26818f82282de2a01a7129daf0eab6fecc2340ae",
+        "geotiff": "dfcd1fd5437a82a766b01abe7537bb4da3b548cd28cfd2814b554d1e40516734"
+      },
+      "geotiff": "soil-soc-wuzhishan.tif",
+      "aoi": "wuzhishan",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-soc-wenchang",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        110.64996232102487,
+        19.51079646017699,
+        110.88055764883195,
+        19.721061946902655
+      ],
+      "width": 102,
+      "height": 88,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-soc-wenchang-preview.png",
+      "values": "soil-soc-wenchang-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 8976,
+        "valid_cells": 7571,
+        "nodata_cells": 1405,
+        "valid_percent": 84.3471,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 21.9,
+        "max": 111.7,
+        "mean": 41.50207370228504
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "131be3edb8b8a893d364d7d1c0bf05917605d548ecec8906aea51f6676ab96a1",
+        "values": "7d29f4438bb730cda9391179054ae1b639793586a6da2d6b9679a668dbe2f9d2",
+        "geotiff": "cbac67c84ab20930ecea124cbbb39ab9ef1b1acab325580d467d6b9fe4d50828"
+      },
+      "geotiff": "soil-soc-wenchang.tif",
+      "aoi": "wenchang",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-soc-xidao",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        109.34777694046721,
+        18.21575221238938,
+        109.39299171062547,
+        18.261150442477874
+      ],
+      "width": 20,
+      "height": 19,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002260738507912585,
+        0.002389380530973454
+      ],
+      "preview": "soil-soc-xidao-preview.png",
+      "values": "soil-soc-xidao-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 380,
+        "valid_cells": 5,
+        "nodata_cells": 375,
+        "valid_percent": 1.3158,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": 51.7,
+        "max": 98.2,
+        "mean": 68.97999999999999
+      },
+      "status": "available",
+      "sha256": {
+        "preview": "d40e9d60af9a99a410424ceb34745cc9319ae97ede9b82a59090f03d9c8b5f8c",
+        "values": "ba1179ddc646fd3f406ad1ae2ab7085f8de9b3084d1bf15d157ea241431192ff",
+        "geotiff": "2c58357ddd918e5af6c8b651dc0941b121ca465ec2655c62ae400ebdd14c7649"
+      },
+      "geotiff": "soil-soc-xidao.tif",
+      "aoi": "xidao",
+      "group": "main",
+      "source": "restored-main-soil-WCS",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "period": "SoilGrids 2.0 model; not an annual soil survey"
+    },
+    {
+      "id": "soil-ph-yongxing",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        112.3,
+        16.789999999999996,
+        112.38000000000001,
+        16.87
+      ],
+      "width": 35,
+      "height": 33,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002285714285714512,
+        0.002424242424242551
+      ],
+      "preview": "soil-ph-yongxing-preview.png",
+      "values": "soil-ph-yongxing-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 1155,
+        "valid_cells": 0,
+        "nodata_cells": 1155,
+        "valid_percent": 0.0,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": null,
+        "max": null,
+        "mean": null
+      },
+      "status": "unavailable-no-prediction",
+      "sha256": {
+        "preview": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8",
+        "values": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8",
+        "geotiff": "1fac2424a8545628de9494add075a10bd757c57313ee46a5b7244c4ca851568a"
+      },
+      "geotiff": "soil-ph-yongxing.tif",
+      "aoi": "yongxing",
+      "group": "xisha",
+      "source": "https://maps.isric.org/mapserv?map=/map/phh2o.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=phh2o_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28112.3%2C112.38%29&SUBSET=Y%2816.79%2C16.87%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "source_sha256": "c49d1d95bec5e8633861587d072b911a013ce77d531a05f5a8036767447df6d9",
+      "period": "SoilGrids 2.0 model; not an annual soil survey",
+      "level": "fresh-WCS-native-scale-window"
+    },
+    {
+      "id": "soil-ph-yongshu",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        112.89,
+        9.489999999999998,
+        113.03,
+        9.659999999999998
+      ],
+      "width": 62,
+      "height": 71,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.0022580645161290754,
+        0.002394366197183092
+      ],
+      "preview": "soil-ph-yongshu-preview.png",
+      "values": "soil-ph-yongshu-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 4402,
+        "valid_cells": 0,
+        "nodata_cells": 4402,
+        "valid_percent": 0.0,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": null,
+        "max": null,
+        "mean": null
+      },
+      "status": "unavailable-no-prediction",
+      "sha256": {
+        "preview": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731",
+        "values": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731",
+        "geotiff": "6eb59783331fc82747dd7cbed7da6b2b9fbfdae2d8b8b989f5e15e5eef9f4b42"
+      },
+      "geotiff": "soil-ph-yongshu.tif",
+      "aoi": "yongshu",
+      "group": "nansha",
+      "source": "https://maps.isric.org/mapserv?map=/map/phh2o.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=phh2o_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28112.89%2C113.03%29&SUBSET=Y%289.49%2C9.66%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "source_sha256": "d149986f18886283d45496e6c01ce207e7b5347759462501a1b3b9c6ca3eeb24",
+      "period": "SoilGrids 2.0 model; not an annual soil survey",
+      "level": "fresh-WCS-native-scale-window"
+    },
+    {
+      "id": "soil-ph-zhubi",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        114.03,
+        10.875,
+        114.12,
+        10.954999999999998
+      ],
+      "width": 40,
+      "height": 33,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002249999999999994,
+        0.0024242424242423843
+      ],
+      "preview": "soil-ph-zhubi-preview.png",
+      "values": "soil-ph-zhubi-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 1320,
+        "valid_cells": 0,
+        "nodata_cells": 1320,
+        "valid_percent": 0.0,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": null,
+        "max": null,
+        "mean": null
+      },
+      "status": "unavailable-no-prediction",
+      "sha256": {
+        "preview": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871",
+        "values": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871",
+        "geotiff": "916f938385485d549a5dfccf6b019771114145cf696b640dc930ddce073b21ce"
+      },
+      "geotiff": "soil-ph-zhubi.tif",
+      "aoi": "zhubi",
+      "group": "nansha",
+      "source": "https://maps.isric.org/mapserv?map=/map/phh2o.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=phh2o_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28114.03%2C114.12%29&SUBSET=Y%2810.875%2C10.955%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "source_sha256": "f0beb8713a9eff386af4923a7539e94f98ab76fc8fec69e01cbdc71b2eb63fce",
+      "period": "SoilGrids 2.0 model; not an annual soil survey",
+      "level": "fresh-WCS-native-scale-window"
+    },
+    {
+      "id": "soil-ph-huangyan",
+      "kind": "soil-ph",
+      "bounds_wsen": [
+        117.68,
+        15.02,
+        117.91,
+        15.27
+      ],
+      "width": 102,
+      "height": 105,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.0022549019607842327,
+        0.0023809523809523725
+      ],
+      "preview": "soil-ph-huangyan-preview.png",
+      "values": "soil-ph-huangyan-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "pH"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 10710,
+        "valid_cells": 0,
+        "nodata_cells": 10710,
+        "valid_percent": 0.0,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": null,
+        "max": null,
+        "mean": null
+      },
+      "status": "unavailable-no-prediction",
+      "sha256": {
+        "preview": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb",
+        "values": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb",
+        "geotiff": "1192a71446ce362e716e22f705edc5f97d2dfd3725da87571f0c5caa5f6475e5"
+      },
+      "geotiff": "soil-ph-huangyan.tif",
+      "aoi": "huangyan",
+      "group": "zhongsha",
+      "source": "https://maps.isric.org/mapserv?map=/map/phh2o.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=phh2o_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28117.68%2C117.91%29&SUBSET=Y%2815.02%2C15.27%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "source_sha256": "fdc93950dcaabe1e0f2101e91e0c6312b32fe73a82955cab2c58331e4c5689d1",
+      "period": "SoilGrids 2.0 model; not an annual soil survey",
+      "level": "fresh-WCS-native-scale-window"
+    },
+    {
+      "id": "soil-soc-yongxing",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        112.3,
+        16.789999999999996,
+        112.38000000000001,
+        16.87
+      ],
+      "width": 35,
+      "height": 33,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002285714285714512,
+        0.002424242424242551
+      ],
+      "preview": "soil-soc-yongxing-preview.png",
+      "values": "soil-soc-yongxing-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 1155,
+        "valid_cells": 0,
+        "nodata_cells": 1155,
+        "valid_percent": 0.0,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": null,
+        "max": null,
+        "mean": null
+      },
+      "status": "unavailable-no-prediction",
+      "sha256": {
+        "preview": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8",
+        "values": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8",
+        "geotiff": "7897895c5e2c8dcb31ace479f2babfbb5eebff714d544c17e19c660065be7a5a"
+      },
+      "geotiff": "soil-soc-yongxing.tif",
+      "aoi": "yongxing",
+      "group": "xisha",
+      "source": "https://maps.isric.org/mapserv?map=/map/soc.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=soc_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28112.3%2C112.38%29&SUBSET=Y%2816.79%2C16.87%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "source_sha256": "c49d1d95bec5e8633861587d072b911a013ce77d531a05f5a8036767447df6d9",
+      "period": "SoilGrids 2.0 model; not an annual soil survey",
+      "level": "fresh-WCS-native-scale-window"
+    },
+    {
+      "id": "soil-soc-yongshu",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        112.89,
+        9.489999999999998,
+        113.03,
+        9.659999999999998
+      ],
+      "width": 62,
+      "height": 71,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.0022580645161290754,
+        0.002394366197183092
+      ],
+      "preview": "soil-soc-yongshu-preview.png",
+      "values": "soil-soc-yongshu-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 4402,
+        "valid_cells": 0,
+        "nodata_cells": 4402,
+        "valid_percent": 0.0,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": null,
+        "max": null,
+        "mean": null
+      },
+      "status": "unavailable-no-prediction",
+      "sha256": {
+        "preview": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731",
+        "values": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731",
+        "geotiff": "5bb6c91f52c5fdde5fc4f58019747a48ff2e626ebf5976b425879534a34633e0"
+      },
+      "geotiff": "soil-soc-yongshu.tif",
+      "aoi": "yongshu",
+      "group": "nansha",
+      "source": "https://maps.isric.org/mapserv?map=/map/soc.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=soc_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28112.89%2C113.03%29&SUBSET=Y%289.49%2C9.66%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "source_sha256": "d149986f18886283d45496e6c01ce207e7b5347759462501a1b3b9c6ca3eeb24",
+      "period": "SoilGrids 2.0 model; not an annual soil survey",
+      "level": "fresh-WCS-native-scale-window"
+    },
+    {
+      "id": "soil-soc-zhubi",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        114.03,
+        10.875,
+        114.12,
+        10.954999999999998
+      ],
+      "width": 40,
+      "height": 33,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.002249999999999994,
+        0.0024242424242423843
+      ],
+      "preview": "soil-soc-zhubi-preview.png",
+      "values": "soil-soc-zhubi-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 1320,
+        "valid_cells": 0,
+        "nodata_cells": 1320,
+        "valid_percent": 0.0,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": null,
+        "max": null,
+        "mean": null
+      },
+      "status": "unavailable-no-prediction",
+      "sha256": {
+        "preview": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871",
+        "values": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871",
+        "geotiff": "b6ce19245769f67957fbf4608f0828181a67cfc7ca9b84f99954480bd1e1ee98"
+      },
+      "geotiff": "soil-soc-zhubi.tif",
+      "aoi": "zhubi",
+      "group": "nansha",
+      "source": "https://maps.isric.org/mapserv?map=/map/soc.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=soc_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28114.03%2C114.12%29&SUBSET=Y%2810.875%2C10.955%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "source_sha256": "f0beb8713a9eff386af4923a7539e94f98ab76fc8fec69e01cbdc71b2eb63fce",
+      "period": "SoilGrids 2.0 model; not an annual soil survey",
+      "level": "fresh-WCS-native-scale-window"
+    },
+    {
+      "id": "soil-soc-huangyan",
+      "kind": "soil-soc",
+      "bounds_wsen": [
+        117.68,
+        15.02,
+        117.91,
+        15.27
+      ],
+      "width": 102,
+      "height": 105,
+      "crs": "EPSG:4326",
+      "pixel_size_degrees": [
+        0.0022549019607842327,
+        0.0023809523809523725
+      ],
+      "preview": "soil-soc-huangyan-preview.png",
+      "values": "soil-soc-huangyan-values.png",
+      "value_encoding": {
+        "formula": "(red + 256 * green - 0) / 10",
+        "nodata": "alpha == 0",
+        "units": "g/kg"
+      },
+      "coverage": {
+        "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+        "grid_cells": 10710,
+        "valid_cells": 0,
+        "nodata_cells": 10710,
+        "valid_percent": 0.0,
+        "cloud_cells": null,
+        "cloud_note": "not applicable: this environmental product has no cloud class"
+      },
+      "statistics": {
+        "min": null,
+        "max": null,
+        "mean": null
+      },
+      "status": "unavailable-no-prediction",
+      "sha256": {
+        "preview": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb",
+        "values": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb",
+        "geotiff": "9640f1fca717430b0f89ddaf3f9ef22805fa2aeb5dbfd46d7fb91041736694b0"
+      },
+      "geotiff": "soil-soc-huangyan.tif",
+      "aoi": "huangyan",
+      "group": "zhongsha",
+      "source": "https://maps.isric.org/mapserv?map=/map/soc.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=soc_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28117.68%2C117.91%29&SUBSET=Y%2815.02%2C15.27%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+      "native_resolution_m": 250,
+      "value_scale_to_physical": 0.1,
+      "source_sha256": "fdc93950dcaabe1e0f2101e91e0c6312b32fe73a82955cab2c58331e4c5689d1",
+      "period": "SoilGrids 2.0 model; not an annual soil survey",
+      "level": "fresh-WCS-native-scale-window"
+    }
+  ]
+}

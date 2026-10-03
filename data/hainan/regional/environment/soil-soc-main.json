@@ -1,0 +1,76 @@
+{
+  "id": "soil-soc-main",
+  "kind": "soil-soc",
+  "bounds_wsen": [
+    108.5,
+    17.799999999999997,
+    111.5,
+    20.5
+  ],
+  "width": 1327,
+  "height": 1130,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.002260738507912585,
+    0.002389380530973454
+  ],
+  "preview": "soil-soc-main-preview.png",
+  "values": "soil-soc-main-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "g/kg"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 1499510,
+    "valid_cells": 531689,
+    "nodata_cells": 967821,
+    "valid_percent": 35.4575,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 12.9,
+    "max": 123.3,
+    "mean": 43.984767975263736
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "122fc8c85492b6616b8ff7ddb28ccf0f0dc230c565ab7dea9ffc246de1235898",
+    "values": "e572719f51fe12eb15278c8c94af6bc72a423192cfd5f061b97a9a271c76643d",
+    "geotiff": "d604affb685379501b396d3a6f30169e49588ce8657d03016794350bb016a70d"
+  },
+  "geotiff": "soil-soc-main.tif",
+  "aoi": "main",
+  "group": "main",
+  "level": "historical-restored-WCS-window",
+  "source_record": {
+    "dataset": "ISRIC SoilGrids 2.0 soc_0-5cm_mean",
+    "identity": "model prediction, not a field measurement",
+    "source": "https://maps.isric.org/mapserv?map=/map/soc.map",
+    "access": "WCS 2.0.1 GetCoverage; X(108.5,111.5), Y(17.8,20.5), EPSG:4326",
+    "documentation": "https://docs.isric.org/globaldata/soilgrids/",
+    "license": "CC BY 4.0",
+    "source_sha256": "d1f8e14055fb0725f35798aaccc1c168cada54bc3a665c12f8c3b85b818caa65",
+    "bounds_wsen": [
+      108.5,
+      17.799999999999997,
+      111.5,
+      20.5
+    ],
+    "width": 1327,
+    "height": 1130,
+    "native_resolution": "250 m in native SoilGrids product; returned WCS grid is ~0.00226 degrees",
+    "value_encoding": "PNG red + 256 * green, divided by 10 = SOC g/kg; 0 = no prediction",
+    "valid_cells": 531689,
+    "minimum_g_kg": 12.9,
+    "maximum_g_kg": 123.3
+  },
+  "native_resolution_m": 250,
+  "period": "SoilGrids 2.0 model; not an annual soil survey",
+  "value_scale_to_physical": 0.1,
+  "source": "https://maps.isric.org/mapserv?map=/map/soc.map",
+  "raster_scale": 0.1,
+  "raster_offset": 0
+}

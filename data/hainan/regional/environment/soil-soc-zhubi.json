@@ -1,0 +1,55 @@
+{
+  "id": "soil-soc-zhubi",
+  "kind": "soil-soc",
+  "bounds_wsen": [
+    114.03,
+    10.875,
+    114.12,
+    10.954999999999998
+  ],
+  "width": 40,
+  "height": 33,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.002249999999999994,
+    0.0024242424242423843
+  ],
+  "preview": "soil-soc-zhubi-preview.png",
+  "values": "soil-soc-zhubi-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "g/kg"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 1320,
+    "valid_cells": 0,
+    "nodata_cells": 1320,
+    "valid_percent": 0.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": null,
+    "max": null,
+    "mean": null
+  },
+  "status": "unavailable-no-prediction",
+  "sha256": {
+    "preview": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871",
+    "values": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871",
+    "geotiff": "b6ce19245769f67957fbf4608f0828181a67cfc7ca9b84f99954480bd1e1ee98"
+  },
+  "geotiff": "soil-soc-zhubi.tif",
+  "aoi": "zhubi",
+  "group": "nansha",
+  "source": "https://maps.isric.org/mapserv?map=/map/soc.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=soc_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28114.03%2C114.12%29&SUBSET=Y%2810.875%2C10.955%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+  "native_resolution_m": 250,
+  "value_scale_to_physical": 0.1,
+  "source_sha256": "f0beb8713a9eff386af4923a7539e94f98ab76fc8fec69e01cbdc71b2eb63fce",
+  "period": "SoilGrids 2.0 model; not an annual soil survey",
+  "level": "fresh-WCS-native-scale-window",
+  "raster_scale": 0.1,
+  "raster_offset": 0
+}

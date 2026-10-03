@@ -1,0 +1,92 @@
+{
+  "id": "dsm-main",
+  "kind": "dsm",
+  "bounds_wsen": [
+    108.5,
+    17.8,
+    111.5,
+    20.5
+  ],
+  "width": 1350,
+  "height": 1215,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.0022222222222222222,
+    0.0022222222222222222
+  ],
+  "preview": "dsm-main-preview.png",
+  "values": "dsm-main-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 500) / 1",
+    "nodata": "alpha == 0",
+    "units": "m"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 1640250,
+    "valid_cells": 1316924,
+    "nodata_cells": 323326,
+    "valid_percent": 80.288,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class",
+    "positive_surface_cells": 627078,
+    "zero_height_cells": 689790
+  },
+  "statistics": {
+    "min": -0.5733073353767395,
+    "max": 1767.6346435546875,
+    "mean": 86.72509002685547
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "088ff8f6908dc1cabad8e36b20396507aee2054b5c85f570aabec1271d1aded0",
+    "values": "5fd26219fb5c05ae0a709f581e8d64697b92d9dd41d6ef93e29036a8e6dfb1fb"
+  },
+  "preview_note": "Zero-height cells are transparent in preview (usually ocean); numerical grid preserves source zero. Not a coastline or verified land mask.",
+  "aoi": "main",
+  "group": "main",
+  "level": "overview",
+  "native_resolution": "1 arcsecond (~30 m latitude); source DSM, not bare-earth terrain",
+  "render_resolution": "8 arcseconds (~247 m latitude)",
+  "period": "TanDEM-X mainly 2011–2015; infill can be older; catalog 2021 publication is not observation date",
+  "source_tiles": [
+    {
+      "id": "Copernicus_DSM_COG_10_N20_00_E110_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N20_00_E110_00_DEM/Copernicus_DSM_COG_10_N20_00_E110_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N20_00_E109_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N20_00_E109_00_DEM/Copernicus_DSM_COG_10_N20_00_E109_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N19_00_E111_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N19_00_E111_00_DEM/Copernicus_DSM_COG_10_N19_00_E111_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N19_00_E110_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N19_00_E110_00_DEM/Copernicus_DSM_COG_10_N19_00_E110_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N19_00_E109_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N19_00_E109_00_DEM/Copernicus_DSM_COG_10_N19_00_E109_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N19_00_E108_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N19_00_E108_00_DEM/Copernicus_DSM_COG_10_N19_00_E108_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N18_00_E110_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E110_00_DEM/Copernicus_DSM_COG_10_N18_00_E110_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N18_00_E109_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E109_00_DEM/Copernicus_DSM_COG_10_N18_00_E109_00_DEM.tif"
+    },
+    {
+      "id": "Copernicus_DSM_COG_10_N18_00_E108_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E108_00_DEM/Copernicus_DSM_COG_10_N18_00_E108_00_DEM.tif"
+    }
+  ],
+  "raster_scale": 1,
+  "raster_offset": 0
+}

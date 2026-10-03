@@ -1,0 +1,115 @@
+{
+  "id": "yongshu",
+  "group": "nansha",
+  "name_zh": "永暑礁样窗",
+  "name_en": "Yongshu / Fiery Cross Reef sample",
+  "bbox": [
+    112.89,
+    9.49,
+    113.03,
+    9.66
+  ],
+  "kind": "island-sample",
+  "coordinate_reference": "https://rdswxb.hainanu.edu.cn/cn/article/doi/10.15886/j.cnki.rdswxb.2020.01.007",
+  "quality_mask_revision": "v2_nonzero_false_true_encoding",
+  "image": "previews/yongshu.webp",
+  "status_image": "previews/yongshu-status.png",
+  "clear_count_image": "previews/yongshu-clear-count.png",
+  "source_doy_image": "previews/yongshu-source-doy.png",
+  "qa_npz": "previews/yongshu-qa.npz",
+  "width": 1537,
+  "height": 1893,
+  "crs": "EPSG:4326",
+  "transform": [
+    9.108653220559569e-05,
+    0,
+    112.89,
+    0,
+    -8.980454305335442e-05,
+    9.66
+  ],
+  "display_pixel_m_at_center": [
+    9.998492926813089,
+    9.997041732699415
+  ],
+  "native_rgb_resolution_m": 10,
+  "native_scl_resolution_m": 20,
+  "stats": {
+    "total_bbox_pixels": 2909541,
+    "accepted_pixels": 2905219,
+    "observed_but_rejected_pixels": 4322,
+    "no_source_observation_pixels": 0
+  },
+  "accepted_bbox_percent": 99.851,
+  "denominator": "All display cells in this rectangular geographic window, including water and any unrelated land. Not administrative land coverage.",
+  "sources": [
+    {
+      "index": 1,
+      "id": "S2A_T49PFL_20250412T030242_L2A",
+      "datetime": "2025-04-12T03:05:32.967000Z",
+      "contributing_pixels": 436502,
+      "clear_pixels": 436502,
+      "observed_pixels": 448672
+    },
+    {
+      "index": 2,
+      "id": "S2B_T49PGL_20251002T030201_L2A",
+      "datetime": "2025-10-02T03:05:16.679000Z",
+      "contributing_pixels": 2367126,
+      "clear_pixels": 2729108,
+      "observed_pixels": 2909541
+    },
+    {
+      "index": 3,
+      "id": "S2B_T49PGL_20250704T030103_L2A",
+      "datetime": "2025-07-04T03:05:19.722000Z",
+      "contributing_pixels": 86858,
+      "clear_pixels": 2605363,
+      "observed_pixels": 2909541
+    },
+    {
+      "index": 4,
+      "id": "S2C_T49PFL_20250301T025603_L2A",
+      "datetime": "2025-03-01T03:05:44.133000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 209165,
+      "observed_pixels": 448672
+    },
+    {
+      "index": 5,
+      "id": "S2B_T49PFL_20251002T030201_L2A",
+      "datetime": "2025-10-02T03:05:19.980000Z",
+      "contributing_pixels": 0,
+      "clear_pixels": 374564,
+      "observed_pixels": 448672
+    },
+    {
+      "index": 6,
+      "id": "S2B_T49PGL_20251201T025745_L2A",
+      "datetime": "2025-12-01T03:05:10.605000Z",
+      "contributing_pixels": 14733,
+      "clear_pixels": 1391368,
+      "observed_pixels": 2909541
+    }
+  ],
+  "failures": [],
+  "actual_contributing_dates": [
+    "2025-04-12",
+    "2025-07-04",
+    "2025-10-02",
+    "2025-12-01"
+  ],
+  "image_bytes": 164860,
+  "image_sha256": "19e1a5a2f5837d4996c5258ebd27fabe88d8f902bf5caaa1e93867b59adb1120",
+  "status_legend": {
+    "0": "No source observation among selected scenes (transparent)",
+    "1": "Observed but no accepted clear pixel (transparent); includes cloud/shadow/cirrus, unclassified, saturated/snow or mask-edge rejection",
+    "2": "Accepted display pixel"
+  },
+  "processing": {
+    "rgb": "Native 10m TCI display values (uint8) read by HTTP Range and bilinear reprojected. No reflectance scaling applied to TCI.",
+    "scl": "Mask warp uses explicit false=1,true=2 to prevent zero exclusion by statistical resampling; threshold1.999. Read native 20m SCL. Accept classes2,4,5,6. Reject0,1,3,7,8,9,10,11. Dilate cloud/shadow/cirrus classes3,8,9,10 by3native pixels(60m); require >=99.9% clear fraction for each output cell. For broad main-island preview only, conservative4x4 all-clear blocks reduce native20m mask to80m before reprojection; observed mask uses any-observed blocks.",
+    "mosaic": "First accepted pixel in scene cloud%+0.35*nodata% rank order. Multi-date best-available display; not a median, single-date image, or independently certified cloud-free product.",
+    "cloud_audit_limit": "SCL may miss haze/thin cloud or misclassify land/water; overviews and resampling lower display detail. Remaining holes stay transparent. Counts cover selected candidates only, not all 2025 observations."
+  }
+}

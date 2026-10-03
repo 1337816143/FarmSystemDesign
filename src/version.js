@@ -1,6 +1,6 @@
 /** Release identity; checked against version.json and package.json in CI. */
-export const VERSION = '0.3.8';
+export const VERSION = '0.3.9';
 export const MODEL_VERSION = 'screening-0.2.0';
 export const DATA_VERSION = 'evidence-2025-r1+assumptions-r2';
-export const RELEASE_DATE = '2026-10-01';
-export const RELEASE_NAME = 'Hainan Main-Island Cover Summary';
+export const RELEASE_DATE = '2026-10-03';
+export const RELEASE_NAME = 'Hainan Regional Imagery and Environment';

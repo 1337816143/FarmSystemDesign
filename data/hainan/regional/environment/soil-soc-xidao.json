@@ -1,0 +1,53 @@
+{
+  "id": "soil-soc-xidao",
+  "kind": "soil-soc",
+  "bounds_wsen": [
+    109.34777694046721,
+    18.21575221238938,
+    109.39299171062547,
+    18.261150442477874
+  ],
+  "width": 20,
+  "height": 19,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.002260738507912585,
+    0.002389380530973454
+  ],
+  "preview": "soil-soc-xidao-preview.png",
+  "values": "soil-soc-xidao-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "g/kg"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 380,
+    "valid_cells": 5,
+    "nodata_cells": 375,
+    "valid_percent": 1.3158,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 51.7,
+    "max": 98.2,
+    "mean": 68.97999999999999
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "d40e9d60af9a99a410424ceb34745cc9319ae97ede9b82a59090f03d9c8b5f8c",
+    "values": "ba1179ddc646fd3f406ad1ae2ab7085f8de9b3084d1bf15d157ea241431192ff",
+    "geotiff": "2c58357ddd918e5af6c8b651dc0941b121ca465ec2655c62ae400ebdd14c7649"
+  },
+  "geotiff": "soil-soc-xidao.tif",
+  "aoi": "xidao",
+  "group": "main",
+  "source": "restored-main-soil-WCS",
+  "native_resolution_m": 250,
+  "value_scale_to_physical": 0.1,
+  "period": "SoilGrids 2.0 model; not an annual soil survey",
+  "raster_scale": 0.1,
+  "raster_offset": 0
+}

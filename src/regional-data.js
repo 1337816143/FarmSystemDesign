@@ -1,10 +1,10 @@
 const PAIRS = {
   title:['海南区域空间资料','Hainan regional spatial data'],
-  description:['本地网站已接入土地覆被与两项土壤预测图层。它们属于路线二背景资料，未进入崖州演示农场模型。','The site includes land cover and two soil prediction layers. They support Route 2 context and are not inputs to the Yazhou farm demonstration model.'],
-  cover:['ESA WorldCover 2021 · 土地覆被分类及主岛探索性面积','ESA WorldCover 2021 · land-cover classes and exploratory main-island area'],
+  description:['网站已接入2025全域影像、土地覆被、地形、降水与土壤预测图层。它们属于路线二背景资料，未进入崖州演示农场模型。','The site includes regional 2025 imagery, land cover, elevation, rainfall and soil layers. They support Route 2 context and are not inputs to the Yazhou farm demonstration model.'],
+  cover:['Sentinel-2 2025 · Esri2025作物分类 · WorldCover2021历史基线','Sentinel-2 2025 · Esri2025 source Crops · WorldCover2021 baseline'],
   soil:['ISRIC SoilGrids 2.0 · 0–5 cm pH 与 SOC 预测','ISRIC SoilGrids 2.0 · 0–5 cm pH and SOC predictions'],
   border:['geoBoundaries · 标称 2017 的历史县级参考边界','geoBoundaries · historical county reference, labeled 2017'],
-  warning:['现势市县边界、统计单元匹配和本地土壤实测尚未完成。','Current county boundaries, statistical-unit matching and local soil measurements remain missing.'],
+  warning:['现势县界和穷尽岛礁覆盖仍有缺口；原始分辨率与网页概览分辨率分别注明。','Current county geometry and exhaustive island coverage have gaps; native and display resolutions are distinct.'],
   open:['打开海南图谱','Open Hainan atlas'],
   audit:['查看来源与处理记录','View sources and processing'],
 };

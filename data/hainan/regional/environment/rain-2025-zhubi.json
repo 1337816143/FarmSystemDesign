@@ -1,0 +1,55 @@
+{
+  "id": "rain-2025-zhubi",
+  "kind": "rain",
+  "bounds_wsen": [
+    114.00000438094139,
+    10.899999268352985,
+    114.10000438243151,
+    10.999999269843102
+  ],
+  "width": 2,
+  "height": 2,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-zhubi-preview.png",
+  "values": "rain-2025-zhubi-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 4,
+    "valid_cells": 0,
+    "nodata_cells": 4,
+    "valid_percent": 0.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": null,
+    "max": null,
+    "mean": null
+  },
+  "status": "unavailable-no-prediction",
+  "sha256": {
+    "preview": "391590d092f57b13968ea0174fda8726918550f84594de498c72482f1f2e9623",
+    "values": "391590d092f57b13968ea0174fda8726918550f84594de498c72482f1f2e9623",
+    "geotiff": "cecdc180e12acc5a0f302f4dca582f050153cea1643c73cdfbe2626cc59860eb"
+  },
+  "geotiff": "rain-2025-zhubi.tif",
+  "aoi": "zhubi",
+  "group": "nansha",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

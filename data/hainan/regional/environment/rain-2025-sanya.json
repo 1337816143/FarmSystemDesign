@@ -1,0 +1,55 @@
+{
+  "id": "rain-2025-sanya",
+  "kind": "rain",
+  "bounds_wsen": [
+    109.35000431165099,
+    18.199999377131462,
+    109.60000431537628,
+    18.399999380111694
+  ],
+  "width": 5,
+  "height": 4,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-sanya-preview.png",
+  "values": "rain-2025-sanya-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 20,
+    "valid_cells": 20,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 1596.424560546875,
+    "max": 1972.072998046875,
+    "mean": 1735.641845703125
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "0de126ec4746980769b5592d68bc9c66f92567bb185cb8753dff82354e3b6137",
+    "values": "ed831b70ed04cef9b3039b638fd1a66ae2f4b71f7a7a11fad4b9f9d24ef38964",
+    "geotiff": "564d207823c13484eaaeaa82e60b3dc543f38243a8f3fc27ef02b307c4b2168c"
+  },
+  "geotiff": "rain-2025-sanya.tif",
+  "aoi": "sanya",
+  "group": "main",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

@@ -1,0 +1,4959 @@
+{
+  "schema_version": "hainan-environment-v1",
+  "built_at": "2026-10-03",
+  "execution": "dot cloud only",
+  "epsg": 4326,
+  "base_path": "./data/hainan/regional/environment/",
+  "scope_note": "Four broad query envelopes cover the main island and offshore archipelagos. They include ocean and may include land outside the intended administrative scope. They do not assert sovereignty, a maritime claim, or an exhaustive island inventory. Named windows are display/validation samples, not land masks. No territorial boundary is inferred.",
+  "completion_gate": "Exhaustive named island inventory and current reusable administrative polygons remain unresolved; queried envelopes and these samples must not be called full provincial land coverage.",
+  "layers": {
+    "dsm": {
+      "dataset": "Copernicus DEM GLO-30",
+      "period": "TanDEM-X mainly 2011–2015, older infill possible",
+      "license": "Copernicus DEM free licence",
+      "license_url": "https://spacedata.copernicus.eu/collections/copernicus-digital-elevation-model",
+      "attribution": "© DLR e.V. 2010-2014 and © Airbus Defence and Space GmbH 2014-2018 provided under COPERNICUS by the European Union and ESA; all rights reserved",
+      "native_resolution_m": 30,
+      "groups": [
+        {
+          "id": "main",
+          "group": "main",
+          "file": "dsm-main-preview.png",
+          "values_file": "dsm-main-values.png",
+          "bbox": [
+            108.5,
+            17.8,
+            111.5,
+            20.5
+          ],
+          "bbox_wgs84": [
+            108.5,
+            17.8,
+            111.5,
+            20.5
+          ],
+          "width": 1350,
+          "height": 1215,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0022222222222222222,
+              0.0022222222222222222
+            ],
+            "label": "8 arcseconds (~247 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1640250,
+            "valid_cells": 1316924,
+            "nodata_cells": 323326,
+            "valid_percent": 80.288,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 627078,
+            "zero_height_cells": 689790
+          },
+          "statistics": {
+            "min": -0.5733073353767395,
+            "max": 1767.6346435546875,
+            "mean": 86.72509002685547
+          },
+          "metadata_file": "dsm-main.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "088ff8f6908dc1cabad8e36b20396507aee2054b5c85f570aabec1271d1aded0",
+            "values": "5fd26219fb5c05ae0a709f581e8d64697b92d9dd41d6ef93e29036a8e6dfb1fb"
+          }
+        },
+        {
+          "id": "xisha",
+          "group": "xisha",
+          "file": "dsm-xisha-preview.png",
+          "values_file": "dsm-xisha-values.png",
+          "bbox": [
+            111.0,
+            15.500000000000002,
+            113.1,
+            17.6
+          ],
+          "bbox_wgs84": [
+            111.0,
+            15.500000000000002,
+            113.1,
+            17.6
+          ],
+          "width": 945,
+          "height": 945,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0022222222222222222,
+              0.0022222222222222222
+            ],
+            "label": "8 arcseconds (~247 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 893025,
+            "valid_cells": 507150,
+            "nodata_cells": 385875,
+            "valid_percent": 56.7901,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 487,
+            "zero_height_cells": 506663
+          },
+          "statistics": {
+            "min": 0.0,
+            "max": 10.850040435791016,
+            "mean": 0.001896700938232243
+          },
+          "metadata_file": "dsm-xisha.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "99a8b6a79783d0446eb84ba5436c40a3ce3820997507ad474a5b1f8aad800d1f",
+            "values": "bfa9095b9a8d47bbe061893d380bc1fac19419faee4f38f80106ad08327ae5ad"
+          }
+        },
+        {
+          "id": "zhongsha",
+          "group": "zhongsha",
+          "file": "dsm-zhongsha-preview.png",
+          "values_file": "dsm-zhongsha-values.png",
+          "bbox": [
+            113.2,
+            14.8,
+            118.10000000000001,
+            16.6
+          ],
+          "bbox_wgs84": [
+            113.2,
+            14.8,
+            118.10000000000001,
+            16.6
+          ],
+          "width": 2205,
+          "height": 810,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0022222222222222222,
+              0.0022222222222222222
+            ],
+            "label": "8 arcseconds (~247 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unresolved-source-zero-surface",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1786050,
+            "valid_cells": 203401,
+            "nodata_cells": 1582649,
+            "valid_percent": 11.3883,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 0,
+            "zero_height_cells": 203401
+          },
+          "statistics": {
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          },
+          "metadata_file": "dsm-zhongsha.json",
+          "coverage_note": "The source tile exists but this entire window has only zero-height cells. Do not treat this as measured island terrain.",
+          "sha256": {
+            "preview": "94db327cdc7c504874bb2777d57d11579d952a61b339ff37e233d823d38d91db",
+            "values": "e894e124690958f29dfcfa1553ca3f7801c0c380d8775a312f7d4075737ea0de"
+          }
+        },
+        {
+          "id": "nansha",
+          "group": "nansha",
+          "file": "dsm-nansha-preview.png",
+          "values_file": "dsm-nansha-values.png",
+          "bbox": [
+            109.5,
+            3.495555555555555,
+            117.99777777777777,
+            12.5
+          ],
+          "bbox_wgs84": [
+            109.5,
+            3.495555555555555,
+            117.99777777777777,
+            12.5
+          ],
+          "width": 956,
+          "height": 1013,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.008888888888888889,
+              0.008888888888888889
+            ],
+            "label": "32 arcseconds (~989 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 968428,
+            "valid_cells": 409937,
+            "nodata_cells": 558491,
+            "valid_percent": 42.3301,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 122765,
+            "zero_height_cells": 287160
+          },
+          "statistics": {
+            "min": -0.025531847029924393,
+            "max": 3871.2763671875,
+            "mean": 108.96822357177734
+          },
+          "metadata_file": "dsm-nansha.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "c146d29d22938ea0a435fbc351d6454a65c8dd9d5eaeac1d467e9685f861e64b",
+            "values": "26a953fbf27bfa71c7de4633eed677b089e6012f646a101371602bdf7678d30f"
+          }
+        }
+      ],
+      "previews": [
+        {
+          "id": "main",
+          "group": "main",
+          "file": "dsm-main-preview.png",
+          "values_file": "dsm-main-values.png",
+          "bbox": [
+            108.5,
+            17.8,
+            111.5,
+            20.5
+          ],
+          "bbox_wgs84": [
+            108.5,
+            17.8,
+            111.5,
+            20.5
+          ],
+          "width": 1350,
+          "height": 1215,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0022222222222222222,
+              0.0022222222222222222
+            ],
+            "label": "8 arcseconds (~247 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1640250,
+            "valid_cells": 1316924,
+            "nodata_cells": 323326,
+            "valid_percent": 80.288,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 627078,
+            "zero_height_cells": 689790
+          },
+          "statistics": {
+            "min": -0.5733073353767395,
+            "max": 1767.6346435546875,
+            "mean": 86.72509002685547
+          },
+          "metadata_file": "dsm-main.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "088ff8f6908dc1cabad8e36b20396507aee2054b5c85f570aabec1271d1aded0",
+            "values": "5fd26219fb5c05ae0a709f581e8d64697b92d9dd41d6ef93e29036a8e6dfb1fb"
+          }
+        },
+        {
+          "id": "xisha",
+          "group": "xisha",
+          "file": "dsm-xisha-preview.png",
+          "values_file": "dsm-xisha-values.png",
+          "bbox": [
+            111.0,
+            15.500000000000002,
+            113.1,
+            17.6
+          ],
+          "bbox_wgs84": [
+            111.0,
+            15.500000000000002,
+            113.1,
+            17.6
+          ],
+          "width": 945,
+          "height": 945,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0022222222222222222,
+              0.0022222222222222222
+            ],
+            "label": "8 arcseconds (~247 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 893025,
+            "valid_cells": 507150,
+            "nodata_cells": 385875,
+            "valid_percent": 56.7901,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 487,
+            "zero_height_cells": 506663
+          },
+          "statistics": {
+            "min": 0.0,
+            "max": 10.850040435791016,
+            "mean": 0.001896700938232243
+          },
+          "metadata_file": "dsm-xisha.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "99a8b6a79783d0446eb84ba5436c40a3ce3820997507ad474a5b1f8aad800d1f",
+            "values": "bfa9095b9a8d47bbe061893d380bc1fac19419faee4f38f80106ad08327ae5ad"
+          }
+        },
+        {
+          "id": "zhongsha",
+          "group": "zhongsha",
+          "file": "dsm-zhongsha-preview.png",
+          "values_file": "dsm-zhongsha-values.png",
+          "bbox": [
+            113.2,
+            14.8,
+            118.10000000000001,
+            16.6
+          ],
+          "bbox_wgs84": [
+            113.2,
+            14.8,
+            118.10000000000001,
+            16.6
+          ],
+          "width": 2205,
+          "height": 810,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0022222222222222222,
+              0.0022222222222222222
+            ],
+            "label": "8 arcseconds (~247 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unresolved-source-zero-surface",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1786050,
+            "valid_cells": 203401,
+            "nodata_cells": 1582649,
+            "valid_percent": 11.3883,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 0,
+            "zero_height_cells": 203401
+          },
+          "statistics": {
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          },
+          "metadata_file": "dsm-zhongsha.json",
+          "coverage_note": "The source tile exists but this entire window has only zero-height cells. Do not treat this as measured island terrain.",
+          "sha256": {
+            "preview": "94db327cdc7c504874bb2777d57d11579d952a61b339ff37e233d823d38d91db",
+            "values": "e894e124690958f29dfcfa1553ca3f7801c0c380d8775a312f7d4075737ea0de"
+          }
+        },
+        {
+          "id": "nansha",
+          "group": "nansha",
+          "file": "dsm-nansha-preview.png",
+          "values_file": "dsm-nansha-values.png",
+          "bbox": [
+            109.5,
+            3.495555555555555,
+            117.99777777777777,
+            12.5
+          ],
+          "bbox_wgs84": [
+            109.5,
+            3.495555555555555,
+            117.99777777777777,
+            12.5
+          ],
+          "width": 956,
+          "height": 1013,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.008888888888888889,
+              0.008888888888888889
+            ],
+            "label": "32 arcseconds (~989 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 968428,
+            "valid_cells": 409937,
+            "nodata_cells": 558491,
+            "valid_percent": 42.3301,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 122765,
+            "zero_height_cells": 287160
+          },
+          "statistics": {
+            "min": -0.025531847029924393,
+            "max": 3871.2763671875,
+            "mean": 108.96822357177734
+          },
+          "metadata_file": "dsm-nansha.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "c146d29d22938ea0a435fbc351d6454a65c8dd9d5eaeac1d467e9685f861e64b",
+            "values": "26a953fbf27bfa71c7de4633eed677b089e6012f646a101371602bdf7678d30f"
+          }
+        },
+        {
+          "id": "haikou",
+          "group": "main",
+          "file": "dsm-haikou-preview.png",
+          "values_file": "dsm-haikou-values.png",
+          "bbox": [
+            110.21986111111111,
+            19.93986111111111,
+            110.4401388888889,
+            20.10013888888889
+          ],
+          "bbox_wgs84": [
+            110.21986111111111,
+            19.93986111111111,
+            110.4401388888889,
+            20.10013888888889
+          ],
+          "width": 793,
+          "height": 577,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0002777777777777778,
+              0.0002777777777777778
+            ],
+            "label": "1 arcsecond (~30 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 457561,
+            "valid_cells": 457561,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 337093,
+            "zero_height_cells": 120439
+          },
+          "statistics": {
+            "min": -1.0,
+            "max": 109.76177215576172,
+            "mean": 14.257994651794434
+          },
+          "metadata_file": "dsm-haikou.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "b370141d56840c7a87de99f274e151e3e1dd494f945869fe5b2280e879ad6fc0",
+            "values": "ea9ea0928e075243de9462067af447ccf9426d7c8188b70599a3fe4fe9bdfe85",
+            "geotiff": "cfa6af9237e8d331e7594d459bb8a4651153202dac0612198d1a41bda85782d9"
+          },
+          "native_window_geotiff": "dsm-haikou.tif"
+        },
+        {
+          "id": "sanya",
+          "group": "main",
+          "file": "dsm-sanya-preview.png",
+          "values_file": "dsm-sanya-values.png",
+          "bbox": [
+            109.37986111111111,
+            18.179861111111112,
+            109.61013888888888,
+            18.38013888888889
+          ],
+          "bbox_wgs84": [
+            109.37986111111111,
+            18.179861111111112,
+            109.61013888888888,
+            18.38013888888889
+          ],
+          "width": 829,
+          "height": 721,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0002777777777777778,
+              0.0002777777777777778
+            ],
+            "label": "1 arcsecond (~30 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 597709,
+            "valid_cells": 597709,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 409279,
+            "zero_height_cells": 188137
+          },
+          "statistics": {
+            "min": -8.794232368469238,
+            "max": 794.4115600585938,
+            "mean": 61.7664794921875
+          },
+          "metadata_file": "dsm-sanya.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "1e82798613bae31d0464cc531a1672001590bda70850b7644ac8cac7df2ac199",
+            "values": "d98bc4cf681912277ce1738c1a8ad15bd5afa2d863817c0a92e518bcf706e5a8",
+            "geotiff": "410288f9ae980685e97428762c7907ebc36356a9d452ff1a4e62a1dea2ac4e59"
+          },
+          "native_window_geotiff": "dsm-sanya.tif"
+        },
+        {
+          "id": "danzhou",
+          "group": "main",
+          "file": "dsm-danzhou-preview.png",
+          "values_file": "dsm-danzhou-values.png",
+          "bbox": [
+            109.39986111111112,
+            19.429861111111116,
+            109.7001388888889,
+            19.64013888888889
+          ],
+          "bbox_wgs84": [
+            109.39986111111112,
+            19.429861111111116,
+            109.7001388888889,
+            19.64013888888889
+          ],
+          "width": 1081,
+          "height": 757,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0002777777777777778,
+              0.0002777777777777778
+            ],
+            "label": "1 arcsecond (~30 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 818317,
+            "valid_cells": 818317,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 818317,
+            "zero_height_cells": 0
+          },
+          "statistics": {
+            "min": 16.382143020629883,
+            "max": 512.2755737304688,
+            "mean": 142.47909545898438
+          },
+          "metadata_file": "dsm-danzhou.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "3b5564a9c6dd66a9e35703101a69c4b5f3074e76042b3cd20edf27fdfd5fa00e",
+            "values": "cd4fca105c108df767f50ee474bdb7e26525e850358d9ca7e13efe253ced8855",
+            "geotiff": "b2bde12305a16fccd3bb2e490b062b5fdeda51fd37b7da34bb92c89ac58b7212"
+          },
+          "native_window_geotiff": "dsm-danzhou.tif"
+        },
+        {
+          "id": "wuzhishan",
+          "group": "main",
+          "file": "dsm-wuzhishan-preview.png",
+          "values_file": "dsm-wuzhishan-values.png",
+          "bbox": [
+            109.41986111111112,
+            18.69986111111111,
+            109.6701388888889,
+            18.90013888888889
+          ],
+          "bbox_wgs84": [
+            109.41986111111112,
+            18.69986111111111,
+            109.6701388888889,
+            18.90013888888889
+          ],
+          "width": 901,
+          "height": 721,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0002777777777777778,
+              0.0002777777777777778
+            ],
+            "label": "1 arcsecond (~30 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 649621,
+            "valid_cells": 649621,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 649621,
+            "zero_height_cells": 0
+          },
+          "statistics": {
+            "min": 106.44734954833984,
+            "max": 1443.875244140625,
+            "mean": 607.0137939453125
+          },
+          "metadata_file": "dsm-wuzhishan.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "2d48ca5940a6ff929dae79739d1073912383aac798fa00485507d6cb18fb2755",
+            "values": "745cdfa371e0a95446eef438ae19888aaef865c2e08d3cbd26a7877387d99731",
+            "geotiff": "aa8f42193ee5bfdc1f3ccb6ff861e0153055b96b8078ddf28ba94d2c0a586603"
+          },
+          "native_window_geotiff": "dsm-wuzhishan.tif"
+        },
+        {
+          "id": "wenchang",
+          "group": "main",
+          "file": "dsm-wenchang-preview.png",
+          "values_file": "dsm-wenchang-values.png",
+          "bbox": [
+            110.64986111111112,
+            19.509861111111114,
+            110.8801388888889,
+            19.72013888888889
+          ],
+          "bbox_wgs84": [
+            110.64986111111112,
+            19.509861111111114,
+            110.8801388888889,
+            19.72013888888889
+          ],
+          "width": 829,
+          "height": 757,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0002777777777777778,
+              0.0002777777777777778
+            ],
+            "label": "1 arcsecond (~30 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 627553,
+            "valid_cells": 627553,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 575904,
+            "zero_height_cells": 51649
+          },
+          "statistics": {
+            "min": 0.0,
+            "max": 107.77052307128906,
+            "mean": 21.261377334594727
+          },
+          "metadata_file": "dsm-wenchang.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "f8a3fcce2a7bd0858b45c0c2a38736408c7fe7fd922b160bb97da9bb4336459a",
+            "values": "7da02a6d8d8d21a340bf0a40db0951e1d14a1acc213b7a5dc0c4f82a29eaede0",
+            "geotiff": "e3505e06c390ee9a1e8aef1ccf1602557127940ab44f00911083d88eb01dc510"
+          },
+          "native_window_geotiff": "dsm-wenchang.tif"
+        },
+        {
+          "id": "xidao",
+          "group": "main",
+          "file": "dsm-xidao-preview.png",
+          "values_file": "dsm-xidao-values.png",
+          "bbox": [
+            109.34986111111111,
+            18.214861111111112,
+            109.3951388888889,
+            18.26013888888889
+          ],
+          "bbox_wgs84": [
+            109.34986111111111,
+            18.214861111111112,
+            109.3951388888889,
+            18.26013888888889
+          ],
+          "width": 163,
+          "height": 163,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0002777777777777778,
+              0.0002777777777777778
+            ],
+            "label": "1 arcsecond (~30 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 26569,
+            "valid_cells": 26569,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 2392,
+            "zero_height_cells": 24146
+          },
+          "statistics": {
+            "min": -1.854340672492981,
+            "max": 123.89312744140625,
+            "mean": 2.0785727500915527
+          },
+          "metadata_file": "dsm-xidao.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "e629f540d5ba9d92f4ff1a089b6d119b451db306190aa5cc4e7fb58ddf669254",
+            "values": "181f22dfa8ad5f845db2b679a16df1e80bfb700bccbdb710cdc09f89496d86ee",
+            "geotiff": "4bbfcd19ff0a444097852ffdeb572cc48c3d04b50056c72d22f9e916c89af5d2"
+          },
+          "native_window_geotiff": "dsm-xidao.tif"
+        },
+        {
+          "id": "yongxing",
+          "group": "xisha",
+          "file": "dsm-yongxing-preview.png",
+          "values_file": "dsm-yongxing-values.png",
+          "bbox": [
+            112.29986111111111,
+            16.78986111111111,
+            112.3801388888889,
+            16.87013888888889
+          ],
+          "bbox_wgs84": [
+            112.29986111111111,
+            16.78986111111111,
+            112.3801388888889,
+            16.87013888888889
+          ],
+          "width": 289,
+          "height": 289,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0002777777777777778,
+              0.0002777777777777778
+            ],
+            "label": "1 arcsecond (~30 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 83521,
+            "valid_cells": 83521,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 2744,
+            "zero_height_cells": 80777
+          },
+          "statistics": {
+            "min": 0.0,
+            "max": 17.715410232543945,
+            "mean": 0.2763122618198395
+          },
+          "metadata_file": "dsm-yongxing.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "38e9ad0da476dfa9b08dcf19168e44e41effbedcff34eb12997908bfc9a2f069",
+            "values": "bc7306aed97abafd2eb7cf3e5e6aef3306cbd97ae59fcbad1c2ed397bfd73599",
+            "geotiff": "49512f4c9f8321ba11cd10e391f593f049db186b839163dd1ac1cb4882243ffc"
+          },
+          "native_window_geotiff": "dsm-yongxing.tif"
+        },
+        {
+          "id": "yongshu",
+          "group": "nansha",
+          "file": "dsm-yongshu-preview.png",
+          "values_file": "dsm-yongshu-values.png",
+          "bbox": [
+            112.88986111111112,
+            9.48986111111111,
+            113.0301388888889,
+            9.660138888888888
+          ],
+          "bbox_wgs84": [
+            112.88986111111112,
+            9.48986111111111,
+            113.0301388888889,
+            9.660138888888888
+          ],
+          "width": 505,
+          "height": 613,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0002777777777777878,
+              0.00027777777777777626
+            ],
+            "label": "1 arcsecond (~30 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-source-tile",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 309565,
+            "valid_cells": 0,
+            "nodata_cells": 309565,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 0,
+            "zero_height_cells": 0
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "dsm-yongshu.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "8436d1659a4d62300473799ea8fc846009baede68eff5e8e158ebbfe1e5231e9",
+            "values": "8436d1659a4d62300473799ea8fc846009baede68eff5e8e158ebbfe1e5231e9",
+            "geotiff": "0b1e9db652d03daac8f7c241e694f95532d0230bb4366a6ba9d82857c1a1a5fd"
+          },
+          "native_window_geotiff": "dsm-yongshu.tif"
+        },
+        {
+          "id": "zhubi",
+          "group": "nansha",
+          "file": "dsm-zhubi-preview.png",
+          "values_file": "dsm-zhubi-values.png",
+          "bbox": [
+            114.02986111111112,
+            10.87486111111111,
+            114.12013888888889,
+            10.955138888888888
+          ],
+          "bbox_wgs84": [
+            114.02986111111112,
+            10.87486111111111,
+            114.12013888888889,
+            10.955138888888888
+          ],
+          "width": 325,
+          "height": 289,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0002777777777777778,
+              0.0002777777777777778
+            ],
+            "label": "1 arcsecond (~30 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unresolved-source-zero-surface",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 93925,
+            "valid_cells": 93925,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 0,
+            "zero_height_cells": 93925
+          },
+          "statistics": {
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          },
+          "metadata_file": "dsm-zhubi.json",
+          "coverage_note": "The source tile exists but this entire window has only zero-height cells. Do not treat this as measured island terrain.",
+          "sha256": {
+            "preview": "90bac9be52761a2281fe8bd7d51ed8b14db8a5e684c5fb675f8e366b3424c450",
+            "values": "0ef75cb7c54188417a26dc0cd106194119dfc68e2378e39610c0582f891d15d4",
+            "geotiff": "52314f43552cc100443177715ce6b7d0068326e90634649c63914e8a859baa4b"
+          },
+          "native_window_geotiff": "dsm-zhubi.tif"
+        },
+        {
+          "id": "huangyan",
+          "group": "zhongsha",
+          "file": "dsm-huangyan-preview.png",
+          "values_file": "dsm-huangyan-values.png",
+          "bbox": [
+            117.67986111111112,
+            15.019861111111112,
+            117.9101388888889,
+            15.270138888888889
+          ],
+          "bbox_wgs84": [
+            117.67986111111112,
+            15.019861111111112,
+            117.9101388888889,
+            15.270138888888889
+          ],
+          "width": 829,
+          "height": 901,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "display_resolution": {
+            "degrees": [
+              0.0002777777777777778,
+              0.0002777777777777778
+            ],
+            "label": "1 arcsecond (~30 m latitude)"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 1,
+            "offset": -500,
+            "nodata": "alpha === 0",
+            "units": "m",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unresolved-source-zero-surface",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 746929,
+            "valid_cells": 746929,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class",
+            "positive_surface_cells": 0,
+            "zero_height_cells": 746929
+          },
+          "statistics": {
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          },
+          "metadata_file": "dsm-huangyan.json",
+          "coverage_note": "The source tile exists but this entire window has only zero-height cells. Do not treat this as measured island terrain.",
+          "sha256": {
+            "preview": "66cd19d6266018a3a92ac64a6237792723b73e9d93135e909a60345026b3a83b",
+            "values": "fce32da4c64ec2e27ba158bbc3a8e2af7dec793f5b771f052bc4a84032358653",
+            "geotiff": "2e215693e0ebffbae45b5fc6405f0daba861294dec27fb69a62b2755191bafeb"
+          },
+          "native_window_geotiff": "dsm-huangyan.tif"
+        }
+      ],
+      "coverage_note": "Window counts are not a province land-coverage claim; no verified exhaustive island land mask.",
+      "assets": [
+        {
+          "id": "Copernicus_DSM_COG_10_N20_00_E110_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N20_00_E110_00_DEM/Copernicus_DSM_COG_10_N20_00_E110_00_DEM.tif",
+          "bbox_wgs84": [
+            109.99986111111112,
+            20.000138888888888,
+            110.99986111111112,
+            21.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N20_00_E109_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N20_00_E109_00_DEM/Copernicus_DSM_COG_10_N20_00_E109_00_DEM.tif",
+          "bbox_wgs84": [
+            108.99986111111112,
+            20.000138888888888,
+            109.99986111111112,
+            21.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N19_00_E111_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N19_00_E111_00_DEM/Copernicus_DSM_COG_10_N19_00_E111_00_DEM.tif",
+          "bbox_wgs84": [
+            110.99986111111112,
+            19.000138888888888,
+            111.99986111111112,
+            20.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N19_00_E110_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N19_00_E110_00_DEM/Copernicus_DSM_COG_10_N19_00_E110_00_DEM.tif",
+          "bbox_wgs84": [
+            109.99986111111112,
+            19.000138888888888,
+            110.99986111111112,
+            20.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N19_00_E109_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N19_00_E109_00_DEM/Copernicus_DSM_COG_10_N19_00_E109_00_DEM.tif",
+          "bbox_wgs84": [
+            108.99986111111112,
+            19.000138888888888,
+            109.99986111111112,
+            20.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N19_00_E108_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N19_00_E108_00_DEM/Copernicus_DSM_COG_10_N19_00_E108_00_DEM.tif",
+          "bbox_wgs84": [
+            107.99986111111112,
+            19.000138888888888,
+            108.99986111111112,
+            20.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N18_00_E110_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E110_00_DEM/Copernicus_DSM_COG_10_N18_00_E110_00_DEM.tif",
+          "bbox_wgs84": [
+            109.99986111111112,
+            18.000138888888888,
+            110.99986111111112,
+            19.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N18_00_E109_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E109_00_DEM/Copernicus_DSM_COG_10_N18_00_E109_00_DEM.tif",
+          "bbox_wgs84": [
+            108.99986111111112,
+            18.000138888888888,
+            109.99986111111112,
+            19.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N18_00_E108_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E108_00_DEM/Copernicus_DSM_COG_10_N18_00_E108_00_DEM.tif",
+          "bbox_wgs84": [
+            107.99986111111112,
+            18.000138888888888,
+            108.99986111111112,
+            19.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N16_00_E112_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N16_00_E112_00_DEM/Copernicus_DSM_COG_10_N16_00_E112_00_DEM.tif",
+          "bbox_wgs84": [
+            111.99986111111112,
+            16.000138888888888,
+            112.99986111111112,
+            17.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N16_00_E111_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N16_00_E111_00_DEM/Copernicus_DSM_COG_10_N16_00_E111_00_DEM.tif",
+          "bbox_wgs84": [
+            110.99986111111112,
+            16.000138888888888,
+            111.99986111111112,
+            17.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N15_00_E117_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N15_00_E117_00_DEM/Copernicus_DSM_COG_10_N15_00_E117_00_DEM.tif",
+          "bbox_wgs84": [
+            116.99986111111112,
+            15.000138888888888,
+            117.99986111111112,
+            16.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N15_00_E111_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N15_00_E111_00_DEM/Copernicus_DSM_COG_10_N15_00_E111_00_DEM.tif",
+          "bbox_wgs84": [
+            110.99986111111112,
+            15.000138888888888,
+            111.99986111111112,
+            16.000138888888888
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N12_00_E109_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N12_00_E109_00_DEM/Copernicus_DSM_COG_10_N12_00_E109_00_DEM.tif",
+          "bbox_wgs84": [
+            108.99986111111112,
+            12.00013888888889,
+            109.99986111111112,
+            13.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N11_00_E115_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N11_00_E115_00_DEM/Copernicus_DSM_COG_10_N11_00_E115_00_DEM.tif",
+          "bbox_wgs84": [
+            114.99986111111112,
+            11.00013888888889,
+            115.99986111111112,
+            12.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N11_00_E114_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N11_00_E114_00_DEM/Copernicus_DSM_COG_10_N11_00_E114_00_DEM.tif",
+          "bbox_wgs84": [
+            113.99986111111112,
+            11.00013888888889,
+            114.99986111111112,
+            12.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N11_00_E109_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N11_00_E109_00_DEM/Copernicus_DSM_COG_10_N11_00_E109_00_DEM.tif",
+          "bbox_wgs84": [
+            108.99986111111112,
+            11.00013888888889,
+            109.99986111111112,
+            12.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N10_00_E118_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N10_00_E118_00_DEM/Copernicus_DSM_COG_10_N10_00_E118_00_DEM.tif",
+          "bbox_wgs84": [
+            117.99986111111112,
+            10.00013888888889,
+            118.99986111111112,
+            11.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N10_00_E115_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N10_00_E115_00_DEM/Copernicus_DSM_COG_10_N10_00_E115_00_DEM.tif",
+          "bbox_wgs84": [
+            114.99986111111112,
+            10.00013888888889,
+            115.99986111111112,
+            11.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N10_00_E114_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N10_00_E114_00_DEM/Copernicus_DSM_COG_10_N10_00_E114_00_DEM.tif",
+          "bbox_wgs84": [
+            113.99986111111112,
+            10.00013888888889,
+            114.99986111111112,
+            11.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N09_00_E118_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N09_00_E118_00_DEM/Copernicus_DSM_COG_10_N09_00_E118_00_DEM.tif",
+          "bbox_wgs84": [
+            117.99986111111112,
+            9.00013888888889,
+            118.99986111111112,
+            10.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N09_00_E117_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N09_00_E117_00_DEM/Copernicus_DSM_COG_10_N09_00_E117_00_DEM.tif",
+          "bbox_wgs84": [
+            116.99986111111112,
+            9.00013888888889,
+            117.99986111111112,
+            10.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N09_00_E115_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N09_00_E115_00_DEM/Copernicus_DSM_COG_10_N09_00_E115_00_DEM.tif",
+          "bbox_wgs84": [
+            114.99986111111112,
+            9.00013888888889,
+            115.99986111111112,
+            10.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N09_00_E114_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N09_00_E114_00_DEM/Copernicus_DSM_COG_10_N09_00_E114_00_DEM.tif",
+          "bbox_wgs84": [
+            113.99986111111112,
+            9.00013888888889,
+            114.99986111111112,
+            10.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N09_00_E109_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N09_00_E109_00_DEM/Copernicus_DSM_COG_10_N09_00_E109_00_DEM.tif",
+          "bbox_wgs84": [
+            108.99986111111112,
+            9.00013888888889,
+            109.99986111111112,
+            10.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N08_00_E118_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E118_00_DEM/Copernicus_DSM_COG_10_N08_00_E118_00_DEM.tif",
+          "bbox_wgs84": [
+            117.99986111111112,
+            8.00013888888889,
+            118.99986111111112,
+            9.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N08_00_E117_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E117_00_DEM/Copernicus_DSM_COG_10_N08_00_E117_00_DEM.tif",
+          "bbox_wgs84": [
+            116.99986111111112,
+            8.00013888888889,
+            117.99986111111112,
+            9.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N08_00_E116_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E116_00_DEM/Copernicus_DSM_COG_10_N08_00_E116_00_DEM.tif",
+          "bbox_wgs84": [
+            115.99986111111112,
+            8.00013888888889,
+            116.99986111111112,
+            9.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N08_00_E115_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E115_00_DEM/Copernicus_DSM_COG_10_N08_00_E115_00_DEM.tif",
+          "bbox_wgs84": [
+            114.99986111111112,
+            8.00013888888889,
+            115.99986111111112,
+            9.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N08_00_E113_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E113_00_DEM/Copernicus_DSM_COG_10_N08_00_E113_00_DEM.tif",
+          "bbox_wgs84": [
+            112.99986111111112,
+            8.00013888888889,
+            113.99986111111112,
+            9.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N08_00_E112_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E112_00_DEM/Copernicus_DSM_COG_10_N08_00_E112_00_DEM.tif",
+          "bbox_wgs84": [
+            111.99986111111112,
+            8.00013888888889,
+            112.99986111111112,
+            9.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N08_00_E111_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N08_00_E111_00_DEM/Copernicus_DSM_COG_10_N08_00_E111_00_DEM.tif",
+          "bbox_wgs84": [
+            110.99986111111112,
+            8.00013888888889,
+            111.99986111111112,
+            9.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N07_00_E118_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N07_00_E118_00_DEM/Copernicus_DSM_COG_10_N07_00_E118_00_DEM.tif",
+          "bbox_wgs84": [
+            117.99986111111112,
+            7.000138888888889,
+            118.99986111111112,
+            8.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N07_00_E117_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N07_00_E117_00_DEM/Copernicus_DSM_COG_10_N07_00_E117_00_DEM.tif",
+          "bbox_wgs84": [
+            116.99986111111112,
+            7.000138888888889,
+            117.99986111111112,
+            8.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N07_00_E116_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N07_00_E116_00_DEM/Copernicus_DSM_COG_10_N07_00_E116_00_DEM.tif",
+          "bbox_wgs84": [
+            115.99986111111112,
+            7.000138888888889,
+            116.99986111111112,
+            8.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N07_00_E113_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N07_00_E113_00_DEM/Copernicus_DSM_COG_10_N07_00_E113_00_DEM.tif",
+          "bbox_wgs84": [
+            112.99986111111112,
+            7.000138888888889,
+            113.99986111111112,
+            8.00013888888889
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N06_00_E118_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N06_00_E118_00_DEM/Copernicus_DSM_COG_10_N06_00_E118_00_DEM.tif",
+          "bbox_wgs84": [
+            117.99986111111112,
+            6.0001388888888885,
+            118.99986111111112,
+            7.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N06_00_E117_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N06_00_E117_00_DEM/Copernicus_DSM_COG_10_N06_00_E117_00_DEM.tif",
+          "bbox_wgs84": [
+            116.99986111111112,
+            6.0001388888888885,
+            117.99986111111112,
+            7.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N06_00_E116_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N06_00_E116_00_DEM/Copernicus_DSM_COG_10_N06_00_E116_00_DEM.tif",
+          "bbox_wgs84": [
+            115.99986111111112,
+            6.0001388888888885,
+            116.99986111111112,
+            7.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N06_00_E115_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N06_00_E115_00_DEM/Copernicus_DSM_COG_10_N06_00_E115_00_DEM.tif",
+          "bbox_wgs84": [
+            114.99986111111112,
+            6.0001388888888885,
+            115.99986111111112,
+            7.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N05_00_E118_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N05_00_E118_00_DEM/Copernicus_DSM_COG_10_N05_00_E118_00_DEM.tif",
+          "bbox_wgs84": [
+            117.99986111111112,
+            5.0001388888888885,
+            118.99986111111112,
+            6.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N05_00_E117_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N05_00_E117_00_DEM/Copernicus_DSM_COG_10_N05_00_E117_00_DEM.tif",
+          "bbox_wgs84": [
+            116.99986111111112,
+            5.0001388888888885,
+            117.99986111111112,
+            6.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N05_00_E116_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N05_00_E116_00_DEM/Copernicus_DSM_COG_10_N05_00_E116_00_DEM.tif",
+          "bbox_wgs84": [
+            115.99986111111112,
+            5.0001388888888885,
+            116.99986111111112,
+            6.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N05_00_E115_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N05_00_E115_00_DEM/Copernicus_DSM_COG_10_N05_00_E115_00_DEM.tif",
+          "bbox_wgs84": [
+            114.99986111111112,
+            5.0001388888888885,
+            115.99986111111112,
+            6.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N05_00_E114_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N05_00_E114_00_DEM/Copernicus_DSM_COG_10_N05_00_E114_00_DEM.tif",
+          "bbox_wgs84": [
+            113.99986111111112,
+            5.0001388888888885,
+            114.99986111111112,
+            6.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N04_00_E118_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E118_00_DEM/Copernicus_DSM_COG_10_N04_00_E118_00_DEM.tif",
+          "bbox_wgs84": [
+            117.99986111111112,
+            4.0001388888888885,
+            118.99986111111112,
+            5.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N04_00_E117_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E117_00_DEM/Copernicus_DSM_COG_10_N04_00_E117_00_DEM.tif",
+          "bbox_wgs84": [
+            116.99986111111112,
+            4.0001388888888885,
+            117.99986111111112,
+            5.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N04_00_E116_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E116_00_DEM/Copernicus_DSM_COG_10_N04_00_E116_00_DEM.tif",
+          "bbox_wgs84": [
+            115.99986111111112,
+            4.0001388888888885,
+            116.99986111111112,
+            5.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N04_00_E115_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E115_00_DEM/Copernicus_DSM_COG_10_N04_00_E115_00_DEM.tif",
+          "bbox_wgs84": [
+            114.99986111111112,
+            4.0001388888888885,
+            115.99986111111112,
+            5.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N04_00_E114_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E114_00_DEM/Copernicus_DSM_COG_10_N04_00_E114_00_DEM.tif",
+          "bbox_wgs84": [
+            113.99986111111112,
+            4.0001388888888885,
+            114.99986111111112,
+            5.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N04_00_E113_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N04_00_E113_00_DEM/Copernicus_DSM_COG_10_N04_00_E113_00_DEM.tif",
+          "bbox_wgs84": [
+            112.99986111111112,
+            4.0001388888888885,
+            113.99986111111112,
+            5.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N03_00_E117_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E117_00_DEM/Copernicus_DSM_COG_10_N03_00_E117_00_DEM.tif",
+          "bbox_wgs84": [
+            116.99986111111112,
+            3.0001388888888885,
+            117.99986111111112,
+            4.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N03_00_E116_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E116_00_DEM/Copernicus_DSM_COG_10_N03_00_E116_00_DEM.tif",
+          "bbox_wgs84": [
+            115.99986111111112,
+            3.0001388888888885,
+            116.99986111111112,
+            4.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N03_00_E115_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E115_00_DEM/Copernicus_DSM_COG_10_N03_00_E115_00_DEM.tif",
+          "bbox_wgs84": [
+            114.99986111111112,
+            3.0001388888888885,
+            115.99986111111112,
+            4.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N03_00_E114_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E114_00_DEM/Copernicus_DSM_COG_10_N03_00_E114_00_DEM.tif",
+          "bbox_wgs84": [
+            113.99986111111112,
+            3.0001388888888885,
+            114.99986111111112,
+            4.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N03_00_E113_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E113_00_DEM/Copernicus_DSM_COG_10_N03_00_E113_00_DEM.tif",
+          "bbox_wgs84": [
+            112.99986111111112,
+            3.0001388888888885,
+            113.99986111111112,
+            4.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        },
+        {
+          "id": "Copernicus_DSM_COG_10_N03_00_E112_00_DEM",
+          "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N03_00_E112_00_DEM/Copernicus_DSM_COG_10_N03_00_E112_00_DEM.tif",
+          "bbox_wgs84": [
+            111.99986111111112,
+            3.0001388888888885,
+            112.99986111111112,
+            4.0001388888888885
+          ],
+          "epsg": 4326,
+          "native_resolution_m": 30,
+          "native_resolution_degrees": 0.0002777777777777778,
+          "nodata": null,
+          "scale": 1,
+          "offset": 0,
+          "units": "m",
+          "ocean_value": 0,
+          "browser_access": "Range verified, CORS not established; use same-origin materialized window or permitted proxy"
+        }
+      ]
+    },
+    "rain": {
+      "dataset": "CHIRPS v3.0 final annual precipitation",
+      "period": "2025-01-01/2025-12-31",
+      "license": "CC-BY-4.0; CHC additionally states public-domain waiver",
+      "license_url": "https://chc.ucsb.edu/data/chirps3",
+      "attribution": "Climate Hazards Center Infrared Precipitation with Stations version 3 (CHIRPS3), DOI:10.15780/G2JQ0P",
+      "native_resolution_m": 5500,
+      "groups": [
+        {
+          "id": "main",
+          "group": "main",
+          "file": "rain-2025-main-preview.png",
+          "values_file": "rain-2025-main-values.png",
+          "bbox": [
+            108.500004298985,
+            17.799999371170998,
+            111.50000434368849,
+            20.499999411404133
+          ],
+          "bbox_wgs84": [
+            108.500004298985,
+            17.799999371170998,
+            111.50000434368849,
+            20.499999411404133
+          ],
+          "width": 60,
+          "height": 54,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 3240,
+            "valid_cells": 1597,
+            "nodata_cells": 1643,
+            "valid_percent": 49.2901,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 694.2803955078125,
+            "max": 3471.326171875,
+            "mean": 2260.91259765625
+          },
+          "metadata_file": "rain-2025-main.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "989e83ec4443d4afa3fabbdf45478ba764b634d6bb45b6d997a46867a7331a2a",
+            "values": "9b091d2d6283cbbb473eac27b49396ab78ea37f7bc64c015461d40e34e6662bb",
+            "geotiff": "1b3a8092bfcf18a250242a60a7c681c0c33246e8b8b74b2d8d6594ef067a619e"
+          },
+          "native_window_geotiff": "rain-2025-main.tif"
+        },
+        {
+          "id": "xisha",
+          "group": "xisha",
+          "file": "rain-2025-xisha-preview.png",
+          "values_file": "rain-2025-xisha-values.png",
+          "bbox": [
+            111.00000433623791,
+            15.499999336898327,
+            113.10000436753035,
+            17.599999368190765
+          ],
+          "bbox_wgs84": [
+            111.00000433623791,
+            15.499999336898327,
+            113.10000436753035,
+            17.599999368190765
+          ],
+          "width": 42,
+          "height": 42,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1764,
+            "valid_cells": 0,
+            "nodata_cells": 1764,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "rain-2025-xisha.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "8dfb8e2d7aaf21a343ce5593cfb7cc246d94ffaf609ccc4e0da8cd08584a3d82",
+            "values": "8dfb8e2d7aaf21a343ce5593cfb7cc246d94ffaf609ccc4e0da8cd08584a3d82",
+            "geotiff": "5fc82c984a57bb32cde65c6ec5874d410ac35a11ef496a521f3895a6f8f3e4bd"
+          },
+          "native_window_geotiff": "rain-2025-xisha.tif"
+        },
+        {
+          "id": "zhongsha",
+          "group": "zhongsha",
+          "file": "rain-2025-zhongsha-preview.png",
+          "values_file": "rain-2025-zhongsha-values.png",
+          "bbox": [
+            113.20000436902046,
+            14.799999326467514,
+            118.10000444203615,
+            16.599999353289604
+          ],
+          "bbox_wgs84": [
+            113.20000436902046,
+            14.799999326467514,
+            118.10000444203615,
+            16.599999353289604
+          ],
+          "width": 98,
+          "height": 36,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 3528,
+            "valid_cells": 21,
+            "nodata_cells": 3507,
+            "valid_percent": 0.5952,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 3031.238525390625,
+            "max": 3514.107666015625,
+            "mean": 3204.168212890625
+          },
+          "metadata_file": "rain-2025-zhongsha.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "8886be094d8d95aeaa39c11b50a04bd0a554ff9d5204a35f721874e3ff6acb57",
+            "values": "b0a5e97f8d722f4cd040ee586ca23433b562a0b81267b9fc96488f83c81ae428",
+            "geotiff": "52022abe47b2ff5cc24204617f08bb93d77845d55e9825ae954ef57cbff167e1"
+          },
+          "native_window_geotiff": "rain-2025-zhongsha.tif"
+        },
+        {
+          "id": "nansha",
+          "group": "nansha",
+          "file": "rain-2025-nansha-preview.png",
+          "values_file": "rain-2025-nansha-values.png",
+          "bbox": [
+            109.50000431388617,
+            3.4999991580843925,
+            118.00000444054604,
+            12.499999292194843
+          ],
+          "bbox_wgs84": [
+            109.50000431388617,
+            3.4999991580843925,
+            118.00000444054604,
+            12.499999292194843
+          ],
+          "width": 170,
+          "height": 180,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 30600,
+            "valid_cells": 4580,
+            "nodata_cells": 26020,
+            "valid_percent": 14.9673,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 1934.218017578125,
+            "max": 5773.49169921875,
+            "mean": 3717.27734375
+          },
+          "metadata_file": "rain-2025-nansha.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "20776f3493b55835e03ff0ecc3bbbdab71457ee381e06ec70290df37b0934f70",
+            "values": "9c266be4ece7175988f59a0f3f9ad87418c6390ac5e375f34f0ffe7bfa179197",
+            "geotiff": "11e0319b8c66c6897ad0036a8c66a31f3634ba5a15234c30d0ca0d4d02ce67a6"
+          },
+          "native_window_geotiff": "rain-2025-nansha.tif"
+        }
+      ],
+      "previews": [
+        {
+          "id": "main",
+          "group": "main",
+          "file": "rain-2025-main-preview.png",
+          "values_file": "rain-2025-main-values.png",
+          "bbox": [
+            108.500004298985,
+            17.799999371170998,
+            111.50000434368849,
+            20.499999411404133
+          ],
+          "bbox_wgs84": [
+            108.500004298985,
+            17.799999371170998,
+            111.50000434368849,
+            20.499999411404133
+          ],
+          "width": 60,
+          "height": 54,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 3240,
+            "valid_cells": 1597,
+            "nodata_cells": 1643,
+            "valid_percent": 49.2901,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 694.2803955078125,
+            "max": 3471.326171875,
+            "mean": 2260.91259765625
+          },
+          "metadata_file": "rain-2025-main.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "989e83ec4443d4afa3fabbdf45478ba764b634d6bb45b6d997a46867a7331a2a",
+            "values": "9b091d2d6283cbbb473eac27b49396ab78ea37f7bc64c015461d40e34e6662bb",
+            "geotiff": "1b3a8092bfcf18a250242a60a7c681c0c33246e8b8b74b2d8d6594ef067a619e"
+          },
+          "native_window_geotiff": "rain-2025-main.tif"
+        },
+        {
+          "id": "xisha",
+          "group": "xisha",
+          "file": "rain-2025-xisha-preview.png",
+          "values_file": "rain-2025-xisha-values.png",
+          "bbox": [
+            111.00000433623791,
+            15.499999336898327,
+            113.10000436753035,
+            17.599999368190765
+          ],
+          "bbox_wgs84": [
+            111.00000433623791,
+            15.499999336898327,
+            113.10000436753035,
+            17.599999368190765
+          ],
+          "width": 42,
+          "height": 42,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1764,
+            "valid_cells": 0,
+            "nodata_cells": 1764,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "rain-2025-xisha.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "8dfb8e2d7aaf21a343ce5593cfb7cc246d94ffaf609ccc4e0da8cd08584a3d82",
+            "values": "8dfb8e2d7aaf21a343ce5593cfb7cc246d94ffaf609ccc4e0da8cd08584a3d82",
+            "geotiff": "5fc82c984a57bb32cde65c6ec5874d410ac35a11ef496a521f3895a6f8f3e4bd"
+          },
+          "native_window_geotiff": "rain-2025-xisha.tif"
+        },
+        {
+          "id": "zhongsha",
+          "group": "zhongsha",
+          "file": "rain-2025-zhongsha-preview.png",
+          "values_file": "rain-2025-zhongsha-values.png",
+          "bbox": [
+            113.20000436902046,
+            14.799999326467514,
+            118.10000444203615,
+            16.599999353289604
+          ],
+          "bbox_wgs84": [
+            113.20000436902046,
+            14.799999326467514,
+            118.10000444203615,
+            16.599999353289604
+          ],
+          "width": 98,
+          "height": 36,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 3528,
+            "valid_cells": 21,
+            "nodata_cells": 3507,
+            "valid_percent": 0.5952,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 3031.238525390625,
+            "max": 3514.107666015625,
+            "mean": 3204.168212890625
+          },
+          "metadata_file": "rain-2025-zhongsha.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "8886be094d8d95aeaa39c11b50a04bd0a554ff9d5204a35f721874e3ff6acb57",
+            "values": "b0a5e97f8d722f4cd040ee586ca23433b562a0b81267b9fc96488f83c81ae428",
+            "geotiff": "52022abe47b2ff5cc24204617f08bb93d77845d55e9825ae954ef57cbff167e1"
+          },
+          "native_window_geotiff": "rain-2025-zhongsha.tif"
+        },
+        {
+          "id": "nansha",
+          "group": "nansha",
+          "file": "rain-2025-nansha-preview.png",
+          "values_file": "rain-2025-nansha-values.png",
+          "bbox": [
+            109.50000431388617,
+            3.4999991580843925,
+            118.00000444054604,
+            12.499999292194843
+          ],
+          "bbox_wgs84": [
+            109.50000431388617,
+            3.4999991580843925,
+            118.00000444054604,
+            12.499999292194843
+          ],
+          "width": 170,
+          "height": 180,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 30600,
+            "valid_cells": 4580,
+            "nodata_cells": 26020,
+            "valid_percent": 14.9673,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 1934.218017578125,
+            "max": 5773.49169921875,
+            "mean": 3717.27734375
+          },
+          "metadata_file": "rain-2025-nansha.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "20776f3493b55835e03ff0ecc3bbbdab71457ee381e06ec70290df37b0934f70",
+            "values": "9c266be4ece7175988f59a0f3f9ad87418c6390ac5e375f34f0ffe7bfa179197",
+            "geotiff": "11e0319b8c66c6897ad0036a8c66a31f3634ba5a15234c30d0ca0d4d02ce67a6"
+          },
+          "native_window_geotiff": "rain-2025-nansha.tif"
+        },
+        {
+          "id": "haikou",
+          "group": "main",
+          "file": "rain-2025-haikou-preview.png",
+          "values_file": "rain-2025-haikou-values.png",
+          "bbox": [
+            110.20000432431698,
+            19.949999403208494,
+            110.40000432729721,
+            20.09999940544367
+          ],
+          "bbox_wgs84": [
+            110.20000432431698,
+            19.949999403208494,
+            110.40000432729721,
+            20.09999940544367
+          ],
+          "width": 4,
+          "height": 3,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 12,
+            "valid_cells": 12,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 2371.948974609375,
+            "max": 2582.31494140625,
+            "mean": 2477.794189453125
+          },
+          "metadata_file": "rain-2025-haikou.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "738ae2f78966d773bae19d260dbec216f93d1c44e4ad63cd408f6e5b94287e73",
+            "values": "a4fbd9142e53ce579b3a0e944513600fcc9445173e819c68e5b8c922eb5d4180",
+            "geotiff": "524f937d7a1172b7bc1200417941d0862ea87b9708ab88c21ee203ecf72ae693"
+          },
+          "native_window_geotiff": "rain-2025-haikou.tif"
+        },
+        {
+          "id": "sanya",
+          "group": "main",
+          "file": "rain-2025-sanya-preview.png",
+          "values_file": "rain-2025-sanya-values.png",
+          "bbox": [
+            109.35000431165099,
+            18.199999377131462,
+            109.60000431537628,
+            18.399999380111694
+          ],
+          "bbox_wgs84": [
+            109.35000431165099,
+            18.199999377131462,
+            109.60000431537628,
+            18.399999380111694
+          ],
+          "width": 5,
+          "height": 4,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 20,
+            "valid_cells": 20,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 1596.424560546875,
+            "max": 1972.072998046875,
+            "mean": 1735.641845703125
+          },
+          "metadata_file": "rain-2025-sanya.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "0de126ec4746980769b5592d68bc9c66f92567bb185cb8753dff82354e3b6137",
+            "values": "ed831b70ed04cef9b3039b638fd1a66ae2f4b71f7a7a11fad4b9f9d24ef38964",
+            "geotiff": "564d207823c13484eaaeaa82e60b3dc543f38243a8f3fc27ef02b307c4b2168c"
+          },
+          "native_window_geotiff": "rain-2025-sanya.tif"
+        },
+        {
+          "id": "danzhou",
+          "group": "main",
+          "file": "rain-2025-danzhou-preview.png",
+          "values_file": "rain-2025-danzhou-values.png",
+          "bbox": [
+            109.40000431239605,
+            19.449999395757914,
+            109.7000043168664,
+            19.649999398738146
+          ],
+          "bbox_wgs84": [
+            109.40000431239605,
+            19.449999395757914,
+            109.7000043168664,
+            19.649999398738146
+          ],
+          "width": 6,
+          "height": 4,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 24,
+            "valid_cells": 24,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 2335.430419921875,
+            "max": 3062.348876953125,
+            "mean": 2760.2958984375
+          },
+          "metadata_file": "rain-2025-danzhou.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "cf8e325f5b1d547a051c1f19984b9bffa7bc9c29feaed75d604148cc3ddb51ca",
+            "values": "1780ada46330a19c581c006fd13528e7b28c9b50072f6663c12bd2e7eae27ea9",
+            "geotiff": "d67d132847537d845fd09e9ae381919fb8b990320905e0afd880dda93406ac22"
+          },
+          "native_window_geotiff": "rain-2025-danzhou.tif"
+        },
+        {
+          "id": "wuzhishan",
+          "group": "main",
+          "file": "rain-2025-wuzhishan-preview.png",
+          "values_file": "rain-2025-wuzhishan-values.png",
+          "bbox": [
+            109.40000431239605,
+            18.699999384582043,
+            109.65000431612134,
+            18.899999387562275
+          ],
+          "bbox_wgs84": [
+            109.40000431239605,
+            18.699999384582043,
+            109.65000431612134,
+            18.899999387562275
+          ],
+          "width": 5,
+          "height": 4,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 20,
+            "valid_cells": 20,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 2284.266357421875,
+            "max": 2672.058349609375,
+            "mean": 2500.2177734375
+          },
+          "metadata_file": "rain-2025-wuzhishan.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "b1cb99ac32ccb43c48fdec5cf5a9eaff65ea2105e65ce43185cd06e802a9ead0",
+            "values": "2e420aff07f6d8d810cd66072dfaf0d12e5352d5c5e8959de545dce7da9e0875",
+            "geotiff": "3e68be166a948605c0174f747a755c877ca2e5908b2792b8704b4e71f5963c40"
+          },
+          "native_window_geotiff": "rain-2025-wuzhishan.tif"
+        },
+        {
+          "id": "wenchang",
+          "group": "main",
+          "file": "rain-2025-wenchang-preview.png",
+          "values_file": "rain-2025-wenchang-values.png",
+          "bbox": [
+            110.6500043310225,
+            19.54999939724803,
+            110.90000433474779,
+            19.749999400228262
+          ],
+          "bbox_wgs84": [
+            110.6500043310225,
+            19.54999939724803,
+            110.90000433474779,
+            19.749999400228262
+          ],
+          "width": 5,
+          "height": 4,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 20,
+            "valid_cells": 20,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 2148.482177734375,
+            "max": 2645.1923828125,
+            "mean": 2426.722412109375
+          },
+          "metadata_file": "rain-2025-wenchang.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "29bb8a7f8fab786ac1bd015e341626e419b3a1a246eeccaf97a7bec6f7cff18b",
+            "values": "1db815adca831df81cc86eed9ab23f0c3fda370a74475c0d99ed2586e6ef49ec",
+            "geotiff": "1f4d9102cd2371accc6c1d6bd6d6aab042968ba0cd5ef82ede679e4e20519261"
+          },
+          "native_window_geotiff": "rain-2025-wenchang.tif"
+        },
+        {
+          "id": "xidao",
+          "group": "main",
+          "file": "rain-2025-xidao-preview.png",
+          "values_file": "rain-2025-xidao-values.png",
+          "bbox": [
+            109.35000431165099,
+            18.24999937787652,
+            109.40000431239605,
+            18.299999378621578
+          ],
+          "bbox_wgs84": [
+            109.35000431165099,
+            18.24999937787652,
+            109.40000431239605,
+            18.299999378621578
+          ],
+          "width": 1,
+          "height": 1,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "coarse-context-only",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1,
+            "valid_cells": 1,
+            "nodata_cells": 0,
+            "valid_percent": 100.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 1664.376708984375,
+            "max": 1664.376708984375,
+            "mean": 1664.376708984375
+          },
+          "metadata_file": "rain-2025-xidao.json",
+          "coverage_note": "Valid ~5.5 km cell context does not resolve the named small island or reef; no island-specific rainfall estimate is established.",
+          "sha256": {
+            "preview": "193aa5b37393f09a03fd4b348a5f4e4ac198d2835ac4bc1fef666fe4b120086a",
+            "values": "c67c1cfc41845ce64d973cf56a624510f1c1d8f52f014d16fd4e765970a0ffdc",
+            "geotiff": "2f2b67f6fd423d6568f024ec1ad323a64296a929efe47c3edcaa44cfbc3dc86d"
+          },
+          "native_window_geotiff": "rain-2025-xidao.tif"
+        },
+        {
+          "id": "yongxing",
+          "group": "xisha",
+          "file": "rain-2025-yongxing-preview.png",
+          "values_file": "rain-2025-yongxing-values.png",
+          "bbox": [
+            112.30000435560942,
+            16.799999356269836,
+            112.40000435709953,
+            16.899999357759953
+          ],
+          "bbox_wgs84": [
+            112.30000435560942,
+            16.799999356269836,
+            112.40000435709953,
+            16.899999357759953
+          ],
+          "width": 2,
+          "height": 2,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 4,
+            "valid_cells": 0,
+            "nodata_cells": 4,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "rain-2025-yongxing.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "391590d092f57b13968ea0174fda8726918550f84594de498c72482f1f2e9623",
+            "values": "391590d092f57b13968ea0174fda8726918550f84594de498c72482f1f2e9623",
+            "geotiff": "15e0172ffe9a1695df8556fac384cb24d7aca7a82e95467f6b346af544161fe6"
+          },
+          "native_window_geotiff": "rain-2025-yongxing.tif"
+        },
+        {
+          "id": "yongshu",
+          "group": "nansha",
+          "file": "rain-2025-yongshu-preview.png",
+          "values_file": "rain-2025-yongshu-values.png",
+          "bbox": [
+            112.85000436380506,
+            9.549999248236418,
+            113.00000436604023,
+            9.699999250471592
+          ],
+          "bbox_wgs84": [
+            112.85000436380506,
+            9.549999248236418,
+            113.00000436604023,
+            9.699999250471592
+          ],
+          "width": 3,
+          "height": 3,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 9,
+            "valid_cells": 0,
+            "nodata_cells": 9,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "rain-2025-yongshu.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "1afd0f79fda44b9c451cfbb6f194123f9ca1e45e6546d80cb3b7667bc5b8b9b3",
+            "values": "1afd0f79fda44b9c451cfbb6f194123f9ca1e45e6546d80cb3b7667bc5b8b9b3",
+            "geotiff": "2ab5504474632aa66b5eac90cd6fc78632dbf1bbf7d8ece563be4e2a3d078e81"
+          },
+          "native_window_geotiff": "rain-2025-yongshu.tif"
+        },
+        {
+          "id": "zhubi",
+          "group": "nansha",
+          "file": "rain-2025-zhubi-preview.png",
+          "values_file": "rain-2025-zhubi-values.png",
+          "bbox": [
+            114.00000438094139,
+            10.899999268352985,
+            114.10000438243151,
+            10.999999269843102
+          ],
+          "bbox_wgs84": [
+            114.00000438094139,
+            10.899999268352985,
+            114.10000438243151,
+            10.999999269843102
+          ],
+          "width": 2,
+          "height": 2,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 4,
+            "valid_cells": 0,
+            "nodata_cells": 4,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "rain-2025-zhubi.json",
+          "coverage_note": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+          "sha256": {
+            "preview": "391590d092f57b13968ea0174fda8726918550f84594de498c72482f1f2e9623",
+            "values": "391590d092f57b13968ea0174fda8726918550f84594de498c72482f1f2e9623",
+            "geotiff": "cecdc180e12acc5a0f302f4dca582f050153cea1643c73cdfbe2626cc59860eb"
+          },
+          "native_window_geotiff": "rain-2025-zhubi.tif"
+        },
+        {
+          "id": "huangyan",
+          "group": "zhongsha",
+          "file": "rain-2025-huangyan-preview.png",
+          "values_file": "rain-2025-huangyan-values.png",
+          "bbox": [
+            117.65000443533063,
+            15.049999330192804,
+            117.90000443905592,
+            15.299999333918095
+          ],
+          "bbox_wgs84": [
+            117.65000443533063,
+            15.049999330192804,
+            117.90000443905592,
+            15.299999333918095
+          ],
+          "width": 5,
+          "height": 5,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 5500,
+          "native_resolution_degrees": 0.05,
+          "display_resolution": {
+            "degrees": [
+              0.05000000074505806,
+              0.05000000074505806
+            ],
+            "label": "0.05° (~5.5 km), source grid"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "mm/year",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "coarse-context-only",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 25,
+            "valid_cells": 15,
+            "nodata_cells": 10,
+            "valid_percent": 60.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 3045.648681640625,
+            "max": 3471.49365234375,
+            "mean": 3179.961181640625
+          },
+          "metadata_file": "rain-2025-huangyan.json",
+          "coverage_note": "Valid ~5.5 km cell context does not resolve the named small island or reef; no island-specific rainfall estimate is established.",
+          "sha256": {
+            "preview": "eaaa66195cb43e56b58cbc2109098bc027d848f0e02ccfbbf84fc67f7191edec",
+            "values": "7c6f9d0e7059674890fb20474f0de21a9cbb09bd9f5297f32584a48c9c7bca2d",
+            "geotiff": "d83fe786ef207f8fde9a510fba516cb449877d7185104900d0baa688faedcd8e"
+          },
+          "native_window_geotiff": "rain-2025-huangyan.tif"
+        }
+      ],
+      "coverage_note": "Window counts are not a province land-coverage claim; no verified exhaustive island land mask.",
+      "assets": []
+    },
+    "soilPh": {
+      "dataset": "ISRIC SoilGrids 2.0 predicted mean pH(H2O) and SOC, 0–5 cm depth",
+      "period": "SoilGrids 2.0 model, 0–5 cm mean; not annual survey",
+      "license": "CC-BY-4.0",
+      "license_url": "https://docs.isric.org/globaldata/soilgrids/SoilGrids_faqs_02.html",
+      "attribution": "ISRIC — World Soil Information; SoilGrids 2.0",
+      "native_resolution_m": 250,
+      "groups": [
+        {
+          "id": "main",
+          "group": "main",
+          "file": "soil-ph-main-preview.png",
+          "values_file": "soil-ph-main-values.png",
+          "bbox": [
+            108.5,
+            17.799999999999997,
+            111.5,
+            20.5
+          ],
+          "bbox_wgs84": [
+            108.5,
+            17.799999999999997,
+            111.5,
+            20.5
+          ],
+          "width": 1327,
+          "height": 1130,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1499510,
+            "valid_cells": 531705,
+            "nodata_cells": 967805,
+            "valid_percent": 35.4586,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 4.1,
+            "max": 7.1,
+            "mean": 5.421060550493225
+          },
+          "metadata_file": "soil-ph-main.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "306e3cd9c935a0f63ebf8d47511fc2fed342924eaa8ce02f746fce44105f56d6",
+            "values": "e92da77b60c4f4f28612149f342049da09d45bcd1f8d8e17ebed44f66951e573",
+            "geotiff": "c7f53d2340d555d8b077b229622b416f1d30caa30ee78221ccbaa04e0f85ea11"
+          },
+          "native_window_geotiff": "soil-ph-main.tif"
+        }
+      ],
+      "previews": [
+        {
+          "id": "main",
+          "group": "main",
+          "file": "soil-ph-main-preview.png",
+          "values_file": "soil-ph-main-values.png",
+          "bbox": [
+            108.5,
+            17.799999999999997,
+            111.5,
+            20.5
+          ],
+          "bbox_wgs84": [
+            108.5,
+            17.799999999999997,
+            111.5,
+            20.5
+          ],
+          "width": 1327,
+          "height": 1130,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1499510,
+            "valid_cells": 531705,
+            "nodata_cells": 967805,
+            "valid_percent": 35.4586,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 4.1,
+            "max": 7.1,
+            "mean": 5.421060550493225
+          },
+          "metadata_file": "soil-ph-main.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "306e3cd9c935a0f63ebf8d47511fc2fed342924eaa8ce02f746fce44105f56d6",
+            "values": "e92da77b60c4f4f28612149f342049da09d45bcd1f8d8e17ebed44f66951e573",
+            "geotiff": "c7f53d2340d555d8b077b229622b416f1d30caa30ee78221ccbaa04e0f85ea11"
+          },
+          "native_window_geotiff": "soil-ph-main.tif"
+        },
+        {
+          "id": "haikou",
+          "group": "main",
+          "file": "soil-ph-haikou-preview.png",
+          "values_file": "soil-ph-haikou-values.png",
+          "bbox": [
+            110.21816126601357,
+            19.940884955752214,
+            110.43745290128109,
+            20.100973451327434
+          ],
+          "bbox_wgs84": [
+            110.21816126601357,
+            19.940884955752214,
+            110.43745290128109,
+            20.100973451327434
+          ],
+          "width": 97,
+          "height": 67,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 6499,
+            "valid_cells": 2197,
+            "nodata_cells": 4302,
+            "valid_percent": 33.8052,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 5.2,
+            "max": 6.3,
+            "mean": 5.823441055985435
+          },
+          "metadata_file": "soil-ph-haikou.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "b0ebe636a514e6ad7a995a1a3b31712930aa0c25cf9c997bd541654adef59ec5",
+            "values": "23128bc6d91545d8eb20888c495e7b7478ff3ae92072b6f6e64aa3f0b2710b23",
+            "geotiff": "be66510f60ce9f5372bfbde582aabec78ca0ffb7b972e539fbedce0b21d03089"
+          },
+          "native_window_geotiff": "soil-ph-haikou.tif"
+        },
+        {
+          "id": "sanya",
+          "group": "main",
+          "file": "soil-ph-sanya-preview.png",
+          "values_file": "soil-ph-sanya-values.png",
+          "bbox": [
+            109.379427279578,
+            18.179911504424776,
+            109.61002260738508,
+            18.380619469026545
+          ],
+          "bbox_wgs84": [
+            109.379427279578,
+            18.179911504424776,
+            109.61002260738508,
+            18.380619469026545
+          ],
+          "width": 102,
+          "height": 84,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 8568,
+            "valid_cells": 4776,
+            "nodata_cells": 3792,
+            "valid_percent": 55.7423,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 5.1,
+            "max": 6.8,
+            "mean": 5.884882747068676
+          },
+          "metadata_file": "soil-ph-sanya.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "67ea6e914880e10c2299b33eae1a7293584539132cba5c98046542ddba675ce2",
+            "values": "5c402dbe77b0454f37d42c5194220a92afdb826d88b75c62055ea46c2929a2a8",
+            "geotiff": "c6f96456e67b0e02c3801c01ac4ee0cfa8804e8fffd2f175222a9880887bd77e"
+          },
+          "native_window_geotiff": "soil-ph-sanya.tif"
+        },
+        {
+          "id": "danzhou",
+          "group": "main",
+          "file": "soil-ph-danzhou-preview.png",
+          "values_file": "soil-ph-danzhou-values.png",
+          "bbox": [
+            109.39977392614921,
+            19.431946902654865,
+            109.70045214770158,
+            19.64221238938053
+          ],
+          "bbox_wgs84": [
+            109.39977392614921,
+            19.431946902654865,
+            109.70045214770158,
+            19.64221238938053
+          ],
+          "width": 133,
+          "height": 88,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 11704,
+            "valid_cells": 11157,
+            "nodata_cells": 547,
+            "valid_percent": 95.3264,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 4.5,
+            "max": 6.0,
+            "mean": 5.141364165994443
+          },
+          "metadata_file": "soil-ph-danzhou.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "40d1954eb0871ee7dbba42f3d32c6b12e082810242a38c603035c5ac4cbf866d",
+            "values": "b4a08530be865694ff4cc4ef9facb8445f82f49b76055cd60aac60da3f58785b",
+            "geotiff": "ea28afc3c25d8fe128504de7115a6eea7def04ceefce71a078d237914a7127de"
+          },
+          "native_window_geotiff": "soil-ph-danzhou.tif"
+        },
+        {
+          "id": "wuzhishan",
+          "group": "main",
+          "file": "soil-ph-wuzhishan-preview.png",
+          "values_file": "soil-ph-wuzhishan-values.png",
+          "bbox": [
+            109.4178598342125,
+            18.700796460176992,
+            109.6688018085908,
+            18.90150442477876
+          ],
+          "bbox_wgs84": [
+            109.4178598342125,
+            18.700796460176992,
+            109.6688018085908,
+            18.90150442477876
+          ],
+          "width": 111,
+          "height": 84,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 9324,
+            "valid_cells": 9248,
+            "nodata_cells": 76,
+            "valid_percent": 99.1849,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 4.4,
+            "max": 6.0,
+            "mean": 5.0082936851211075
+          },
+          "metadata_file": "soil-ph-wuzhishan.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "c726b05e8f4ad592c3578832d98c9decdd43501f52894c3589ace3778f10b72d",
+            "values": "695496262aea7b70bde7c585ab3aa3893d3f72924a80e5c2418f321c34f5e99e",
+            "geotiff": "a6d52ff4250c1e6bb81e1568c9982024e99167880ced5b7dce8ee3d58895eaee"
+          },
+          "native_window_geotiff": "soil-ph-wuzhishan.tif"
+        },
+        {
+          "id": "wenchang",
+          "group": "main",
+          "file": "soil-ph-wenchang-preview.png",
+          "values_file": "soil-ph-wenchang-values.png",
+          "bbox": [
+            110.64996232102487,
+            19.51079646017699,
+            110.88055764883195,
+            19.721061946902655
+          ],
+          "bbox_wgs84": [
+            110.64996232102487,
+            19.51079646017699,
+            110.88055764883195,
+            19.721061946902655
+          ],
+          "width": 102,
+          "height": 88,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 8976,
+            "valid_cells": 7571,
+            "nodata_cells": 1405,
+            "valid_percent": 84.3471,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 4.3,
+            "max": 6.2,
+            "mean": 5.101175538238014
+          },
+          "metadata_file": "soil-ph-wenchang.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "4779eb607c0c0ac76046b5c4c5a71b77f8f061b1a386721e69fa73b17fe2e496",
+            "values": "5b007f8756029c87f22a233365384132fc3fbbbe846c3b31ccdf3d1f04a1801a",
+            "geotiff": "e74df5c5563ca127b9db1957a6fdb147f7bfe8e4d8df781479d0b587a71ebd58"
+          },
+          "native_window_geotiff": "soil-ph-wenchang.tif"
+        },
+        {
+          "id": "xidao",
+          "group": "main",
+          "file": "soil-ph-xidao-preview.png",
+          "values_file": "soil-ph-xidao-values.png",
+          "bbox": [
+            109.34777694046721,
+            18.21575221238938,
+            109.39299171062547,
+            18.261150442477874
+          ],
+          "bbox_wgs84": [
+            109.34777694046721,
+            18.21575221238938,
+            109.39299171062547,
+            18.261150442477874
+          ],
+          "width": 20,
+          "height": 19,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 380,
+            "valid_cells": 5,
+            "nodata_cells": 375,
+            "valid_percent": 1.3158,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 6.2,
+            "max": 6.7,
+            "mean": 6.4799999999999995
+          },
+          "metadata_file": "soil-ph-xidao.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "a90eb08f6a7afb3e02ff5906a13be72a6d1feb65723c6f32caab809ba1a84591",
+            "values": "962a8a403692692450c4413e33d74c1ecb4f53df647697e022100b7d7ded495b",
+            "geotiff": "a0b951623cd3f6e10b02783839f7d34cbf8e96d5c594211ef9e998c472322c01"
+          },
+          "native_window_geotiff": "soil-ph-xidao.tif"
+        },
+        {
+          "id": "yongxing",
+          "group": "xisha",
+          "file": "soil-ph-yongxing-preview.png",
+          "values_file": "soil-ph-yongxing-values.png",
+          "bbox": [
+            112.3,
+            16.789999999999996,
+            112.38000000000001,
+            16.87
+          ],
+          "bbox_wgs84": [
+            112.3,
+            16.789999999999996,
+            112.38000000000001,
+            16.87
+          ],
+          "width": 35,
+          "height": 33,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002285714285714512,
+              0.002424242424242551
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1155,
+            "valid_cells": 0,
+            "nodata_cells": 1155,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "soil-ph-yongxing.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8",
+            "values": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8",
+            "geotiff": "1fac2424a8545628de9494add075a10bd757c57313ee46a5b7244c4ca851568a"
+          },
+          "native_window_geotiff": "soil-ph-yongxing.tif"
+        },
+        {
+          "id": "yongshu",
+          "group": "nansha",
+          "file": "soil-ph-yongshu-preview.png",
+          "values_file": "soil-ph-yongshu-values.png",
+          "bbox": [
+            112.89,
+            9.489999999999998,
+            113.03,
+            9.659999999999998
+          ],
+          "bbox_wgs84": [
+            112.89,
+            9.489999999999998,
+            113.03,
+            9.659999999999998
+          ],
+          "width": 62,
+          "height": 71,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.0022580645161290754,
+              0.002394366197183092
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 4402,
+            "valid_cells": 0,
+            "nodata_cells": 4402,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "soil-ph-yongshu.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731",
+            "values": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731",
+            "geotiff": "6eb59783331fc82747dd7cbed7da6b2b9fbfdae2d8b8b989f5e15e5eef9f4b42"
+          },
+          "native_window_geotiff": "soil-ph-yongshu.tif"
+        },
+        {
+          "id": "zhubi",
+          "group": "nansha",
+          "file": "soil-ph-zhubi-preview.png",
+          "values_file": "soil-ph-zhubi-values.png",
+          "bbox": [
+            114.03,
+            10.875,
+            114.12,
+            10.954999999999998
+          ],
+          "bbox_wgs84": [
+            114.03,
+            10.875,
+            114.12,
+            10.954999999999998
+          ],
+          "width": 40,
+          "height": 33,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002249999999999994,
+              0.0024242424242423843
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1320,
+            "valid_cells": 0,
+            "nodata_cells": 1320,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "soil-ph-zhubi.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871",
+            "values": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871",
+            "geotiff": "916f938385485d549a5dfccf6b019771114145cf696b640dc930ddce073b21ce"
+          },
+          "native_window_geotiff": "soil-ph-zhubi.tif"
+        },
+        {
+          "id": "huangyan",
+          "group": "zhongsha",
+          "file": "soil-ph-huangyan-preview.png",
+          "values_file": "soil-ph-huangyan-values.png",
+          "bbox": [
+            117.68,
+            15.02,
+            117.91,
+            15.27
+          ],
+          "bbox_wgs84": [
+            117.68,
+            15.02,
+            117.91,
+            15.27
+          ],
+          "width": 102,
+          "height": 105,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.0022549019607842327,
+              0.0023809523809523725
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "pH",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 10710,
+            "valid_cells": 0,
+            "nodata_cells": 10710,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "soil-ph-huangyan.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb",
+            "values": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb",
+            "geotiff": "1192a71446ce362e716e22f705edc5f97d2dfd3725da87571f0c5caa5f6475e5"
+          },
+          "native_window_geotiff": "soil-ph-huangyan.tif"
+        }
+      ],
+      "coverage_note": "Main island restored WCS raster plus explicit offshore sample audit; broad offshore soil coverage has NOT been established. Zero means no prediction. No filling from nearby land.",
+      "assets": []
+    },
+    "soilSoc": {
+      "dataset": "ISRIC SoilGrids 2.0 predicted mean pH(H2O) and SOC, 0–5 cm depth",
+      "period": "SoilGrids 2.0 model, 0–5 cm mean; not annual survey",
+      "license": "CC-BY-4.0",
+      "license_url": "https://docs.isric.org/globaldata/soilgrids/SoilGrids_faqs_02.html",
+      "attribution": "ISRIC — World Soil Information; SoilGrids 2.0",
+      "native_resolution_m": 250,
+      "groups": [
+        {
+          "id": "main",
+          "group": "main",
+          "file": "soil-soc-main-preview.png",
+          "values_file": "soil-soc-main-values.png",
+          "bbox": [
+            108.5,
+            17.799999999999997,
+            111.5,
+            20.5
+          ],
+          "bbox_wgs84": [
+            108.5,
+            17.799999999999997,
+            111.5,
+            20.5
+          ],
+          "width": 1327,
+          "height": 1130,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1499510,
+            "valid_cells": 531689,
+            "nodata_cells": 967821,
+            "valid_percent": 35.4575,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 12.9,
+            "max": 123.3,
+            "mean": 43.984767975263736
+          },
+          "metadata_file": "soil-soc-main.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "122fc8c85492b6616b8ff7ddb28ccf0f0dc230c565ab7dea9ffc246de1235898",
+            "values": "e572719f51fe12eb15278c8c94af6bc72a423192cfd5f061b97a9a271c76643d",
+            "geotiff": "d604affb685379501b396d3a6f30169e49588ce8657d03016794350bb016a70d"
+          },
+          "native_window_geotiff": "soil-soc-main.tif"
+        }
+      ],
+      "previews": [
+        {
+          "id": "main",
+          "group": "main",
+          "file": "soil-soc-main-preview.png",
+          "values_file": "soil-soc-main-values.png",
+          "bbox": [
+            108.5,
+            17.799999999999997,
+            111.5,
+            20.5
+          ],
+          "bbox_wgs84": [
+            108.5,
+            17.799999999999997,
+            111.5,
+            20.5
+          ],
+          "width": 1327,
+          "height": 1130,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1499510,
+            "valid_cells": 531689,
+            "nodata_cells": 967821,
+            "valid_percent": 35.4575,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 12.9,
+            "max": 123.3,
+            "mean": 43.984767975263736
+          },
+          "metadata_file": "soil-soc-main.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "122fc8c85492b6616b8ff7ddb28ccf0f0dc230c565ab7dea9ffc246de1235898",
+            "values": "e572719f51fe12eb15278c8c94af6bc72a423192cfd5f061b97a9a271c76643d",
+            "geotiff": "d604affb685379501b396d3a6f30169e49588ce8657d03016794350bb016a70d"
+          },
+          "native_window_geotiff": "soil-soc-main.tif"
+        },
+        {
+          "id": "haikou",
+          "group": "main",
+          "file": "soil-soc-haikou-preview.png",
+          "values_file": "soil-soc-haikou-values.png",
+          "bbox": [
+            110.21816126601357,
+            19.940884955752214,
+            110.43745290128109,
+            20.100973451327434
+          ],
+          "bbox_wgs84": [
+            110.21816126601357,
+            19.940884955752214,
+            110.43745290128109,
+            20.100973451327434
+          ],
+          "width": 97,
+          "height": 67,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 6499,
+            "valid_cells": 2197,
+            "nodata_cells": 4302,
+            "valid_percent": 33.8052,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 15.0,
+            "max": 72.2,
+            "mean": 25.72881201638598
+          },
+          "metadata_file": "soil-soc-haikou.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "e880cc315716576c94fdbe0531f54381a96d1ff541f403feb9dec2710324df26",
+            "values": "8fd5029c463546280f0ab9cc1001f9de65ba435f3d6e70c59878787982103e52",
+            "geotiff": "843ada87409e557ffb0bbd8ba979d533bb7e99397c69d78127d5a33f6a84b45a"
+          },
+          "native_window_geotiff": "soil-soc-haikou.tif"
+        },
+        {
+          "id": "sanya",
+          "group": "main",
+          "file": "soil-soc-sanya-preview.png",
+          "values_file": "soil-soc-sanya-values.png",
+          "bbox": [
+            109.379427279578,
+            18.179911504424776,
+            109.61002260738508,
+            18.380619469026545
+          ],
+          "bbox_wgs84": [
+            109.379427279578,
+            18.179911504424776,
+            109.61002260738508,
+            18.380619469026545
+          ],
+          "width": 102,
+          "height": 84,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 8568,
+            "valid_cells": 4776,
+            "nodata_cells": 3792,
+            "valid_percent": 55.7423,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 26.1,
+            "max": 113.7,
+            "mean": 52.67056113902847
+          },
+          "metadata_file": "soil-soc-sanya.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "af108427252e15540cb6860b1b5369f5e2fef307e938de9a3d476e6d51bc3ed6",
+            "values": "a70aadf861bcea9f7f7d3a52276bdcfca6fa0da9403025ac06539af82b05ba43",
+            "geotiff": "767d1b6678178a6517ffebf902b8771d5fafdafff030a531b75cf6ccf45c3569"
+          },
+          "native_window_geotiff": "soil-soc-sanya.tif"
+        },
+        {
+          "id": "danzhou",
+          "group": "main",
+          "file": "soil-soc-danzhou-preview.png",
+          "values_file": "soil-soc-danzhou-values.png",
+          "bbox": [
+            109.39977392614921,
+            19.431946902654865,
+            109.70045214770158,
+            19.64221238938053
+          ],
+          "bbox_wgs84": [
+            109.39977392614921,
+            19.431946902654865,
+            109.70045214770158,
+            19.64221238938053
+          ],
+          "width": 133,
+          "height": 88,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 11704,
+            "valid_cells": 11157,
+            "nodata_cells": 547,
+            "valid_percent": 95.3264,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 16.2,
+            "max": 96.3,
+            "mean": 44.70532401183114
+          },
+          "metadata_file": "soil-soc-danzhou.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "ae1432707e5edda748530a007eb25af7dc6179beafa93fbd0a1d123e368dbb76",
+            "values": "529c253d8ff3adbc3242dccc375e2fb1329975031cab814c6333dae48be10508",
+            "geotiff": "21a0ae32713230da7033d079cbd81974a00f06cc7db4d16e3bed698f80867938"
+          },
+          "native_window_geotiff": "soil-soc-danzhou.tif"
+        },
+        {
+          "id": "wuzhishan",
+          "group": "main",
+          "file": "soil-soc-wuzhishan-preview.png",
+          "values_file": "soil-soc-wuzhishan-values.png",
+          "bbox": [
+            109.4178598342125,
+            18.700796460176992,
+            109.6688018085908,
+            18.90150442477876
+          ],
+          "bbox_wgs84": [
+            109.4178598342125,
+            18.700796460176992,
+            109.6688018085908,
+            18.90150442477876
+          ],
+          "width": 111,
+          "height": 84,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 9324,
+            "valid_cells": 9248,
+            "nodata_cells": 76,
+            "valid_percent": 99.1849,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 29.6,
+            "max": 111.0,
+            "mean": 64.2032223183391
+          },
+          "metadata_file": "soil-soc-wuzhishan.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "43a3a79545de8b17d1cc13f903ad0e45b882f597fa80ef646c9ab770e272e71b",
+            "values": "cfe74bf7811d2a0193b4a3ed26818f82282de2a01a7129daf0eab6fecc2340ae",
+            "geotiff": "dfcd1fd5437a82a766b01abe7537bb4da3b548cd28cfd2814b554d1e40516734"
+          },
+          "native_window_geotiff": "soil-soc-wuzhishan.tif"
+        },
+        {
+          "id": "wenchang",
+          "group": "main",
+          "file": "soil-soc-wenchang-preview.png",
+          "values_file": "soil-soc-wenchang-values.png",
+          "bbox": [
+            110.64996232102487,
+            19.51079646017699,
+            110.88055764883195,
+            19.721061946902655
+          ],
+          "bbox_wgs84": [
+            110.64996232102487,
+            19.51079646017699,
+            110.88055764883195,
+            19.721061946902655
+          ],
+          "width": 102,
+          "height": 88,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 8976,
+            "valid_cells": 7571,
+            "nodata_cells": 1405,
+            "valid_percent": 84.3471,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 21.9,
+            "max": 111.7,
+            "mean": 41.50207370228504
+          },
+          "metadata_file": "soil-soc-wenchang.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "131be3edb8b8a893d364d7d1c0bf05917605d548ecec8906aea51f6676ab96a1",
+            "values": "7d29f4438bb730cda9391179054ae1b639793586a6da2d6b9679a668dbe2f9d2",
+            "geotiff": "cbac67c84ab20930ecea124cbbb39ab9ef1b1acab325580d467d6b9fe4d50828"
+          },
+          "native_window_geotiff": "soil-soc-wenchang.tif"
+        },
+        {
+          "id": "xidao",
+          "group": "main",
+          "file": "soil-soc-xidao-preview.png",
+          "values_file": "soil-soc-xidao-values.png",
+          "bbox": [
+            109.34777694046721,
+            18.21575221238938,
+            109.39299171062547,
+            18.261150442477874
+          ],
+          "bbox_wgs84": [
+            109.34777694046721,
+            18.21575221238938,
+            109.39299171062547,
+            18.261150442477874
+          ],
+          "width": 20,
+          "height": 19,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002260738507912585,
+              0.002389380530973454
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "available",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 380,
+            "valid_cells": 5,
+            "nodata_cells": 375,
+            "valid_percent": 1.3158,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": 51.7,
+            "max": 98.2,
+            "mean": 68.97999999999999
+          },
+          "metadata_file": "soil-soc-xidao.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "d40e9d60af9a99a410424ceb34745cc9319ae97ede9b82a59090f03d9c8b5f8c",
+            "values": "ba1179ddc646fd3f406ad1ae2ab7085f8de9b3084d1bf15d157ea241431192ff",
+            "geotiff": "2c58357ddd918e5af6c8b651dc0941b121ca465ec2655c62ae400ebdd14c7649"
+          },
+          "native_window_geotiff": "soil-soc-xidao.tif"
+        },
+        {
+          "id": "yongxing",
+          "group": "xisha",
+          "file": "soil-soc-yongxing-preview.png",
+          "values_file": "soil-soc-yongxing-values.png",
+          "bbox": [
+            112.3,
+            16.789999999999996,
+            112.38000000000001,
+            16.87
+          ],
+          "bbox_wgs84": [
+            112.3,
+            16.789999999999996,
+            112.38000000000001,
+            16.87
+          ],
+          "width": 35,
+          "height": 33,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002285714285714512,
+              0.002424242424242551
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1155,
+            "valid_cells": 0,
+            "nodata_cells": 1155,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "soil-soc-yongxing.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8",
+            "values": "f851a7463c06e1035793b9b86eac32766a45fdb6fbe9dfb05f179524a69f1be8",
+            "geotiff": "7897895c5e2c8dcb31ace479f2babfbb5eebff714d544c17e19c660065be7a5a"
+          },
+          "native_window_geotiff": "soil-soc-yongxing.tif"
+        },
+        {
+          "id": "yongshu",
+          "group": "nansha",
+          "file": "soil-soc-yongshu-preview.png",
+          "values_file": "soil-soc-yongshu-values.png",
+          "bbox": [
+            112.89,
+            9.489999999999998,
+            113.03,
+            9.659999999999998
+          ],
+          "bbox_wgs84": [
+            112.89,
+            9.489999999999998,
+            113.03,
+            9.659999999999998
+          ],
+          "width": 62,
+          "height": 71,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.0022580645161290754,
+              0.002394366197183092
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 4402,
+            "valid_cells": 0,
+            "nodata_cells": 4402,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "soil-soc-yongshu.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731",
+            "values": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731",
+            "geotiff": "5bb6c91f52c5fdde5fc4f58019747a48ff2e626ebf5976b425879534a34633e0"
+          },
+          "native_window_geotiff": "soil-soc-yongshu.tif"
+        },
+        {
+          "id": "zhubi",
+          "group": "nansha",
+          "file": "soil-soc-zhubi-preview.png",
+          "values_file": "soil-soc-zhubi-values.png",
+          "bbox": [
+            114.03,
+            10.875,
+            114.12,
+            10.954999999999998
+          ],
+          "bbox_wgs84": [
+            114.03,
+            10.875,
+            114.12,
+            10.954999999999998
+          ],
+          "width": 40,
+          "height": 33,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.002249999999999994,
+              0.0024242424242423843
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 1320,
+            "valid_cells": 0,
+            "nodata_cells": 1320,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "soil-soc-zhubi.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871",
+            "values": "52d26ab7098a20ced1aebf7ba168abc436ae13489102e9ebe14e9109523d2871",
+            "geotiff": "b6ce19245769f67957fbf4608f0828181a67cfc7ca9b84f99954480bd1e1ee98"
+          },
+          "native_window_geotiff": "soil-soc-zhubi.tif"
+        },
+        {
+          "id": "huangyan",
+          "group": "zhongsha",
+          "file": "soil-soc-huangyan-preview.png",
+          "values_file": "soil-soc-huangyan-values.png",
+          "bbox": [
+            117.68,
+            15.02,
+            117.91,
+            15.27
+          ],
+          "bbox_wgs84": [
+            117.68,
+            15.02,
+            117.91,
+            15.27
+          ],
+          "width": 102,
+          "height": 105,
+          "epsg": 4326,
+          "values_epsg": 4326,
+          "preview_epsg": 4326,
+          "native_resolution_m": 250,
+          "native_resolution_degrees": null,
+          "display_resolution": {
+            "degrees": [
+              0.0022549019607842327,
+              0.0023809523809523725
+            ],
+            "label": "WCS grid at nominal 250 m source resolution"
+          },
+          "decode": {
+            "encoding": "uint16 red + 256*green",
+            "scale": 0.1,
+            "offset": 0,
+            "nodata": "alpha === 0",
+            "units": "g/kg",
+            "formula": "(red + 256*green) * scale + offset"
+          },
+          "status": "unavailable-no-prediction",
+          "coverage": {
+            "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+            "grid_cells": 10710,
+            "valid_cells": 0,
+            "nodata_cells": 10710,
+            "valid_percent": 0.0,
+            "cloud_cells": null,
+            "cloud_note": "not applicable: this environmental product has no cloud class"
+          },
+          "statistics": {
+            "min": null,
+            "max": null,
+            "mean": null
+          },
+          "metadata_file": "soil-soc-huangyan.json",
+          "coverage_note": null,
+          "sha256": {
+            "preview": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb",
+            "values": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb",
+            "geotiff": "9640f1fca717430b0f89ddaf3f9ef22805fa2aeb5dbfd46d7fb91041736694b0"
+          },
+          "native_window_geotiff": "soil-soc-huangyan.tif"
+        }
+      ],
+      "coverage_note": "Main island restored WCS raster plus explicit offshore sample audit; broad offshore soil coverage has NOT been established. Zero means no prediction. No filling from nearby land.",
+      "assets": []
+    }
+  },
+  "quality_notes": [
+    "All delivered image assets are actual raster-derived pixels. No placeholders or fabricated island values.",
+    "Broad geographic envelopes contain ocean and can include land outside the administrative scope; counts are rectangular-grid support, not provincial land completeness.",
+    "Native DSM ~30 m, SoilGrids ~250 m and CHIRPS ~5.5 km remain distinct; previews can be coarser.",
+    "DSM is historical surface height including vegetation/buildings. Source zero or absent tile does not establish present-day reef or reclaimed-island topography.",
+    "CHIRPS data coverage is not temperature, evapotranspiration, or a full climate model.",
+    "Offshore soil is audited at four named windows only; no claim of complete offshore soil mapping."
+  ]
+}

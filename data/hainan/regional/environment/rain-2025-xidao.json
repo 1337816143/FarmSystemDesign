@@ -1,0 +1,56 @@
+{
+  "id": "rain-2025-xidao",
+  "kind": "rain",
+  "bounds_wsen": [
+    109.35000431165099,
+    18.24999937787652,
+    109.40000431239605,
+    18.299999378621578
+  ],
+  "width": 1,
+  "height": 1,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-xidao-preview.png",
+  "values": "rain-2025-xidao-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 1,
+    "valid_cells": 1,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 1664.376708984375,
+    "max": 1664.376708984375,
+    "mean": 1664.376708984375
+  },
+  "status": "coarse-context-only",
+  "sha256": {
+    "preview": "193aa5b37393f09a03fd4b348a5f4e4ac198d2835ac4bc1fef666fe4b120086a",
+    "values": "c67c1cfc41845ce64d973cf56a624510f1c1d8f52f014d16fd4e765970a0ffdc",
+    "geotiff": "2f2b67f6fd423d6568f024ec1ad323a64296a929efe47c3edcaa44cfbc3dc86d"
+  },
+  "geotiff": "rain-2025-xidao.tif",
+  "aoi": "xidao",
+  "group": "main",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "coverage_note": "Valid ~5.5 km cell context does not resolve the named small island or reef; no island-specific rainfall estimate is established.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

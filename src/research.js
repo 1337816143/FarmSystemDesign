@@ -1,6 +1,6 @@
 // Research route register. Source confirmation is deliberately separate from
 // integration and scientific validation; no regional record enters the farm model.
-export const REGIONAL_EVIDENCE_VERSION = 'hainan-atlas-2026-10-01-r5';
+export const REGIONAL_EVIDENCE_VERSION = 'hainan-regional-2026-10-03-r1';
 
 export const ROUTES = {
   farm: {
@@ -68,6 +68,12 @@ export const NUTRIENT_BOUNDARY_STUDY = {
 // "source-confirmed" means a source and its stated grain were checked. It does
 // not mean the underlying county/time series was acquired, harmonized or tested.
 export const AUDIT = [
+  {"id":"sentinel-regional","track":"province","name":"2025全域Sentinel-2影像","status":"display-only","grain":"RGB10m / SCL20m；网页概览另标","period":"2025多日期","use":"空间证据浏览","gap":"已按视窗接入候选COG与真实拼图；SCL不保证完全无云，离岛仍按像元报告缺口。","url":"https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a"},
+  {"id":"esri2025-crops","track":"province","name":"2025 Esri作物类别","status":"display-only","grain":"10m原始分类","period":"2025 v003","use":"来源分类对照","gap":"Crops=5不是法定耕地；与WorldCover不同产品面积不得作为时序变化。","url":"https://livingatlas.arcgis.com/landcover/"},
+  {"id":"copernicus-dsm","track":"province","name":"Copernicus地表高程","status":"display-only","grain":"约30m来源；总览247m/989m","period":"主体2011–2015","use":"地形背景","gap":"地表模型包含植被/建筑；细窗与全域概览分开，小岛零值不冒充现势地形。","url":"https://spacedata.copernicus.eu/collections/copernicus-digital-elevation-model"},
+  {"id":"chirps2025","track":"province","name":"CHIRPS2025年降水","status":"display-only","grain":"0.05°约5.5km","period":"2025 final","use":"气候背景","gap":"真实年降水格网；海域和部分小岛无值，不是10m气候，也不是地块观测。","url":"https://chc.ucsb.edu/data/chirps3"},
+  {"id":"osm-boundaries","track":"province","name":"OSM本岛18单元社区边界","status":"display-only","grain":"WGS84社区几何","period":"2026-10-03下载快照","use":"非官方位置参照","gap":"含五指山，未混入琼山区；三沙完整面缺失，不代表权威现势界或可直接用于县域统计。","url":"https://download.geofabrik.de/asia/china/hainan.html"},
+
   {id:'province-snapshot',track:'province',name:'2025 年全省农业总量',status:'display-only',grain:'省级 · 年度',period:'2025',use:'描述性背景',gap:'已在平台展示；未进入分析模型。不能反推市县或农场。',url:OFFICIAL_SNAPSHOT.url},
   {id:'dong-nutrient-boundaries',track:'province',name:'Dong 等（2026）海南氮磷边界研究',status:'source-confirmed',grain:'全岛模型 · 年度／2030 情景',period:'1988–2020；2030 情景',use:'营养约束候选与跨尺度问题定义',gap:'已核读论文；补充材料、原始数据及模型参数未接入。全岛阈值不能直接下推市县或农场。',url:NUTRIENT_BOUNDARY_STUDY.url},
   {id:'county-series',track:'province',name:'市县农业生产时序',status:'source-confirmed',grain:'市县 · 年度',period:'2023 年单表已核读；时序待核对',use:'区域诊断',gap:'2024 版年鉴表 12-1 已核读 2023 年 18 个岛内农业行；最新年鉴、逐年口径和可再发布范围仍待核对。',url:'https://stats.hainan.gov.cn/tjj/tjsu/ndsj/2024/202412/P020250116308974141111.pdf'},

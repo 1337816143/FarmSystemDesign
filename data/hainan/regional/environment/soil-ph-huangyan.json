@@ -1,0 +1,55 @@
+{
+  "id": "soil-ph-huangyan",
+  "kind": "soil-ph",
+  "bounds_wsen": [
+    117.68,
+    15.02,
+    117.91,
+    15.27
+  ],
+  "width": 102,
+  "height": 105,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.0022549019607842327,
+    0.0023809523809523725
+  ],
+  "preview": "soil-ph-huangyan-preview.png",
+  "values": "soil-ph-huangyan-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "pH"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 10710,
+    "valid_cells": 0,
+    "nodata_cells": 10710,
+    "valid_percent": 0.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": null,
+    "max": null,
+    "mean": null
+  },
+  "status": "unavailable-no-prediction",
+  "sha256": {
+    "preview": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb",
+    "values": "34d0f42a27a00aebcf31ed998a9bc3ff7fd4fa3a3d948bf320b65135594abdeb",
+    "geotiff": "1192a71446ce362e716e22f705edc5f97d2dfd3725da87571f0c5caa5f6475e5"
+  },
+  "geotiff": "soil-ph-huangyan.tif",
+  "aoi": "huangyan",
+  "group": "zhongsha",
+  "source": "https://maps.isric.org/mapserv?map=/map/phh2o.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=phh2o_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28117.68%2C117.91%29&SUBSET=Y%2815.02%2C15.27%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+  "native_resolution_m": 250,
+  "value_scale_to_physical": 0.1,
+  "source_sha256": "fdc93950dcaabe1e0f2101e91e0c6312b32fe73a82955cab2c58331e4c5689d1",
+  "period": "SoilGrids 2.0 model; not an annual soil survey",
+  "level": "fresh-WCS-native-scale-window",
+  "raster_scale": 0.1,
+  "raster_offset": 0
+}

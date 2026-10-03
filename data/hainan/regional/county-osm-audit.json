@@ -1,0 +1,105 @@
+{
+  "source": "OpenStreetMap contributors via Geofabrik Hainan extract",
+  "source_url": "https://download.geofabrik.de/asia/china/hainan-latest.osm.pbf",
+  "download_date": "2026-10-03",
+  "source_http_last_modified": "2026-10-03T01:13:29Z",
+  "source_pbf_sha256": "f6bd87a10f1eb53b1afa4ff65447df743073faaad67891a51f95fea117f9aca3",
+  "source_bytes": 9874644,
+  "license": "ODbL-1.0",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "attribution": "© OpenStreetMap contributors",
+  "reference_url": "https://download.geofabrik.de/asia/china/hainan.html",
+  "geometry_crs": "EPSG:4326 (WGS84)",
+  "geometry_transform": "None; unmodified OSM relation coordinates from GDAL assembly, properties reduced",
+  "features": 18,
+  "all_geometries_valid": true,
+  "overlaps_above_1m2": [],
+  "total_polygon_utm_km2": 37300.2256,
+  "statistical_reference": "https://stats.hainan.gov.cn/tjj/tjsu/ndsj/2024/202412/P020250116308974141111.pdf",
+  "statistical_reference_year": 2023,
+  "units": [
+    {
+      "name": "海口市",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "三亚市",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "三沙市",
+      "geometry_status": "missing-complete-aggregate-polygon"
+    },
+    {
+      "name": "儋州市",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "五指山市",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "琼海市",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "文昌市",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "万宁市",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "东方市",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "定安县",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "屯昌县",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "澄迈县",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "临高县",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "白沙黎族自治县",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "昌江黎族自治县",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "乐东黎族自治县",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "陵水黎族自治县",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "保亭黎族苗族自治县",
+      "geometry_status": "available-community-reference"
+    },
+    {
+      "name": "琼中黎族苗族自治县",
+      "geometry_status": "available-community-reference"
+    }
+  ],
+  "limitations": [
+    "Community-maintained geometry, not authoritative current surveyed boundary. Download date is not proof every relation is current.",
+    "No completeness claim for nearshore islands, Sansha or maritime extents. Geofabrik extract omits the southern Nansha geography.",
+    "Mainland 18 names now match statistical aggregate names including Wuzhishan; no official topology, area or join approval is implied.",
+    "No county choropleth or statistical allocation uses this layer. Legal/public cartographic compliance not established by an ODbL data licence.",
+    "Municipal district children (including Qiongshan) are not peers of Haikou; they are excluded."
+  ]
+}

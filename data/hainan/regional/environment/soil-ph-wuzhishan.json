@@ -1,0 +1,53 @@
+{
+  "id": "soil-ph-wuzhishan",
+  "kind": "soil-ph",
+  "bounds_wsen": [
+    109.4178598342125,
+    18.700796460176992,
+    109.6688018085908,
+    18.90150442477876
+  ],
+  "width": 111,
+  "height": 84,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.002260738507912585,
+    0.002389380530973454
+  ],
+  "preview": "soil-ph-wuzhishan-preview.png",
+  "values": "soil-ph-wuzhishan-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "pH"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 9324,
+    "valid_cells": 9248,
+    "nodata_cells": 76,
+    "valid_percent": 99.1849,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 4.4,
+    "max": 6.0,
+    "mean": 5.0082936851211075
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "c726b05e8f4ad592c3578832d98c9decdd43501f52894c3589ace3778f10b72d",
+    "values": "695496262aea7b70bde7c585ab3aa3893d3f72924a80e5c2418f321c34f5e99e",
+    "geotiff": "a6d52ff4250c1e6bb81e1568c9982024e99167880ced5b7dce8ee3d58895eaee"
+  },
+  "geotiff": "soil-ph-wuzhishan.tif",
+  "aoi": "wuzhishan",
+  "group": "main",
+  "source": "restored-main-soil-WCS",
+  "native_resolution_m": 250,
+  "value_scale_to_physical": 0.1,
+  "period": "SoilGrids 2.0 model; not an annual soil survey",
+  "raster_scale": 0.1,
+  "raster_offset": 0
+}

@@ -1,0 +1,53 @@
+{
+  "id": "soil-ph-wenchang",
+  "kind": "soil-ph",
+  "bounds_wsen": [
+    110.64996232102487,
+    19.51079646017699,
+    110.88055764883195,
+    19.721061946902655
+  ],
+  "width": 102,
+  "height": 88,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.002260738507912585,
+    0.002389380530973454
+  ],
+  "preview": "soil-ph-wenchang-preview.png",
+  "values": "soil-ph-wenchang-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "pH"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 8976,
+    "valid_cells": 7571,
+    "nodata_cells": 1405,
+    "valid_percent": 84.3471,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 4.3,
+    "max": 6.2,
+    "mean": 5.101175538238014
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "4779eb607c0c0ac76046b5c4c5a71b77f8f061b1a386721e69fa73b17fe2e496",
+    "values": "5b007f8756029c87f22a233365384132fc3fbbbe846c3b31ccdf3d1f04a1801a",
+    "geotiff": "e74df5c5563ca127b9db1957a6fdb147f7bfe8e4d8df781479d0b587a71ebd58"
+  },
+  "geotiff": "soil-ph-wenchang.tif",
+  "aoi": "wenchang",
+  "group": "main",
+  "source": "restored-main-soil-WCS",
+  "native_resolution_m": 250,
+  "value_scale_to_physical": 0.1,
+  "period": "SoilGrids 2.0 model; not an annual soil survey",
+  "raster_scale": 0.1,
+  "raster_offset": 0
+}

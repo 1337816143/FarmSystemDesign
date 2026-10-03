@@ -1,0 +1,53 @@
+{
+  "id": "soil-ph-danzhou",
+  "kind": "soil-ph",
+  "bounds_wsen": [
+    109.39977392614921,
+    19.431946902654865,
+    109.70045214770158,
+    19.64221238938053
+  ],
+  "width": 133,
+  "height": 88,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.002260738507912585,
+    0.002389380530973454
+  ],
+  "preview": "soil-ph-danzhou-preview.png",
+  "values": "soil-ph-danzhou-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "pH"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 11704,
+    "valid_cells": 11157,
+    "nodata_cells": 547,
+    "valid_percent": 95.3264,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 4.5,
+    "max": 6.0,
+    "mean": 5.141364165994443
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "40d1954eb0871ee7dbba42f3d32c6b12e082810242a38c603035c5ac4cbf866d",
+    "values": "b4a08530be865694ff4cc4ef9facb8445f82f49b76055cd60aac60da3f58785b",
+    "geotiff": "ea28afc3c25d8fe128504de7115a6eea7def04ceefce71a078d237914a7127de"
+  },
+  "geotiff": "soil-ph-danzhou.tif",
+  "aoi": "danzhou",
+  "group": "main",
+  "source": "restored-main-soil-WCS",
+  "native_resolution_m": 250,
+  "value_scale_to_physical": 0.1,
+  "period": "SoilGrids 2.0 model; not an annual soil survey",
+  "raster_scale": 0.1,
+  "raster_offset": 0
+}

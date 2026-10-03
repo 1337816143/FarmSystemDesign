@@ -1,0 +1,90 @@
+{
+  "id": "yongxing",
+  "group": "xisha",
+  "name_zh": "永兴岛样窗",
+  "name_en": "Yongxing / Woody Island sample",
+  "bbox": [
+    112.3,
+    16.79,
+    112.38,
+    16.87
+  ],
+  "kind": "island-sample",
+  "coordinate_reference": "https://qxj.xlgl.gov.cn/qxj/xwdt/39b0c849a6684cb795593fc01ef186c8/index.html",
+  "quality_mask_revision": "v2_nonzero_false_true_encoding",
+  "image": "previews/yongxing.webp",
+  "status_image": "previews/yongxing-status.png",
+  "clear_count_image": "previews/yongxing-clear-count.png",
+  "source_doy_image": "previews/yongxing-source-doy.png",
+  "qa_npz": "previews/yongxing-qa.npz",
+  "width": 853,
+  "height": 891,
+  "crs": "EPSG:4326",
+  "transform": [
+    9.378663540445286e-05,
+    0,
+    112.3,
+    0,
+    -8.978675645342519e-05,
+    16.87
+  ],
+  "display_pixel_m_at_center": [
+    9.99314842268977,
+    9.995061728395292
+  ],
+  "native_rgb_resolution_m": 10,
+  "native_scl_resolution_m": 20,
+  "stats": {
+    "total_bbox_pixels": 760023,
+    "accepted_pixels": 756454,
+    "observed_but_rejected_pixels": 3569,
+    "no_source_observation_pixels": 0
+  },
+  "accepted_bbox_percent": 99.53,
+  "denominator": "All display cells in this rectangular geographic window, including water and any unrelated land. Not administrative land coverage.",
+  "sources": [
+    {
+      "index": 1,
+      "id": "S2A_T49QFU_20251231T030827_L2A",
+      "datetime": "2025-12-31T03:13:39.949000Z",
+      "contributing_pixels": 751316,
+      "clear_pixels": 751316,
+      "observed_pixels": 760023
+    },
+    {
+      "index": 2,
+      "id": "S2C_T49QFU_20250123T031117_L2A",
+      "datetime": "2025-01-23T03:13:47.194000Z",
+      "contributing_pixels": 5028,
+      "clear_pixels": 747504,
+      "observed_pixels": 760023
+    },
+    {
+      "index": 3,
+      "id": "S2A_T49QFU_20250415T030753_L2A",
+      "datetime": "2025-04-15T03:13:31.624000Z",
+      "contributing_pixels": 110,
+      "clear_pixels": 740839,
+      "observed_pixels": 760023
+    }
+  ],
+  "failures": [],
+  "actual_contributing_dates": [
+    "2025-01-23",
+    "2025-04-15",
+    "2025-12-31"
+  ],
+  "image_bytes": 30962,
+  "image_sha256": "a47c56c54abf549ad3e8d64fee78095e523b68434e729bfcb91ef8f015ff6fe2",
+  "status_legend": {
+    "0": "No source observation among selected scenes (transparent)",
+    "1": "Observed but no accepted clear pixel (transparent); includes cloud/shadow/cirrus, unclassified, saturated/snow or mask-edge rejection",
+    "2": "Accepted display pixel"
+  },
+  "processing": {
+    "rgb": "Native 10m TCI display values (uint8) read by HTTP Range and bilinear reprojected. No reflectance scaling applied to TCI.",
+    "scl": "Mask warp uses explicit false=1,true=2 to prevent zero exclusion by statistical resampling; threshold1.999. Read native 20m SCL. Accept classes2,4,5,6. Reject0,1,3,7,8,9,10,11. Dilate cloud/shadow/cirrus classes3,8,9,10 by3native pixels(60m); require >=99.9% clear fraction for each output cell. For broad main-island preview only, conservative4x4 all-clear blocks reduce native20m mask to80m before reprojection; observed mask uses any-observed blocks.",
+    "mosaic": "First accepted pixel in scene cloud%+0.35*nodata% rank order. Multi-date best-available display; not a median, single-date image, or independently certified cloud-free product.",
+    "cloud_audit_limit": "SCL may miss haze/thin cloud or misclassify land/water; overviews and resampling lower display detail. Remaining holes stay transparent. Counts cover selected candidates only, not all 2025 observations."
+  }
+}

@@ -1,3 +1,9 @@
+# 0.3.9 · 2026-10-03
+
+- Regional2025 imagery, source-class crops, terrain, rainfall and soil display with explicit resolution and coverage records
+- Main-island18-unit OSM community reference, including Wuzhishan; Sansha geometry and official-current status remain unresolved
+- Cancellable viewport COG renderer with correct UTM/WGS84/WebMercator sampling, clear no-data handling and source-only model boundary
+
 # 更新日志
 
 ## v0.3.8 — 海南主岛覆被面积探索性汇总 · 2026-10-01

@@ -1,0 +1,53 @@
+{
+  "id": "soil-ph-sanya",
+  "kind": "soil-ph",
+  "bounds_wsen": [
+    109.379427279578,
+    18.179911504424776,
+    109.61002260738508,
+    18.380619469026545
+  ],
+  "width": 102,
+  "height": 84,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.002260738507912585,
+    0.002389380530973454
+  ],
+  "preview": "soil-ph-sanya-preview.png",
+  "values": "soil-ph-sanya-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "pH"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 8568,
+    "valid_cells": 4776,
+    "nodata_cells": 3792,
+    "valid_percent": 55.7423,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 5.1,
+    "max": 6.8,
+    "mean": 5.884882747068676
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "67ea6e914880e10c2299b33eae1a7293584539132cba5c98046542ddba675ce2",
+    "values": "5c402dbe77b0454f37d42c5194220a92afdb826d88b75c62055ea46c2929a2a8",
+    "geotiff": "c6f96456e67b0e02c3801c01ac4ee0cfa8804e8fffd2f175222a9880887bd77e"
+  },
+  "geotiff": "soil-ph-sanya.tif",
+  "aoi": "sanya",
+  "group": "main",
+  "source": "restored-main-soil-WCS",
+  "native_resolution_m": 250,
+  "value_scale_to_physical": 0.1,
+  "period": "SoilGrids 2.0 model; not an annual soil survey",
+  "raster_scale": 0.1,
+  "raster_offset": 0
+}

@@ -1,0 +1,55 @@
+{
+  "id": "soil-soc-yongshu",
+  "kind": "soil-soc",
+  "bounds_wsen": [
+    112.89,
+    9.489999999999998,
+    113.03,
+    9.659999999999998
+  ],
+  "width": 62,
+  "height": 71,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.0022580645161290754,
+    0.002394366197183092
+  ],
+  "preview": "soil-soc-yongshu-preview.png",
+  "values": "soil-soc-yongshu-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "g/kg"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 4402,
+    "valid_cells": 0,
+    "nodata_cells": 4402,
+    "valid_percent": 0.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": null,
+    "max": null,
+    "mean": null
+  },
+  "status": "unavailable-no-prediction",
+  "sha256": {
+    "preview": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731",
+    "values": "fb177c41817651c5276f386295a324c36da461836dcdf31a9ddd1fd21f11e731",
+    "geotiff": "5bb6c91f52c5fdde5fc4f58019747a48ff2e626ebf5976b425879534a34633e0"
+  },
+  "geotiff": "soil-soc-yongshu.tif",
+  "aoi": "yongshu",
+  "group": "nansha",
+  "source": "https://maps.isric.org/mapserv?map=/map/soc.map&SERVICE=WCS&VERSION=2.0.1&REQUEST=GetCoverage&COVERAGEID=soc_0-5cm_mean&FORMAT=image%2Ftiff&SUBSET=X%28112.89%2C113.03%29&SUBSET=Y%289.49%2C9.66%29&SUBSETTINGCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326&OUTPUTCRS=http%3A%2F%2Fwww.opengis.net%2Fdef%2Fcrs%2FEPSG%2F0%2F4326",
+  "native_resolution_m": 250,
+  "value_scale_to_physical": 0.1,
+  "source_sha256": "d149986f18886283d45496e6c01ce207e7b5347759462501a1b3b9c6ca3eeb24",
+  "period": "SoilGrids 2.0 model; not an annual soil survey",
+  "level": "fresh-WCS-native-scale-window",
+  "raster_scale": 0.1,
+  "raster_offset": 0
+}

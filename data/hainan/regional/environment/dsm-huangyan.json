@@ -1,0 +1,63 @@
+{
+  "id": "dsm-huangyan",
+  "kind": "dsm",
+  "bounds_wsen": [
+    117.67986111111112,
+    15.019861111111112,
+    117.9101388888889,
+    15.270138888888889
+  ],
+  "width": 829,
+  "height": 901,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.0002777777777777778,
+    0.0002777777777777778
+  ],
+  "preview": "dsm-huangyan-preview.png",
+  "values": "dsm-huangyan-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 500) / 1",
+    "nodata": "alpha == 0",
+    "units": "m"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 746929,
+    "valid_cells": 746929,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class",
+    "positive_surface_cells": 0,
+    "zero_height_cells": 746929
+  },
+  "statistics": {
+    "min": 0.0,
+    "max": 0.0,
+    "mean": 0.0
+  },
+  "status": "unresolved-source-zero-surface",
+  "sha256": {
+    "preview": "66cd19d6266018a3a92ac64a6237792723b73e9d93135e909a60345026b3a83b",
+    "values": "fce32da4c64ec2e27ba158bbc3a8e2af7dec793f5b771f052bc4a84032358653",
+    "geotiff": "2e215693e0ebffbae45b5fc6405f0daba861294dec27fb69a62b2755191bafeb"
+  },
+  "preview_note": "Zero-height cells are transparent in preview (usually ocean); numerical grid preserves source zero. Not a coastline or verified land mask.",
+  "geotiff": "dsm-huangyan.tif",
+  "aoi": "huangyan",
+  "group": "zhongsha",
+  "level": "native-grid-window",
+  "native_resolution": "1 arcsecond (~30 m latitude); source DSM, not bare-earth terrain",
+  "render_resolution": "1 arcsecond (~30 m latitude)",
+  "period": "TanDEM-X mainly 2011–2015; infill can be older; catalog 2021 publication is not observation date",
+  "source_tiles": [
+    {
+      "id": "Copernicus_DSM_COG_10_N15_00_E117_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N15_00_E117_00_DEM/Copernicus_DSM_COG_10_N15_00_E117_00_DEM.tif"
+    }
+  ],
+  "coverage_note": "The source tile exists but this entire window has only zero-height cells. Do not treat this as measured island terrain.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

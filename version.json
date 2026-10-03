@@ -1,1 +1,18 @@
-{"version":"0.3.8","name":"Hainan Main-Island Cover Summary","channel":"research-preview","releasedOn":"2026-10-01","modelVersion":"screening-0.2.0","dataVersion":"evidence-2025-r1+assumptions-r2","regionalEvidenceVersion":"hainan-atlas-2026-10-01-r5","schemaVersion":1,"storageVersion":2,"commit":"local-preview","changes":["从 ESA WorldCover 2021 两幅原始 10 m 分类瓦片计算海南主岛探索性覆被面积","地图侧栏增加类别面积条形图，明确产品派生掩膜与官方土地统计的区别","复核 100 m 与 200 m 掩膜采样的面积敏感性，记录处理脚本和源文件哈希","现势市县面积、本地分类精度验证与区域优化仍未完成"]}
+{
+  "version": "0.3.9",
+  "name": "Hainan Regional Imagery and Environment",
+  "channel": "research-preview",
+  "releasedOn": "2026-10-03",
+  "modelVersion": "screening-0.2.0",
+  "dataVersion": "evidence-2025-r1+assumptions-r2",
+  "regionalEvidenceVersion": "hainan-regional-2026-10-03-r1",
+  "schemaVersion": 1,
+  "storageVersion": 2,
+  "commit": "local-preview",
+  "changes": [
+    "2025全域影像按视窗读取，保留云与缺测",
+    "接入30m地形来源、5.5km降水和250m土壤，分别注明网页概览精度",
+    "加入本岛18单元OSM社区参考界；三沙完整聚合面仍缺失",
+    "原FTW田块、虚拟经营参数和农场模型保持不变"
+  ]
+}

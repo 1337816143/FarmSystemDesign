@@ -1,0 +1,62 @@
+{
+  "id": "dsm-sanya",
+  "kind": "dsm",
+  "bounds_wsen": [
+    109.37986111111111,
+    18.179861111111112,
+    109.61013888888888,
+    18.38013888888889
+  ],
+  "width": 829,
+  "height": 721,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.0002777777777777778,
+    0.0002777777777777778
+  ],
+  "preview": "dsm-sanya-preview.png",
+  "values": "dsm-sanya-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 500) / 1",
+    "nodata": "alpha == 0",
+    "units": "m"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 597709,
+    "valid_cells": 597709,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class",
+    "positive_surface_cells": 409279,
+    "zero_height_cells": 188137
+  },
+  "statistics": {
+    "min": -8.794232368469238,
+    "max": 794.4115600585938,
+    "mean": 61.7664794921875
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "1e82798613bae31d0464cc531a1672001590bda70850b7644ac8cac7df2ac199",
+    "values": "d98bc4cf681912277ce1738c1a8ad15bd5afa2d863817c0a92e518bcf706e5a8",
+    "geotiff": "410288f9ae980685e97428762c7907ebc36356a9d452ff1a4e62a1dea2ac4e59"
+  },
+  "preview_note": "Zero-height cells are transparent in preview (usually ocean); numerical grid preserves source zero. Not a coastline or verified land mask.",
+  "geotiff": "dsm-sanya.tif",
+  "aoi": "sanya",
+  "group": "main",
+  "level": "native-grid-window",
+  "native_resolution": "1 arcsecond (~30 m latitude); source DSM, not bare-earth terrain",
+  "render_resolution": "1 arcsecond (~30 m latitude)",
+  "period": "TanDEM-X mainly 2011–2015; infill can be older; catalog 2021 publication is not observation date",
+  "source_tiles": [
+    {
+      "id": "Copernicus_DSM_COG_10_N18_00_E109_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E109_00_DEM/Copernicus_DSM_COG_10_N18_00_E109_00_DEM.tif"
+    }
+  ],
+  "raster_scale": 1,
+  "raster_offset": 0
+}

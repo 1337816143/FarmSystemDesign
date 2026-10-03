@@ -1,0 +1,31 @@
+{
+  "verified_utc": "2026-10-03",
+  "item_id": "S2C_T49PHN_20250328T024711_L2A",
+  "item_url": "https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a/items/S2C_T49PHN_20250328T024711_L2A",
+  "aoi": [
+    114.03,
+    10.875,
+    114.12,
+    10.955
+  ],
+  "test_grid": [
+    200,
+    200
+  ],
+  "native_scl_m": 20,
+  "native_visual_m": 10,
+  "nearest_scl_zero_pixels": 28104,
+  "nearest_visual_all_channels_zero_pixels": 28104,
+  "total_test_pixels": 40000,
+  "finding": "SCL nodata and RGB nodata match exactly for this test. The large gap is a real selected-swath gap, not cloud. Extra full-footprint candidates were added for the final named-window mosaic.",
+  "encoded_mask_max_reproject_counts": {
+    "false_1": 28032,
+    "true_2": 11968
+  },
+  "mask_statistical_resampling_rule": "Use1=false and2=true, reserve0 for outside-grid. False source cells must not become nodata and disappear from average/max operations.",
+  "reproducible_scripts": [
+    "inspect_reef.py",
+    "inspect_mask_offset.py",
+    "test_quality_mask.py"
+  ]
+}

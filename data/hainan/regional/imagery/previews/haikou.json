@@ -1,0 +1,89 @@
+{
+  "id": "haikou",
+  "group": "main",
+  "name_zh": "海口样窗",
+  "name_en": "Haikou sample",
+  "bbox": [
+    110.22,
+    19.94,
+    110.44,
+    20.1
+  ],
+  "kind": "main-island-sample",
+  "quality_mask_revision": "v2_nonzero_false_true_encoding",
+  "image": "previews/haikou.webp",
+  "status_image": "previews/haikou-status.png",
+  "clear_count_image": "previews/haikou-clear-count.png",
+  "source_doy_image": "previews/haikou-source-doy.png",
+  "qa_npz": "previews/haikou-qa.npz",
+  "width": 1151,
+  "height": 891,
+  "crs": "EPSG:4326",
+  "transform": [
+    0.00019113814074717537,
+    0,
+    110.22,
+    0,
+    -0.0001795735129068464,
+    20.1
+  ],
+  "display_pixel_m_at_center": [
+    19.99176621128327,
+    19.99012345679014
+  ],
+  "native_rgb_resolution_m": 10,
+  "native_scl_resolution_m": 20,
+  "stats": {
+    "total_bbox_pixels": 1025541,
+    "accepted_pixels": 1025491,
+    "observed_but_rejected_pixels": 50,
+    "no_source_observation_pixels": 0
+  },
+  "accepted_bbox_percent": 99.995,
+  "denominator": "All display cells in this rectangular geographic window, including water and any unrelated land. Not administrative land coverage.",
+  "sources": [
+    {
+      "index": 1,
+      "id": "S2C_T49QDC_20250327T031111_L2A",
+      "datetime": "2025-03-27T03:22:43.772000Z",
+      "contributing_pixels": 1014641,
+      "clear_pixels": 1014641,
+      "observed_pixels": 1025541
+    },
+    {
+      "index": 2,
+      "id": "S2A_T49QDC_20250106T032130_L2A",
+      "datetime": "2025-01-06T03:22:20.058000Z",
+      "contributing_pixels": 10547,
+      "clear_pixels": 1022522,
+      "observed_pixels": 1025541
+    },
+    {
+      "index": 3,
+      "id": "S2B_T49QDC_20250111T031956_L2A",
+      "datetime": "2025-01-11T03:22:22.366000Z",
+      "contributing_pixels": 303,
+      "clear_pixels": 1023836,
+      "observed_pixels": 1025541
+    }
+  ],
+  "failures": [],
+  "actual_contributing_dates": [
+    "2025-01-06",
+    "2025-01-11",
+    "2025-03-27"
+  ],
+  "image_bytes": 215156,
+  "image_sha256": "8a24b3fc6eddad037b2bd4b142ad79a110ce20d03af1036c654e7c866047cfbb",
+  "status_legend": {
+    "0": "No source observation among selected scenes (transparent)",
+    "1": "Observed but no accepted clear pixel (transparent); includes cloud/shadow/cirrus, unclassified, saturated/snow or mask-edge rejection",
+    "2": "Accepted display pixel"
+  },
+  "processing": {
+    "rgb": "Native 10m TCI display values (uint8) read by HTTP Range and bilinear reprojected. No reflectance scaling applied to TCI.",
+    "scl": "Mask warp uses explicit false=1,true=2 to prevent zero exclusion by statistical resampling; threshold1.999. Read native 20m SCL. Accept classes2,4,5,6. Reject0,1,3,7,8,9,10,11. Dilate cloud/shadow/cirrus classes3,8,9,10 by3native pixels(60m); require >=99.9% clear fraction for each output cell. For broad main-island preview only, conservative4x4 all-clear blocks reduce native20m mask to80m before reprojection; observed mask uses any-observed blocks.",
+    "mosaic": "First accepted pixel in scene cloud%+0.35*nodata% rank order. Multi-date best-available display; not a median, single-date image, or independently certified cloud-free product.",
+    "cloud_audit_limit": "SCL may miss haze/thin cloud or misclassify land/water; overviews and resampling lower display detail. Remaining holes stay transparent. Counts cover selected candidates only, not all 2025 observations."
+  }
+}

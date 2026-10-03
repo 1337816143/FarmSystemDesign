@@ -1,0 +1,44 @@
+[
+  {
+    "aoi": "zhubi",
+    "rule": "Add 3 candidates ranked by scene cloud% +200*(1-STAC geometric overlap fraction of named window). Geometric overlap remains distinct from observed pixel coverage.",
+    "scenes": [
+      {
+        "id": "S2B_T49PHN_20250515T030100_L2A",
+        "footprint_overlap_fraction": 1.0,
+        "score": 12.240852
+      },
+      {
+        "id": "S2B_T49PHN_20250326T030102_L2A",
+        "footprint_overlap_fraction": 1.0,
+        "score": 12.320887
+      },
+      {
+        "id": "S2B_T49PHN_20251201T025745_L2A",
+        "footprint_overlap_fraction": 1.0,
+        "score": 14.184758
+      }
+    ]
+  },
+  {
+    "aoi": "huangyan",
+    "rule": "Add 3 candidates ranked by scene cloud% +200*(1-STAC geometric overlap fraction of named window). Geometric overlap remains distinct from observed pixel coverage.",
+    "scenes": [
+      {
+        "id": "S2A_T50PNB_20250416T023133_L2A",
+        "footprint_overlap_fraction": 1.0,
+        "score": 2.53437
+      },
+      {
+        "id": "S2B_T50PNB_20250419T023759_L2A",
+        "footprint_overlap_fraction": 1.0,
+        "score": 2.989114
+      },
+      {
+        "id": "S2C_T50PNB_20250424T023909_L2A",
+        "footprint_overlap_fraction": 1.0,
+        "score": 3.474459
+      }
+    ]
+  }
+]

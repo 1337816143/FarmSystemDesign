@@ -1,0 +1,43 @@
+{
+  "built_at": "2026-10-03",
+  "execution": "dot cloud computer; no user desktop used",
+  "sources": {
+    "chirps2025": {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+      "status": 200,
+      "headers": {
+        "Server": "nginx/1.24.0 (Ubuntu)",
+        "Date": "Sat, 03 Oct 2026 03:58:13 GMT",
+        "Content-Type": "image/tiff",
+        "Content-Length": "23751188",
+        "Last-Modified": "Fri, 06 Mar 2026 23:22:13 GMT",
+        "Connection": "close",
+        "ETag": "\"69ab61a5-16a6a14\"",
+        "Accept-Ranges": "bytes"
+      }
+    }
+  },
+  "restored_soil_inputs": {
+    "soil-soc-metadata.json": {
+      "sha256": "d157eaa77f237ae223f1c0aa51697acce00d6281417e581e02444073405cd709",
+      "bytes": 833
+    },
+    "soil-soc-values.png": {
+      "sha256": "016beb0641be553862c6344e7b9584ccc7d3f25bfe92a3e6f31a830b491da015",
+      "bytes": 765304
+    },
+    "soil-ph-metadata.json": {
+      "sha256": "e600154eb3ecadbefde2b5e1d785de98aa326223610ee0eb7b31f7dc79e29a8e",
+      "bytes": 818
+    },
+    "soil-ph-values.png": {
+      "sha256": "6ba5ec410e26554eaea0fa1515d7fbfb921cf055963f1e89743d89b8cdf25cda",
+      "bytes": 197550
+    }
+  },
+  "dsm_catalog_sha256": "beea67cf7e83d81c8ffcc1c383f7e880e62b566da30b562cfa070c0b8d278919",
+  "dsm_source_stac_publication_dates": [
+    "2021-04-22T00:00:00Z"
+  ],
+  "source_full_file_checksums": "Not computed for remote original DSM/CHIRPS files because HTTP Range subsets and COG overviews were read, not complete source downloads. Derived deployed assets have complete SHA-256."
+}

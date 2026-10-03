@@ -1,0 +1,61 @@
+{
+  "id": "dsm-zhongsha",
+  "kind": "dsm",
+  "bounds_wsen": [
+    113.2,
+    14.8,
+    118.10000000000001,
+    16.6
+  ],
+  "width": 2205,
+  "height": 810,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.0022222222222222222,
+    0.0022222222222222222
+  ],
+  "preview": "dsm-zhongsha-preview.png",
+  "values": "dsm-zhongsha-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 500) / 1",
+    "nodata": "alpha == 0",
+    "units": "m"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 1786050,
+    "valid_cells": 203401,
+    "nodata_cells": 1582649,
+    "valid_percent": 11.3883,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class",
+    "positive_surface_cells": 0,
+    "zero_height_cells": 203401
+  },
+  "statistics": {
+    "min": 0.0,
+    "max": 0.0,
+    "mean": 0.0
+  },
+  "status": "unresolved-source-zero-surface",
+  "sha256": {
+    "preview": "94db327cdc7c504874bb2777d57d11579d952a61b339ff37e233d823d38d91db",
+    "values": "e894e124690958f29dfcfa1553ca3f7801c0c380d8775a312f7d4075737ea0de"
+  },
+  "preview_note": "Zero-height cells are transparent in preview (usually ocean); numerical grid preserves source zero. Not a coastline or verified land mask.",
+  "aoi": "zhongsha",
+  "group": "zhongsha",
+  "level": "overview",
+  "native_resolution": "1 arcsecond (~30 m latitude); source DSM, not bare-earth terrain",
+  "render_resolution": "8 arcseconds (~247 m latitude)",
+  "period": "TanDEM-X mainly 2011–2015; infill can be older; catalog 2021 publication is not observation date",
+  "source_tiles": [
+    {
+      "id": "Copernicus_DSM_COG_10_N15_00_E117_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N15_00_E117_00_DEM/Copernicus_DSM_COG_10_N15_00_E117_00_DEM.tif"
+    }
+  ],
+  "coverage_note": "The source tile exists but this entire window has only zero-height cells. Do not treat this as measured island terrain.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

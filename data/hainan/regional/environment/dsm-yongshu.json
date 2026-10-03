@@ -1,0 +1,57 @@
+{
+  "id": "dsm-yongshu",
+  "kind": "dsm",
+  "bounds_wsen": [
+    112.88986111111112,
+    9.48986111111111,
+    113.0301388888889,
+    9.660138888888888
+  ],
+  "width": 505,
+  "height": 613,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.0002777777777777878,
+    0.00027777777777777626
+  ],
+  "preview": "dsm-yongshu-preview.png",
+  "values": "dsm-yongshu-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 500) / 1",
+    "nodata": "alpha == 0",
+    "units": "m"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 309565,
+    "valid_cells": 0,
+    "nodata_cells": 309565,
+    "valid_percent": 0.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class",
+    "positive_surface_cells": 0,
+    "zero_height_cells": 0
+  },
+  "statistics": {
+    "min": null,
+    "max": null,
+    "mean": null
+  },
+  "status": "unavailable-no-source-tile",
+  "sha256": {
+    "preview": "8436d1659a4d62300473799ea8fc846009baede68eff5e8e158ebbfe1e5231e9",
+    "values": "8436d1659a4d62300473799ea8fc846009baede68eff5e8e158ebbfe1e5231e9",
+    "geotiff": "0b1e9db652d03daac8f7c241e694f95532d0230bb4366a6ba9d82857c1a1a5fd"
+  },
+  "preview_note": "Zero-height cells are transparent in preview (usually ocean); numerical grid preserves source zero. Not a coastline or verified land mask.",
+  "geotiff": "dsm-yongshu.tif",
+  "aoi": "yongshu",
+  "group": "nansha",
+  "level": "native-grid-window",
+  "native_resolution": "1 arcsecond (~30 m latitude); source DSM, not bare-earth terrain",
+  "render_resolution": "1 arcsecond (~30 m latitude)",
+  "period": "TanDEM-X mainly 2011–2015; infill can be older; catalog 2021 publication is not observation date",
+  "source_tiles": [],
+  "raster_scale": 1,
+  "raster_offset": 0
+}

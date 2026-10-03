@@ -1,0 +1,55 @@
+{
+  "id": "rain-2025-zhongsha",
+  "kind": "rain",
+  "bounds_wsen": [
+    113.20000436902046,
+    14.799999326467514,
+    118.10000444203615,
+    16.599999353289604
+  ],
+  "width": 98,
+  "height": 36,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-zhongsha-preview.png",
+  "values": "rain-2025-zhongsha-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 3528,
+    "valid_cells": 21,
+    "nodata_cells": 3507,
+    "valid_percent": 0.5952,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 3031.238525390625,
+    "max": 3514.107666015625,
+    "mean": 3204.168212890625
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "8886be094d8d95aeaa39c11b50a04bd0a554ff9d5204a35f721874e3ff6acb57",
+    "values": "b0a5e97f8d722f4cd040ee586ca23433b562a0b81267b9fc96488f83c81ae428",
+    "geotiff": "52022abe47b2ff5cc24204617f08bb93d77845d55e9825ae954ef57cbff167e1"
+  },
+  "geotiff": "rain-2025-zhongsha.tif",
+  "aoi": "zhongsha",
+  "group": "zhongsha",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

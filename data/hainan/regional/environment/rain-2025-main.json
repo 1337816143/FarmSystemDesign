@@ -1,0 +1,55 @@
+{
+  "id": "rain-2025-main",
+  "kind": "rain",
+  "bounds_wsen": [
+    108.500004298985,
+    17.799999371170998,
+    111.50000434368849,
+    20.499999411404133
+  ],
+  "width": 60,
+  "height": 54,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-main-preview.png",
+  "values": "rain-2025-main-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 3240,
+    "valid_cells": 1597,
+    "nodata_cells": 1643,
+    "valid_percent": 49.2901,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": 694.2803955078125,
+    "max": 3471.326171875,
+    "mean": 2260.91259765625
+  },
+  "status": "available",
+  "sha256": {
+    "preview": "989e83ec4443d4afa3fabbdf45478ba764b634d6bb45b6d997a46867a7331a2a",
+    "values": "9b091d2d6283cbbb473eac27b49396ab78ea37f7bc64c015461d40e34e6662bb",
+    "geotiff": "1b3a8092bfcf18a250242a60a7c681c0c33246e8b8b74b2d8d6594ef067a619e"
+  },
+  "geotiff": "rain-2025-main.tif",
+  "aoi": "main",
+  "group": "main",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}

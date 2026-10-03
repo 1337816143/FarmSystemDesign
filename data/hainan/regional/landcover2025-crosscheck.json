@@ -1,0 +1,219 @@
+{
+  "independent_native_counts": {
+    "0": 0,
+    "1": 11685775,
+    "2": 173438022,
+    "4": 1096519,
+    "5": 92113868,
+    "7": 42692542,
+    "8": 359423,
+    "9": 0,
+    "10": 42971,
+    "11": 15898880
+  },
+  "all_native_counts_match": true,
+  "method": "Second native pass with 73-row strips and per-class boolean counting rather than first 1024 block/bincount pass. Same disclosed 100m source-derived mask, not independent coastline validation. Exact match was written to process log before that process later exited during service sampling.",
+  "source_grid_area_m2": 100,
+  "source_crs": "EPSG:32649",
+  "samples": [
+    {
+      "place": "haikou",
+      "class": 7,
+      "lon": 110.31386160121839,
+      "lat": 19.99997016903282,
+      "source_pixel": [
+        24931,
+        44584
+      ],
+      "service_value": "7",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "danzhou",
+      "class": 7,
+      "lon": 109.5650530570098,
+      "lat": 19.51999087407712,
+      "source_pixel": [
+        17052,
+        49847
+      ],
+      "service_value": "7",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "wenchang",
+      "class": 2,
+      "lon": 110.75408181489811,
+      "lat": 19.623479406814287,
+      "source_pixel": [
+        29530,
+        48763
+      ],
+      "service_value": "2",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "wenchang",
+      "class": 5,
+      "lon": 110.75933641877661,
+      "lat": 19.617341340383568,
+      "source_pixel": [
+        29585,
+        48831
+      ],
+      "service_value": "5",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "wenchang",
+      "class": 7,
+      "lon": 110.75494495654326,
+      "lat": 19.620317631511636,
+      "source_pixel": [
+        29539,
+        48798
+      ],
+      "service_value": "7",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "wuzhishan",
+      "class": 2,
+      "lon": 109.50638660047173,
+      "lat": 18.766348297906273,
+      "source_pixel": [
+        16365,
+        58183
+      ],
+      "service_value": "2",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "wuzhishan",
+      "class": 7,
+      "lon": 109.50985787109141,
+      "lat": 18.7707130285309,
+      "source_pixel": [
+        16402,
+        58135
+      ],
+      "service_value": "7",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "sanya",
+      "class": 2,
+      "lon": 109.50484195784038,
+      "lat": 18.25699448171962,
+      "source_pixel": [
+        16302,
+        63820
+      ],
+      "service_value": "2",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "sanya",
+      "class": 7,
+      "lon": 109.50150729086143,
+      "lat": 18.25985988702163,
+      "source_pixel": [
+        16267,
+        63788
+      ],
+      "service_value": "7",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "ledong",
+      "class": 2,
+      "lon": 109.16244845831501,
+      "lat": 18.75054545026843,
+      "source_pixel": [
+        12737,
+        58324
+      ],
+      "service_value": "2",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "ledong",
+      "class": 5,
+      "lon": 109.15727147388118,
+      "lat": 18.74697118046223,
+      "source_pixel": [
+        12682,
+        58363
+      ],
+      "service_value": "5",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "ledong",
+      "class": 7,
+      "lon": 109.16233994413497,
+      "lat": 18.751809174211065,
+      "source_pixel": [
+        12736,
+        58310
+      ],
+      "service_value": "7",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "dongfang",
+      "class": 5,
+      "lon": 108.64651660822642,
+      "lat": 19.103775225784556,
+      "source_pixel": [
+        7348,
+        54349
+      ],
+      "service_value": "5",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "dongfang",
+      "class": 7,
+      "lon": 108.65360833380258,
+      "lat": 19.099440289304805,
+      "source_pixel": [
+        7422,
+        54398
+      ],
+      "service_value": "7",
+      "same_class": true,
+      "status": "ok"
+    },
+    {
+      "place": "qionghai",
+      "class": 7,
+      "lon": 110.46280851870306,
+      "lat": 19.25007201874476,
+      "source_pixel": [
+        26463,
+        52888
+      ],
+      "service_value": "7",
+      "same_class": true,
+      "status": "ok"
+    }
+  ],
+  "sample_design": "Eight named main-island locations; up to one native pixel in each observed class2/5/7 per 128x128 local window. This is a spatially distributed source consistency test, not classification accuracy.",
+  "classification_caution": "Crops vs ESA WorldCover Cropland differ substantially. Cross-product areas are not land-use change. No actual crop/land tenure assertions.",
+  "matched": 15,
+  "checked": 15
+}

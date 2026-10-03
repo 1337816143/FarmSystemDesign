@@ -1,0 +1,55 @@
+{
+  "id": "rain-2025-xisha",
+  "kind": "rain",
+  "bounds_wsen": [
+    111.00000433623791,
+    15.499999336898327,
+    113.10000436753035,
+    17.599999368190765
+  ],
+  "width": 42,
+  "height": 42,
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "preview": "rain-2025-xisha-preview.png",
+  "values": "rain-2025-xisha-values.png",
+  "value_encoding": {
+    "formula": "(red + 256 * green - 0) / 10",
+    "nodata": "alpha == 0",
+    "units": "mm/year"
+  },
+  "coverage": {
+    "denominator": "all cells in this rectangular geographic query window; includes sea and sometimes other jurisdictions; not provincial land completeness",
+    "grid_cells": 1764,
+    "valid_cells": 0,
+    "nodata_cells": 1764,
+    "valid_percent": 0.0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable: this environmental product has no cloud class"
+  },
+  "statistics": {
+    "min": null,
+    "max": null,
+    "mean": null
+  },
+  "status": "unavailable-no-prediction",
+  "sha256": {
+    "preview": "8dfb8e2d7aaf21a343ce5593cfb7cc246d94ffaf609ccc4e0da8cd08584a3d82",
+    "values": "8dfb8e2d7aaf21a343ce5593cfb7cc246d94ffaf609ccc4e0da8cd08584a3d82",
+    "geotiff": "5fc82c984a57bb32cde65c6ec5874d410ac35a11ef496a521f3895a6f8f3e4bd"
+  },
+  "geotiff": "rain-2025-xisha.tif",
+  "aoi": "xisha",
+  "group": "xisha",
+  "level": "native-grid-window",
+  "native_resolution_degrees": 0.05,
+  "nominal_resolution_km": 5.5,
+  "period": "2025-01-01/2025-12-31",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "spatial_warning": "Native cells are approximately 5.5 km. Window may be grid-aligned beyond the requested bbox. Not island-scale or parcel rainfall; no interpolation over ocean nodata.",
+  "raster_scale": 1,
+  "raster_offset": 0
+}
