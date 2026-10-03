@@ -65,13 +65,32 @@ def verify_pareto(browser,url,out,check):
     ids=[c['id'] for c in first['candidates']];original_hash=first['inputHash'];original_config=first['config'];digest=accounting_digest(first)
     pages=(len(ids)+35)//36;target=first['candidates'][(pages-1)*36]
     del first;gc.collect()
+    stage='same-page lower-bound normalization'
+    page.locator('tr[data-candidate]').nth(1).locator('button').click()
+    page.locator('#candidate-page').fill('0');page.locator('#candidate-page').dispatch_event('change')
+    check('below-range page normalizes without resetting same-page selection',page.locator('#candidate-page').input_value()=='1' and page.locator('tr.selected-row').get_attribute('data-candidate')==ids[1])
     stage='later-page navigation and selection'
     page.locator('[data-action="next-candidates"]').click()
     check('next page exposes candidates beyond the first 36',page.locator('tr[data-candidate]').first.get_attribute('data-candidate')==ids[36])
+    stage='native page-number Enter and blur'
+    page.locator('#candidate-page').fill('3');page.locator('#candidate-page').press('Enter');page.keyboard.press('Tab')
+    check('Enter followed by blur commits the requested page without a reentrant render',page.locator('#candidate-page').input_value()=='3' and page.locator('tr[data-candidate]').first.get_attribute('data-candidate')==ids[72])
+    page.locator('#candidate-page').fill('4');page.locator('#candidate-page').press('Tab')
+    check('blur commits the requested page without a reentrant render',page.locator('#candidate-page').input_value()=='4' and page.locator('tr[data-candidate]').first.get_attribute('data-candidate')==ids[108])
+    page.locator('tr[data-candidate]').nth(1).locator('button').click()
+    for _ in range(2):
+        page.locator('#candidate-page').fill('4');page.locator('#candidate-page').dispatch_event('change')
+        page.locator('#candidate-page').press('Enter');page.locator('#candidate-page').press('Tab')
+    check('repeated same-page changes preserve the selected candidate',page.locator('tr.selected-row').get_attribute('data-candidate')==ids[109])
+    page.locator('#candidate-page').fill('4.8');page.locator('#candidate-page').dispatch_event('change')
+    check('fractional same-page input normalizes without resetting selection',page.locator('#candidate-page').input_value()=='4' and page.locator('tr.selected-row').get_attribute('data-candidate')==ids[109])
+    stage='focused input adversarial change dispatch'
     page.locator('#candidate-page').fill(str(pages));page.locator('#candidate-page').dispatch_event('change')
     check('direct last-page access preserves all remaining candidates',page.locator('tr[data-candidate]').count()==len(ids)%36 and page.locator('[data-action="next-candidates"]').is_disabled())
     page.locator(f'tr[data-candidate="{target["id"]}"] button').click()
     check('late-page selection updates both table and chart',page.locator('tr.selected-row').get_attribute('data-candidate')==target['id'] and page.locator(f'.pareto-chart [data-candidate="{target["id"]}"]').get_attribute('r')=='7')
+    page.locator('#candidate-page').fill('999');page.locator('#candidate-page').dispatch_event('change')
+    check('above-range last-page input normalizes without another render',page.locator('#candidate-page').input_value()==str(pages) and page.locator('tr.selected-row').get_attribute('data-candidate')==target['id'])
     page.screenshot(path=str(out/'pareto-last-page.png'),full_page=True)
     stage='preference switching and reranked export'
     ranking_ms=[]
@@ -128,6 +147,67 @@ def verify_pareto(browser,url,out,check):
     finally:
         write_metrics()
         context.close()
+
+    verify_pareto_stress(browser,url,out,record_check)
+
+
+def verify_pareto_stress(browser,url,out,check):
+    """Bounded high-frontier case in its own workspace; keep only compact evidence."""
+    context=browser.new_context(viewport={'width':1440,'height':1050},accept_downloads=True)
+    page=context.new_page();stage='stress initialization';errors=[]
+    metrics={'case':'water2-labour2','errors':errors}
+    report_path=out/'pareto-browser-metrics.json'
+    def write_metrics():
+        report=json.loads(report_path.read_text(encoding='utf-8')) if report_path.exists() else {}
+        report['stress']=metrics
+        report_path.write_text(json.dumps(report,indent=2),encoding='utf-8')
+    def page_error(error):
+        detail={'message':str(error),'stack':getattr(error,'stack',''),'stage':stage,'url':page.url}
+        errors.append(detail);print('PARETO_STRESS_ERROR '+json.dumps(detail,ensure_ascii=False),flush=True);write_metrics()
+    page.on('pageerror',page_error)
+    try:
+        page.goto(url.rstrip('/')+'/#data',wait_until='networkidle')
+        page.wait_for_selector('[data-action="export-weather"]:not([disabled])')
+        page.locator('nav [data-nav="planner"]').click()
+        for control in ['water','labour']:
+            page.locator('#'+control).fill('200');page.locator('#'+control).dispatch_event('input');page.locator('#'+control).dispatch_event('change')
+        metrics['longTaskObserverSupported']=page.evaluate("""() => {window.paretoStressLongTasks=[];const supported=Boolean(window.PerformanceObserver&&PerformanceObserver.supportedEntryTypes.includes('longtask'));if(supported){window.paretoStressObserver=new PerformanceObserver(list=>window.paretoStressLongTasks.push(...list.getEntries().map(e=>({startMs:e.startTime,durationMs:e.duration}))));window.paretoStressObserver.observe({type:'longtask'});}return supported;}"""
+        )
+        stage='stress search and first render';started=time.monotonic()
+        page.locator('[data-action="run"]').first.click();page.wait_for_selector('[data-action="save-plan"]',timeout=90000)
+        metrics['searchAndFirstRenderMs']=round((time.monotonic()-started)*1000)
+        check('stress frontier initially renders at most 36 rows and points',page.locator('tr[data-candidate]').count()==36 and page.locator('.pareto-chart [data-candidate]').count()==36)
+        stage='stress complete export';started=time.monotonic()
+        with page.expect_download(timeout=90000) as event:page.locator('[data-action="export-results"]').click()
+        metrics['exportReadyMs']=round((time.monotonic()-started)*1000)
+        stage='stress immediate page interaction after export';interaction_start=time.monotonic()
+        page.locator('[data-action="next-candidates"]').click(timeout=5000)
+        check('stress page controls respond immediately after full export',page.locator('#candidate-page').input_value()=='2' and page.locator('tr[data-candidate]').count()==36)
+        metrics['pageInteractionAfterExportMs']=round((time.monotonic()-interaction_start)*1000)
+        second_page_id=page.locator('tr[data-candidate]').first.get_attribute('data-candidate')
+        stage='stress full JSON parse';path=out/'pareto-stress-temporary.json'
+        try:
+            event.value.save_as(str(path));metrics['compactExportBytes']=path.stat().st_size
+            with path.open(encoding='utf-8') as stream:result=json.load(stream)
+        finally:
+            path.unlink(missing_ok=True)
+        metrics['exportDownloadAndParseMs']=round((time.monotonic()-started)*1000)
+        ids=[candidate['id'] for candidate in result['candidates']]
+        check('stress export retains all 2536 complete unique candidates',result['evaluated']==3561 and result['feasibleCount']==3561 and result['frontierCount']==2536 and len(ids)==len(set(ids))==2536 and all(c['feasible'] and c['allocation'] and c['totals'] and c['farms'] and c['plots'] for c in result['candidates']))
+        check('stress paging reaches the corresponding full-export candidate',second_page_id==ids[36])
+        metrics.update(evaluated=result['evaluated'],feasible=result['feasibleCount'],frontier=result['frontierCount'],candidateIds=ids,candidateIdsSha256=hashlib.sha256('\n'.join(ids).encode()).hexdigest())
+        del result;gc.collect()
+        stage='stress preference and last page';started=time.monotonic();page.select_option('#objective','water')
+        check('stress preference switch preserves selected candidate',page.locator('tr.selected-row').get_attribute('data-candidate')==second_page_id and page.locator('tr[data-candidate]').count()<=36)
+        metrics['preferenceAndRenderMs']=round((time.monotonic()-started)*1000)
+        page.locator('#candidate-page').fill('71');page.locator('#candidate-page').dispatch_event('change')
+        check('stress final page exposes remaining 16 candidates',page.locator('tr[data-candidate]').count()==16 and page.locator('[data-action="next-candidates"]').is_disabled())
+        metrics['mainThreadLongTasks']=page.evaluate('window.paretoStressLongTasks')
+        metrics['maxMainThreadTaskMs']=max((task['durationMs'] for task in metrics['mainThreadLongTasks']),default=0)
+        write_metrics()
+        check('stress full-frontier browser workflow has no JavaScript errors',not errors)
+    finally:
+        metrics['lastStage']=stage;write_metrics();context.close()
 
 
 if __name__=='__main__':
