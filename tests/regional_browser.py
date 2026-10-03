@@ -61,8 +61,8 @@ with sync_playwright() as p:
   page.locator('#coverage-object-points').uncheck();panel.locator('summary').click()
   page.locator('#atlas-sansha-boundaries').check();page.wait_for_function("document.querySelectorAll('#hainan-atlas-map path.leaflet-interactive').length===1")
   check('Sansha is a separate partial reference','部分范围' in page.locator('.atlas-aside').inner_text());page.locator('#atlas-sansha-boundaries').uncheck()
-  page.locator('#atlas-region').select_option('xisha');page.wait_for_function("document.querySelector('#atlas-runtime-coverage').textContent.includes('无本地概览')",timeout=30000)
-  check('no overview is explained separately from source completeness','12级' in page.locator('#atlas-runtime-coverage').inner_text())
+  page.locator('#atlas-region').select_option('xisha');page.wait_for_function("document.querySelector('#atlas-load-label').hidden && !document.querySelector('#hainan-atlas-map').classList.contains('leaflet-zoom-anim') && document.querySelector('#hainan-atlas-map canvas[data-coverage-status=\"no-overview\"]')",timeout=30000)
+  check('no overview is explained separately from source completeness','12级' in page.locator('#atlas-runtime-coverage').inner_text() and ('没有本地预览' in page.locator('#atlas-runtime-coverage').inner_text() or '没有本地概览' in page.locator('#atlas-runtime-coverage').inner_text()))
   # Independent native source windows around opposite sides and center of Hainan.
   for place in ['haikou','sanya','danzhou','wuzhishan','wenchang','yongxing','yongshu','zhubi','huangyan']:
    choose('imagery',place,native=True)
