@@ -34,3 +34,13 @@ jobs:
           name: regional-candidate-browser-evidence
           path: test-results
           retention-days: 14
+      - name: Preserve a compact mainland UI review bundle
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: hainan-mainland-ui-evidence
+          path: |
+            test-results/hainan-home-desktop.png
+            test-results/regional/mainland-*.png
+            test-results/regional/report.json
+          retention-days: 14

@@ -1,0 +1,1913 @@
+{
+  "samples": [
+    {
+      "id": "haikou",
+      "group": "main",
+      "point": [
+        110.33,
+        20.020000000000003
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": 15.623513221740723,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-02",
+            "value": 20.507617950439453,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-03",
+            "value": 52.584739685058594,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-04",
+            "value": 96.5962142944336,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-05",
+            "value": 231.86849975585938,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-06",
+            "value": 338.7024841308594,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-07",
+            "value": 434.7198181152344,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-08",
+            "value": 403.0634460449219,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-09",
+            "value": 383.85211181640625,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-10",
+            "value": 377.0184020996094,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-11",
+            "value": 120.29816436767578,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-12",
+            "value": 30.12679672241211,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 17.93000030517578,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-02",
+            "value": 19.049999237060547,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-03",
+            "value": 21.399999618530273,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-04",
+            "value": 24.940000534057617,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-05",
+            "value": 27.719999313354492,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-06",
+            "value": 28.559999465942383,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-07",
+            "value": 28.600000381469727,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-08",
+            "value": 28.280000686645508,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-09",
+            "value": 28.020000457763672,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-10",
+            "value": 26.270000457763672,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-11",
+            "value": 22.469999313354492,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-12",
+            "value": 20.90999984741211,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          }
+        ]
+      }
+    },
+    {
+      "id": "sanya",
+      "group": "main",
+      "point": [
+        109.495,
+        18.28
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": 5.709900379180908,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-02",
+            "value": 7.795697212219238,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-03",
+            "value": 11.538134574890137,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-04",
+            "value": 41.735572814941406,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-05",
+            "value": 220.60379028320312,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-06",
+            "value": 277.0057067871094,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-07",
+            "value": 200.22238159179688,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-08",
+            "value": 256.6498107910156,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-09",
+            "value": 259.8033752441406,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-10",
+            "value": 292.78936767578125,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-11",
+            "value": 96.99639892578125,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-12",
+            "value": 7.01710319519043,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 17.860000610351562,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-02",
+            "value": 20.559999465942383,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-03",
+            "value": 22.68000030517578,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-04",
+            "value": 25.450000762939453,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-05",
+            "value": 26.989999771118164,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-06",
+            "value": 27.15999984741211,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-07",
+            "value": 26.639999389648438,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-08",
+            "value": 26.780000686645508,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-09",
+            "value": 26.559999465942383,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-10",
+            "value": 24.579999923706055,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-11",
+            "value": 21.290000915527344,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-12",
+            "value": 20.690000534057617,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          }
+        ]
+      }
+    },
+    {
+      "id": "danzhou",
+      "group": "main",
+      "point": [
+        109.55000000000001,
+        19.535
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": 12.752893447875977,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-02",
+            "value": 14.516895294189453,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-03",
+            "value": 58.16630554199219,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-04",
+            "value": 162.14181518554688,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-05",
+            "value": 346.4053649902344,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-06",
+            "value": 333.4224853515625,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-07",
+            "value": 509.0556335449219,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-08",
+            "value": 396.3274841308594,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-09",
+            "value": 462.979248046875,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-10",
+            "value": 432.049560546875,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-11",
+            "value": 78.58876037597656,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-12",
+            "value": 21.070812225341797,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 16.59000015258789,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-02",
+            "value": 19.8799991607666,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-03",
+            "value": 22.31999969482422,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-04",
+            "value": 26.270000457763672,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-05",
+            "value": 27.68000030517578,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-06",
+            "value": 27.850000381469727,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-07",
+            "value": 27.3799991607666,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-08",
+            "value": 27.219999313354492,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-09",
+            "value": 26.809999465942383,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-10",
+            "value": 24.420000076293945,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-11",
+            "value": 20.219999313354492,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-12",
+            "value": 19.459999084472656,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          }
+        ]
+      }
+    },
+    {
+      "id": "wuzhishan",
+      "group": "main",
+      "point": [
+        109.545,
+        18.799999999999997
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": 16.046873092651367,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-02",
+            "value": 3.9233884811401367,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-03",
+            "value": 20.457660675048828,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-04",
+            "value": 145.62120056152344,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-05",
+            "value": 520.340576171875,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-06",
+            "value": 420.9255065917969,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-07",
+            "value": 214.1481170654297,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-08",
+            "value": 399.6565856933594,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-09",
+            "value": 391.0965576171875,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-10",
+            "value": 366.4603271484375,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-11",
+            "value": 22.41878890991211,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-12",
+            "value": 5.178666591644287,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 15.289999961853027,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-02",
+            "value": 19.200000762939453,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-03",
+            "value": 21.790000915527344,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-04",
+            "value": 25.290000915527344,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-05",
+            "value": 26.260000228881836,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-06",
+            "value": 26.15999984741211,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-07",
+            "value": 25.780000686645508,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-08",
+            "value": 25.639999389648438,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-09",
+            "value": 25.40999984741211,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-10",
+            "value": 22.979999542236328,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-11",
+            "value": 19.06999969482422,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-12",
+            "value": 18.540000915527344,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          }
+        ]
+      }
+    },
+    {
+      "id": "wenchang",
+      "group": "main",
+      "point": [
+        110.765,
+        19.615000000000002
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": 20.178401947021484,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-02",
+            "value": 24.724987030029297,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-03",
+            "value": 50.907875061035156,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-04",
+            "value": 116.31175231933594,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-05",
+            "value": 253.25192260742188,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-06",
+            "value": 290.3099060058594,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-07",
+            "value": 264.79278564453125,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-08",
+            "value": 387.72625732421875,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-09",
+            "value": 393.97003173828125,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-10",
+            "value": 416.7275695800781,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-11",
+            "value": 196.63299560546875,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-12",
+            "value": 33.70098114013672,
+            "units": "mm/month",
+            "status": "native-coarse-grid-context"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 18.040000915527344,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-02",
+            "value": 19.65999984741211,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-03",
+            "value": 21.809999465942383,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-04",
+            "value": 24.989999771118164,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-05",
+            "value": 27.90999984741211,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-06",
+            "value": 28.40999984741211,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-07",
+            "value": 28.3700008392334,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-08",
+            "value": 27.979999542236328,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-09",
+            "value": 27.65999984741211,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-10",
+            "value": 25.780000686645508,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-11",
+            "value": 22.260000228881836,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          },
+          {
+            "period": "2025-12",
+            "value": 21.049999237060547,
+            "units": "°C",
+            "status": "native-coarse-grid-context"
+          }
+        ]
+      }
+    },
+    {
+      "id": "xidao",
+      "group": "main",
+      "point": [
+        109.3725,
+        18.2375
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": 5.376399993896484,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-02",
+            "value": 7.841058731079102,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-03",
+            "value": 15.894598007202148,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-04",
+            "value": 41.98804473876953,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-05",
+            "value": 199.11080932617188,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-06",
+            "value": 277.4057922363281,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-07",
+            "value": 175.128173828125,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-08",
+            "value": 257.1260681152344,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-09",
+            "value": 240.71316528320312,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-10",
+            "value": 272.5599060058594,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-11",
+            "value": 96.35724639892578,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-12",
+            "value": 6.923206806182861,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 20.93000030517578,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-02",
+            "value": 21.719999313354492,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-03",
+            "value": 23.09000015258789,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-04",
+            "value": 25.59000015258789,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-05",
+            "value": 28.299999237060547,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-06",
+            "value": 29.040000915527344,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-07",
+            "value": 28.68000030517578,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-08",
+            "value": 28.739999771118164,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-09",
+            "value": 28.3799991607666,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-10",
+            "value": 27.110000610351562,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-11",
+            "value": 24.450000762939453,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-12",
+            "value": 23.510000228881836,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yongxing",
+      "group": "xisha",
+      "point": [
+        112.34,
+        16.83
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-02",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-03",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-04",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-05",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-06",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-07",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-08",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-09",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-10",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-11",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-12",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 23.09000015258789,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-02",
+            "value": 23.450000762939453,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-03",
+            "value": 25.010000228881836,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-04",
+            "value": 26.809999465942383,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-05",
+            "value": 29.18000030517578,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-06",
+            "value": 29.06999969482422,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-07",
+            "value": 29.450000762939453,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-08",
+            "value": 28.899999618530273,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-09",
+            "value": 28.790000915527344,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-10",
+            "value": 28.1299991607666,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-11",
+            "value": 26.510000228881836,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-12",
+            "value": 25.350000381469727,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yongshu",
+      "group": "nansha",
+      "point": [
+        112.96000000000001,
+        9.575
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-02",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-03",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-04",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-05",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-06",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-07",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-08",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-09",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-10",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-11",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-12",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 27.09000015258789,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-02",
+            "value": 26.5,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-03",
+            "value": 27.670000076293945,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-04",
+            "value": 28.450000762939453,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-05",
+            "value": 29.1200008392334,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-06",
+            "value": 28.690000534057617,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-07",
+            "value": 28.469999313354492,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-08",
+            "value": 28.6299991607666,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-09",
+            "value": 28.350000381469727,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-10",
+            "value": 28.290000915527344,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-11",
+            "value": 28.1200008392334,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-12",
+            "value": 27.700000762939453,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          }
+        ]
+      }
+    },
+    {
+      "id": "zhubi",
+      "group": "nansha",
+      "point": [
+        114.075,
+        10.915
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-02",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-03",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-04",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-05",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-06",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-07",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-08",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-09",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-10",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-11",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-12",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 27.3700008392334,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-02",
+            "value": 26.790000915527344,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-03",
+            "value": 27.56999969482422,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-04",
+            "value": 28.479999542236328,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-05",
+            "value": 29.110000610351562,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-06",
+            "value": 28.760000228881836,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-07",
+            "value": 28.59000015258789,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-08",
+            "value": 28.469999313354492,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-09",
+            "value": 28.3799991607666,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-10",
+            "value": 28.309999465942383,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-11",
+            "value": 28.110000610351562,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-12",
+            "value": 27.950000762939453,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          }
+        ]
+      }
+    },
+    {
+      "id": "huangyan",
+      "group": "zhongsha",
+      "point": [
+        117.795,
+        15.145
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": 78.65576171875,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-02",
+            "value": 9.076940536499023,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-03",
+            "value": 0.3020310401916504,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-04",
+            "value": 21.644771575927734,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-05",
+            "value": 360.24029541015625,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-06",
+            "value": 522.8895263671875,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-07",
+            "value": 660.3438720703125,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-08",
+            "value": 367.3889465332031,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-09",
+            "value": 572.6007080078125,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-10",
+            "value": 370.22869873046875,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-11",
+            "value": 183.4425506591797,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-12",
+            "value": 6.223050117492676,
+            "units": "mm/month",
+            "status": "coarse-grid-context-not-island-estimate"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 26.459999084472656,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-02",
+            "value": 26.309999465942383,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-03",
+            "value": 27.31999969482422,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-04",
+            "value": 28.6299991607666,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-05",
+            "value": 29.90999984741211,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-06",
+            "value": 28.920000076293945,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-07",
+            "value": 28.799999237060547,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-08",
+            "value": 28.510000228881836,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-09",
+            "value": 28.43000030517578,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-10",
+            "value": 28.719999313354492,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-11",
+            "value": 28.450000762939453,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-12",
+            "value": 27.739999771118164,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          }
+        ]
+      }
+    },
+    {
+      "id": "way-297689140",
+      "group": "targeted-offshore",
+      "point": [
+        113.03155290513118,
+        19.54480855
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-02",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-03",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-04",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-05",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-06",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-07",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-08",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-09",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-10",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-11",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-12",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 21.469999313354492,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-02",
+            "value": 21.739999771118164,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-03",
+            "value": 23.389999389648438,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-04",
+            "value": 25.139999389648438,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-05",
+            "value": 28.40999984741211,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-06",
+            "value": 28.979999542236328,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-07",
+            "value": 29.5,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-08",
+            "value": 29.31999969482422,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-09",
+            "value": 28.90999984741211,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-10",
+            "value": 27.75,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-11",
+            "value": 25.459999084472656,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-12",
+            "value": 23.520000457763672,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          }
+        ]
+      }
+    },
+    {
+      "id": "way-297689336",
+      "group": "targeted-offshore",
+      "point": [
+        113.88697655010324,
+        19.1761097
+      ],
+      "point_role": "geographic representative point, not measured station",
+      "variables": {
+        "precipitation": [
+          {
+            "period": "2025-01",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-02",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-03",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-04",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-05",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-06",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-07",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-08",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-09",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-10",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-11",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          },
+          {
+            "period": "2025-12",
+            "value": null,
+            "units": "mm/month",
+            "status": "unavailable-no-source-value"
+          }
+        ],
+        "temperature": [
+          {
+            "period": "2025-01",
+            "value": 22.0,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-02",
+            "value": 22.229999542236328,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-03",
+            "value": 23.760000228881836,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-04",
+            "value": 25.219999313354492,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-05",
+            "value": 28.81999969482422,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-06",
+            "value": 29.059999465942383,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-07",
+            "value": 29.479999542236328,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-08",
+            "value": 29.270000457763672,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-09",
+            "value": 28.889999389648438,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-10",
+            "value": 27.979999542236328,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-11",
+            "value": 25.90999984741211,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          },
+          {
+            "period": "2025-12",
+            "value": 24.06999969482422,
+            "units": "°C",
+            "status": "coarse-grid-context-not-island-estimate"
+          }
+        ]
+      }
+    }
+  ],
+  "note": "These points report containing source cells. Tiny island land/weather is not isolated by a coarse grid; no nearby-land substitutions are made."
+}

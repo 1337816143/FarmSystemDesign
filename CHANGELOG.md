@@ -1,3 +1,10 @@
+## v0.3.11 — Hainan Data Map (2026-10-03)
+
+- Opens the provincial data map directly, with full-island/detail controls and explicit source versus display resolution.
+- Displays continuous mainland classification and surface-elevation tiles locally; preserves cloud, source-zero and prediction-gap semantics.
+- Retains accepted satellite pixels during slow or failed reads and retries missing work in place.
+- Preserves the research routes, FTW geometries and farm model.
+
 ## v0.3.10 — Hainan Coverage Register (2026-10-03)
 
 - Adds a browsable register of selected source grids, verified preview windows and named OSM objects, with sparse sample evidence kept distinct from whole-island coverage.

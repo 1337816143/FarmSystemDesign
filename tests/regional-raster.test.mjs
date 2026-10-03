@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 import {
-  CLEAR_SCL, acceptedSclPixel, createRegionalRasterLayer, intersects, pixelIndex, rasterPriority,
+  CLEAR_SCL, acceptedSclPixel, createRegionalRasterLayer, intersects, localRasterRecords, pixelIndex, rasterPriority,
   sourceProjection, tileBounds, tileLonLat, waitForRaster,
 } from '../src/regional-raster.js';
 
@@ -70,6 +70,17 @@ test('raster priority prefers native detail, then the smaller equal-resolution n
   }
 });
 
+test('explicit local zoom bands avoid detailed tile fans at low zoom and preserve legacy records',()=>{
+ const coords={x:3303,y:1815,z:12},bounds=tileBounds(coords);
+ const record=(id,extra={})=>({id,bounds_wsen:bounds,pixel_size_degrees:[.0003,.0003],...extra});
+ const records=[record('overview',{max_zoom:11}),record('detail',{min_zoom:12,max_zoom:14}),record('future',{min_zoom:15}),record('legacy')];
+ assert.deepEqual(localRasterRecords(records,coords).map(r=>r.id),['detail','legacy']);
+ assert.deepEqual(localRasterRecords(records,{...coords,x:Math.floor(coords.x/2),y:Math.floor(coords.y/2),z:11}).map(r=>r.id),['overview','legacy']);
+ assert.deepEqual(localRasterRecords(records,{...coords,x:coords.x*4,y:coords.y*4,z:14}).map(r=>r.id),['detail','legacy']);
+ const wide=record('wide',{pixel_size_degrees:[.0001,.001]}),square=record('square',{pixel_size_degrees:[.0002,.0002]});
+ assert.deepEqual([wide,square].sort(rasterPriority).map(r=>r.id),['square','wide'],'priority uses cell area, not only east-west resolution');
+});
+
 test('SCL accepts only 2/4/5/6 and preserves all other classes as rejected', () => {
   assert.deepEqual([...CLEAR_SCL].sort((a,b) => a-b), [2,4,5,6]);
   for (let value = 0; value <= 11; value++) {
@@ -110,6 +121,7 @@ test('waitForRaster abort settles a permanently pending operation immediately', 
   const alreadyAborted = new AbortController();
   alreadyAborted.abort();
   await assert.rejects(waitForRaster(new Promise(() => {}), alreadyAborted.signal), {name:'AbortError'});
+  await assert.rejects(waitForRaster(Promise.reject(new Error('late source failure')), alreadyAborted.signal), {name:'AbortError'});
 });
 
 test('waitForRaster retains ordinary results/errors and ignores late completion after abort', {timeout:1000}, async () => {
@@ -195,7 +207,7 @@ test('native COG source cap counts actual failures and emits an error instead of
     const result = await new Promise(resolve => layer.createTile(coords, (error,tile) => resolve({error,tile})));
     assert.match(result.error?.message || '', /All raster sources unavailable/);
     assert.equal(result.tile.dataset.validPixels, '0');
-    const coverage = layer.events.find(event => event.name === 'coverage').detail;
+    const coverage = layer.events.filter(event => event.name === 'coverage').at(-1).detail;
     assert.equal(coverage.attempts, 12);
     assert.equal(coverage.failures, 12);
     assert.equal(coverage.filled, 0);
@@ -219,10 +231,11 @@ test('cancelling a tile with stalled catalog releases its render slot without a 
   } finally { layer?.onRemove(); runtime.restore(); }
 });
 
-test('all 50 environmental records have hash-verified, correctly georeferenced actual PNGs', () => {
+test('all 160 environmental records have hash-verified, correctly georeferenced actual PNGs', () => {
   const records = Object.values(environment.layers).flatMap(layer => layer.previews);
-  assert.equal(records.length, 50);
-  assert.equal(new Set(records.map(r => r.file)).size, 50);
+  assert.equal(records.length, 160);
+  assert.equal(records.filter(r=>r.id.startsWith('dsm-main-native-')).length,110);
+  assert.equal(new Set(records.map(r => r.file)).size, 160);
   const checksums = readJson('environment/asset-checksums.json').files;
   for (const record of records) {
     assert.equal(record.preview_epsg, 4326, record.file);

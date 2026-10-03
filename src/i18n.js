@@ -10,6 +10,21 @@ const ATTRIBUTES = ['aria-label', 'title', 'placeholder', 'alt'];
 
 // Reviewed research terms take precedence over the generated draft catalog.
 const REVIEWED = {
+  "本岛连续约30m；低缩放247m概览": "Continuous mainland ~30m; 247m overview at low zoom",
+  "本岛已接入连续110块约30m地表高程，包含植被/建筑；源零值与缺测分别保留，三沙仍有缺口。": "110 continuous ~30m mainland elevation tiles are available, including vegetation/buildings. Source zeros and missing values remain separate; Sansha gaps remain.",
+
+  "首页直接打开海南数据地图，提供全岛与来源细节入口、当前显示尺度和逐层加载状态": "The homepage opens the Hainan data map with island/detail views, current display resolution and per-layer loading status",
+  "本岛2025分类与30m地表高程按连续本地分块显示，保留来源零值和预测缺口": "Local continuous tiles display 2025 mainland classification and 30 m surface elevation, preserving source zeros and prediction gaps",
+  "卫星读取逐步显示有效像元，超时保留已读成果，失败可原位重试": "Satellite reads progressively display accepted pixels, retain partial results on timeout and retry in place",
+  "原FTW预测边界、研究路线和农场假设模型继续保留": "Original FTW predictions, research routes and hypothetical farm model remain available",
+
+  "海南数据地图": "Hainan data map",
+  "案例区空间与资源": "Case spatial resources",
+  "卫星影像、土地覆盖、行政参照与环境图层；从海南本岛开始浏览。": "Satellite imagery, land cover, boundary references and environmental layers; start with Hainan Island.",
+  "打开案例农场地图": "Open the case farm map",
+  "打开海南数据地图": "Open the Hainan data map",
+  "当前是崖州案例窗口；海南本岛与离岛图层在数据地图。": "This is the local Yazhou case window. Hainan Island and offshore layers are in the data map.",
+
   "按172真实源图幅、11预览与137具名OSM对象分列覆盖证据，保留无值/排云/未核状态": "Coverage evidence separates172 true raster footprints,11 previews and137 named OSM objects, retaining no-value, cloud-screened and unverified states",
   "地图实时区分无概览、目录外、质量排除、源无值与请求/解码失败，并支持重试；定向补充两处原查询框遗漏和6处质量缺口": "Live map diagnostics separate absent overviews, catalog limits, quality rejection, no-value and read failures, with retry; targeted dates address two query omissions and six quality gaps",
   "新增真实三沙OSM父关系部分范围参考；不作为官方完整行政界或陆地掩膜": "Adds the actual Sansha OSM parent as a partial reference, not an official complete boundary or land mask",

@@ -1,0 +1,854 @@
+{
+  "pass": true,
+  "records_checked": 120,
+  "source_grid_fidelity": "Every CHIRPS output is pixel-for-pixel equal to source regional subset; every POWER monthly value matches its exact returned native cell. No gap filling or interpolation.",
+  "main_temperature_source_grid_cells": 30,
+  "main_temperature_months": 12,
+  "main_precipitation_source_grid_cells": 3240,
+  "main_precipitation_valid_cells_per_month": [
+    1597
+  ],
+  "delivered_bytes_excluding_validation_and_checksums": 2184329,
+  "checks": [
+    {
+      "id": "precipitation-2025-01-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1597
+    },
+    {
+      "id": "precipitation-2025-01-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-01-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-01-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4580
+    },
+    {
+      "id": "precipitation-2025-01-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-02-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1596
+    },
+    {
+      "id": "precipitation-2025-02-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-02-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-02-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4579
+    },
+    {
+      "id": "precipitation-2025-02-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-03-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1597
+    },
+    {
+      "id": "precipitation-2025-03-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-03-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 16
+    },
+    {
+      "id": "precipitation-2025-03-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4579
+    },
+    {
+      "id": "precipitation-2025-03-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-04-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1597
+    },
+    {
+      "id": "precipitation-2025-04-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-04-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-04-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4580
+    },
+    {
+      "id": "precipitation-2025-04-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-05-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1597
+    },
+    {
+      "id": "precipitation-2025-05-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-05-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-05-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4580
+    },
+    {
+      "id": "precipitation-2025-05-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-06-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1596
+    },
+    {
+      "id": "precipitation-2025-06-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-06-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-06-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4579
+    },
+    {
+      "id": "precipitation-2025-06-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-07-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1597
+    },
+    {
+      "id": "precipitation-2025-07-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-07-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-07-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4578
+    },
+    {
+      "id": "precipitation-2025-07-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-08-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1597
+    },
+    {
+      "id": "precipitation-2025-08-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-08-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-08-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4579
+    },
+    {
+      "id": "precipitation-2025-08-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-09-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1597
+    },
+    {
+      "id": "precipitation-2025-09-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-09-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-09-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4579
+    },
+    {
+      "id": "precipitation-2025-09-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-10-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1597
+    },
+    {
+      "id": "precipitation-2025-10-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-10-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-10-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4580
+    },
+    {
+      "id": "precipitation-2025-10-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-11-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1597
+    },
+    {
+      "id": "precipitation-2025-11-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-11-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-11-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4579
+    },
+    {
+      "id": "precipitation-2025-11-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-12-main",
+      "pass": true,
+      "valid_cells": 1597,
+      "source_grid_cells": 3240,
+      "unique_valid_values": 1597
+    },
+    {
+      "id": "precipitation-2025-12-xisha",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 1764,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "precipitation-2025-12-zhongsha",
+      "pass": true,
+      "valid_cells": 21,
+      "source_grid_cells": 3528,
+      "unique_valid_values": 21
+    },
+    {
+      "id": "precipitation-2025-12-nansha",
+      "pass": true,
+      "valid_cells": 4580,
+      "source_grid_cells": 30600,
+      "unique_valid_values": 4579
+    },
+    {
+      "id": "precipitation-2025-12-targeted-offshore",
+      "pass": true,
+      "valid_cells": 0,
+      "source_grid_cells": 144,
+      "unique_valid_values": 0
+    },
+    {
+      "id": "temperature-2025-01-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 29
+    },
+    {
+      "id": "temperature-2025-02-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 30
+    },
+    {
+      "id": "temperature-2025-03-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 29
+    },
+    {
+      "id": "temperature-2025-04-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 27
+    },
+    {
+      "id": "temperature-2025-05-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 28
+    },
+    {
+      "id": "temperature-2025-06-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 28
+    },
+    {
+      "id": "temperature-2025-07-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 28
+    },
+    {
+      "id": "temperature-2025-08-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 29
+    },
+    {
+      "id": "temperature-2025-09-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 27
+    },
+    {
+      "id": "temperature-2025-10-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 29
+    },
+    {
+      "id": "temperature-2025-11-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 30
+    },
+    {
+      "id": "temperature-2025-12-main",
+      "pass": true,
+      "valid_cells": 30,
+      "source_grid_cells": 30,
+      "unique_valid_values": 30
+    },
+    {
+      "id": "temperature-2025-01-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 20
+    },
+    {
+      "id": "temperature-2025-02-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 19
+    },
+    {
+      "id": "temperature-2025-03-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 20
+    },
+    {
+      "id": "temperature-2025-04-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 19
+    },
+    {
+      "id": "temperature-2025-05-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 16
+    },
+    {
+      "id": "temperature-2025-06-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 12
+    },
+    {
+      "id": "temperature-2025-07-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 18
+    },
+    {
+      "id": "temperature-2025-08-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 16
+    },
+    {
+      "id": "temperature-2025-09-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 12
+    },
+    {
+      "id": "temperature-2025-10-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 18
+    },
+    {
+      "id": "temperature-2025-11-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 19
+    },
+    {
+      "id": "temperature-2025-12-xisha",
+      "pass": true,
+      "valid_cells": 20,
+      "source_grid_cells": 20,
+      "unique_valid_values": 20
+    },
+    {
+      "id": "temperature-2025-01-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 33
+    },
+    {
+      "id": "temperature-2025-02-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 33
+    },
+    {
+      "id": "temperature-2025-03-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 31
+    },
+    {
+      "id": "temperature-2025-04-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 34
+    },
+    {
+      "id": "temperature-2025-05-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 26
+    },
+    {
+      "id": "temperature-2025-06-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 16
+    },
+    {
+      "id": "temperature-2025-07-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 31
+    },
+    {
+      "id": "temperature-2025-08-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 26
+    },
+    {
+      "id": "temperature-2025-09-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 20
+    },
+    {
+      "id": "temperature-2025-10-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 22
+    },
+    {
+      "id": "temperature-2025-11-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 34
+    },
+    {
+      "id": "temperature-2025-12-zhongsha",
+      "pass": true,
+      "valid_cells": 36,
+      "source_grid_cells": 36,
+      "unique_valid_values": 35
+    },
+    {
+      "id": "temperature-2025-01-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 197
+    },
+    {
+      "id": "temperature-2025-02-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 177
+    },
+    {
+      "id": "temperature-2025-03-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 140
+    },
+    {
+      "id": "temperature-2025-04-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 135
+    },
+    {
+      "id": "temperature-2025-05-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 118
+    },
+    {
+      "id": "temperature-2025-06-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 111
+    },
+    {
+      "id": "temperature-2025-07-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 134
+    },
+    {
+      "id": "temperature-2025-08-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 117
+    },
+    {
+      "id": "temperature-2025-09-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 100
+    },
+    {
+      "id": "temperature-2025-10-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 101
+    },
+    {
+      "id": "temperature-2025-11-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 125
+    },
+    {
+      "id": "temperature-2025-12-nansha",
+      "pass": true,
+      "valid_cells": 285,
+      "source_grid_cells": 285,
+      "unique_valid_values": 188
+    },
+    {
+      "id": "temperature-2025-01-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 4
+    },
+    {
+      "id": "temperature-2025-02-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 4
+    },
+    {
+      "id": "temperature-2025-03-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 4
+    },
+    {
+      "id": "temperature-2025-04-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 4
+    },
+    {
+      "id": "temperature-2025-05-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 4
+    },
+    {
+      "id": "temperature-2025-06-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 3
+    },
+    {
+      "id": "temperature-2025-07-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 4
+    },
+    {
+      "id": "temperature-2025-08-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 3
+    },
+    {
+      "id": "temperature-2025-09-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 4
+    },
+    {
+      "id": "temperature-2025-10-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 4
+    },
+    {
+      "id": "temperature-2025-11-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 4
+    },
+    {
+      "id": "temperature-2025-12-targeted-offshore",
+      "pass": true,
+      "valid_cells": 4,
+      "source_grid_cells": 4,
+      "unique_valid_values": 4
+    }
+  ]
+}

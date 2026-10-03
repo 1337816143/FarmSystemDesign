@@ -1,6 +1,6 @@
 最新覆盖清单：见 [SPATIAL_COVERAGE_REGISTER.md](docs/SPATIAL_COVERAGE_REGISTER.md)。现为530景、172源图幅，另完成9处定向检查中的8处代表点读值补缺；南岛仍未通过质量规则。源图幅、具名OSM对象和整岛覆盖是不同概念，保留所有未核、质量和无值状态。
 
-# FarmSystem Design · v0.3.10
+# FarmSystem Design · v0.3.11
 
 **研究路线 → 数据审计 → 空间证据 → 约束核算 → 情景比较**
 

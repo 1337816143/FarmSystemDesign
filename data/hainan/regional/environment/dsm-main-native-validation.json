@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "verified_utc": "2026-10-03T09:05:56Z",
+  "metrics": {
+    "tile_count": 110,
+    "source_cell_comparisons": 104996521,
+    "value_png_checks": 104996521,
+    "preview_alpha_checks": 104996521,
+    "nodata_cells": 20752921,
+    "source_zero_cells": 44719396,
+    "min_elevation_m": -12.902971267700195,
+    "max_elevation_m": 1817.122802734375,
+    "max_png_quantization_error_m": 0.5,
+    "land_mask_sample_cells": 37564739,
+    "land_mask_sample_valid_cells": 37564739,
+    "land_mask_source_zero_cells": 77726,
+    "land_mask_valid_percent": 100.0
+  },
+  "mainland_land_mask_note": "Nearest-neighbor sample of existing inferred 100 m main-island mask at 30 m DSM pixel centers. This is an approximate mask audit, not official administrative land or province/Sansha completeness.",
+  "checks": [
+    "Every delivered float32 GeoTIFF cell exactly equals its source-aligned original COG-window cell or source absence (-9999).",
+    "All 110 chips exactly partition the aligned 10801 by 9721 grid without gaps or overlap.",
+    "All PNG numeric alpha masks equal GeoTIFF valid masks; decoded height differs by at most 0.5 m.",
+    "All preview alpha masks show exactly nonzero source-valid cells. Source ocean zero is not changed into missing numeric height.",
+    "Every delivered file hash and size matches the immutable asset checksum inventory."
+  ]
+}

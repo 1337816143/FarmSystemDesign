@@ -1,4 +1,5 @@
 {
+  "scope": "core-web-with-existing-base",
   "files": {
     "soil-ph-huangyan-preview.png": {
       "bytes": 121,
@@ -119,6 +120,10 @@
     "soil-ph-wenchang-values.png": {
       "bytes": 5281,
       "sha256": "5b007f8756029c87f22a233365384132fc3fbbbe846c3b31ccdf3d1f04a1801a"
+    },
+    "source-acquisition.json": {
+      "bytes": 1599,
+      "sha256": "b7a150c321019d10dd8b36010eda330afe87c7f01d92631efeda664a275f837a"
     },
     "rain-2025-yongshu-values.png": {
       "bytes": 69,
@@ -377,8 +382,8 @@
       "sha256": "359f0ff9739867d2ee4a1484f76ad238804025a29fc8325a0070175881c097fd"
     },
     "environment-manifest.json": {
-      "sha256": "1de8695f84b6704e17f8142beec8eaa55a67210b4229b80808a162d08dfef264",
-      "bytes": 187609
+      "bytes": 673728,
+      "sha256": "4472042c56909b0cf6c303409f29b0ab46974053a8d70b32f61787d82009d259"
     },
     "rain-2025-danzhou.json": {
       "bytes": 1849,
@@ -799,7 +804,1463 @@
     "rain-manifest.json": {
       "bytes": 30613,
       "sha256": "9ce8c9bc66d8c023334cbd675fce6213c816c6003837deed4c93e6517ea7c567"
+    },
+    "dsm-main-native-manifest.json": {
+      "bytes": 446393,
+      "sha256": "ba6448ca6cbc8ec0a81197aa9bc027e0ed49e64fec75a1ef858617241d75a1b4"
+    },
+    "dsm-main-native-coverage-preview.png": {
+      "bytes": 82245,
+      "sha256": "327f877a286151aac459d6300a71e383559a8fa63aea12f7c739d5653d7be314"
+    },
+    "dsm-main-native-coverage-status.tif": {
+      "bytes": 40574,
+      "sha256": "77a277d66a74bbbfd1f9182aef850c8acf6c6dd7de6900544c0c14e27bd1d155"
+    },
+    "dsm-main-native-coverage.json": {
+      "bytes": 1124,
+      "sha256": "f5bb5175e377fc30310075a8f00733a0e219edb16d922b7635415dbafb839b49"
+    },
+    "dsm-main-native-coverage.csv": {
+      "bytes": 30854,
+      "sha256": "6796d725028b2a1d34b566c191c982725987460e5a53020363a7df9104ecb136"
+    },
+    "dsm-main-native/dsm-main-native-r00-c00-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r00-c00-values.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r00-c01-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r00-c01-values.png": {
+      "bytes": 5695,
+      "sha256": "b55f6332dc3e498c15f1ab46787cf7c149d247b0b280389327edbd7be5c847ea"
+    },
+    "dsm-main-native/dsm-main-native-r00-c02-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r00-c02-values.png": {
+      "bytes": 5691,
+      "sha256": "d73bd7e83cc692f1d80c306acef3025881684e6cf287bc286284d5781e30134b"
+    },
+    "dsm-main-native/dsm-main-native-r00-c03-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r00-c03-values.png": {
+      "bytes": 5691,
+      "sha256": "d73bd7e83cc692f1d80c306acef3025881684e6cf287bc286284d5781e30134b"
+    },
+    "dsm-main-native/dsm-main-native-r00-c04-preview.png": {
+      "bytes": 65425,
+      "sha256": "badf91fd11bf1fb6d749e7496aa0fa8de27e7c5462c277c415dcc0b1dc882df0"
+    },
+    "dsm-main-native/dsm-main-native-r00-c04-values.png": {
+      "bytes": 42870,
+      "sha256": "ce51dfab8023641a0ecaa205a9f712da455feae8c15c755ca1f5d53cbfdc58c6"
+    },
+    "dsm-main-native/dsm-main-native-r00-c05-preview.png": {
+      "bytes": 630383,
+      "sha256": "e5ab114f27cdaa19dd1689b60fe7f566d56074a320e3d2aede6a47da4c667c10"
+    },
+    "dsm-main-native/dsm-main-native-r00-c05-values.png": {
+      "bytes": 379602,
+      "sha256": "08568f883a6504c6df589b1f31b64e439216dcbab80a3e07358ff54469b352bf"
+    },
+    "dsm-main-native/dsm-main-native-r00-c06-preview.png": {
+      "bytes": 515578,
+      "sha256": "189daabe10da1ba4542b5029dea133fb6c770bbfc5dec83c0dc1b157beb0b043"
+    },
+    "dsm-main-native/dsm-main-native-r00-c06-values.png": {
+      "bytes": 338690,
+      "sha256": "eb41c130ebc8f79086a74c629254f652a543e2c276f1b30d8af9dd94c250e7f9"
+    },
+    "dsm-main-native/dsm-main-native-r00-c07-preview.png": {
+      "bytes": 46456,
+      "sha256": "9a156b0d6dd9dd1d0d9a48d2ac0c94274d03e1dba1edaca6d2437e4567e43ef6"
+    },
+    "dsm-main-native/dsm-main-native-r00-c07-values.png": {
+      "bytes": 31944,
+      "sha256": "b8c5f73ba9fa916361b9f144d3e2a417cf917833fd150e8614a11f6a21d13dc6"
+    },
+    "dsm-main-native/dsm-main-native-r00-c08-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r00-c08-values.png": {
+      "bytes": 5699,
+      "sha256": "342a0d247631762eaee310fa1c664db16534de1324551af19000b210133bc373"
+    },
+    "dsm-main-native/dsm-main-native-r00-c09-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r00-c09-values.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r00-c10-preview.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r00-c10-values.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r01-c00-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r01-c00-values.png": {
+      "bytes": 4529,
+      "sha256": "97e0e9480474e654f00bdc4697bab976614d774d9107f7800a83d807753140c4"
+    },
+    "dsm-main-native/dsm-main-native-r01-c01-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r01-c01-values.png": {
+      "bytes": 5702,
+      "sha256": "ca97cda2edb0c868dc375094a25fc4bad9cb7a9f360e288331499ca857895b77"
+    },
+    "dsm-main-native/dsm-main-native-r01-c02-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r01-c02-values.png": {
+      "bytes": 5691,
+      "sha256": "d73bd7e83cc692f1d80c306acef3025881684e6cf287bc286284d5781e30134b"
+    },
+    "dsm-main-native/dsm-main-native-r01-c03-preview.png": {
+      "bytes": 61671,
+      "sha256": "e8ffd07a0c72b3f1ea6c609bcf1b22d22cbc6e7268fb7f6a8b5066d24f406855"
+    },
+    "dsm-main-native/dsm-main-native-r01-c03-values.png": {
+      "bytes": 41932,
+      "sha256": "e49a20f0dfa230bc219eb7afe3b7f0400623a53467256d1446ab6608d4cef907"
+    },
+    "dsm-main-native/dsm-main-native-r01-c04-preview.png": {
+      "bytes": 161612,
+      "sha256": "afd62acc9ff61cd3161c0e6951f4a6cae167868c0161f9417a897a301b90858f"
+    },
+    "dsm-main-native/dsm-main-native-r01-c04-values.png": {
+      "bytes": 98168,
+      "sha256": "8df9cd19370bbc483c769e746da9998a0f67e26f02da3efd7ef3c80558dfdaec"
+    },
+    "dsm-main-native/dsm-main-native-r01-c05-preview.png": {
+      "bytes": 211322,
+      "sha256": "9e38102befe98d6634fcab1637dc447399f732adbfb5d8af025ad98f0bc8ec72"
+    },
+    "dsm-main-native/dsm-main-native-r01-c05-values.png": {
+      "bytes": 127255,
+      "sha256": "0135e04cbad99cf8df61df162b03d9513d26c7d73ece199a5eaa7bb1423abd54"
+    },
+    "dsm-main-native/dsm-main-native-r01-c06-preview.png": {
+      "bytes": 410539,
+      "sha256": "89a4ddf5e7622d977f6021021a17a58dd7907da6616566ed237e16362362f144"
+    },
+    "dsm-main-native/dsm-main-native-r01-c06-values.png": {
+      "bytes": 251670,
+      "sha256": "295b4cad9ab5c595b473726c68479057956931d91b6ee1d932ad88d9ba155dfa"
+    },
+    "dsm-main-native/dsm-main-native-r01-c07-preview.png": {
+      "bytes": 445559,
+      "sha256": "674e0192c401d3a9fdaefa0631bd4fe9ba969dd9333a97d5748357bfa20ff96a"
+    },
+    "dsm-main-native/dsm-main-native-r01-c07-values.png": {
+      "bytes": 268065,
+      "sha256": "520c3db443ae043b8c0e71d80c2cbdeb96acbc34f44a2836b827573832093ac9"
+    },
+    "dsm-main-native/dsm-main-native-r01-c08-preview.png": {
+      "bytes": 166411,
+      "sha256": "7d48ca2369fa29ec4fee1ca623e576c01fb5728c596944dfdde9ab9a7d054c91"
+    },
+    "dsm-main-native/dsm-main-native-r01-c08-values.png": {
+      "bytes": 103239,
+      "sha256": "334f74c6183b0730bd20a67fc9e027201f3119b1207ad1d76662a0f82e28d17a"
+    },
+    "dsm-main-native/dsm-main-native-r01-c09-preview.png": {
+      "bytes": 5677,
+      "sha256": "3fe85e8441de5cda56322a613ae8dd70012aba34b53d14bde752ce77695647e9"
+    },
+    "dsm-main-native/dsm-main-native-r01-c09-values.png": {
+      "bytes": 5366,
+      "sha256": "97214db6e79234bc386d70de4c1a1089f239ad9b9760f22ac44d3ced1786fa69"
+    },
+    "dsm-main-native/dsm-main-native-r01-c10-preview.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r01-c10-values.png": {
+      "bytes": 2661,
+      "sha256": "02913e964f3204685e631862949fae4d8a0ea86ca43dc246771afa88de65c0b3"
+    },
+    "dsm-main-native/dsm-main-native-r02-c00-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r02-c00-values.png": {
+      "bytes": 5691,
+      "sha256": "d73bd7e83cc692f1d80c306acef3025881684e6cf287bc286284d5781e30134b"
+    },
+    "dsm-main-native/dsm-main-native-r02-c01-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r02-c01-values.png": {
+      "bytes": 5691,
+      "sha256": "d73bd7e83cc692f1d80c306acef3025881684e6cf287bc286284d5781e30134b"
+    },
+    "dsm-main-native/dsm-main-native-r02-c02-preview.png": {
+      "bytes": 429366,
+      "sha256": "61b53d0a92eb4795ca391b7d87ffe4d25ca979dd82fec3e62312fc7b555936ad"
+    },
+    "dsm-main-native/dsm-main-native-r02-c02-values.png": {
+      "bytes": 257329,
+      "sha256": "d7ae570b3243bc3f6a03a08fa7d0c73048f270c9b912d4867735bdde39461cd2"
+    },
+    "dsm-main-native/dsm-main-native-r02-c03-preview.png": {
+      "bytes": 751263,
+      "sha256": "7d640015c965d03ce8d49a6ac6e6c23377300d5cbb6fc11f9578878d7c5f5d35"
+    },
+    "dsm-main-native/dsm-main-native-r02-c03-values.png": {
+      "bytes": 461042,
+      "sha256": "52a68b4e26c465749a6f365c1f0fc350974ab0462b87e93c412d85b87369a3af"
+    },
+    "dsm-main-native/dsm-main-native-r02-c04-preview.png": {
+      "bytes": 817081,
+      "sha256": "a44d802e8d81c46af5f458e8d1aec73c715e944ff99fb3efd1ef7a4bca4c81f0"
+    },
+    "dsm-main-native/dsm-main-native-r02-c04-values.png": {
+      "bytes": 488607,
+      "sha256": "3b16606d6f27d4344a8476b440eb54b466d0ed1e76a658f1df4ead8b00e6a008"
+    },
+    "dsm-main-native/dsm-main-native-r02-c05-preview.png": {
+      "bytes": 905732,
+      "sha256": "7b60d2a75610ee8b0547ea7c4497d30adf9cef5289c5ff2fe48d86cc0b56a3bc"
+    },
+    "dsm-main-native/dsm-main-native-r02-c05-values.png": {
+      "bytes": 510963,
+      "sha256": "bca32e48eb084116f35c7ba6a81e5a2bf9d33949a261ba889738887dc169c8a0"
+    },
+    "dsm-main-native/dsm-main-native-r02-c06-preview.png": {
+      "bytes": 912476,
+      "sha256": "40e4722a0889c6381c05dcd54857ee75277354e50c1e971f2240fc53f76d7ef8"
+    },
+    "dsm-main-native/dsm-main-native-r02-c06-values.png": {
+      "bytes": 528136,
+      "sha256": "a154bd74a2d1365808cf04511b2bdde268a1b1ad4660a12361fadf3265c47546"
+    },
+    "dsm-main-native/dsm-main-native-r02-c07-preview.png": {
+      "bytes": 949438,
+      "sha256": "d0c25224a2c68b6b1f5f9c19dfb572963976aa64cd138ae51208e8434e27bdfe"
+    },
+    "dsm-main-native/dsm-main-native-r02-c07-values.png": {
+      "bytes": 552446,
+      "sha256": "19b40b375274af224acce17dc4edd4c8faf66c382625071d122795f035feee5d"
+    },
+    "dsm-main-native/dsm-main-native-r02-c08-preview.png": {
+      "bytes": 727569,
+      "sha256": "f22210fe2bdf69c09966611a8830bf4c589093a1ab0af22b7abe33e53321e1f9"
+    },
+    "dsm-main-native/dsm-main-native-r02-c08-values.png": {
+      "bytes": 426172,
+      "sha256": "3c593f03d35463309a72daa59886f6852b4bb559c9b765e4a5b705b84535cca7"
+    },
+    "dsm-main-native/dsm-main-native-r02-c09-preview.png": {
+      "bytes": 5642,
+      "sha256": "0b0124be6b578ef4a5952bd7a4bb850f85db00d861b08504f3e73e483230b573"
+    },
+    "dsm-main-native/dsm-main-native-r02-c09-values.png": {
+      "bytes": 6560,
+      "sha256": "f2f49ef9ae88e15753344e156c1075161b1ff9730f514c7ef314514608301224"
+    },
+    "dsm-main-native/dsm-main-native-r02-c10-preview.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r02-c10-values.png": {
+      "bytes": 3726,
+      "sha256": "c35bfcc8c918d02aa8c82f7a98305f2dec162340272ef728d1c1601fac7cc322"
+    },
+    "dsm-main-native/dsm-main-native-r03-c00-preview.png": {
+      "bytes": 32402,
+      "sha256": "cd36f1d0ac29338a051aff0f97616e70ed8d53c8cf48ab292f3c1b60b9d9a476"
+    },
+    "dsm-main-native/dsm-main-native-r03-c00-values.png": {
+      "bytes": 22630,
+      "sha256": "d595c09d586fe02796fd36ad7fbd00858b24cbb67989a1230bdc34aebaf2b453"
+    },
+    "dsm-main-native/dsm-main-native-r03-c01-preview.png": {
+      "bytes": 502502,
+      "sha256": "e4f486a81c08f606b0ceb451d163d16d4e0e9559be6b2be1a6556edd06ff67a0"
+    },
+    "dsm-main-native/dsm-main-native-r03-c01-values.png": {
+      "bytes": 293483,
+      "sha256": "dbfc72d4fc859da5a382cfa5299379c3fb1b56d460889a2698e22f74e3af1645"
+    },
+    "dsm-main-native/dsm-main-native-r03-c02-preview.png": {
+      "bytes": 795828,
+      "sha256": "6c6b58f7ae1dc76cd5d93b8070fad280572d03dc696f6ad9dbf71e1e816c6a12"
+    },
+    "dsm-main-native/dsm-main-native-r03-c02-values.png": {
+      "bytes": 588642,
+      "sha256": "cc9e7eb16a6c159be0ba628b3a5925a3fb8f306c7a8060798ef3be5e115d8d06"
+    },
+    "dsm-main-native/dsm-main-native-r03-c03-preview.png": {
+      "bytes": 543405,
+      "sha256": "b7f35eabd1d1452de70e10245d6f20d92f565fb09fd864c061a4e449d2980649"
+    },
+    "dsm-main-native/dsm-main-native-r03-c03-values.png": {
+      "bytes": 656273,
+      "sha256": "c710ed8fe43ec08d70086ac92d5ff46d6d0136afd6ba04ea1bf5839d7da6ba7f"
+    },
+    "dsm-main-native/dsm-main-native-r03-c04-preview.png": {
+      "bytes": 546970,
+      "sha256": "54758ce4c91f3a1f632e3bd3d0b8b082781a0f2ca558d9d55240df5da6513761"
+    },
+    "dsm-main-native/dsm-main-native-r03-c04-values.png": {
+      "bytes": 715037,
+      "sha256": "bc69d2b0f611785bd03717996a7e0149075afd0cf91ad9cb123f47384e652b74"
+    },
+    "dsm-main-native/dsm-main-native-r03-c05-preview.png": {
+      "bytes": 849385,
+      "sha256": "fdec95a2918a27debbc1aea0beb0fb6cd78f6658928a5bec86378b62eff90c79"
+    },
+    "dsm-main-native/dsm-main-native-r03-c05-values.png": {
+      "bytes": 714409,
+      "sha256": "d5ec8406b155c235958291363a23dd727b8e503bac80a2711918b731c29c6e8f"
+    },
+    "dsm-main-native/dsm-main-native-r03-c06-preview.png": {
+      "bytes": 911575,
+      "sha256": "a5e7d106ce182b536b8028d7350201aef5c3be88f226a9d329c6f151b1a34280"
+    },
+    "dsm-main-native/dsm-main-native-r03-c06-values.png": {
+      "bytes": 607122,
+      "sha256": "eb41bdec014d63a97e7e5551c35c986e28d8a01388ba2f62998d6faffc8aa2dd"
+    },
+    "dsm-main-native/dsm-main-native-r03-c07-preview.png": {
+      "bytes": 937829,
+      "sha256": "f0108d46ac3d706ee3fdac89d758e1c192bb73ade8e35640f8604af1d0a6aa0c"
+    },
+    "dsm-main-native/dsm-main-native-r03-c07-values.png": {
+      "bytes": 606249,
+      "sha256": "06d9d26aa8d2efa9c7b7a22c4946a5b1adfdf68ac7d107c61e584972d45f856a"
+    },
+    "dsm-main-native/dsm-main-native-r03-c08-preview.png": {
+      "bytes": 248758,
+      "sha256": "ddabbbcc1b447ec690b59afca92f85a45c6857224ed923dda297d9daba4f36f3"
+    },
+    "dsm-main-native/dsm-main-native-r03-c08-values.png": {
+      "bytes": 161969,
+      "sha256": "aa0e45fbf2df44e18b52dce8baf58b187572b337120976cd03c01a5219b7d47c"
+    },
+    "dsm-main-native/dsm-main-native-r03-c09-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r03-c09-values.png": {
+      "bytes": 5691,
+      "sha256": "d73bd7e83cc692f1d80c306acef3025881684e6cf287bc286284d5781e30134b"
+    },
+    "dsm-main-native/dsm-main-native-r03-c10-preview.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r03-c10-values.png": {
+      "bytes": 3726,
+      "sha256": "c35bfcc8c918d02aa8c82f7a98305f2dec162340272ef728d1c1601fac7cc322"
+    },
+    "dsm-main-native/dsm-main-native-r04-c00-preview.png": {
+      "bytes": 432173,
+      "sha256": "f3af88bbf405d413897d1fd825fecd8e43009e2d8af89dd468981ef8b3466348"
+    },
+    "dsm-main-native/dsm-main-native-r04-c00-values.png": {
+      "bytes": 257300,
+      "sha256": "1dbce635831237b7891904ab70d5121efaf53dd971ff4da41c2abee31c8e3a78"
+    },
+    "dsm-main-native/dsm-main-native-r04-c01-preview.png": {
+      "bytes": 829334,
+      "sha256": "595cde4a5bc3a6c531dd59b437630dbddb7eddd6c15417125ae9ca74d283ab7f"
+    },
+    "dsm-main-native/dsm-main-native-r04-c01-values.png": {
+      "bytes": 594307,
+      "sha256": "e34aae9a7da05ff0f8d9fc1dd5b140256f783a261d9dc0694731a6a47c36e3c3"
+    },
+    "dsm-main-native/dsm-main-native-r04-c02-preview.png": {
+      "bytes": 576033,
+      "sha256": "5fa49526aca875c928e2dd122a0c994f73ad784e41ca8c811596434662c3d83d"
+    },
+    "dsm-main-native/dsm-main-native-r04-c02-values.png": {
+      "bytes": 803439,
+      "sha256": "b9424f6e3f8348eec7864723a314bef28c59bb584a5e53f9f179d24c1f280871"
+    },
+    "dsm-main-native/dsm-main-native-r04-c03-preview.png": {
+      "bytes": 571841,
+      "sha256": "401f1b331a422b500e9f231bc3cf0b030744a827b3cb75e51f606a252d10c66a"
+    },
+    "dsm-main-native/dsm-main-native-r04-c03-values.png": {
+      "bytes": 818044,
+      "sha256": "384ff650db2092ce36dee3168728edc436d2e1cb2452426b98caaf52988609cf"
+    },
+    "dsm-main-native/dsm-main-native-r04-c04-preview.png": {
+      "bytes": 554524,
+      "sha256": "67e7bbf3bf69e696bd63ccf4ab6b7359d681870ff87a86a138e47879ba958549"
+    },
+    "dsm-main-native/dsm-main-native-r04-c04-values.png": {
+      "bytes": 799133,
+      "sha256": "3dc2c6fb378c3939d51dfba62794f103228288ce06b30c54d356b4506ffe60fe"
+    },
+    "dsm-main-native/dsm-main-native-r04-c05-preview.png": {
+      "bytes": 587115,
+      "sha256": "96c8ca1a7bbf76538d17c17210f88fc3428139801ec499545a11604ded0ce065"
+    },
+    "dsm-main-native/dsm-main-native-r04-c05-values.png": {
+      "bytes": 745412,
+      "sha256": "efa2cd0d42e901d6b5bfd311c324fe23e3f0aea94c9797263c4d8085f5263479"
+    },
+    "dsm-main-native/dsm-main-native-r04-c06-preview.png": {
+      "bytes": 994698,
+      "sha256": "1f4fa14cacdf260f0c2072c4f2714c099bcac4507422e1dc4d32957ca27a0e18"
+    },
+    "dsm-main-native/dsm-main-native-r04-c06-values.png": {
+      "bytes": 707550,
+      "sha256": "12d81ce82e19b5c35cc1fee2c6ad5c6177975f7c7231a35d317134f011462064"
+    },
+    "dsm-main-native/dsm-main-native-r04-c07-preview.png": {
+      "bytes": 488308,
+      "sha256": "92b5fd33998e87dbbf5711eefd8c7f7421839303347c010121a48bfd6869268c"
+    },
+    "dsm-main-native/dsm-main-native-r04-c07-values.png": {
+      "bytes": 299513,
+      "sha256": "9e564f642778024fed5a6f83725981cf87eb8aa98a78d46aa80e36285c81c445"
+    },
+    "dsm-main-native/dsm-main-native-r04-c08-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r04-c08-values.png": {
+      "bytes": 5691,
+      "sha256": "d73bd7e83cc692f1d80c306acef3025881684e6cf287bc286284d5781e30134b"
+    },
+    "dsm-main-native/dsm-main-native-r04-c09-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r04-c09-values.png": {
+      "bytes": 5691,
+      "sha256": "d73bd7e83cc692f1d80c306acef3025881684e6cf287bc286284d5781e30134b"
+    },
+    "dsm-main-native/dsm-main-native-r04-c10-preview.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r04-c10-values.png": {
+      "bytes": 3726,
+      "sha256": "c35bfcc8c918d02aa8c82f7a98305f2dec162340272ef728d1c1601fac7cc322"
+    },
+    "dsm-main-native/dsm-main-native-r05-c00-preview.png": {
+      "bytes": 443910,
+      "sha256": "5a1bea92ae75c760a00800bcd1c1167ee335575b779717e73507f15715f26efb"
+    },
+    "dsm-main-native/dsm-main-native-r05-c00-values.png": {
+      "bytes": 265972,
+      "sha256": "1b231deb7a2213866caf864f7e07f96b7327775dd660d36281130d703d4b6cf0"
+    },
+    "dsm-main-native/dsm-main-native-r05-c01-preview.png": {
+      "bytes": 619020,
+      "sha256": "2bc9d48c0bf36909c0cd670a32bfe9cb5b7b13f70b0097144ba1270634e7b93a"
+    },
+    "dsm-main-native/dsm-main-native-r05-c01-values.png": {
+      "bytes": 749936,
+      "sha256": "5a6d342ed4b84cd82699840ae2194a6e3c86d906a9f88def8591ff5402080002"
+    },
+    "dsm-main-native/dsm-main-native-r05-c02-preview.png": {
+      "bytes": 706535,
+      "sha256": "12ea64884b5712263300d77aeabbec1c7735e1452771b1f7e786b2761dca8c54"
+    },
+    "dsm-main-native/dsm-main-native-r05-c02-values.png": {
+      "bytes": 900727,
+      "sha256": "4d7396b09a42c75336a600f14b1f300a4f72d90bcb4f5e5b38e58af450a33d54"
+    },
+    "dsm-main-native/dsm-main-native-r05-c03-preview.png": {
+      "bytes": 722634,
+      "sha256": "0a8111137290adcc4b385732d946fb08e4913b38e64d09cff62d21f3b2ecf119"
+    },
+    "dsm-main-native/dsm-main-native-r05-c03-values.png": {
+      "bytes": 901853,
+      "sha256": "68f59a83f341a47afb083573887d53567837899fa0e3aa8e00014be07b1d2dac"
+    },
+    "dsm-main-native/dsm-main-native-r05-c04-preview.png": {
+      "bytes": 649087,
+      "sha256": "97d100ad4f7f7f31593cea79e1830ca1c92273a274221060e392e9c9ebc36997"
+    },
+    "dsm-main-native/dsm-main-native-r05-c04-values.png": {
+      "bytes": 868498,
+      "sha256": "8074a8cc64007253879d01cffa70922f2433aa372aaa102601dcad3167d685ce"
+    },
+    "dsm-main-native/dsm-main-native-r05-c05-preview.png": {
+      "bytes": 606769,
+      "sha256": "f099b0e863b1534b6d4104d47cb90ce938f20175e3a98569dc209656db18ca15"
+    },
+    "dsm-main-native/dsm-main-native-r05-c05-values.png": {
+      "bytes": 834194,
+      "sha256": "bd88e9f26434ae20a0eeabd12c5a389ceece4c7b4c2923895d47e2fd77ee9c6b"
+    },
+    "dsm-main-native/dsm-main-native-r05-c06-preview.png": {
+      "bytes": 1005874,
+      "sha256": "9a2b3f88f6cdcbb8466f4151d642ff6f32058455b49f170a8a2d38e890dcc921"
+    },
+    "dsm-main-native/dsm-main-native-r05-c06-values.png": {
+      "bytes": 702628,
+      "sha256": "3f29644317b02c61a0cd2eabb38f8df230646461939bd13f1515b4ab212bfe13"
+    },
+    "dsm-main-native/dsm-main-native-r05-c07-preview.png": {
+      "bytes": 137441,
+      "sha256": "37b78bf35fc5cfcda54981cd4c479ac25d0ccf0b247e8c590e2a4fef3420cd80"
+    },
+    "dsm-main-native/dsm-main-native-r05-c07-values.png": {
+      "bytes": 88931,
+      "sha256": "8345f660c58ec030a55fd488cc004da97314fe4753c7cfaf013d4a733e27ad44"
+    },
+    "dsm-main-native/dsm-main-native-r05-c08-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r05-c08-values.png": {
+      "bytes": 5705,
+      "sha256": "a8d203422ab4d4270ceed9f30f60d2693f56eed30c41be7f957ef1d1329a73ff"
+    },
+    "dsm-main-native/dsm-main-native-r05-c09-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r05-c09-values.png": {
+      "bytes": 4573,
+      "sha256": "28f5199bded09410c0ed72976e608497c56586350120e8a67b81425e3e2a585b"
+    },
+    "dsm-main-native/dsm-main-native-r05-c10-preview.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r05-c10-values.png": {
+      "bytes": 2701,
+      "sha256": "71fcfb6c1ff42ce13ceedd4992e303476be606f2e08503946639f4ce1bdc126a"
+    },
+    "dsm-main-native/dsm-main-native-r06-c00-preview.png": {
+      "bytes": 287227,
+      "sha256": "3645b122c6da1a0eb8a6f1287589f5b67fa3c5cda3b372ed33e68bf5b70ca650"
+    },
+    "dsm-main-native/dsm-main-native-r06-c00-values.png": {
+      "bytes": 192023,
+      "sha256": "46effd42d812790d6187b117bb7a814fb5be4af091fd9b9a4deb90575c8222f2"
+    },
+    "dsm-main-native/dsm-main-native-r06-c01-preview.png": {
+      "bytes": 722729,
+      "sha256": "aae0977a0bd0422a2e09dae6a4c6c4dd2ef5977e71615fe28c57d09098f1bf0f"
+    },
+    "dsm-main-native/dsm-main-native-r06-c01-values.png": {
+      "bytes": 790319,
+      "sha256": "dffa11ddd21ce0557b8f755d4da71c74feff9aa25c732be482d8fed3f55aedf9"
+    },
+    "dsm-main-native/dsm-main-native-r06-c02-preview.png": {
+      "bytes": 503699,
+      "sha256": "68767c0b4696c225bfe2fe50cea6aca911c5ea26d12ce82e6af0d3e76e46ed67"
+    },
+    "dsm-main-native/dsm-main-native-r06-c02-values.png": {
+      "bytes": 757199,
+      "sha256": "c32ac123401af179b594479db29861e3f47b9ccd1566f95501f6e29121e23ad6"
+    },
+    "dsm-main-native/dsm-main-native-r06-c03-preview.png": {
+      "bytes": 716650,
+      "sha256": "88ea4c33fa51ec0395e4c7c8a77b60ff84807f7aae0908f0a66d2dabb3a6a111"
+    },
+    "dsm-main-native/dsm-main-native-r06-c03-values.png": {
+      "bytes": 897892,
+      "sha256": "3fbc88c4498395fa9dce45ff36b289b8b0f1fced6c2cc686d3b92a278ef2d277"
+    },
+    "dsm-main-native/dsm-main-native-r06-c04-preview.png": {
+      "bytes": 904016,
+      "sha256": "3ce43f3ca9fc821cbd6ec05a9c04e558da6bf69582c5218dac74ab429d2ec4fb"
+    },
+    "dsm-main-native/dsm-main-native-r06-c04-values.png": {
+      "bytes": 803452,
+      "sha256": "6937e138839bfd327b508d8a1874895fff38d1c6b3b4b129becb7332512d77aa"
+    },
+    "dsm-main-native/dsm-main-native-r06-c05-preview.png": {
+      "bytes": 790040,
+      "sha256": "cfd60af22619abd6c69164703b8f2a943ab9bb2588440c542a2885ab1f2e0b5b"
+    },
+    "dsm-main-native/dsm-main-native-r06-c05-values.png": {
+      "bytes": 695761,
+      "sha256": "0935ea6b9272e5b3540d6bb7117ec00124d58d699d97790c2e2e08ac8be7a7b9"
+    },
+    "dsm-main-native/dsm-main-native-r06-c06-preview.png": {
+      "bytes": 402156,
+      "sha256": "92c90df099b3d8b52949a91e4cda6d5fc10e73857abc61a1084e3eac29bfe0b1"
+    },
+    "dsm-main-native/dsm-main-native-r06-c06-values.png": {
+      "bytes": 259682,
+      "sha256": "600914a6eb4d4a7dc9580e92dd9099bd7246c18fc67c4fc092ee51abe61ba57b"
+    },
+    "dsm-main-native/dsm-main-native-r06-c07-preview.png": {
+      "bytes": 17848,
+      "sha256": "93193886ba67e3d6404a3624799462a3060ad08f6595b7c8f2d45c4a439007a2"
+    },
+    "dsm-main-native/dsm-main-native-r06-c07-values.png": {
+      "bytes": 14248,
+      "sha256": "4e0f5dcc316751e8adbd19dfed86263f9f24fc0517ac7942d82bcdef10ad120f"
+    },
+    "dsm-main-native/dsm-main-native-r06-c08-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r06-c08-values.png": {
+      "bytes": 5699,
+      "sha256": "342a0d247631762eaee310fa1c664db16534de1324551af19000b210133bc373"
+    },
+    "dsm-main-native/dsm-main-native-r06-c09-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r06-c09-values.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r06-c10-preview.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r06-c10-values.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r07-c00-preview.png": {
+      "bytes": 20169,
+      "sha256": "25d42acc7ea4aa5565aea49770bdf6698a66425b30ecf33a11b37d25fd95d097"
+    },
+    "dsm-main-native/dsm-main-native-r07-c00-values.png": {
+      "bytes": 15703,
+      "sha256": "6f8f39e0a7b76b1b35d6c6c8f979b87d146347e9ad4de543ee38b8ccc7ec9de5"
+    },
+    "dsm-main-native/dsm-main-native-r07-c01-preview.png": {
+      "bytes": 289427,
+      "sha256": "2ef9c4410b55813654cc79e5fd25da33df782ec77b0377e7693e93c7a883104a"
+    },
+    "dsm-main-native/dsm-main-native-r07-c01-values.png": {
+      "bytes": 204784,
+      "sha256": "87fcb69fce3245c0ba0e2945f863ee30ec18c506351e0bcea81ad5304af02f5c"
+    },
+    "dsm-main-native/dsm-main-native-r07-c02-preview.png": {
+      "bytes": 549137,
+      "sha256": "d358667794143d2337c56eecf93fc39e737f777c2f26521bae4aef8c609efd68"
+    },
+    "dsm-main-native/dsm-main-native-r07-c02-values.png": {
+      "bytes": 516506,
+      "sha256": "e572eda627e0a4bbbdb695b34f9492f3cd2eb85506c55377f768537da0df6e9e"
+    },
+    "dsm-main-native/dsm-main-native-r07-c03-preview.png": {
+      "bytes": 760383,
+      "sha256": "34ac60dbc0512c9f2f0af6f67fc68c9c142fdfbb06841a61cba7efd5870625b9"
+    },
+    "dsm-main-native/dsm-main-native-r07-c03-values.png": {
+      "bytes": 715670,
+      "sha256": "93485a3164bfaec9cc3ee133f45f3046800d7dd1c101f488cc81d0b22c6c59bf"
+    },
+    "dsm-main-native/dsm-main-native-r07-c04-preview.png": {
+      "bytes": 593017,
+      "sha256": "3e41c496c55ce65c58c9f4917f20a225e400734ef654a9766f7b7fb412046913"
+    },
+    "dsm-main-native/dsm-main-native-r07-c04-values.png": {
+      "bytes": 424536,
+      "sha256": "c6a9bca180abf0249dbdf5ec9f1730d520f3482c40f2e8c2a2fc6f62cf87e7f7"
+    },
+    "dsm-main-native/dsm-main-native-r07-c05-preview.png": {
+      "bytes": 193345,
+      "sha256": "49420ac8eda9068ae3ca00c725440367e7a69f3df6f745236e149a2fbd21d63a"
+    },
+    "dsm-main-native/dsm-main-native-r07-c05-values.png": {
+      "bytes": 122552,
+      "sha256": "760db241bddaea3b24e9983e8d2a7a1cfe3260d9733f672da08e17caea1732a6"
+    },
+    "dsm-main-native/dsm-main-native-r07-c06-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r07-c06-values.png": {
+      "bytes": 5691,
+      "sha256": "d73bd7e83cc692f1d80c306acef3025881684e6cf287bc286284d5781e30134b"
+    },
+    "dsm-main-native/dsm-main-native-r07-c07-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r07-c07-values.png": {
+      "bytes": 5691,
+      "sha256": "d73bd7e83cc692f1d80c306acef3025881684e6cf287bc286284d5781e30134b"
+    },
+    "dsm-main-native/dsm-main-native-r07-c08-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r07-c08-values.png": {
+      "bytes": 5699,
+      "sha256": "342a0d247631762eaee310fa1c664db16534de1324551af19000b210133bc373"
+    },
+    "dsm-main-native/dsm-main-native-r07-c09-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r07-c09-values.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r07-c10-preview.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r07-c10-values.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r08-c00-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r08-c00-values.png": {
+      "bytes": 5367,
+      "sha256": "5519ce0e6f08350d9865d27c6ad066c4ef1db0357bd943dccf59c0f787c8755b"
+    },
+    "dsm-main-native/dsm-main-native-r08-c01-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r08-c01-values.png": {
+      "bytes": 5367,
+      "sha256": "5519ce0e6f08350d9865d27c6ad066c4ef1db0357bd943dccf59c0f787c8755b"
+    },
+    "dsm-main-native/dsm-main-native-r08-c02-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r08-c02-values.png": {
+      "bytes": 5367,
+      "sha256": "5519ce0e6f08350d9865d27c6ad066c4ef1db0357bd943dccf59c0f787c8755b"
+    },
+    "dsm-main-native/dsm-main-native-r08-c03-preview.png": {
+      "bytes": 69889,
+      "sha256": "6e57fcde0d90ede3b0b57bf3bfdbaa1eae9cd45901b62a0b75924c553adc1485"
+    },
+    "dsm-main-native/dsm-main-native-r08-c03-values.png": {
+      "bytes": 53285,
+      "sha256": "3b33f173947f3232cc4dc3d6e845ecf6882491e55992da0221785466b3dd1b86"
+    },
+    "dsm-main-native/dsm-main-native-r08-c04-preview.png": {
+      "bytes": 22095,
+      "sha256": "3da4ff117bab56c9c913a1e12f3259093d7a08964fef96be36e7c72fa676a2b4"
+    },
+    "dsm-main-native/dsm-main-native-r08-c04-values.png": {
+      "bytes": 16893,
+      "sha256": "ce789016dc995ed96564bc2a5d28b16124fee23d12207d8fcfb55956dc537491"
+    },
+    "dsm-main-native/dsm-main-native-r08-c05-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r08-c05-values.png": {
+      "bytes": 5367,
+      "sha256": "5519ce0e6f08350d9865d27c6ad066c4ef1db0357bd943dccf59c0f787c8755b"
+    },
+    "dsm-main-native/dsm-main-native-r08-c06-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r08-c06-values.png": {
+      "bytes": 5367,
+      "sha256": "5519ce0e6f08350d9865d27c6ad066c4ef1db0357bd943dccf59c0f787c8755b"
+    },
+    "dsm-main-native/dsm-main-native-r08-c07-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r08-c07-values.png": {
+      "bytes": 5367,
+      "sha256": "5519ce0e6f08350d9865d27c6ad066c4ef1db0357bd943dccf59c0f787c8755b"
+    },
+    "dsm-main-native/dsm-main-native-r08-c08-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r08-c08-values.png": {
+      "bytes": 5375,
+      "sha256": "f64155a50d6f5f409777a2ef6fdc36919520aad328cbe78723bad69ee19ce60d"
+    },
+    "dsm-main-native/dsm-main-native-r08-c09-preview.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r08-c09-values.png": {
+      "bytes": 4144,
+      "sha256": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f"
+    },
+    "dsm-main-native/dsm-main-native-r08-c10-preview.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r08-c10-values.png": {
+      "bytes": 2307,
+      "sha256": "b2ebfc465f0474309b5727b8719b42c8dd85b67d7f19781c548e1631bb122105"
+    },
+    "dsm-main-native/dsm-main-native-r09-c00-preview.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c00-values.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c01-preview.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c01-values.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c02-preview.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c02-values.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c03-preview.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c03-values.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c04-preview.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c04-values.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c05-preview.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c05-values.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c06-preview.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c06-values.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c07-preview.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c07-values.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c08-preview.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c08-values.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c09-preview.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c09-values.png": {
+      "bytes": 2085,
+      "sha256": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67"
+    },
+    "dsm-main-native/dsm-main-native-r09-c10-preview.png": {
+      "bytes": 1178,
+      "sha256": "57f973f35069d6b244acda5f39c900b089f53ff8d8ecfcd6236de6f18711c467"
+    },
+    "dsm-main-native/dsm-main-native-r09-c10-values.png": {
+      "bytes": 1178,
+      "sha256": "57f973f35069d6b244acda5f39c900b089f53ff8d8ecfcd6236de6f18711c467"
+    },
+    "dsm-main-native/dsm-main-native-r00-c00.json": {
+      "bytes": 3113,
+      "sha256": "4ed0b5ca11f1c2fe1d5fd6fe737d5980d65723412ab65fd8a440c105714309eb"
+    },
+    "dsm-main-native/dsm-main-native-r00-c01.json": {
+      "bytes": 3451,
+      "sha256": "b2ef1813d9c30653ca6d1f1c6003e99306348259a366c1a5a028c534cf0488e0"
+    },
+    "dsm-main-native/dsm-main-native-r00-c02.json": {
+      "bytes": 3444,
+      "sha256": "bd890a9de515fecd5d1e65f05874e520bf79603971d71bebee13456f073bd554"
+    },
+    "dsm-main-native/dsm-main-native-r00-c03.json": {
+      "bytes": 3444,
+      "sha256": "12c50a76d27bfb768b4da9e20780eecb08592b5d0af039e76333b579b7608e66"
+    },
+    "dsm-main-native/dsm-main-native-r00-c04.json": {
+      "bytes": 3485,
+      "sha256": "7375348e95f8b04a8b35a77db23a1425935146c6d21b2dbf50fe22e836d0ea13"
+    },
+    "dsm-main-native/dsm-main-native-r00-c05.json": {
+      "bytes": 3815,
+      "sha256": "f812d3496b89c8a6b07c4b615701fc876b49b2275bde6d971d78624ec8fd6284"
+    },
+    "dsm-main-native/dsm-main-native-r00-c06.json": {
+      "bytes": 3473,
+      "sha256": "2e439c5fabd9056ee6332cc04f57eb49b650168788cd9592338cf5dbfabd3d53"
+    },
+    "dsm-main-native/dsm-main-native-r00-c07.json": {
+      "bytes": 3468,
+      "sha256": "9cb70b1dc037ae0166d79e21d116923b6500c9ccdde87e3dae9a878b9b4028d3"
+    },
+    "dsm-main-native/dsm-main-native-r00-c08.json": {
+      "bytes": 3450,
+      "sha256": "6660f36a58419d4aed926587b8a8f907c4eab191235df75c9de253dca6f34285"
+    },
+    "dsm-main-native/dsm-main-native-r00-c09.json": {
+      "bytes": 3113,
+      "sha256": "04b444c0998bfcd10a097c6292127838ce4527ca306a6642bfa0a8dda3f3f367"
+    },
+    "dsm-main-native/dsm-main-native-r00-c10.json": {
+      "bytes": 3107,
+      "sha256": "c880a49fcdc017ab26e2d960afb2224422b5eeaaf2d1bf9223dc0bec32c968f9"
+    },
+    "dsm-main-native/dsm-main-native-r01-c00.json": {
+      "bytes": 3454,
+      "sha256": "0a27b2a2c671ad5ccb95f1202b12341d5bb0ad9c678acdc998555f698119f511"
+    },
+    "dsm-main-native/dsm-main-native-r01-c01.json": {
+      "bytes": 4106,
+      "sha256": "9e0bd3f5e852392e6afa3e42f28a5c4e0a92f2e3db438f0f8328e33695d17b8d"
+    },
+    "dsm-main-native/dsm-main-native-r01-c02.json": {
+      "bytes": 3773,
+      "sha256": "597a4b9e5068f4bde5b3410d46fab7e2ccd82268fbe044034b00dc86fdc3d0ac"
+    },
+    "dsm-main-native/dsm-main-native-r01-c03.json": {
+      "bytes": 3798,
+      "sha256": "da897debffd1f6a6020811b1ed8ab1d9e4adec1056bc8e64e24e839b76e729ef"
+    },
+    "dsm-main-native/dsm-main-native-r01-c04.json": {
+      "bytes": 3801,
+      "sha256": "3cf119d8553170a27f95bc3c47b339b4e10ee0cdc9bd841868ef1134d84fccca"
+    },
+    "dsm-main-native/dsm-main-native-r01-c05.json": {
+      "bytes": 4455,
+      "sha256": "154460455481301686555c609a5d406c171af49f2771017b6fb8ee8e133e9ed2"
+    },
+    "dsm-main-native/dsm-main-native-r01-c06.json": {
+      "bytes": 3799,
+      "sha256": "96ff1339c4d40ff92d349d31d8b17f38d6b9b29a24894592dd24fac047ff5749"
+    },
+    "dsm-main-native/dsm-main-native-r01-c07.json": {
+      "bytes": 3804,
+      "sha256": "4fe395ce65998cc7fab2ddbba06df3916578c8ea3c7d7704dde22a04ffde76e5"
+    },
+    "dsm-main-native/dsm-main-native-r01-c08.json": {
+      "bytes": 4135,
+      "sha256": "471cbb32df947f4ec6f285b6a56faa2d54478e2a31485e27f043c478343a5fbe"
+    },
+    "dsm-main-native/dsm-main-native-r01-c09.json": {
+      "bytes": 3487,
+      "sha256": "fc943e7d5f390c6d9da4f36011aa6abc45fe15343af8967c0fe2c089e50fe5e8"
+    },
+    "dsm-main-native/dsm-main-native-r01-c10.json": {
+      "bytes": 3449,
+      "sha256": "19dd9a5701a1e92fafde9505c7a5698991410efe54874201d61886d23d6ae2c2"
+    },
+    "dsm-main-native/dsm-main-native-r02-c00.json": {
+      "bytes": 3447,
+      "sha256": "0ac17c930ac4f9de6f03b84eb8aabe93b0e1ec9a4223d8fbf292064443f4b809"
+    },
+    "dsm-main-native/dsm-main-native-r02-c01.json": {
+      "bytes": 3773,
+      "sha256": "74365caaed9b3f4a8119c97a460b882dff59f6a1ce0bea2a7246aa460b741e7b"
+    },
+    "dsm-main-native/dsm-main-native-r02-c02.json": {
+      "bytes": 3476,
+      "sha256": "d227f361e47d3dcce0481775744669bdbec1489fe6dc1cf4c7777a621478dcf8"
+    },
+    "dsm-main-native/dsm-main-native-r02-c03.json": {
+      "bytes": 3477,
+      "sha256": "703ca0be15098c7953fcbd409459cf5a9f94a4cc877e1cfe447dfa37d27ec46c"
+    },
+    "dsm-main-native/dsm-main-native-r02-c04.json": {
+      "bytes": 3489,
+      "sha256": "443e92f52c7b645fcf1c34ad622705503d0a4cabda8a0537e2d263ec0b084fe0"
+    },
+    "dsm-main-native/dsm-main-native-r02-c05.json": {
+      "bytes": 3802,
+      "sha256": "b25cda817182b9ae264a0cba5ca873e3d29bd133a597f503864188077e06cb06"
+    },
+    "dsm-main-native/dsm-main-native-r02-c06.json": {
+      "bytes": 3473,
+      "sha256": "7b5ee8a5f662c0d9a9c857d9293a643703c0f5dc9e8a18ffebd48516a653218d"
+    },
+    "dsm-main-native/dsm-main-native-r02-c07.json": {
+      "bytes": 3475,
+      "sha256": "400b9dcf57b6b0ffa2b2676d03f62baeda370199151d764fc735a383a9f42ae6"
+    },
+    "dsm-main-native/dsm-main-native-r02-c08.json": {
+      "bytes": 3817,
+      "sha256": "2f2d99733f04f9d567bb8905528b9e0dba2dcbbec041820dbba6e2761b1af6b0"
+    },
+    "dsm-main-native/dsm-main-native-r02-c09.json": {
+      "bytes": 3482,
+      "sha256": "805ee1108b1e71489633ff9c4ee8be5abd411242b0f049bc6bb6bbdd8a2a527a"
+    },
+    "dsm-main-native/dsm-main-native-r02-c10.json": {
+      "bytes": 3440,
+      "sha256": "104d0101f290357c7c8bd7469468a89ab56255849b743d0bb3a746a3af9207be"
+    },
+    "dsm-main-native/dsm-main-native-r03-c00.json": {
+      "bytes": 3487,
+      "sha256": "93c6e3fb7d8db64365db7fec1b09e547985fd52d00cfedc362d9470838fd040c"
+    },
+    "dsm-main-native/dsm-main-native-r03-c01.json": {
+      "bytes": 3818,
+      "sha256": "e1f7dae7abe036dc90457227d1a673d886e71043d952aab0f08e9e5ccb8bad9e"
+    },
+    "dsm-main-native/dsm-main-native-r03-c02.json": {
+      "bytes": 3475,
+      "sha256": "f951109b96386ab44a20eae5f6df9f25f056cf15c870df4ac05e4eccb76ec918"
+    },
+    "dsm-main-native/dsm-main-native-r03-c03.json": {
+      "bytes": 3488,
+      "sha256": "8647608cd6d2942ca0978f3ea4e6f044f7849b48f3b8e621f3071356b79df098"
+    },
+    "dsm-main-native/dsm-main-native-r03-c04.json": {
+      "bytes": 3475,
+      "sha256": "b111a1904b6887855bc0f48c50a352491d2e991120dca3a1ef99b7824f985990"
+    },
+    "dsm-main-native/dsm-main-native-r03-c05.json": {
+      "bytes": 3800,
+      "sha256": "fab3c77572b19c24db3f29bb116402a85f0ce32b1e45cf491887bd29f35bdf6e"
+    },
+    "dsm-main-native/dsm-main-native-r03-c06.json": {
+      "bytes": 3474,
+      "sha256": "f29ee5b75b1067861615d7b0097df0bdd3c51858b0c5593d0d4e66b2134b50fc"
+    },
+    "dsm-main-native/dsm-main-native-r03-c07.json": {
+      "bytes": 3476,
+      "sha256": "eccd9fc32d6833c7ddc6282efc508cb2b0a1ea647a8e38da4db06f928cbc9cec"
+    },
+    "dsm-main-native/dsm-main-native-r03-c08.json": {
+      "bytes": 3819,
+      "sha256": "bf8bc2a4745fac6c35aa56290df225221fe83c06412ea3616911832aa59dbcba"
+    },
+    "dsm-main-native/dsm-main-native-r03-c09.json": {
+      "bytes": 3447,
+      "sha256": "89e738ae910d2704c70d35a395c2e207cc83a7ca7e2b4bfd8dbfd0ecebd7237a"
+    },
+    "dsm-main-native/dsm-main-native-r03-c10.json": {
+      "bytes": 3440,
+      "sha256": "96b0a7fdc7a8d69b19c0f5187946db13db777a15f5d6dfc419a32d4c43319bc3"
+    },
+    "dsm-main-native/dsm-main-native-r04-c00.json": {
+      "bytes": 3491,
+      "sha256": "beda66de326972813d9fb2142201a22e3ad831878ca6560c7a1875b999ef114e"
+    },
+    "dsm-main-native/dsm-main-native-r04-c01.json": {
+      "bytes": 3813,
+      "sha256": "68e3bc5d1e4ab4f6c75b42d80cb0d8e59f6ea4c77ec588bc42182dbc99765f94"
+    },
+    "dsm-main-native/dsm-main-native-r04-c02.json": {
+      "bytes": 3487,
+      "sha256": "a41dce3cb2570d55eba6fd0087721c9285407fce8154f8cd38c0d54418c81d32"
+    },
+    "dsm-main-native/dsm-main-native-r04-c03.json": {
+      "bytes": 3488,
+      "sha256": "aa06bbe6dce6ec4b697ad71aaecda61b1d22d5ccfca7bc00378fe5804434a728"
+    },
+    "dsm-main-native/dsm-main-native-r04-c04.json": {
+      "bytes": 3487,
+      "sha256": "b1ae91741bfb0c4929a7f1db48b8ba71551179a102cd2a798b7158bb01e6ed43"
+    },
+    "dsm-main-native/dsm-main-native-r04-c05.json": {
+      "bytes": 3799,
+      "sha256": "a689042e4b327281ad335ff50583c7433944d70332878a76c5a8c4934e23052e"
+    },
+    "dsm-main-native/dsm-main-native-r04-c06.json": {
+      "bytes": 3472,
+      "sha256": "1128b744cbee43c3aee62462de49ed5bd668b114089c9a933563794f2792aced"
+    },
+    "dsm-main-native/dsm-main-native-r04-c07.json": {
+      "bytes": 3475,
+      "sha256": "ac883cd5d767d8b260ab46fe0b8b3e20a61c5b0fb01c439ea5324e6f4e2d501a"
+    },
+    "dsm-main-native/dsm-main-native-r04-c08.json": {
+      "bytes": 3773,
+      "sha256": "2f37e61f3d6db62dbb389327e9cb0dd6e02961a68c7e4a525f17f024cf51704c"
+    },
+    "dsm-main-native/dsm-main-native-r04-c09.json": {
+      "bytes": 3447,
+      "sha256": "b30e9ef59b94b6ed229b6031e8d01e0a76c54f472335e3f207d470b5bae76505"
+    },
+    "dsm-main-native/dsm-main-native-r04-c10.json": {
+      "bytes": 3440,
+      "sha256": "9add658d625274cc999e003279e1ed1eb219b69926595169a33d22627d68ddfd"
+    },
+    "dsm-main-native/dsm-main-native-r05-c00.json": {
+      "bytes": 3817,
+      "sha256": "b2b5a6fbbf1dacf11b7da2e2f7f2b5d87fe7d265727db4f90a1e001810b6abb0"
+    },
+    "dsm-main-native/dsm-main-native-r05-c01.json": {
+      "bytes": 4453,
+      "sha256": "0b7eae54892e9a0e711bc05dded1398e54cbf7e6f621ac5bbe7ec42cbe1b470d"
+    },
+    "dsm-main-native/dsm-main-native-r05-c02.json": {
+      "bytes": 3799,
+      "sha256": "fa6836c5917468e39478e602ee72ef96604d4b0fc766d8c39f9278cd8d8e9c44"
+    },
+    "dsm-main-native/dsm-main-native-r05-c03.json": {
+      "bytes": 3799,
+      "sha256": "8895ed05edff41cbf22678a89207879a3673d54fabfd257e87359c8723f2e09d"
+    },
+    "dsm-main-native/dsm-main-native-r05-c04.json": {
+      "bytes": 3808,
+      "sha256": "c40c3d61d5ed81653414f9fcd63ef58e60807a60b08c50d6d48ba40e7cea6ac6"
+    },
+    "dsm-main-native/dsm-main-native-r05-c05.json": {
+      "bytes": 4462,
+      "sha256": "4f5f8f8b99ab4d602a2eae2204cd4363a5f39a276eec259a65b94fd90feb2737"
+    },
+    "dsm-main-native/dsm-main-native-r05-c06.json": {
+      "bytes": 3814,
+      "sha256": "34d3a2353366e945dd17ecc0ad8149bfc527e30b5f8fe6d1bbce22bdb2e25765"
+    },
+    "dsm-main-native/dsm-main-native-r05-c07.json": {
+      "bytes": 3815,
+      "sha256": "d9d248df2253091dea78cf34bdd8e54a944d17969d2f3b72abe48d70730e7a82"
+    },
+    "dsm-main-native/dsm-main-native-r05-c08.json": {
+      "bytes": 4105,
+      "sha256": "bfbac619c2f805b76f4cdda4e141aa3442926e0e1f62b3b9db8f917db2be687a"
+    },
+    "dsm-main-native/dsm-main-native-r05-c09.json": {
+      "bytes": 3454,
+      "sha256": "58a4e893fb9e08e130f48e17568b20001e8eca7c9af501daeed790d436721f3a"
+    },
+    "dsm-main-native/dsm-main-native-r05-c10.json": {
+      "bytes": 3449,
+      "sha256": "e8d2dc39d4907e4dea44c8f4e40cd58bd6807f60082403a258952116ce086ba9"
+    },
+    "dsm-main-native/dsm-main-native-r06-c00.json": {
+      "bytes": 3475,
+      "sha256": "11eff764975a7e3d35aa1e530fe024df40c42ac80ec158a70e5c480b24e10dae"
+    },
+    "dsm-main-native/dsm-main-native-r06-c01.json": {
+      "bytes": 3814,
+      "sha256": "f5b66ee800d144cb82274eb0eda41621145cb927424999871632e294b1128967"
+    },
+    "dsm-main-native/dsm-main-native-r06-c02.json": {
+      "bytes": 3487,
+      "sha256": "bedcb840c2f00be92bfab9c5e9e5769012a7369ba1ce860508f36572b789f867"
+    },
+    "dsm-main-native/dsm-main-native-r06-c03.json": {
+      "bytes": 3473,
+      "sha256": "a49f23087ab0900cd1fa381c602f66171ba091a59eefb3cf7a1a4b7d7450f388"
+    },
+    "dsm-main-native/dsm-main-native-r06-c04.json": {
+      "bytes": 3473,
+      "sha256": "e74d4bcba191b761c5dc479be4e560f14232b82350cb9511f883cb7c6df9e7b8"
+    },
+    "dsm-main-native/dsm-main-native-r06-c05.json": {
+      "bytes": 3818,
+      "sha256": "4d95871e26843ddf15009759bee55931f35fe2cc05e1327acd14c8aad376f7a1"
+    },
+    "dsm-main-native/dsm-main-native-r06-c06.json": {
+      "bytes": 3492,
+      "sha256": "23a5f3b5a291a255b5eceec92c93e7986390746a1e12ab5eb696d5afffcae86c"
+    },
+    "dsm-main-native/dsm-main-native-r06-c07.json": {
+      "bytes": 3485,
+      "sha256": "5ecdd49de353ae21749dad3b0decfa0d970d6b28d0e0b1adf2238c3f9be7b89a"
+    },
+    "dsm-main-native/dsm-main-native-r06-c08.json": {
+      "bytes": 3453,
+      "sha256": "54c85e8218cc980ea84bc820dc0e3dee8c15bdfc45d83b5948fd6a021286426a"
+    },
+    "dsm-main-native/dsm-main-native-r06-c09.json": {
+      "bytes": 3116,
+      "sha256": "8d27ee46059bf37e0f2941535e04c96cd27856a7c262eb0ad680086fc763a0a2"
+    },
+    "dsm-main-native/dsm-main-native-r06-c10.json": {
+      "bytes": 3110,
+      "sha256": "fde2028dda5608a2167be9e75261244fc9cbe355f96fbe62641701199ca9b4ec"
+    },
+    "dsm-main-native/dsm-main-native-r07-c00.json": {
+      "bytes": 3473,
+      "sha256": "0ce22b09c41f9510f423d8790d8f3f48dac0769eb12e9e040a0b9dd67e65393f"
+    },
+    "dsm-main-native/dsm-main-native-r07-c01.json": {
+      "bytes": 3802,
+      "sha256": "b1e23d729bb2558e60645ed254d3b8c48cb79f7cae915b10138f8080744d9721"
+    },
+    "dsm-main-native/dsm-main-native-r07-c02.json": {
+      "bytes": 3492,
+      "sha256": "4f4d26ab0466256a026a0ec997f79fe5391f12ce83e88a782ca2835ebb2c02d7"
+    },
+    "dsm-main-native/dsm-main-native-r07-c03.json": {
+      "bytes": 3491,
+      "sha256": "5e4168f2f9e6e868991555384a492f1be659285a6d7bcd7955c3c5e22ccd94fe"
+    },
+    "dsm-main-native/dsm-main-native-r07-c04.json": {
+      "bytes": 3491,
+      "sha256": "b1859eaaa95b563d6e5cfaee93fa08a8b563afcf7dc1ba08f99fc99de56a76c2"
+    },
+    "dsm-main-native/dsm-main-native-r07-c05.json": {
+      "bytes": 3816,
+      "sha256": "037dd5afa32ee6aaf506d9985108bf215577aa328fff96ec4fcf8d44c10d2374"
+    },
+    "dsm-main-native/dsm-main-native-r07-c06.json": {
+      "bytes": 3447,
+      "sha256": "fec6f49f42c4be5a17181ee00a34c2b9ba1dca51881bbe5459e00734e9d70884"
+    },
+    "dsm-main-native/dsm-main-native-r07-c07.json": {
+      "bytes": 3447,
+      "sha256": "bd5d58063d5035cb776391b9a72f7cc19544cb86d89bd28fe7ea18cc61d4696c"
+    },
+    "dsm-main-native/dsm-main-native-r07-c08.json": {
+      "bytes": 3453,
+      "sha256": "7424d050337c217cb1be63e5c9a347b46acf3cb6ba766533b9c4883bb703c689"
+    },
+    "dsm-main-native/dsm-main-native-r07-c09.json": {
+      "bytes": 3116,
+      "sha256": "a34c1ca68532cd726fb5200a35794979f640dd2b448a1925ba0a86f1075d197e"
+    },
+    "dsm-main-native/dsm-main-native-r07-c10.json": {
+      "bytes": 3110,
+      "sha256": "19b4d4c7dcb3a24fab3fcef85677aab9ae2fc7b42c527cc0f7a3d04662ce351e"
+    },
+    "dsm-main-native/dsm-main-native-r08-c00.json": {
+      "bytes": 3456,
+      "sha256": "100ab9e4c948b447c26c33d63360b413e7f2628a94477806bfd881de7ea5e744"
+    },
+    "dsm-main-native/dsm-main-native-r08-c01.json": {
+      "bytes": 3782,
+      "sha256": "fa608c5101d85b3ff017863dde21880cad3f6c8186dc146d5cfe3004f5bac613"
+    },
+    "dsm-main-native/dsm-main-native-r08-c02.json": {
+      "bytes": 3456,
+      "sha256": "e1e652450e67505dae06e9325108d1b4757e5ae8a92e17c5ec279f1dcd5d238d"
+    },
+    "dsm-main-native/dsm-main-native-r08-c03.json": {
+      "bytes": 3495,
+      "sha256": "6d62178ef2d136d8cbe66fe2d4ff6a13bfbc0750d3a11f038ecf01e7de898741"
+    },
+    "dsm-main-native/dsm-main-native-r08-c04.json": {
+      "bytes": 3489,
+      "sha256": "102f7497344d0cfbbd4a84e9343142556947ea4460812f23a7edd649f424b13d"
+    },
+    "dsm-main-native/dsm-main-native-r08-c05.json": {
+      "bytes": 3782,
+      "sha256": "c882f1f0589be7c90851ebdd02a5bb711d9f2e09d38519aaecb7f6d36177a249"
+    },
+    "dsm-main-native/dsm-main-native-r08-c06.json": {
+      "bytes": 3456,
+      "sha256": "d2b3e8b0abe558d3ab3ba670ce4dc00a281864935a5f078c00c9bfef18122346"
+    },
+    "dsm-main-native/dsm-main-native-r08-c07.json": {
+      "bytes": 3456,
+      "sha256": "2bf8b642a7dd5e24c9572314d51a32ced87c1ad595c2560b7327b23391d3b6cc"
+    },
+    "dsm-main-native/dsm-main-native-r08-c08.json": {
+      "bytes": 3457,
+      "sha256": "0d58f40cd09f2dff8ce50b0036b6cfeaf1893a3b5d4a5716cb9a34f5472f179a"
+    },
+    "dsm-main-native/dsm-main-native-r08-c09.json": {
+      "bytes": 3119,
+      "sha256": "25e2ebfac28615a505fe3ec2bd0cca9680c13bccbc90f151571f6796b6e8509c"
+    },
+    "dsm-main-native/dsm-main-native-r08-c10.json": {
+      "bytes": 3113,
+      "sha256": "fbc63df393c0534ec0782a936ac1c6431d00abf3e58411a706b26fbd469cac8a"
+    },
+    "dsm-main-native/dsm-main-native-r09-c00.json": {
+      "bytes": 3115,
+      "sha256": "7517bb2fd08136e5df8636e097565087afd455884835f57fdbb8845e0e3e5609"
+    },
+    "dsm-main-native/dsm-main-native-r09-c01.json": {
+      "bytes": 3115,
+      "sha256": "0d6e4bf1b68c9a0388a069b2b44e5516b080c7beb061dd33f41d8f50d2e6fdf6"
+    },
+    "dsm-main-native/dsm-main-native-r09-c02.json": {
+      "bytes": 3115,
+      "sha256": "3638a829570b93d936cf757857ff1c119b37c8e5a63ef30345a670db8538321f"
+    },
+    "dsm-main-native/dsm-main-native-r09-c03.json": {
+      "bytes": 3115,
+      "sha256": "d146e8c0052695834a132a4f25670c46713dc1a48e61782f719febf1d8aa87f6"
+    },
+    "dsm-main-native/dsm-main-native-r09-c04.json": {
+      "bytes": 3115,
+      "sha256": "12a08164a6c21e100417dfb5993b20909f54d5179d14ab3c116ad8b75c0e7fe0"
+    },
+    "dsm-main-native/dsm-main-native-r09-c05.json": {
+      "bytes": 3115,
+      "sha256": "014102cf2101312569c15de7fdb4b245033f08e416a1594c602ce6a2baa34feb"
+    },
+    "dsm-main-native/dsm-main-native-r09-c06.json": {
+      "bytes": 3115,
+      "sha256": "f8ac65f33fc10120f510baf8365c6ac711bc2193180d2535053741e70e2597d6"
+    },
+    "dsm-main-native/dsm-main-native-r09-c07.json": {
+      "bytes": 3115,
+      "sha256": "80b40b17c1a1c65d904dc5caae8b3f230c1f21c220a9341c020bd2763bc64b5d"
+    },
+    "dsm-main-native/dsm-main-native-r09-c08.json": {
+      "bytes": 3115,
+      "sha256": "c9e48fde3586fa7f7be15e9344f693e7604eb49995fcd17943b56ab4df14fad7"
+    },
+    "dsm-main-native/dsm-main-native-r09-c09.json": {
+      "bytes": 3115,
+      "sha256": "7b4b9f266c62b4e2583866bfc7c9b36bc6717725412093ff4f0c458bd158fef3"
+    },
+    "dsm-main-native/dsm-main-native-r09-c10.json": {
+      "bytes": 3111,
+      "sha256": "48af9d73aa4c0b468e4b0d50b718857b8a92a7ada4c690397031cd3c7a19fa25"
+    },
+    "dsm-main-native-validation.json": {
+      "bytes": 1381,
+      "sha256": "fe7ca2eabe9dfea397a20fef5bf4cb95a12e83b3a8ab0766f6349ad490da11ae"
     }
   },
-  "total_bytes": 18677360
+  "total_bytes": 76988239,
+  "optional_native_download_files_not_in_core": [
+    "dsm-main-native/dsm-main-native-r00-c00.tif",
+    "dsm-main-native/dsm-main-native-r00-c01.tif",
+    "dsm-main-native/dsm-main-native-r00-c02.tif",
+    "dsm-main-native/dsm-main-native-r00-c03.tif",
+    "dsm-main-native/dsm-main-native-r00-c04.tif",
+    "dsm-main-native/dsm-main-native-r00-c05.tif",
+    "dsm-main-native/dsm-main-native-r00-c06.tif",
+    "dsm-main-native/dsm-main-native-r00-c07.tif",
+    "dsm-main-native/dsm-main-native-r00-c08.tif",
+    "dsm-main-native/dsm-main-native-r00-c09.tif",
+    "dsm-main-native/dsm-main-native-r00-c10.tif",
+    "dsm-main-native/dsm-main-native-r01-c00.tif",
+    "dsm-main-native/dsm-main-native-r01-c01.tif",
+    "dsm-main-native/dsm-main-native-r01-c02.tif",
+    "dsm-main-native/dsm-main-native-r01-c03.tif",
+    "dsm-main-native/dsm-main-native-r01-c04.tif",
+    "dsm-main-native/dsm-main-native-r01-c05.tif",
+    "dsm-main-native/dsm-main-native-r01-c06.tif",
+    "dsm-main-native/dsm-main-native-r01-c07.tif",
+    "dsm-main-native/dsm-main-native-r01-c08.tif",
+    "dsm-main-native/dsm-main-native-r01-c09.tif",
+    "dsm-main-native/dsm-main-native-r01-c10.tif",
+    "dsm-main-native/dsm-main-native-r02-c00.tif",
+    "dsm-main-native/dsm-main-native-r02-c01.tif",
+    "dsm-main-native/dsm-main-native-r02-c02.tif",
+    "dsm-main-native/dsm-main-native-r02-c03.tif",
+    "dsm-main-native/dsm-main-native-r02-c04.tif",
+    "dsm-main-native/dsm-main-native-r02-c05.tif",
+    "dsm-main-native/dsm-main-native-r02-c06.tif",
+    "dsm-main-native/dsm-main-native-r02-c07.tif",
+    "dsm-main-native/dsm-main-native-r02-c08.tif",
+    "dsm-main-native/dsm-main-native-r02-c09.tif",
+    "dsm-main-native/dsm-main-native-r02-c10.tif",
+    "dsm-main-native/dsm-main-native-r03-c00.tif",
+    "dsm-main-native/dsm-main-native-r03-c01.tif",
+    "dsm-main-native/dsm-main-native-r03-c02.tif",
+    "dsm-main-native/dsm-main-native-r03-c03.tif",
+    "dsm-main-native/dsm-main-native-r03-c04.tif",
+    "dsm-main-native/dsm-main-native-r03-c05.tif",
+    "dsm-main-native/dsm-main-native-r03-c06.tif",
+    "dsm-main-native/dsm-main-native-r03-c07.tif",
+    "dsm-main-native/dsm-main-native-r03-c08.tif",
+    "dsm-main-native/dsm-main-native-r03-c09.tif",
+    "dsm-main-native/dsm-main-native-r03-c10.tif",
+    "dsm-main-native/dsm-main-native-r04-c00.tif",
+    "dsm-main-native/dsm-main-native-r04-c01.tif",
+    "dsm-main-native/dsm-main-native-r04-c02.tif",
+    "dsm-main-native/dsm-main-native-r04-c03.tif",
+    "dsm-main-native/dsm-main-native-r04-c04.tif",
+    "dsm-main-native/dsm-main-native-r04-c05.tif",
+    "dsm-main-native/dsm-main-native-r04-c06.tif",
+    "dsm-main-native/dsm-main-native-r04-c07.tif",
+    "dsm-main-native/dsm-main-native-r04-c08.tif",
+    "dsm-main-native/dsm-main-native-r04-c09.tif",
+    "dsm-main-native/dsm-main-native-r04-c10.tif",
+    "dsm-main-native/dsm-main-native-r05-c00.tif",
+    "dsm-main-native/dsm-main-native-r05-c01.tif",
+    "dsm-main-native/dsm-main-native-r05-c02.tif",
+    "dsm-main-native/dsm-main-native-r05-c03.tif",
+    "dsm-main-native/dsm-main-native-r05-c04.tif",
+    "dsm-main-native/dsm-main-native-r05-c05.tif",
+    "dsm-main-native/dsm-main-native-r05-c06.tif",
+    "dsm-main-native/dsm-main-native-r05-c07.tif",
+    "dsm-main-native/dsm-main-native-r05-c08.tif",
+    "dsm-main-native/dsm-main-native-r05-c09.tif",
+    "dsm-main-native/dsm-main-native-r05-c10.tif",
+    "dsm-main-native/dsm-main-native-r06-c00.tif",
+    "dsm-main-native/dsm-main-native-r06-c01.tif",
+    "dsm-main-native/dsm-main-native-r06-c02.tif",
+    "dsm-main-native/dsm-main-native-r06-c03.tif",
+    "dsm-main-native/dsm-main-native-r06-c04.tif",
+    "dsm-main-native/dsm-main-native-r06-c05.tif",
+    "dsm-main-native/dsm-main-native-r06-c06.tif",
+    "dsm-main-native/dsm-main-native-r06-c07.tif",
+    "dsm-main-native/dsm-main-native-r06-c08.tif",
+    "dsm-main-native/dsm-main-native-r06-c09.tif",
+    "dsm-main-native/dsm-main-native-r06-c10.tif",
+    "dsm-main-native/dsm-main-native-r07-c00.tif",
+    "dsm-main-native/dsm-main-native-r07-c01.tif",
+    "dsm-main-native/dsm-main-native-r07-c02.tif",
+    "dsm-main-native/dsm-main-native-r07-c03.tif",
+    "dsm-main-native/dsm-main-native-r07-c04.tif",
+    "dsm-main-native/dsm-main-native-r07-c05.tif",
+    "dsm-main-native/dsm-main-native-r07-c06.tif",
+    "dsm-main-native/dsm-main-native-r07-c07.tif",
+    "dsm-main-native/dsm-main-native-r07-c08.tif",
+    "dsm-main-native/dsm-main-native-r07-c09.tif",
+    "dsm-main-native/dsm-main-native-r07-c10.tif",
+    "dsm-main-native/dsm-main-native-r08-c00.tif",
+    "dsm-main-native/dsm-main-native-r08-c01.tif",
+    "dsm-main-native/dsm-main-native-r08-c02.tif",
+    "dsm-main-native/dsm-main-native-r08-c03.tif",
+    "dsm-main-native/dsm-main-native-r08-c04.tif",
+    "dsm-main-native/dsm-main-native-r08-c05.tif",
+    "dsm-main-native/dsm-main-native-r08-c06.tif",
+    "dsm-main-native/dsm-main-native-r08-c07.tif",
+    "dsm-main-native/dsm-main-native-r08-c08.tif",
+    "dsm-main-native/dsm-main-native-r08-c09.tif",
+    "dsm-main-native/dsm-main-native-r08-c10.tif",
+    "dsm-main-native/dsm-main-native-r09-c00.tif",
+    "dsm-main-native/dsm-main-native-r09-c01.tif",
+    "dsm-main-native/dsm-main-native-r09-c02.tif",
+    "dsm-main-native/dsm-main-native-r09-c03.tif",
+    "dsm-main-native/dsm-main-native-r09-c04.tif",
+    "dsm-main-native/dsm-main-native-r09-c05.tif",
+    "dsm-main-native/dsm-main-native-r09-c06.tif",
+    "dsm-main-native/dsm-main-native-r09-c07.tif",
+    "dsm-main-native/dsm-main-native-r09-c08.tif",
+    "dsm-main-native/dsm-main-native-r09-c09.tif",
+    "dsm-main-native/dsm-main-native-r09-c10.tif"
+  ]
 }

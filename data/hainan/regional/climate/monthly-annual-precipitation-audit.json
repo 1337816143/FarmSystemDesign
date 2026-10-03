@@ -1,0 +1,59 @@
+{
+  "annual_source_retrieved_again": false,
+  "annual_local_reference": "chirps-2025-expanded.tif",
+  "annual_reference_sha256": "f62cb366a8d4d4b045e3dbeb5a57c2ce7dfe368f1afb3385f8457f6b3f2c8937",
+  "annual_source_url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/annual/global/tifs/chirps-v3.0.2025.tif",
+  "groups": [
+    {
+      "group": "main",
+      "monthly_valid_masks_identical": true,
+      "cells_with_all_12_months": 1597,
+      "compared_cells": 1597,
+      "max_absolute_difference_mm": 0.0004673004150390625,
+      "mean_difference_mm": -5.182282358837187e-07,
+      "cells_over_0_1_mm_difference": 0,
+      "not_interchangeable": false
+    },
+    {
+      "group": "xisha",
+      "monthly_valid_masks_identical": true,
+      "cells_with_all_12_months": 0,
+      "compared_cells": 0,
+      "max_absolute_difference_mm": null,
+      "mean_difference_mm": null,
+      "cells_over_0_1_mm_difference": 0,
+      "not_interchangeable": false
+    },
+    {
+      "group": "zhongsha",
+      "monthly_valid_masks_identical": true,
+      "cells_with_all_12_months": 21,
+      "compared_cells": 21,
+      "max_absolute_difference_mm": 0.0002727508544921875,
+      "mean_difference_mm": -4.642066501435779e-06,
+      "cells_over_0_1_mm_difference": 0,
+      "not_interchangeable": false
+    },
+    {
+      "group": "nansha",
+      "monthly_valid_masks_identical": true,
+      "cells_with_all_12_months": 4580,
+      "compared_cells": 4580,
+      "max_absolute_difference_mm": 0.0008697509765625,
+      "mean_difference_mm": 2.2742425510456467e-06,
+      "cells_over_0_1_mm_difference": 0,
+      "not_interchangeable": false
+    },
+    {
+      "group": "targeted-offshore",
+      "monthly_valid_masks_identical": true,
+      "cells_with_all_12_months": 0,
+      "compared_cells": 0,
+      "max_absolute_difference_mm": null,
+      "mean_difference_mm": null,
+      "cells_over_0_1_mm_difference": 0,
+      "not_interchangeable": false
+    }
+  ],
+  "interpretation": "Source COG modification dates can postdate annual publication. Differences are recorded, never silently repaired or claimed as a new annual source product."
+}

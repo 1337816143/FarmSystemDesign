@@ -1,0 +1,89 @@
+{
+  "id": "precipitation-2025-02-main",
+  "variable": "precipitation",
+  "dataset": "CHIRPS v3 final monthly precipitation",
+  "group": "main",
+  "period": "2025-02",
+  "year": 2025,
+  "month": 2,
+  "time_step": "monthly",
+  "temporal_aggregation": "monthly total",
+  "units": "mm/month",
+  "source": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.02.cog",
+  "file": "precipitation-2025-02-main-preview.png",
+  "preview": "precipitation-2025-02-main-preview.png",
+  "values_file": "precipitation-2025-02-main-values.png",
+  "values": "precipitation-2025-02-main-values.png",
+  "geotiff": "precipitation-2025-02-main.tif",
+  "native_window_geotiff": "precipitation-2025-02-main.tif",
+  "bbox": [
+    108.500004298985,
+    17.799999371170998,
+    111.50000434368849,
+    20.499999411404133
+  ],
+  "bounds_wsen": [
+    108.500004298985,
+    17.799999371170998,
+    111.50000434368849,
+    20.499999411404133
+  ],
+  "width": 60,
+  "height": 54,
+  "epsg": 4326,
+  "pixel_size_degrees": [
+    0.05000000074505806,
+    0.05000000074505806
+  ],
+  "display_resolution": {
+    "degrees": [
+      0.05000000074505806,
+      0.05000000074505806
+    ],
+    "label": "native source grid, nearest-neighbor display; no interpolation"
+  },
+  "decode": {
+    "encoding": "uint16 red + 256*green",
+    "scale": 0.1,
+    "offset": 0,
+    "nodata": "alpha === 0",
+    "units": "mm/month",
+    "formula": "(red + 256*green) * scale + offset"
+  },
+  "nodata": -9999,
+  "coverage": {
+    "grid_cells": 3240,
+    "valid_cells": 1597,
+    "nodata_cells": 1643,
+    "valid_percent": 49.2901,
+    "cloud_cells": null,
+    "denominator": "all cells in the geographic query window; not a province land area or island-specific coverage metric",
+    "full_source_rectangle_preserved": true,
+    "source_nodata_preserved": true
+  },
+  "statistics": {
+    "min": 0.38417965173721313,
+    "max": 35.592166900634766,
+    "mean": 16.692256927490234
+  },
+  "status": "available-native-coarse-grid",
+  "sha256": {
+    "preview": "cc6376a90b578a41c82c5ca8e281ed694e69c3b1465e83a81e8da7aa6494dddf",
+    "values": "38fd890e8796ec4c6f1b0cbdb9969a297bc2db353a493448a4542f22f829a3c6",
+    "geotiff": "13684189437622c4ada85ec48f7176b280e2736b1e325fd74113d5f798236ba4"
+  },
+  "native_resolution_degrees": [
+    0.05,
+    0.05
+  ],
+  "native_resolution_m": 5500,
+  "resolution_note": "0.05 degrees (~5.5 km), not a 10m or island-resolving rainfall measurement",
+  "source_fill_value": -9999,
+  "time_standard": "Monthly source period; do not infer uniform station local-day observation windows",
+  "coverage_note": "Ocean/source fill remains unavailable. Broad query envelopes may include other jurisdictions; no island-specific infilling.",
+  "source_last_modified": "Fri, 14 Mar 2025 21:48:39 GMT",
+  "source_raster_produced_at": "2025:03:14 11:36:47",
+  "source_etag": "\"67d4a437-1b829e0\"",
+  "period_start": "2025-02-01",
+  "period_end": "2025-02-28"
+}

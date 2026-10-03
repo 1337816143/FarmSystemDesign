@@ -1,0 +1,88 @@
+{
+  "id": "temperature-2025-11-zhongsha",
+  "variable": "temperature",
+  "dataset": "NASA POWER T2M / MERRA-2 monthly mean 2m temperature",
+  "group": "zhongsha",
+  "period": "2025-11",
+  "year": 2025,
+  "month": 11,
+  "time_step": "monthly",
+  "temporal_aggregation": "monthly mean",
+  "units": "°C",
+  "source": "https://power.larc.nasa.gov/api/temporal/monthly/regional?latitude-min=14.75&latitude-max=16.75&longitude-min=113.125&longitude-max=118.125&parameters=T2M&community=AG&start=2025&end=2025&format=JSON",
+  "file": "temperature-2025-11-zhongsha-preview.png",
+  "preview": "temperature-2025-11-zhongsha-preview.png",
+  "values_file": "temperature-2025-11-zhongsha-values.png",
+  "values": "temperature-2025-11-zhongsha-values.png",
+  "geotiff": "temperature-2025-11-zhongsha.tif",
+  "native_window_geotiff": "temperature-2025-11-zhongsha.tif",
+  "bbox": [
+    112.8125,
+    14.75,
+    118.4375,
+    16.75
+  ],
+  "bounds_wsen": [
+    112.8125,
+    14.75,
+    118.4375,
+    16.75
+  ],
+  "width": 9,
+  "height": 4,
+  "epsg": 4326,
+  "pixel_size_degrees": [
+    0.625,
+    0.5
+  ],
+  "display_resolution": {
+    "degrees": [
+      0.625,
+      0.5
+    ],
+    "label": "native source grid, nearest-neighbor display; no interpolation"
+  },
+  "decode": {
+    "encoding": "uint16 red + 256*green",
+    "scale": 0.01,
+    "offset": -100,
+    "nodata": "alpha === 0",
+    "units": "°C",
+    "formula": "(red + 256*green) * scale + offset"
+  },
+  "nodata": -9999,
+  "coverage": {
+    "grid_cells": 36,
+    "valid_cells": 36,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "denominator": "all cells in the geographic query window; not a province land area or island-specific coverage metric",
+    "full_source_rectangle_preserved": true,
+    "source_nodata_preserved": true
+  },
+  "statistics": {
+    "min": 27.010000228881836,
+    "max": 28.549999237060547,
+    "mean": 27.762222290039062
+  },
+  "status": "coarse-context-only",
+  "sha256": {
+    "preview": "bd30e0350310b46048766d1d20953a17c5420eea3321e69c45bd39f10635b194",
+    "values": "06f360ba628d0f354a228821ebbe7d881577fb218abed250171e1d1f221b570c",
+    "geotiff": "0f0eb3decd9c5583ab102d23dc176f4059c7051fb66a309afba03994c5ab5a34"
+  },
+  "native_resolution_degrees": [
+    0.625,
+    0.5
+  ],
+  "native_resolution_m": null,
+  "resolution_note": "MERRA-2 native 0.625° longitude × 0.5° latitude (roughly 55–70 km); no finer local information was created",
+  "source_fill_value": -999.0,
+  "time_standard": "LST",
+  "source_grid_file": "temperature-zhongsha-source-grid.json",
+  "coverage_note": "MERRA-2 has valid model grid cells over land and ocean. Such valid ocean values are retained from source, not filled from land. Tiny islands are not spatially resolved; cells can mix ocean and land; use only coarse regional context.",
+  "period_start": "2025-11-01",
+  "period_end": "2025-11-30",
+  "raw_response_file": "source-power-t2m-zhongsha-2025.json"
+}

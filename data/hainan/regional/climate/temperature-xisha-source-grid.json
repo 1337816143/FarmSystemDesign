@@ -1,0 +1,47 @@
+{
+  "group": "xisha",
+  "requested_geographic_bbox": [
+    111,
+    15.5,
+    113.1,
+    17.6
+  ],
+  "request_url": "https://power.larc.nasa.gov/api/temporal/monthly/regional?latitude-min=15.5&latitude-max=17.5&longitude-min=111.1875&longitude-max=113.1875&parameters=T2M&community=AG&start=2025&end=2025&format=JSON",
+  "source_header": {
+    "title": "NASA/POWER Source Native Resolution Monthly and Annual",
+    "api": {
+      "version": "v2.10.0",
+      "name": "POWER Monthly and Annual API"
+    },
+    "sources": [
+      "MERRA2"
+    ],
+    "fill_value": -999.0,
+    "time_standard": "LST",
+    "start": "20250101",
+    "end": "20251231"
+  },
+  "returned_parameter": {
+    "units": "C",
+    "longname": "Temperature at 2 Meters"
+  },
+  "expected_grid_cells": 20,
+  "returned_unique_cells": 20,
+  "used_native_cells": 20,
+  "minimum_api_extent_degrees": 2,
+  "longitude_centers": [
+    111.25,
+    111.875,
+    112.5,
+    113.125
+  ],
+  "latitude_centers_north_to_south": [
+    17.5,
+    17.0,
+    16.5,
+    16.0,
+    15.5
+  ],
+  "continuous_grid": true,
+  "raw_response_sha256": "7e46220435a0052b65616fdc0ac93e75dd5915ea1b5b6af50759dba36b31a54c"
+}

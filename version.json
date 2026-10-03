@@ -1,18 +1,18 @@
 {
-  "version": "0.3.10",
-  "name": "Hainan Coverage Register",
+  "version": "0.3.11",
+  "name": "Hainan Data Map",
   "channel": "research-preview",
   "releasedOn": "2026-10-03",
   "modelVersion": "screening-0.2.0",
   "dataVersion": "evidence-2025-r1+assumptions-r2",
-  "regionalEvidenceVersion": "hainan-regional-2026-10-03-r2",
+  "regionalEvidenceVersion": "hainan-regional-2026-10-03-r3",
   "schemaVersion": 1,
   "storageVersion": 2,
   "commit": "local-preview",
   "changes": [
-    "按172真实源图幅、11预览与137具名OSM对象分列覆盖证据，保留无值/排云/未核状态",
-    "地图实时区分无概览、目录外、质量排除、源无值与请求/解码失败，并支持重试；定向补充两处原查询框遗漏和6处质量缺口",
-    "新增真实三沙OSM父关系部分范围参考；不作为官方完整行政界或陆地掩膜",
-    "模型、FTW田块和经营情景未改动"
+    "首页直接打开海南数据地图，提供全岛与来源细节入口、当前显示尺度和逐层加载状态",
+    "本岛2025分类与30m地表高程按连续本地分块显示，保留来源零值和预测缺口",
+    "卫星读取逐步显示有效像元，超时保留已读成果，失败可原位重试",
+    "原FTW预测边界、研究路线和农场假设模型继续保留"
   ]
 }

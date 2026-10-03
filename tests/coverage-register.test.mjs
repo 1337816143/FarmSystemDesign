@@ -24,6 +24,10 @@ test('runtime text does not turn read failure or tile count into a coverage clai
  const text=runtimeCoverageText([{status:'partial-read',filled:19,qualityRejected:7,sourceNoData:3,limited:true}],true);
  assert.match(text,/19 displayed pixels/);assert.match(text,/request or decoder failed/);assert.match(text,/not confirmed no-data/);assert.match(text,/12-source/);assert.match(text,/not island or provincial coverage/);
  assert.match(runtimeCoverageText([{status:'no-overview'}],true),/zoom to level 12/);
+ const mixed=runtimeCoverageText([{status:'displayed',filled:23},{status:'no-overview'}],false,{kind:'dsm'});
+ assert.match(mixed,/部分边缘瓦片/);assert.doesNotMatch(mixed,/12级|原始来源影像/);
+ const progressive=runtimeCoverageText([{status:'partial-loading',filled:23,pending:true}],true);
+ assert.match(progressive,/23 displayed pixels/);assert.match(progressive,/still loading/);assert.doesNotMatch(progressive,/failed/);
  assert.match(runtimeCoverageText([{status:'outside-index'}],true),/outside this catalog/);
  assert.match(runtimeCoverageText([{status:'timeout'}],false),/45秒/);
  const partial={status:'displayed',filled:30000,outsideRead:35536,attempts:1,failures:0};

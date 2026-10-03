@@ -1,6 +1,6 @@
 // Research route register. Source confirmation is deliberately separate from
 // integration and scientific validation; no regional record enters the farm model.
-export const REGIONAL_EVIDENCE_VERSION = 'hainan-regional-2026-10-03-r2';
+export const REGIONAL_EVIDENCE_VERSION = 'hainan-regional-2026-10-03-r3';
 
 export const ROUTES = {
   farm: {
@@ -70,7 +70,7 @@ export const NUTRIENT_BOUNDARY_STUDY = {
 export const AUDIT = [
   {"id":"sentinel-regional","track":"province","name":"2025全域Sentinel-2影像","status":"display-only","grain":"RGB10m / SCL20m；网页概览另标","period":"2025多日期","use":"空间证据浏览","gap":"已按视窗接入候选COG与真实拼图；SCL不保证完全无云，离岛仍按像元报告缺口。","url":"https://earth-search.aws.element84.com/v1/collections/sentinel-2-c1-l2a"},
   {"id":"esri2025-crops","track":"province","name":"2025 Esri作物类别","status":"display-only","grain":"10m原始分类","period":"2025 v003","use":"来源分类对照","gap":"Crops=5不是法定耕地；与WorldCover不同产品面积不得作为时序变化。","url":"https://livingatlas.arcgis.com/landcover/"},
-  {"id":"copernicus-dsm","track":"province","name":"Copernicus地表高程","status":"display-only","grain":"约30m来源；总览247m/989m","period":"主体2011–2015","use":"地形背景","gap":"地表模型包含植被/建筑；细窗与全域概览分开，小岛零值不冒充现势地形。","url":"https://spacedata.copernicus.eu/collections/copernicus-digital-elevation-model"},
+  {"id":"copernicus-dsm","track":"province","name":"Copernicus地表高程","status":"display-only","grain":"本岛连续约30m；低缩放247m概览","period":"主体2011–2015","use":"地形背景","gap":"本岛已接入连续110块约30m地表高程，包含植被/建筑；源零值与缺测分别保留，三沙仍有缺口。","url":"https://spacedata.copernicus.eu/collections/copernicus-digital-elevation-model"},
   {"id":"chirps2025","track":"province","name":"CHIRPS2025年降水","status":"display-only","grain":"0.05°约5.5km","period":"2025 final","use":"气候背景","gap":"真实年降水格网；海域和部分小岛无值，不是10m气候，也不是地块观测。","url":"https://chc.ucsb.edu/data/chirps3"},
   {"id":"osm-boundaries","track":"province","name":"OSM本岛18单元社区边界","status":"display-only","grain":"WGS84社区几何","period":"2026-10-03下载快照","use":"非官方位置参照","gap":"含五指山，未混入琼山区；三沙完整面缺失，不代表权威现势界或可直接用于县域统计。","url":"https://download.geofabrik.de/asia/china/hainan.html"},
 

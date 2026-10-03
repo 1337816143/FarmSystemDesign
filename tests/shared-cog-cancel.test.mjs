@@ -84,10 +84,12 @@ test('cancelling one tile preserves shared COG metadata for surviving and later 
     assert.equal(opens.get(visual),1);
     assert.equal(opens.get(quality),1,'SCL metadata must also remain shared');
     assert.equal(readSignals.length,4,'only the two surviving tiles read RGB and SCL windows');
-    assert.ok(readSignals.every(signal=>signal===survivor._abort.signal||signal===later._abort.signal));
+    assert.equal(new Set(readSignals).size,2,'each surviving scene uses its own bounded read signal');
+    assert.ok(readSignals.every(signal=>!signal.aborted));
+    assert.ok(readSignals.every(signal=>signal!==requestSignals.get(visual)),'window reads cannot cancel shared metadata');
     assert.equal(layer.active,0);
     assert.equal(layer.controllers.size,0);
-    assert.equal(layer.events.filter(event=>event.name==='coverage').length,2);
+    assert.equal(layer.events.filter(event=>event.name==='coverage'&&!event.detail.pending).length,2);
   } finally {
     layer?.onRemove();
     // Settle a still-pending mock request so a failed assertion does not leave its timeout alive.

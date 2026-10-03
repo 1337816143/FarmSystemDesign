@@ -1,0 +1,522 @@
+{
+  "chirps_monthly": [
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.01.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.01.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.9.0, L3Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:02:13 15:06:14",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.01.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:01:16 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "28655033",
+          "Last-Modified": "Tue, 25 Feb 2025 18:25:44 GMT",
+          "Connection": "close",
+          "ETag": "\"67be0b28-1b53db9\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.02.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.02.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.9.0, L3Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:03:14 11:36:47",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.02.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:01:16 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "28846560",
+          "Last-Modified": "Fri, 14 Mar 2025 21:48:39 GMT",
+          "Connection": "close",
+          "ETag": "\"67d4a437-1b829e0\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.03.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.03.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.9.0, L3Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:04:12 10:29:24",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.03.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:08:01 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "29324019",
+          "Last-Modified": "Mon, 14 Apr 2025 18:21:40 GMT",
+          "Connection": "close",
+          "ETag": "\"67fd5234-1bf72f3\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.04.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.04.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.9.0, L3Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:05:13 17:06:23",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.04.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:08:01 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "28996760",
+          "Last-Modified": "Wed, 14 May 2025 16:49:37 GMT",
+          "Connection": "close",
+          "ETag": "\"6824c9a1-1ba7498\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.05.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.05.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.9.0, L3Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:06:16 09:10:30",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.05.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:08:29 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "29690737",
+          "Last-Modified": "Wed, 12 Aug 2026 17:36:08 GMT",
+          "Connection": "close",
+          "ETag": "\"6a7caf08-1c50b71\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.06.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.06.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.7.2, Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:07:15 11:32:23",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.06.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:08:38 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "30017138",
+          "Last-Modified": "Tue, 15 Jul 2025 21:28:23 GMT",
+          "Connection": "close",
+          "ETag": "\"6876c7f7-1ca0672\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.07.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.07.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.7.2, Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:08:27 08:42:32",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.07.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:08:56 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "30518467",
+          "Last-Modified": "Wed, 27 Aug 2025 19:04:03 GMT",
+          "Connection": "close",
+          "ETag": "\"68af56a3-1d1acc3\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.08.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.08.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.9.0, L3Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:09:12 13:45:53",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.08.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:09:06 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "30980263",
+          "Last-Modified": "Fri, 12 Sep 2025 23:39:32 GMT",
+          "Connection": "close",
+          "ETag": "\"68c4af34-1d8b8a7\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.09.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.09.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.9.0, L3Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:10:15 14:17:44",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.09.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:09:25 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "31018760",
+          "Last-Modified": "Wed, 15 Oct 2025 23:34:19 GMT",
+          "Connection": "close",
+          "ETag": "\"68f02f7b-1d94f08\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.10.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.10.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.7.2, Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:11:14 13:53:49",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.10.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:09:35 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "29795992",
+          "Last-Modified": "Sat, 15 Nov 2025 00:51:00 GMT",
+          "Connection": "close",
+          "ETag": "\"6917ce74-1c6a698\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.11.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.11.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 9.0.0, NV5 Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2025:12:11 10:54:02",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.11.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:09:53 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "28977057",
+          "Last-Modified": "Thu, 11 Dec 2025 22:01:11 GMT",
+          "Connection": "close",
+          "ETag": "\"693b3f27-1ba27a1\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    },
+    {
+      "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.12.cog",
+      "native_size": [
+        7200,
+        2400
+      ],
+      "geotransform": [
+        -180.0,
+        0.05000000074505806,
+        0.0,
+        60.0,
+        0.0,
+        -0.05000000074505806
+      ],
+      "band_nodata": null,
+      "metadata": {
+        "TIFFTAG_DOCUMENTNAME": "/home/CHIRPS/v3.0/monthly/chirps-v3.0.2025.12.tif",
+        "TIFFTAG_IMAGEDESCRIPTION": "IDL TIFF file",
+        "TIFFTAG_SOFTWARE": "IDL 8.7.2, Harris Geospatial Solutions, Inc.",
+        "TIFFTAG_DATETIME": "2026:01:15 13:39:51",
+        "TIFFTAG_XRESOLUTION": "100",
+        "TIFFTAG_YRESOLUTION": "100",
+        "TIFFTAG_RESOLUTIONUNIT": "2 (pixels/inch)",
+        "AREA_OR_POINT": "Area"
+      },
+      "header": {
+        "url": "https://data.chc.ucsb.edu/products/CHIRPS/v3.0/monthly/global/cogs/chirps-v3.0.2025.12.cog",
+        "method": "HEAD",
+        "status": 200,
+        "headers": {
+          "Server": "nginx/1.24.0 (Ubuntu)",
+          "Date": "Sat, 03 Oct 2026 09:10:04 GMT",
+          "Content-Type": "application/octet-stream",
+          "Content-Length": "30495566",
+          "Last-Modified": "Fri, 16 Jan 2026 00:25:55 GMT",
+          "Connection": "close",
+          "ETag": "\"69698593-1d1534e\"",
+          "Accept-Ranges": "bytes"
+        },
+        "bytes": 0,
+        "attempt": 1
+      }
+    }
+  ],
+  "temperature_license_url": "https://registry.opendata.aws/nasa-power/",
+  "accessed_on": "2026-10-03"
+}

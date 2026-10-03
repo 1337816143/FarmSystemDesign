@@ -1,0 +1,110 @@
+{
+  "source_sha256": "8188a102f7ab2d131b74f74c22da2b5f1a63a977132e696684abb4aa514bdc90",
+  "lods": [
+    {
+      "id": "overview",
+      "factor": 16,
+      "width": 2083,
+      "height": 1875,
+      "actual_bbox": [
+        108.5,
+        17.8,
+        111.49952,
+        20.5
+      ],
+      "pixel_size_degrees": [
+        0.00144,
+        0.00144
+      ],
+      "min_zoom": 0,
+      "max_zoom": 9,
+      "grid_blocks": 2,
+      "empty_source_blocks": 1,
+      "files": 1,
+      "image_bytes": 366017,
+      "class_histogram": {
+        "0": 1860897,
+        "1": 633528,
+        "2": 719733,
+        "4": 4817,
+        "5": 429303,
+        "7": 187544,
+        "8": 2035,
+        "10": 160,
+        "11": 67608
+      },
+      "total_pixels": 3905625
+    },
+    {
+      "id": "medium",
+      "factor": 4,
+      "width": 8333,
+      "height": 7500,
+      "actual_bbox": [
+        108.5,
+        17.8,
+        111.49988,
+        20.5
+      ],
+      "pixel_size_degrees": [
+        0.00036,
+        0.00036
+      ],
+      "min_zoom": 10,
+      "max_zoom": 11,
+      "grid_blocks": 72,
+      "empty_source_blocks": 29,
+      "files": 43,
+      "image_bytes": 2456647,
+      "class_histogram": {
+        "0": 29781668,
+        "1": 10134964,
+        "2": 11516513,
+        "4": 77023,
+        "5": 6870127,
+        "7": 2999717,
+        "8": 32737,
+        "10": 2870,
+        "11": 1081881
+      },
+      "total_pixels": 62497500
+    },
+    {
+      "id": "detail",
+      "factor": 1,
+      "width": 33333,
+      "height": 30000,
+      "actual_bbox": [
+        108.5,
+        17.8,
+        111.49997,
+        20.5
+      ],
+      "pixel_size_degrees": [
+        9e-05,
+        9e-05
+      ],
+      "min_zoom": 12,
+      "max_zoom": 18,
+      "grid_blocks": 990,
+      "empty_source_blocks": 433,
+      "files": 557,
+      "image_bytes": 13611480,
+      "class_histogram": {
+        "0": 476537341,
+        "1": 162160117,
+        "2": 184271683,
+        "4": 1230383,
+        "5": 109919347,
+        "7": 47998533,
+        "8": 523205,
+        "10": 45730,
+        "11": 17303661
+      },
+      "total_pixels": 999990000
+    }
+  ],
+  "point_checks": 9576,
+  "mismatches": [],
+  "processing_seconds": 36.36278824599867
+}

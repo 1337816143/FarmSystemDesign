@@ -1,0 +1,96 @@
+{
+  "id": "dsm-main-native-r09-c01",
+  "group": "main",
+  "level": "continuous-native-grid-tile",
+  "min_zoom": 11,
+  "max_native_zoom": 13,
+  "file": "dsm-main-native/dsm-main-native-r09-c01-preview.png",
+  "values_file": "dsm-main-native/dsm-main-native-r09-c01-values.png",
+  "native_window_geotiff": "dsm-main-native/dsm-main-native-r09-c01.tif",
+  "metadata_file": "dsm-main-native/dsm-main-native-r09-c01.json",
+  "bbox": [
+    108.78430555555556,
+    17.799861111111113,
+    109.06875000000001,
+    17.940138888888892
+  ],
+  "bbox_wgs84": [
+    108.78430555555556,
+    17.799861111111113,
+    109.06875000000001,
+    17.940138888888892
+  ],
+  "width": 1024,
+  "height": 505,
+  "epsg": 4326,
+  "values_epsg": 4326,
+  "preview_epsg": 4326,
+  "native_resolution_m": 30,
+  "native_resolution_degrees": 0.0002777777777777778,
+  "display_resolution": {
+    "degrees": [
+      0.0002777777777777778,
+      0.0002777777777777778
+    ],
+    "label": "1 arcsecond (~30 m latitude), native grid"
+  },
+  "decode": {
+    "encoding": "uint16 red + 256*green",
+    "scale": 1,
+    "offset": -500,
+    "nodata": "alpha === 0",
+    "units": "m",
+    "formula": "(red + 256*green) * scale + offset",
+    "rounding_error_m_max": 0.5
+  },
+  "status": "unavailable-no-source-tile",
+  "coverage": {
+    "denominator": "all cells in this rectangular native-grid chip; includes sea and source-zero ocean; not an administrative land completeness percentage",
+    "grid_cells": 517120,
+    "valid_cells": 0,
+    "nodata_cells": 517120,
+    "valid_percent": 0.0,
+    "positive_surface_cells": 0,
+    "zero_height_cells": 0,
+    "displayed_nonzero_surface_cells": 0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable to this DSM"
+  },
+  "statistics": {
+    "min": null,
+    "max": null,
+    "mean": null
+  },
+  "source_tiles": [],
+  "period": "TanDEM-X mainly 2011–2015; older infill possible; not current bare-earth elevation",
+  "preview_note": "Source zero is preserved numerically but transparent in preview; source missing is -9999 and transparent. No land/ocean or missing values were synthesized.",
+  "raster_scale": 1,
+  "raster_offset": 0,
+  "raster_nodata": -9999.0,
+  "sha256": {
+    "preview": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67",
+    "values": "6fbccf2e8d0084b715d9136fab3a590b35646c86037929d73c9c36e8e89c1f67",
+    "geotiff": "d5c93acd0af0da34a16a64210237c5af3477dacd0d422ee5d4f81bdc0fb5fb79"
+  },
+  "bytes": {
+    "preview": 2085,
+    "values": 2085,
+    "geotiff": 9952
+  },
+  "max_zoom": 18,
+  "preview": "dsm-main-native/dsm-main-native-r09-c01-preview.png",
+  "values": "dsm-main-native/dsm-main-native-r09-c01-values.png",
+  "bounds_wsen": [
+    108.78430555555556,
+    17.799861111111113,
+    109.06875000000001,
+    17.940138888888892
+  ],
+  "pixel_size_degrees": [
+    0.0002777777777777778,
+    0.0002777777777777778
+  ],
+  "native_window_geotiff_publish_group": "optional-native-downloads",
+  "vertical_datum": "EGM2008 geoid (EPSG:3855); orthometric surface height",
+  "observation_not_acquisition_warning": "The 2026 access date is not a terrain observation date."
+}

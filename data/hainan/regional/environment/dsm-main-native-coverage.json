@@ -1,0 +1,33 @@
+{
+  "title": "Hainan main-island native DSM source support at 100 m audit points",
+  "grid_epsg": 32649,
+  "bounds": [
+    234910.0,
+    1968070.0,
+    553110.0,
+    2268870.0
+  ],
+  "width": 3182,
+  "height": 3008,
+  "resolution_m": 100,
+  "source_native_resolution_m": 30,
+  "method": "Nearest original DSM value at centers of an existing inferred 100 m main-island mask. This diagnostic is not an official administrative land completeness measure. It excludes offshore/Sansha completeness claims.",
+  "codes": {
+    "0": "outside inferred main-island mask (transparent)",
+    "1": "source-valid nonzero DSM (green)",
+    "2": "source-valid zero DSM, unresolved shoreline/water/zero context (gold)",
+    "3": "source missing (red)"
+  },
+  "counts": {
+    "0": 6198176,
+    "1": 3366647,
+    "2": 6633,
+    "3": 0
+  },
+  "main_mask_points": 3373280,
+  "main_mask_valid_points": 3373280,
+  "source_zero_is_not_missing": true,
+  "mask_sha256": "dfa47207f6d2b8f7a59256b6a6a98725a57e1a4806bd31ca5b41b5bc6a2bc5fd",
+  "preview": "dsm-main-native-coverage-preview.png",
+  "status_geotiff": "dsm-main-native-coverage-status.tif"
+}

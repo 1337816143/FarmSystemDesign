@@ -1,0 +1,88 @@
+{
+  "id": "temperature-2025-02-targeted-offshore",
+  "variable": "temperature",
+  "dataset": "NASA POWER T2M / MERRA-2 monthly mean 2m temperature",
+  "group": "targeted-offshore",
+  "period": "2025-02",
+  "year": 2025,
+  "month": 2,
+  "time_step": "monthly",
+  "temporal_aggregation": "monthly mean",
+  "units": "°C",
+  "source": "https://power.larc.nasa.gov/api/temporal/monthly/regional?latitude-min=18.25&latitude-max=20.25&longitude-min=112.4375&longitude-max=114.4375&parameters=T2M&community=AG&start=2025&end=2025&format=JSON",
+  "file": "temperature-2025-02-targeted-offshore-preview.png",
+  "preview": "temperature-2025-02-targeted-offshore-preview.png",
+  "values_file": "temperature-2025-02-targeted-offshore-values.png",
+  "values": "temperature-2025-02-targeted-offshore-values.png",
+  "geotiff": "temperature-2025-02-targeted-offshore.tif",
+  "native_window_geotiff": "temperature-2025-02-targeted-offshore.tif",
+  "bbox": [
+    112.8125,
+    18.75,
+    114.0625,
+    19.75
+  ],
+  "bounds_wsen": [
+    112.8125,
+    18.75,
+    114.0625,
+    19.75
+  ],
+  "width": 2,
+  "height": 2,
+  "epsg": 4326,
+  "pixel_size_degrees": [
+    0.625,
+    0.5
+  ],
+  "display_resolution": {
+    "degrees": [
+      0.625,
+      0.5
+    ],
+    "label": "native source grid, nearest-neighbor display; no interpolation"
+  },
+  "decode": {
+    "encoding": "uint16 red + 256*green",
+    "scale": 0.01,
+    "offset": -100,
+    "nodata": "alpha === 0",
+    "units": "°C",
+    "formula": "(red + 256*green) * scale + offset"
+  },
+  "nodata": -9999,
+  "coverage": {
+    "grid_cells": 4,
+    "valid_cells": 4,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "denominator": "all cells in the geographic query window; not a province land area or island-specific coverage metric",
+    "full_source_rectangle_preserved": true,
+    "source_nodata_preserved": true
+  },
+  "statistics": {
+    "min": 21.739999771118164,
+    "max": 22.229999542236328,
+    "mean": 21.99250030517578
+  },
+  "status": "coarse-context-only",
+  "sha256": {
+    "preview": "918ad71de21dfc6274c559b8b6875a495fc3e59a7de86fe4016ffbb80efaf89d",
+    "values": "b26063d202dde4a4c745c9ffcd98a686a3ba1b30f68a4f00e72237d519f8907c",
+    "geotiff": "ed77a165159217793a8b6fdbcbe0ee1723ec909d1c1d2afdffaa93cf8da6a7c0"
+  },
+  "native_resolution_degrees": [
+    0.625,
+    0.5
+  ],
+  "native_resolution_m": null,
+  "resolution_note": "MERRA-2 native 0.625° longitude × 0.5° latitude (roughly 55–70 km); no finer local information was created",
+  "source_fill_value": -999.0,
+  "time_standard": "LST",
+  "source_grid_file": "temperature-targeted-offshore-source-grid.json",
+  "coverage_note": "MERRA-2 has valid model grid cells over land and ocean. Such valid ocean values are retained from source, not filled from land. Tiny islands are not spatially resolved; cells can mix ocean and land; use only coarse regional context.",
+  "period_start": "2025-02-01",
+  "period_end": "2025-02-28",
+  "raw_response_file": "source-power-t2m-targeted-offshore-2025.json"
+}

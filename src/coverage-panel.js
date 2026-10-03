@@ -16,21 +16,22 @@ export function hasMixedSampleCenter(record){return Boolean(record.sample_eviden
 export function hasSaturatedSample(record){return record.sample_evidence?.rgb_saturation_flag===true;}
 export function objectEvidenceText(record,en=false){return coverageStatusText(record.status,en)+(hasMixedSampleCenter(record)?en?'; a 10/20 m pixel center lies outside the object; possible coastal mixing':'；10/20m像元中心有面外值，海岸混合风险':'')+(hasSaturatedSample(record)?en?'; display values are saturated or near-saturated; clarity unverified':'；显示值饱和或近饱和，清晰度未核':'');}
 export function objectSampleDates(record){return record.successful_sample_dates||record.accepted_sample_dates?.length&&record.accepted_sample_dates||[record.sample_evidence?.date].filter(Boolean);}
-export function runtimeCoverageText(rows,en=false){
+export function runtimeCoverageText(rows,en=false,{kind='imagery'}={}){
  if(!rows.length)return en?'Waiting for the current view.':'等待当前视图加载。';
  const n=k=>rows.reduce((sum,r)=>sum+(Number(r[k])||0),0),statuses=new Set(rows.map(r=>r.status));
- const messages=[];const loaded=rows.filter(r=>r.status!=='loading').length;
- if(statuses.has('loading'))messages.push(en?`${rows.length-loaded} tiles loading`:`${rows.length-loaded} 块瓦片正在读取`);
+ const messages=[];const pending=rows.filter(r=>r.pending||r.status==='loading'||r.status==='partial-loading').length;const loaded=rows.filter(r=>Number(r.filled)>0||(!r.pending&&r.status!=='loading')).length;
+ if(pending)messages.push(en?`${pending} tiles still loading; accepted pixels appear progressively`:`${pending} 块瓦片仍在读取，已取得的有效像元逐步显示`);
  if(n('filled'))messages.push(en?`${n('filled').toLocaleString('en-US')} displayed pixels in ${loaded} loaded tiles`:`${loaded} 块已读瓦片含 ${n('filled').toLocaleString('zh-CN')} 个显示像元`);
  if(n('qualityRejected'))messages.push(en?`${n('qualityRejected').toLocaleString('en-US')} remaining pixels rejected by SCL/cloud guard`:`${n('qualityRejected').toLocaleString('zh-CN')} 个剩余像元被 SCL/云邻域排除`);
  if(n('unknownTransparent'))messages.push(en?`${n('unknownTransparent')} transparent pixels lack readable quality flags; cause unknown`:`${n('unknownTransparent')} 个透明像元未读到有效质量标志，原因未核`);
  if(n('sourceNoData'))messages.push(en?`${n('sourceNoData').toLocaleString('en-US')} pixels have no accepted source value`:`${n('sourceNoData').toLocaleString('zh-CN')} 个像元无可用来源值`);
  if(n('outsideRead'))messages.push(en?`${n('outsideRead').toLocaleString('en-US')} pixels lie outside the windows read; their cause remains unverified`:`${n('outsideRead').toLocaleString('zh-CN')} 个像元不在已读窗口内，原因仍未核`);
- if(statuses.has('no-overview'))messages.push(en?'No local overview here; for imagery, zoom to level 12 for indexed source windows':'此处无本地概览；影像请放大至12级读取已索引原始视窗');
+ if(statuses.has('no-overview')){const partial=rows.some(r=>Number(r.filled)>0);messages.push(en?(partial?'Some edge tiles have no local preview; this does not mean the displayed island is missing':'No local overview in these tiles'):(partial?'部分边缘瓦片没有本地预览，不代表已显示的本岛缺失':'这些瓦片没有本地概览'));if(kind==='imagery')messages.push(en?'For native-source imagery, zoom to level 12 or use the detail button':'原始来源影像可放大至12级，或点击查看细节');}
  if(statuses.has('outside-index'))messages.push(en?'No selected source footprint intersects some tiles; outside this catalog':'部分瓦片不与已选源图幅相交，超出当前目录');
  if([...statuses].some(s=>['read-error','incomplete-read','partial-read'].includes(s)))messages.push(en?'Source request or decoder failed; blank areas are not confirmed no-data. Retry':'源请求或解码失败；空白不能认定为源数据缺失，可重试');
  if(statuses.has('outside-read'))messages.push(en?'Read windows do not cover these tiles; source edges or processing limits remain unverified':'已读窗口未覆盖这些瓦片；图幅边缘或处理限制仍未核');
- if(statuses.has('timeout'))messages.push(en?'Read reached its 45-second limit; retry':'读取达到45秒上限，可重试');
+ if(statuses.has('timeout')||rows.some(r=>r.timeout))messages.push(en?'Read reached its 45-second limit; accepted pixels are retained; retry':'读取达到45秒上限，已显示有效像元保留，可重试');
+ if(n('sourceTimeouts'))messages.push(en?'Some source requests timed out; accepted pixels are retained':'部分来源请求超时，已显示有效像元保留');
  if(rows.some(r=>r.limited))messages.push(en?'12-source processing limit reached; remaining pixels are not fully checked':'已达12个源的处理上限，剩余像元尚未查全');
  if(!messages.length)messages.push(en?'No accepted pixels in the loaded source windows':'已读来源窗口没有可接受像元');
  messages.push(en?'Tile counts include view edges and sea; not island or provincial coverage.':'瓦片计数含视图边缘和海域，不是岛屿或全省覆盖率。');return messages.join(en?'. ':'；');

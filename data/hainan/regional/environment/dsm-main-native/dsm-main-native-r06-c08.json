@@ -1,0 +1,102 @@
+{
+  "id": "dsm-main-native-r06-c08",
+  "group": "main",
+  "level": "continuous-native-grid-tile",
+  "min_zoom": 11,
+  "max_native_zoom": 13,
+  "file": "dsm-main-native/dsm-main-native-r06-c08-preview.png",
+  "values_file": "dsm-main-native/dsm-main-native-r06-c08-values.png",
+  "native_window_geotiff": "dsm-main-native/dsm-main-native-r06-c08.tif",
+  "metadata_file": "dsm-main-native/dsm-main-native-r06-c08.json",
+  "bbox": [
+    110.77541666666667,
+    18.50902777777778,
+    111.05986111111112,
+    18.793472222222224
+  ],
+  "bbox_wgs84": [
+    110.77541666666667,
+    18.50902777777778,
+    111.05986111111112,
+    18.793472222222224
+  ],
+  "width": 1024,
+  "height": 1024,
+  "epsg": 4326,
+  "values_epsg": 4326,
+  "preview_epsg": 4326,
+  "native_resolution_m": 30,
+  "native_resolution_degrees": 0.0002777777777777778,
+  "display_resolution": {
+    "degrees": [
+      0.0002777777777777778,
+      0.0002777777777777778
+    ],
+    "label": "1 arcsecond (~30 m latitude), native grid"
+  },
+  "decode": {
+    "encoding": "uint16 red + 256*green",
+    "scale": 1,
+    "offset": -500,
+    "nodata": "alpha === 0",
+    "units": "m",
+    "formula": "(red + 256*green) * scale + offset",
+    "rounding_error_m_max": 0.5
+  },
+  "status": "source-zero-ocean-context",
+  "coverage": {
+    "denominator": "all cells in this rectangular native-grid chip; includes sea and source-zero ocean; not an administrative land completeness percentage",
+    "grid_cells": 1048576,
+    "valid_cells": 827392,
+    "nodata_cells": 221184,
+    "valid_percent": 78.90625,
+    "positive_surface_cells": 0,
+    "zero_height_cells": 827392,
+    "displayed_nonzero_surface_cells": 0,
+    "cloud_cells": null,
+    "cloud_note": "not applicable to this DSM"
+  },
+  "statistics": {
+    "min": 0.0,
+    "max": 0.0,
+    "mean": 0.0
+  },
+  "source_tiles": [
+    {
+      "id": "Copernicus_DSM_COG_10_N18_00_E110_00_DEM",
+      "href": "https://copernicus-dem-30m.s3.eu-central-1.amazonaws.com/Copernicus_DSM_COG_10_N18_00_E110_00_DEM/Copernicus_DSM_COG_10_N18_00_E110_00_DEM.tif",
+      "cached_window_sha256": "4b1b19da97fabb56f1bbfbeb460de20a8edeb7cdecc91e878f632b95639577a8"
+    }
+  ],
+  "period": "TanDEM-X mainly 2011–2015; older infill possible; not current bare-earth elevation",
+  "preview_note": "Source zero is preserved numerically but transparent in preview; source missing is -9999 and transparent. No land/ocean or missing values were synthesized.",
+  "raster_scale": 1,
+  "raster_offset": 0,
+  "raster_nodata": -9999.0,
+  "sha256": {
+    "preview": "f12ddfea20dcca2fa350d75d5ed2ae76a4fffbcdfd2b8f2357558b90072dab9f",
+    "values": "342a0d247631762eaee310fa1c664db16534de1324551af19000b210133bc373",
+    "geotiff": "03c37f63b744dd2b2ac7dba0f032236ed08af8cd4460e1dc4257f6003cfe584a"
+  },
+  "bytes": {
+    "preview": 4144,
+    "values": 5699,
+    "geotiff": 9116
+  },
+  "max_zoom": 18,
+  "preview": "dsm-main-native/dsm-main-native-r06-c08-preview.png",
+  "values": "dsm-main-native/dsm-main-native-r06-c08-values.png",
+  "bounds_wsen": [
+    110.77541666666667,
+    18.50902777777778,
+    111.05986111111112,
+    18.793472222222224
+  ],
+  "pixel_size_degrees": [
+    0.0002777777777777778,
+    0.0002777777777777778
+  ],
+  "native_window_geotiff_publish_group": "optional-native-downloads",
+  "vertical_datum": "EGM2008 geoid (EPSG:3855); orthometric surface height",
+  "observation_not_acquisition_warning": "The 2026 access date is not a terrain observation date."
+}

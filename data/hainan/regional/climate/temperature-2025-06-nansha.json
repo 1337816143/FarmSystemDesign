@@ -1,0 +1,88 @@
+{
+  "id": "temperature-2025-06-nansha",
+  "variable": "temperature",
+  "dataset": "NASA POWER T2M / MERRA-2 monthly mean 2m temperature",
+  "group": "nansha",
+  "period": "2025-06",
+  "year": 2025,
+  "month": 6,
+  "time_step": "monthly",
+  "temporal_aggregation": "monthly mean",
+  "units": "°C",
+  "source": "https://power.larc.nasa.gov/api/temporal/monthly/regional?latitude-min=3.5&latitude-max=12.5&longitude-min=109.375&longitude-max=118.125&parameters=T2M&community=AG&start=2025&end=2025&format=JSON",
+  "file": "temperature-2025-06-nansha-preview.png",
+  "preview": "temperature-2025-06-nansha-preview.png",
+  "values_file": "temperature-2025-06-nansha-values.png",
+  "values": "temperature-2025-06-nansha-values.png",
+  "geotiff": "temperature-2025-06-nansha.tif",
+  "native_window_geotiff": "temperature-2025-06-nansha.tif",
+  "bbox": [
+    109.0625,
+    3.25,
+    118.4375,
+    12.75
+  ],
+  "bounds_wsen": [
+    109.0625,
+    3.25,
+    118.4375,
+    12.75
+  ],
+  "width": 15,
+  "height": 19,
+  "epsg": 4326,
+  "pixel_size_degrees": [
+    0.625,
+    0.5
+  ],
+  "display_resolution": {
+    "degrees": [
+      0.625,
+      0.5
+    ],
+    "label": "native source grid, nearest-neighbor display; no interpolation"
+  },
+  "decode": {
+    "encoding": "uint16 red + 256*green",
+    "scale": 0.01,
+    "offset": -100,
+    "nodata": "alpha === 0",
+    "units": "°C",
+    "formula": "(red + 256*green) * scale + offset"
+  },
+  "nodata": -9999,
+  "coverage": {
+    "grid_cells": 285,
+    "valid_cells": 285,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "denominator": "all cells in the geographic query window; not a province land area or island-specific coverage metric",
+    "full_source_rectangle_preserved": true,
+    "source_nodata_preserved": true
+  },
+  "statistics": {
+    "min": 20.360000610351562,
+    "max": 29.15999984741211,
+    "mean": 28.314456939697266
+  },
+  "status": "coarse-context-only",
+  "sha256": {
+    "preview": "dc874848650bcaeea89eaac881c8a208bd04ca2a829457397552bc78d0b3137d",
+    "values": "6755f9588c3edc24059c0d5bcd0b0581ce697bfaa4ad0f54a646f60e5942ff34",
+    "geotiff": "d79579bedd2fe3a8f58207844ff61a4187c1414ed04682f4b23afbc499cae5bb"
+  },
+  "native_resolution_degrees": [
+    0.625,
+    0.5
+  ],
+  "native_resolution_m": null,
+  "resolution_note": "MERRA-2 native 0.625° longitude × 0.5° latitude (roughly 55–70 km); no finer local information was created",
+  "source_fill_value": -999.0,
+  "time_standard": "LST",
+  "source_grid_file": "temperature-nansha-source-grid.json",
+  "coverage_note": "MERRA-2 has valid model grid cells over land and ocean. Such valid ocean values are retained from source, not filled from land. Tiny islands are not spatially resolved; cells can mix ocean and land; use only coarse regional context.",
+  "period_start": "2025-06-01",
+  "period_end": "2025-06-30",
+  "raw_response_file": "source-power-t2m-nansha-2025.json"
+}

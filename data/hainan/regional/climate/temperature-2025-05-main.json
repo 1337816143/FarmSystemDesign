@@ -1,0 +1,88 @@
+{
+  "id": "temperature-2025-05-main",
+  "variable": "temperature",
+  "dataset": "NASA POWER T2M / MERRA-2 monthly mean 2m temperature",
+  "group": "main",
+  "period": "2025-05",
+  "year": 2025,
+  "month": 5,
+  "time_step": "monthly",
+  "temporal_aggregation": "monthly mean",
+  "units": "°C",
+  "source": "https://power.larc.nasa.gov/api/temporal/monthly/regional?latitude-min=17.8&latitude-max=20.5&longitude-min=108.5&longitude-max=111.5&parameters=T2M&community=AG&start=2025&end=2025&format=JSON",
+  "file": "temperature-2025-05-main-preview.png",
+  "preview": "temperature-2025-05-main-preview.png",
+  "values_file": "temperature-2025-05-main-values.png",
+  "values": "temperature-2025-05-main-values.png",
+  "geotiff": "temperature-2025-05-main.tif",
+  "native_window_geotiff": "temperature-2025-05-main.tif",
+  "bbox": [
+    108.4375,
+    17.75,
+    111.5625,
+    20.75
+  ],
+  "bounds_wsen": [
+    108.4375,
+    17.75,
+    111.5625,
+    20.75
+  ],
+  "width": 5,
+  "height": 6,
+  "epsg": 4326,
+  "pixel_size_degrees": [
+    0.625,
+    0.5
+  ],
+  "display_resolution": {
+    "degrees": [
+      0.625,
+      0.5
+    ],
+    "label": "native source grid, nearest-neighbor display; no interpolation"
+  },
+  "decode": {
+    "encoding": "uint16 red + 256*green",
+    "scale": 0.01,
+    "offset": -100,
+    "nodata": "alpha === 0",
+    "units": "°C",
+    "formula": "(red + 256*green) * scale + offset"
+  },
+  "nodata": -9999,
+  "coverage": {
+    "grid_cells": 30,
+    "valid_cells": 30,
+    "nodata_cells": 0,
+    "valid_percent": 100.0,
+    "cloud_cells": null,
+    "denominator": "all cells in the geographic query window; not a province land area or island-specific coverage metric",
+    "full_source_rectangle_preserved": true,
+    "source_nodata_preserved": true
+  },
+  "statistics": {
+    "min": 26.260000228881836,
+    "max": 29.059999465942383,
+    "mean": 27.94099998474121
+  },
+  "status": "coarse-context-only",
+  "sha256": {
+    "preview": "1ceea3c2339e006252a8ec45f75f2ed40a4acba94506252ea51fa02ec7bb50dc",
+    "values": "9bb32aefd9557bce8128ebefd57d055cdf508162edfad331c53cc9879246f07a",
+    "geotiff": "7bc3687db75ddbdc6c704ae055e54a005bde60955bef58f35d1d7c140e24c719"
+  },
+  "native_resolution_degrees": [
+    0.625,
+    0.5
+  ],
+  "native_resolution_m": null,
+  "resolution_note": "MERRA-2 native 0.625° longitude × 0.5° latitude (roughly 55–70 km); no finer local information was created",
+  "source_fill_value": -999.0,
+  "time_standard": "LST",
+  "source_grid_file": "temperature-main-source-grid.json",
+  "coverage_note": "MERRA-2 has valid model grid cells over land and ocean. Such valid ocean values are retained from source, not filled from land. Tiny islands are not spatially resolved; cells can mix ocean and land; use only coarse regional context.",
+  "period_start": "2025-05-01",
+  "period_end": "2025-05-31",
+  "raw_response_file": "source-power-t2m-main-2025.json"
+}
