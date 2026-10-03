@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "method_version": "v2-exact-transform",
+  "tests": [
+    {
+      "source_kind": "scl",
+      "native_m": 20,
+      "control_points": 20000,
+      "nearest_native_value_mismatches": 0,
+      "projection_error_threshold": 0,
+      "guard_mismatches": 0
+    },
+    {
+      "source_kind": "visual",
+      "native_m": 10,
+      "control_points": 20000,
+      "nearest_native_value_mismatches": 0,
+      "projection_error_threshold": 0
+    }
+  ],
+  "meaning": "Synthetic native-grid values and7x7 masks at the real Hainan source affine are compared with independent pyproj-native pixel indexing. Live-source evidence is separate."
+}

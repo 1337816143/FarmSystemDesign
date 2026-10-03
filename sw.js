@@ -1,5 +1,5 @@
 /* Only same-origin app assets. Never bulk-download/cache OpenStreetMap raster tiles. */
-const CACHE='farmsystem-v0.3.11-20261003-data-map-r1';
+const CACHE='farmsystem-v0.3.12-20261003-data-map-r1';
 const SHELL=['./','./index.html','./styles.css','./studio.css','./research.css','./language.css','./version.json','./vendor/leaflet.js','./vendor/leaflet.css','./src/version.js','./src/research.js','./src/hainan-atlas.js','./src/regional-data.js','./data/hainan/landcover-preview.png','./data/hainan/landcover-main-island-summary.json','./data/hainan/soil-ph-preview.png','./data/hainan/soil-ph-values.png','./data/hainan/soil-soc-preview.png','./data/hainan/soil-soc-values.png','./data/hainan/county-reference-2017.geojson','./src/i18n.js','./src/translations.generated.js','./src/evidence.generated.js','./icon.svg','./manifest.webmanifest','./src/app.js','./src/data.js','./src/model.js','./src/map.js','./src/charts.js','./src/utils.js','./src/optimizer.worker.js'];
 SHELL.push('./src/atlas-status.js','./src/local-classification.js','./src/coverage-panel.js','./src/cover-summary.js','./src/landcover-layer.js','./src/regional-raster.js','./src/regional-atlas-layers.js','./vendor/geotiff.js','./vendor/proj4.js');
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()));});

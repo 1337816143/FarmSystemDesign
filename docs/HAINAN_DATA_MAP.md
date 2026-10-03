@@ -6,7 +6,7 @@
 
 | 图层 | 数据时期 | 原始分辨率与网页显示 | 范围与限制 | 资料入口 |
 |---|---|---|---|---|
-| 卫星真彩色 | 2025年多日期拼接 | RGB原生10m，排云分类SCL为20m；现有整岛概览约143×152m，放大后读取原始影像窗口 | 连续近10m本岛同源分块仍待完整覆盖核验；现有概览清晰度不能代表原生影像。云、云影、缺测和读取失败分别保留 | [现有影像清单](../data/hainan/regional/imagery/preview-manifest.json) · [原始场景目录](../data/hainan/regional/imagery/scene-catalog.json) |
+| 卫星真彩色 | 2025年20个实际贡献日期，跨日期拼接 | RGB原生10m，SCL20m排云；本岛114个连续派生细块约9.4–9.5×10.02m，另有56个分级预览。图上14级起用最细块，更高放大不增加源细节 | 覆盖推测本岛掩膜及300m沿岸选块缓冲；三沙与其他离岸范围保留单独来源。仍有源质量筛选空白、接缝、色差与残留薄云，不能称无云无缝或逐岛完整覆盖 | [连续本岛影像清单](../data/hainan/regional/imagery-local/manifest.json) · [覆盖CSV](../data/hainan/regional/imagery-local/coverage-grid.csv) · [数据与质量说明](../data/hainan/regional/imagery-local/README.md) · [原始场景目录](../data/hainan/regional/imagery/scene-catalog.json) |
 | 2025完整土地覆被 / Crops=5 | 2025完整年度 | 原始10m；本站连续本岛派生格网约9.4–9.5×10.02m。低、中缩放使用约151×160m、38×40m分级图 | 本岛及近岸查询框已分块；三沙保留官方服务入口。Crops仅为一个模型类别，树木类可能包含果园、橡胶等 | [当前本地数据清单](../data/hainan/regional/landcover-local/landcover-local-manifest.json) · [覆盖CSV](../data/hainan/regional/landcover-local/coverage-grid.csv) · [数值与方法](../data/hainan/regional/landcover-local/README.md) |
 | 地表高程DSM | 主体观测2011–2015，可能含更早填补 | Copernicus GLO-30，1角秒、约30m；本岛连续110块。低缩放使用约247m概览 | 本岛按窗口显示连续约30m数据；含植被和建筑，垂直基准EGM2008。三沙部分岛礁无源或为未解释零值 | [连续本岛清单](../data/hainan/regional/environment/dsm-main-native-manifest.json) · [覆盖CSV](../data/hainan/regional/environment/dsm-main-native-coverage.csv) · [覆盖状态图](../data/hainan/regional/environment/dsm-main-native-coverage-preview.png) |
 | 逐月降水 | 2025年1–12月 | CHIRPS v3，0.05°、约5.5km；mm/月 | 本岛、近岸与各离岸地理组分别保留。海域和不少小岛没有该产品的预测值；放大不会增加细节 | [逐月气候清单](../data/hainan/regional/climate/climate-manifest.json) · [气候数据说明](../data/hainan/regional/climate/README.md) |
@@ -17,6 +17,8 @@
 2021土地覆被和2025-03-22局部卫星快照保留供历史参照。2021与2025的分类定义、模型和统计范围不同，不能直接把面积差解释为土地变化。
 
 ## 空白和“模糊”分别意味着什么
+
+主岛的连续分块由本站提供，放大后按视窗读取，避免每次直接拼接远程原始文件。低缩放仍使用轻量分级图，约151×160m、76×80m、38×40m、19×20m，14级起读取约9.5×10m细图。在推测本岛掩膜内，约99.918%的显示格通过本次RGB/SCL规则；其余294847格因质量筛选保留透明，没有在该掩膜内发现来源无值或RGB全零格。这是显示格接受比例，不是官方陆地面积、独立无云准确率或全省逐岛覆盖率。
 
 - 卫星影像的低缩放概览经过降采样；只有更细的数据加载后才能看到更多细节。真实云、云影和无值不会被生成的纹理补满。多日期拼接也可能出现色差和接缝
 - Crops模式只显示类别5，其他有效类别会透明。切到“完整分类”可区分其他地类、云类10与无数据0；透明不等于没有耕地

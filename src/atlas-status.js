@@ -28,3 +28,8 @@ export function classifiedTileText(rows,cropsOnly,en=false){
  parts.push(cropsOnly?(en?'Crops-only hides all classes except 5; switch to full classification to inspect transparent areas':'作物模式仅显示类别5；透明区请切完整分类核查'):(en?'Class 10 is cloud; source code 0 is no-data':'类别10为云，来源码0为无数据'));
  return parts.join(en?'. ':'；');
 }
+
+export function mainlandImageryStatus(metadata,en=false){
+ const fine=metadata.records.filter(r=>r.level===0).length,coarse=metadata.records.length-fine;
+ return en?`Main-island display grid: ${fine} continuous fine blocks and ${coarse} overview blocks. Current zoom chooses one local level; zoom14 uses about9.5×10m cells. Mask-derived mainland selection with300m coastal buffer, not exhaustive nearby-island or county coverage. Multi-date imagery; quality gaps, haze, colour differences and seams remain.`:`本岛显示格网：${fine}个连续细块与${coarse}个分级预览。按当前缩放选择一档本地图，14级起约9.5×10m。范围来自推测本岛掩膜及300m沿岸选块缓冲，不是穷尽近岸岛屿或市县覆盖。多日期影像仍有质量空白、薄雾、色差和接缝。`;
+}

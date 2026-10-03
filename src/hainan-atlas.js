@@ -2,7 +2,7 @@ import {CoveragePanel,coverageMarkup,runtimeCoverageText} from './coverage-panel
 import {REGIONAL_INFO,regionalLayer,regionInventory,inspectRegional} from './regional-atlas-layers.js';
 import {createLandcoverLayer} from './landcover-layer.js';
 import {CLASS_COLORS} from './local-classification.js';
-import {viewScaleText,classifiedTileText} from './atlas-status.js';
+import {viewScaleText,classifiedTileText,mainlandImageryStatus} from './atlas-status.js';
 import {intersects} from './regional-raster.js';
 // Hainan evidence atlas. The geospatial products never enter the farm model.
 import {validCoverSummary, coverSummaryCsv} from './cover-summary.js';
@@ -115,7 +115,7 @@ export function atlasMarkup(language = 'zh') {
     </aside></div></section>`;
 }
 
-export function atlasCoverageSummary({layer,config,id='main',zoom=8,bounds,en=false,failed=false}){
+export function atlasCoverageSummary({layer,config,id='main',zoom=8,bounds,en=false,failed=false,isMainlandSelection=false}){
   const title=REGIONAL_INFO[layer]?.[en?'en':'zh']||({classes2025:en?'2025 full land cover':'2025完整土地覆盖',crops2025:en?'2025 Crops only':'2025仅作物类别',landcover:en?'2021 WorldCover':'2021 WorldCover土地覆被'})[layer]||layer;
   const lead=title+' · ';
   if(failed)return lead+(en?'Layer read failed. Current-layer coverage is unverified; retry.':'图层读取失败；当前图层覆盖未核，可重试。');
@@ -123,6 +123,7 @@ export function atlasCoverageSummary({layer,config,id='main',zoom=8,bounds,en=fa
   if(layer==='landcover')return lead+(en?'Historical classification with an about300m preview. The separate main-island area summary is exploratory and is not current-view coverage.':'历史分类，网页预览约300m；单独列示的主岛面积是探索性汇总，不是当前视窗覆盖率。');
   if(config?.kind!==layer)config=null;
   if(!config)return lead+(en?'Reading the current layer catalog; coverage statistics are not available yet.':'正在读取当前图层目录；暂无当前图层覆盖统计。');
+  if(layer==='imagery'&&config.metadata?.native_grid_complete&&(id==='main'||id.startsWith('county-')||isMainlandSelection))return lead+mainlandImageryStatus(config.metadata,en);
   const z=Math.round(zoom),eligible=r=>z>=(r.min_zoom??0)&&z<=(r.max_zoom??24);
   if(layer==='dsm'&&bounds&&config.records.some(r=>r.level==='continuous-native-grid-tile'&&eligible(r)&&intersects(bounds,r.bounds_wsen)))return lead+(en?'This viewport uses continuous about30m mainland blocks. Availability is reported per loaded tile, not as a current-view or whole-island coverage percentage. Surface elevation includes vegetation/buildings; source zeros and missing data remain distinct.':'当前视窗采用本岛连续约30m分块；有效像元按已加载瓦片分别报告，不作为当前视窗或全岛覆盖率。地表高程包含植被和建筑，源零值与缺测分别保留。');
   if(id.startsWith('county-'))return lead+(en?'County reference view. Tile availability is not a validated county statistic.':'市县参考视图；瓦片可见情况不是已经核验的市县统计量。');
@@ -376,7 +377,7 @@ export class HainanAtlas {
 
   updateCoverage(){
     if(!this.map)return;const b=this.map.getBounds();
-    this.host.querySelector('#atlas-regional-status').textContent=atlasCoverageSummary({layer:this.layer,config:this.remoteLayer?.regionalConfig,id:this.host.querySelector('#atlas-region').value||'main',zoom:this.map.getZoom(),bounds:[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()],en:this.language==='en',failed:this.coverageFailure});
+    this.host.querySelector('#atlas-regional-status').textContent=atlasCoverageSummary({layer:this.layer,config:this.remoteLayer?.regionalConfig,id:this.host.querySelector('#atlas-region').value||'main',zoom:this.map.getZoom(),bounds:[b.getWest(),b.getSouth(),b.getEast(),b.getNorth()],en:this.language==='en',failed:this.coverageFailure,isMainlandSelection:this.inventory?.places?.find(x=>x.id===this.host.querySelector('#atlas-region').value)?.group==='main'});
   }
 
   async loadRegionalInventory(){
@@ -413,7 +414,7 @@ export class HainanAtlas {
 
   updateDataLinks(){
     const en=this.language==='en',paths={
-      imagery:[['影像清单','Imagery register','imagery/preview-manifest.json'],['原始场景目录','Source scene catalog','imagery/scene-catalog.json']],
+      imagery:[['连续本岛影像','Continuous mainland imagery','imagery-local/manifest.json'],['覆盖与质量CSV','Coverage and quality CSV','imagery-local/coverage-grid.csv'],['数据说明','Imagery notes','imagery-local/README.md'],['离岸原始场景','Offshore source scenes','imagery/scene-catalog.json']],
       classes2025:[['本岛分类清单','Mainland class register','landcover-local/landcover-local-manifest.json'],['分类覆盖CSV','Class coverage CSV','landcover-local/coverage-grid.csv']],
       crops2025:[['本岛分类清单','Mainland class register','landcover-local/landcover-local-manifest.json'],['分类覆盖CSV','Class coverage CSV','landcover-local/coverage-grid.csv']],
       dsm:[['30m分块清单','30m tile register','environment/dsm-main-native-manifest.json'],['高程覆盖CSV','Elevation coverage CSV','environment/dsm-main-native-coverage.csv'],['源零值与缺测图','Source zeros and gaps','environment/dsm-main-native-coverage-preview.png']],

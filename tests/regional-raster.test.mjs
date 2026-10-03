@@ -164,13 +164,14 @@ test('overview setup does not request the catalog, and a failed native request c
   globalThis.fetch = async url => {
     requests.push(url);
     if (url.endsWith('preview-manifest.json')) return {ok:true,json:async () => ({records:[]})};
+    if (url.endsWith('imagery-local/manifest.json')) return {ok:true,json:async () => ({records:[],native_grid_complete:true,method_version:'v2-exact-transform',completed_native_tiles:114,expected_native_tiles:114})};
     throw new Error('catalog network unavailable');
   };
   try {
     const {regionalConfig} = await import('../src/regional-atlas-layers.js');
     const config = await regionalConfig('imagery');
     await new Promise(resolve => setImmediate(resolve));
-    assert.deepEqual(requests, ['./data/hainan/regional/imagery/preview-manifest.json']);
+    assert.deepEqual(requests, ['./data/hainan/regional/imagery/preview-manifest.json','./data/hainan/regional/imagery-local/manifest.json']);
     assert.equal(typeof config.catalog, 'function');
     await assert.rejects(config.catalog(), /catalog network unavailable/);
     globalThis.fetch = async url => {

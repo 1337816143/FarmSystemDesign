@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "scl_guard_naive_vs_vectorized_pixels": 2491,
+  "scl_guard_rule": "Native20m classes2/4/5/6 and7x7 excludes3/8/9/10, including array-edge cases",
+  "original_rgb_nonzero_test": "passed",
+  "grid_affine_and_adjacent_boundary_checks": "passed",
+  "native_tile_count": 114,
+  "connected_main_island_mask_100m_cells": 3373280,
+  "mask_cell_centers_covered_by_native_grid": 3373280,
+  "grid_covers_mask_cell_centers_percent": 100.0,
+  "scope_limit": "The100m connected-main-island mask and300m selection buffer are not administrative boundaries or exhaustive offshore island inventory."
+}

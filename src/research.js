@@ -1,6 +1,6 @@
 // Research route register. Source confirmation is deliberately separate from
 // integration and scientific validation; no regional record enters the farm model.
-export const REGIONAL_EVIDENCE_VERSION = 'hainan-regional-2026-10-03-r3';
+export const REGIONAL_EVIDENCE_VERSION = 'hainan-regional-2026-10-03-r4';
 
 export const ROUTES = {
   farm: {

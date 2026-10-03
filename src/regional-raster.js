@@ -126,28 +126,42 @@ async function drawCogTile(config,coords,xy,out,signal,progress,previous={}){
  }
  return detail(false);
 }
-async function drawLocalTile(config,coords,xy,out,signal){
+async function drawLocalTile(config,coords,xy,out,signal,progress=()=>{}){
  const records=localRasterRecords(config.records,coords);
- let failures=0,qualityFailures=0,unknownTransparent=0,ownedCount=0,attempts=0;const recordStatuses=[],owned=new Uint8Array(65536),observed=new Uint8Array(65536),qualityRejected=new Uint8Array(65536),noData=new Uint8Array(65536);
+ let failures=0,qualityFailures=0,unknownTransparent=0,ownedCount=0,attempts=0;const recordStatuses=[],recordIds=[],owned=new Uint8Array(65536),observed=new Uint8Array(65536),qualityRejected=new Uint8Array(65536),noData=new Uint8Array(65536);
+ const detail=pending=>{const counts=summarizeRasterPixels(out,observed,qualityRejected,noData);counts.outsideRead=Math.max(0,counts.outsideRead-unknownTransparent);return {...counts,unknownTransparent,qualityFailures,failures,attempts,completed:attempts,recordStatuses,recordIds,pending};};
  for(let i=0;i<65536;i++)if(out[i*4+3]){owned[i]=1;ownedCount++;}
  for(const rec of records){
   if(ownedCount===65536)break;if(signal.aborted)throw new DOMException('Aborted','AbortError');attempts++;if(rec.status)recordStatuses.push(rec.status);
   try{
    const im=await loadRasterImage(config.base+rec.preview);if(signal.aborted)throw new DOMException('Aborted','AbortError');
-   let qa=null;if(config.kind==='imagery'&&rec.status_preview){try{qa=await loadRasterImage(config.base+rec.status_preview);if(qa.width!==im.width||qa.height!==im.height)throw new Error('Quality dimensions mismatch');}catch(e){qa=null;qualityFailures++;}}
-   if(signal.aborted)throw new DOMException('Aborted','AbortError');
+   if((rec.width&&rec.width!==im.width)||(rec.height&&rec.height!==im.height))throw new Error('Raster dimensions mismatch');
+   if(rec.id)recordIds.push(rec.id);
+   const transparent=[];
    for(let i=0;i<65536;i++){
     if(owned[i])continue;const j=pixelIndex(xy[i*2],xy[i*2+1],rec.bounds_wsen,im.width,im.height);if(j<0)continue;owned[i]=1;ownedCount++;
     if(rec.status?.startsWith('unresolved')||!im.data[j*4+3]){
-     if(config.kind==='imagery'){if(qa?.data[j*4]===1){observed[i]=1;qualityRejected[i]=1;}else if(qa?.data[j*4]===0){observed[i]=1;noData[i]=1;}else unknownTransparent++;}
-     else{observed[i]=1;noData[i]=1;}continue;
+     if(config.kind==='imagery'){unknownTransparent++;transparent.push([i,j]);}else{observed[i]=1;noData[i]=1;}continue;
     }
     observed[i]=1;out.set(im.data.subarray(j*4,j*4+4),i*4);
    }
+   // RGB has already been screened by the producer. Publish accepted pixels
+   // before optional status decoding, and only request QA for visible gaps.
+   if(detail(true).filled)progress(detail(true));
+   if(config.kind==='imagery'&&rec.status_preview&&transparent.length){
+    if(signal.aborted)throw new DOMException('Aborted','AbortError');
+    try{
+     const qa=await loadRasterImage(config.base+rec.status_preview);if(signal.aborted)throw new DOMException('Aborted','AbortError');
+     if(qa.width!==im.width||qa.height!==im.height)throw new Error('Quality dimensions mismatch');
+     for(const [i,j] of transparent){const code=qa.data[j*4];if(!qa.data[j*4+3])continue;
+      if(code===1){observed[i]=1;qualityRejected[i]=1;unknownTransparent--;}
+      else if(code===0||code===3){observed[i]=1;noData[i]=1;unknownTransparent--;}
+     }
+    }catch(e){if(e.name==='AbortError')throw e;qualityFailures++;}
+   }
   }catch(e){if(e.name==='AbortError')throw e;failures++;}
  }
- const counts=summarizeRasterPixels(out,observed,qualityRejected,noData);counts.outsideRead-=unknownTransparent;
- return {...counts,unknownTransparent,qualityFailures,failures,attempts,completed:attempts,recordStatuses};
+ return detail(false);
 }
 
 export function createRegionalRasterLayer(L,config,options={}){
@@ -156,7 +170,7 @@ export function createRegionalRasterLayer(L,config,options={}){
   createTile(coords,done){const tile=document.createElement('canvas');tile.width=tile.height=256;tile.setAttribute('role','presentation');tile._regionalCoords=coords;const controller=new AbortController();tile._abort=controller;this.controllers.add(controller);this.queue.push({coords,tile,done,controller});this.pump();return tile;},
   pump(){while(this.active<2&&this.queue.length){const task=this.queue.shift();if(task.controller.signal.aborted){this.controllers.delete(task.controller);continue;}this.active++;this.render(task).finally(()=>{this.active--;this.controllers.delete(task.controller);this.pump();});}},
   coverageForBounds(bounds){return Object.values(this._tiles||{}).filter(r=>r.current!==false&&r.el?._regionalCoords&&intersects(bounds,tileBounds(r.el._regionalCoords))).map(r=>r.el._coverage||{status:'loading',filled:0});},
-  recordCoverage(tile,detail,native,coords){const status=rasterOutcome(detail,native);tile._coverage={...detail,native,coords,status};tile.dataset.coverageStatus=status;tile.dataset.coveragePending=String(Boolean(detail.pending));tile.dataset.validPixels=String(detail.filled||0);tile.dataset.sourceTimeouts=String(detail.sourceTimeouts||0);tile.dataset.mode=detail.localNative?'local-source-tiles':native?'native-cog-window':'local-overview';this.fire('coverage',{...tile._coverage,tile});},
+  recordCoverage(tile,detail,native,coords){const status=rasterOutcome(detail,native);tile._coverage={...detail,native,coords,status};tile.dataset.coverageStatus=status;tile.dataset.coveragePending=String(Boolean(detail.pending));tile.dataset.validPixels=String(detail.filled||0);tile.dataset.recordIds=JSON.stringify(detail.recordIds||[]);tile.dataset.sourceTimeouts=String(detail.sourceTimeouts||0);tile.dataset.mode=detail.localNative?'local-source-tiles':native?'native-cog-window':'local-overview';this.fire('coverage',{...tile._coverage,tile});},
   retryFailedTiles(){
    let count=0;
    for(const r of Object.values(this._tiles||{})){
@@ -170,10 +184,10 @@ export function createRegionalRasterLayer(L,config,options={}){
   },
   async render({coords,tile,done,controller,previous}){
    const nativeRequested=Boolean(config.catalog&&coords.z>=(config.nativeZoom||12));
-   const localRecords=nativeRequested&&config.preferLocalRecords?localRasterRecords(config.records||[],coords).filter(r=>r.local_native===true):[];
+   const localRecords=config.preferLocalRecords?localRasterRecords(config.records||[],coords).filter(r=>r.local_native===true):[];
    // A local source tile owns its transparent QA gaps. Never fill those gaps
    // with a coarser preview or a remote scene simply because it is available.
-   const localNative=localRecords.length>0,native=nativeRequested&&!localNative,localConfig=localNative?{...config,records:localRecords}:config;
+   const localNative=localRecords.length>0,native=nativeRequested&&!localNative,localConfig=localNative&&nativeRequested?{...config,records:localRecords}:config;
    const read=boundedRead(controller.signal,readBudget(config.tileTimeoutMs,45000,45000));
    const signal=read.signal,out=tile._rasterPixels||new Uint8ClampedArray(65536*4);let latest={...(previous||{...summarizeRasterPixels(out),attempts:0,completed:0,failures:0}),localNative};
    const alive=()=>!controller.signal.aborted&&tile._abort===controller;
@@ -185,7 +199,7 @@ export function createRegionalRasterLayer(L,config,options={}){
     if(detail.filled>0)ready(null);
    };
    try{
-    const xy=targetCoordinates(coords),detail=await waitForRaster(native?drawCogTile(config,coords,xy,out,signal,publish,previous):drawLocalTile(localConfig,coords,xy,out,signal),signal);
+    const xy=targetCoordinates(coords),detail=await waitForRaster(native?drawCogTile(config,coords,xy,out,signal,publish,previous):drawLocalTile(localConfig,coords,xy,out,signal,publish),signal);
     if(!alive()||signal.aborted)return;
     publish({...detail,pending:false});
     ready(detail.attempts&&detail.failures===detail.attempts&&!detail.filled?new Error('All raster sources unavailable'):null);

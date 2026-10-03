@@ -1,18 +1,18 @@
 {
-  "version": "0.3.11",
-  "name": "Hainan Data Map",
+  "version": "0.3.12",
+  "name": "Continuous Hainan Imagery",
   "channel": "research-preview",
   "releasedOn": "2026-10-03",
   "modelVersion": "screening-0.2.0",
   "dataVersion": "evidence-2025-r1+assumptions-r2",
-  "regionalEvidenceVersion": "hainan-regional-2026-10-03-r3",
+  "regionalEvidenceVersion": "hainan-regional-2026-10-03-r4",
   "schemaVersion": 1,
   "storageVersion": 2,
   "commit": "local-preview",
   "changes": [
-    "首页直接打开海南数据地图，提供全岛与来源细节入口、当前显示尺度和逐层加载状态",
-    "本岛2025分类与30m地表高程按连续本地分块显示，保留来源零值和预测缺口",
-    "卫星读取逐步显示有效像元，超时保留已读成果，失败可原位重试",
-    "原FTW预测边界、研究路线和农场假设模型继续保留"
+    "本岛114个连续近10m卫星显示细块与56个分级预览，按视野加载",
+    "14级起显示最细图格，质量透明区保留；来源日期、覆盖CSV和方法可查",
+    "本岛不再实时拼接远程COG，离岸区域仍保留原来源读取",
+    "原FTW预测边界与农场假设模型保持原有行为"
   ]
 }

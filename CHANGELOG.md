@@ -1,3 +1,9 @@
+## v0.3.12 — Continuous Hainan Imagery (2026-10-03)
+
+- 本岛连续卫星图按五档缩放加载，14级起使用约9.5×10m显示格，保留质量透明区和跨日期接缝
+- 114个细块、56个分级图经过完整产物与原源控制核验；来源日期、覆盖与限制可下载
+- 本岛显示优先同源预处理图块，离岸继续使用原COG来源；农场模型参数和FTW几何不变
+
 ## v0.3.11 — Hainan Data Map (2026-10-03)
 
 - Opens the provincial data map directly, with full-island/detail controls and explicit source versus display resolution.

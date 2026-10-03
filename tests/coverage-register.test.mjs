@@ -61,6 +61,7 @@ test('a local tile reads preview QA to separate quality rejection from no observ
  try{
   layer=createRegionalRasterLayer({GridLayer},{kind:'imagery',base:'test-',records:[{preview:'preview-rgb',status_preview:'preview-status',bounds_wsen:[-180,-86,180,86],pixel_size_degrees:[120,172]}]});
   const result=await new Promise(resolve=>layer.createTile({x:0,y:0,z:0},(error,tile)=>resolve({error,tile})));
+  await new Promise(resolve=>setImmediate(resolve));
   assert.equal(result.error,null);assert.equal(result.tile._coverage.filled,21760);assert.equal(result.tile._coverage.qualityRejected,22016);assert.equal(result.tile._coverage.sourceNoData,21760);assert.equal(result.tile._coverage.unknownTransparent,0);
  }finally{layer?.onRemove();for(const[k,d]of Object.entries(old)){if(d)Object.defineProperty(globalThis,k,d);else delete globalThis[k];}}
 });
