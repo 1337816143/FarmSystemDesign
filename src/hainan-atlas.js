@@ -365,7 +365,9 @@ export class HainanAtlas {
   updateRasterViewStatus(){
     if(!this.map||!this.remoteLayer?.coverageForBounds)return;
     const b=this.map.getBounds(),rows=this.remoteLayer.coverageForBounds([b.getWest(),b.getSouth(),b.getEast(),b.getNorth()]);
-    this.host.querySelector('#atlas-runtime-coverage').textContent=runtimeCoverageText(rows,this.language==='en');
+    const overview=this.remoteLayer.regionalConfig?.kind==='imagery'&&this.map.getZoom()<12&&rows.some(r=>r.native===false&&r.status!=='loading');
+    const hint=overview?(this.language==='en'?'Overview at this scale; use the map + control to reach zoom 12 for native-source windows. ':'当前为概览显示；点击地图“＋”放大到12级可读取原始视窗。'):'';
+    this.host.querySelector('#atlas-runtime-coverage').textContent=hint+runtimeCoverageText(rows,this.language==='en');
     const failed=rows.some(r=>['read-error','incomplete-read','partial-read','quality-unavailable','timeout'].includes(r.status));
     this.host.querySelector('#atlas-retry-raster').hidden=!failed;this.host.querySelector('#atlas-error-label').hidden=!failed;this.host.classList.toggle('atlas-error',failed);
   }

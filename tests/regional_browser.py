@@ -19,18 +19,27 @@ with sync_playwright() as p:
  page.on('response',response)
  try:
   page.goto(a.url+'/#research',wait_until='domcontentloaded');page.wait_for_selector('#atlas-region:not([disabled])',timeout=30000)
+  inventory=page.request.get(a.url+'/data/hainan/regional/aoi-inventory.json').json()
+  bounds={r['id']:r['bbox'] for r in inventory['groups']+inventory['places']}
+  native_at_point="""([lon,lat])=>Array.from(document.querySelectorAll('#hainan-atlas-map canvas[data-mode="native-cog-window"]')).some(c=>{const q=c._regionalCoords;if(!q||q.z<12||Number(c.dataset.validPixels)<=1000)return false;const n=2**q.z,x=Math.floor((lon+180)/360*n),y=Math.floor((1-Math.asinh(Math.tan(lat*Math.PI/180))/Math.PI)/2*n);return q.x===x&&q.y===y;})"""
   def choose(layer,place=None,native=False):
    if place:
     page.locator('#atlas-region').select_option(place);page.wait_for_timeout(800)
    page.locator(f'[data-atlas="{layer}"]').click()
+   # Wait for the selected view before examining tile mode. Leaflet can retain
+   # a previous native zoom's tiles while the new lower-zoom overview is loading.
+   page.wait_for_function("document.querySelector('#atlas-load-label').hidden && !document.querySelector('#hainan-atlas-map').classList.contains('leaflet-zoom-anim')",timeout=120000)
    if native:
+    b=bounds[place];center=[(b[0]+b[2])/2,(b[1]+b[3])/2]
     # Geographic source windows are entered through the same controls as a user.
     for _ in range(4):
-     if page.locator('#hainan-atlas-map canvas[data-mode="native-cog-window"]').count():break
+     if page.evaluate(native_at_point,center):break
      page.locator('#hainan-atlas-map .leaflet-control-zoom-in').click();page.wait_for_timeout(300)
-   page.wait_for_function("() => Array.from(document.querySelectorAll('#hainan-atlas-map canvas.leaflet-tile')).some(c=>Number(c.dataset.validPixels)>1000)",timeout=120000)
+     page.wait_for_function("document.querySelector('#atlas-load-label').hidden && !document.querySelector('#hainan-atlas-map').classList.contains('leaflet-zoom-anim')",timeout=120000)
+   if native:page.wait_for_function(native_at_point,arg=center,timeout=120000)
+   else:page.wait_for_function("() => Array.from(document.querySelectorAll('#hainan-atlas-map canvas.leaflet-tile')).some(c=>Number(c.dataset.validPixels)>1000)",timeout=120000)
    page.wait_for_function("!document.querySelector('.hainan-atlas').classList.contains('atlas-loading')",timeout=120000)
-   if native:check('native COG pixels visible '+place,page.locator('#hainan-atlas-map canvas[data-mode="native-cog-window"]').count()>0)
+   if native:check('native COG pixels visible at selected window '+place,page.evaluate(native_at_point,center))
    canvases=page.locator('#hainan-atlas-map canvas.leaflet-tile').evaluate_all("els=>els.map(c=>({mode:c.dataset.mode,pixels:Number(c.dataset.validPixels||0)}))")
    check('actual raster pixels '+layer+' '+str(place),any(c['pixels']>1000 for c in canvases));report['views'].append({'layer':layer,'place':place,'tiles':canvases});page.screenshot(path=str(out/f'{layer}-{place or "view"}.png'),full_page=True)
   choose('imagery','main')
@@ -106,4 +115,10 @@ with sync_playwright() as p:
   check('range-supported source pixels were really requested',sum(r['status']==206 and bool(r['range']) for r in report['cog_responses'])>=4)
   check('no browser exceptions',not report['errors']);report['success']=True
  finally:
+  if not report.get('success'):
+   try:
+    report['failure_state']={'selected':page.locator('#atlas-region').input_value(),'runtime':page.locator('#atlas-runtime-coverage').inner_text(),'tiles':page.locator('#hainan-atlas-map canvas.leaflet-tile').evaluate_all("els=>els.map(c=>({mode:c.dataset.mode,pixels:c.dataset.validPixels,status:c.dataset.coverageStatus}))")}
+    page.screenshot(path=str(out/'failure.png'),full_page=True)
+   except Exception:pass
   (out/'report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));browser.close()
+print(json.dumps({'passed':len(report['checks']),'checks':report['checks'],'errors':report['errors'],'cog206':sum(r['status']==206 and bool(r['range']) for r in report['cog_responses'])},ensure_ascii=False))
