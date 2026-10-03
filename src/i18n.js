@@ -10,6 +10,10 @@ const ATTRIBUTES = ['aria-label', 'title', 'placeholder', 'alt'];
 
 // Reviewed research terms take precedence over the generated draft catalog.
 const REVIEWED = {
+  "本岛114个连续近10m卫星显示细块与56个分级预览，按视野加载": "114 continuous near-10m mainland display blocks and 56 overview blocks load by viewport",
+  "14级起显示最细图格，质量透明区保留；来源日期、覆盖CSV和方法可查": "Finest display cells start at zoom14. Quality gaps stay transparent; source dates, coverage CSV and methods are available",
+  "本岛不再实时拼接远程COG，离岸区域仍保留原来源读取": "Precomputed mainland imagery replaces live COG mosaicking; offshore views retain original-source reads",
+  "原FTW预测边界与农场假设模型保持原有行为": "Original FTW predicted boundaries and hypothetical farm-model behavior are preserved",
   "本岛连续约30m；低缩放247m概览": "Continuous mainland ~30m; 247m overview at low zoom",
   "本岛已接入连续110块约30m地表高程，包含植被/建筑；源零值与缺测分别保留，三沙仍有缺口。": "110 continuous ~30m mainland elevation tiles are available, including vegetation/buildings. Source zeros and missing values remain separate; Sansha gaps remain.",
 
