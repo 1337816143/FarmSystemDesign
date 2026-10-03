@@ -146,7 +146,9 @@ export class HainanAtlas {
     this.host = element;
     this.language = language;
     this.layer = 'landcover';
-    this.map = L.map(element.querySelector('#hainan-atlas-map'), {scrollWheelZoom: false, attributionControl: false, zoomSnap: 0.25, minZoom: 3, maxZoom:18});
+    // Leaflet 1.9 CSS zooms ignore newer setView calls, even after stop().
+    // Apply atlas navigation synchronously so the latest control always wins.
+    this.map = L.map(element.querySelector('#hainan-atlas-map'), {scrollWheelZoom: false, attributionControl: false, zoomAnimation: false, zoomSnap: 0.25, minZoom: 3, maxZoom:18});
     this.map.fitBounds(BOX);
     L.control.scale({imperial:false,position:'bottomleft'}).addTo(this.map);
     this.map.getContainer().style.background = '#dcecf0';
@@ -266,8 +268,8 @@ export class HainanAtlas {
   }
 
   handleClick(event) {
-    if(event.target.closest('#atlas-home-view')){this.map.fitBounds(BOX);this.host.querySelector('#atlas-region').value='main';this.updateCoverage();return;}
-    if(event.target.closest('#atlas-native-view')){const zoom={imagery:14,classes2025:14,crops2025:14,dsm:12,soil:11,soc:11,rain:9,monthlyRain:9,temperature:8,landcover:11}[this.layer]||14;this.map.setView(this.map.getCenter(),zoom);this.updateScaleStatus();return;}
+    if(event.target.closest('#atlas-home-view')){this.host.querySelector('#atlas-region').value='main';this.host.querySelector('#atlas-view-status').textContent='';this.map.fitBounds(BOX,{animate:false});this.updateCoverage();return;}
+    if(event.target.closest('#atlas-native-view')){const zoom={imagery:14,classes2025:14,crops2025:14,dsm:12,soil:11,soc:11,rain:9,monthlyRain:9,temperature:8,landcover:11}[this.layer]||14;this.map.setView(this.map.getCenter(),zoom,{animate:false});this.updateScaleStatus();return;}
     if(event.target.closest('#atlas-retry-raster')){if(this.remoteLayer?.retryFailedTiles&&this.remoteLayer.retryFailedTiles()){this.updateRasterViewStatus();return;}this.host.classList.add('atlas-error');this.host.querySelector(`[data-atlas="${this.layer}"]`).click();return;}
     const button = event.target.closest('[data-atlas]');
     if (!button || !this.host.contains(button)) return;
@@ -345,8 +347,8 @@ export class HainanAtlas {
     if(event.target.id==='atlas-month'&&['monthlyRain','temperature'].includes(this.layer)){this.host.classList.add('atlas-error');this.host.querySelector(`[data-atlas="${this.layer}"]`).click();return;}
     const boundaries={'atlas-osm-boundaries':['osm','loadOsmBorders'],'atlas-sansha-boundaries':['sansha','loadSanshaBorders'],'atlas-boundaries':['historical','loadBorders']};
     const boundary=boundaries[event.target.id];if(boundary&&event.target.checked&&this.host.querySelector('#atlas-'+boundary[0]+'-status')?.dataset.status==='error')this[boundary[1]]();
-    if(event.target.id==='atlas-region'&&this.countyViews?.has(event.target.value)){const county=this.countyViews.get(event.target.value);this.map.fitBounds(county.bounds,{maxZoom:12});this.host.querySelector('#atlas-view-status').textContent=county.name+' · '+(this.language==='en'?'OSM community reference; no county statistics inferred':'OSM社区参照，不据此推算市县统计');this.updateCoverage();return;}
-    if(event.target.id==='atlas-region'&&this.inventory){const scope=[...this.inventory.groups,...this.inventory.places].find(r=>r.id===event.target.value);if(scope){const b=scope.bbox;this.map.fitBounds([[b[1],b[0]],[b[3],b[2]]],{maxZoom:14});this.host.querySelector('#atlas-view-status').textContent=this.language==='en'?'Geographic query/sample; not an administrative boundary':'地理查询/样窗，非行政界';this.updateCoverage();}return;}
+    if(event.target.id==='atlas-region'&&this.countyViews?.has(event.target.value)){const county=this.countyViews.get(event.target.value);this.map.fitBounds(county.bounds,{maxZoom:12,animate:false});this.host.querySelector('#atlas-view-status').textContent=county.name+' · '+(this.language==='en'?'OSM community reference; no county statistics inferred':'OSM社区参照，不据此推算市县统计');this.updateCoverage();return;}
+    if(event.target.id==='atlas-region'&&this.inventory){const scope=[...this.inventory.groups,...this.inventory.places].find(r=>r.id===event.target.value);if(scope){const b=scope.bbox;this.map.fitBounds([[b[1],b[0]],[b[3],b[2]]],{maxZoom:14,animate:false});this.host.querySelector('#atlas-view-status').textContent=this.language==='en'?'Geographic query/sample; not an administrative boundary':'地理查询/样窗，非行政界';this.updateCoverage();}return;}
     if (event.target.id === 'atlas-opacity' && !this.host.classList.contains('atlas-loading')) (this.remoteLayer||this.overlay).setOpacity(Number(event.target.value) / 100);
     if(event.target.id==='atlas-sansha-boundaries'&&this.sanshaBorders){if(event.target.checked)this.sanshaBorders.addTo(this.map);else this.map.removeLayer(this.sanshaBorders);}
     if(event.target.id==='atlas-osm-boundaries'&&this.osmBorders){if(event.target.checked)this.osmBorders.addTo(this.map);else this.map.removeLayer(this.osmBorders);}
@@ -449,7 +451,7 @@ export class HainanAtlas {
     this.host.removeEventListener('input', this.inputHandler);
     ++this.switchToken;
     this.inspectToken=(this.inspectToken||0)+1;
-    if(this.map){this.map._animatingZoom=false;this.map.stop();this.map.off();this.map.remove();}
+    if(this.map){this.map.stop();this.map.off();this.map.remove();}
     this.map=null;this.remoteLayer=null;
   }
 }

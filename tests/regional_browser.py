@@ -6,7 +6,7 @@ import argparse,json,os,re,time
 from urllib.parse import urlparse
 from playwright.sync_api import sync_playwright
 parser=argparse.ArgumentParser();parser.add_argument('--url',default='http://127.0.0.1:4173');parser.add_argument('--output',default='test-results/regional');a=parser.parse_args();out=Path(a.output);out.mkdir(parents=True,exist_ok=True)
-report={'checks':[],'errors':[],'cog_responses':[],'local_rgb_responses':[],'source_requests':[],'view_generations':[],'views':[],'execution':'cloud CI browser; not mainland-China connection'}
+report={'checks':[],'errors':[],'cog_responses':[],'local_rgb_responses':[],'source_requests':[],'view_generations':[],'views':[],'navigation':[],'execution':'cloud CI browser; not mainland-China connection'}
 # These frozen reference cells were checked against the delivered RGB alpha and
 # lossless QA PNGs: alpha255 and status2. This is a small repeatable display test,
 # not an assertion that arbitrary centers or the whole island are cloud-free.
@@ -171,6 +171,80 @@ with sync_playwright() as p:
    page.screenshot(path=str(out/f'{layer}-{place or "view"}.png'),full_page=True)
   choose('imagery','main')
   check('whole island overview is present',page.locator('#hainan-atlas-map canvas[data-mode="local-source-tiles"]').count()>0)
+  # Exercise real visible controls without any transition wait between actions.
+  # The old county fitBounds animation silently swallowed the immediate detail
+  # click. A later retry or a sleep here would hide that regression.
+  page.wait_for_function("document.querySelectorAll('#atlas-region [data-county-views] option').length===18")
+  home_scale=page.locator('#atlas-scale-status').inner_text().split(' · ')[0]
+  home_zoom=float(re.search(r'[\d.]+',home_scale).group())
+  def assert_detail(county,gen,label,english=False):
+   expected='Zoom 14.0' if english else '缩放 14.0 级'
+   page.wait_for_function("text=>document.querySelector('#atlas-scale-status').textContent.startsWith(text)",arg=expected,timeout=5000)
+   selected=page.locator('#atlas-region option:checked').inner_text()
+   check('latest navigation selects zoom14 and '+label,selected==county)
+   point,record=MAINLAND_CONTROLS["定安县" if english else county]
+   assert_native(point,True,gen,label,require_point=True,expected_record=record)
+   report['navigation'].append({'case':label,'selected':selected,'scale':page.locator('#atlas-scale-status').inner_text()})
+  gen=begin_view('imagery','immediate county detail')
+  page.locator('[data-atlas="imagery"]').click()
+  page.locator('#atlas-region').select_option(label='定安县')
+  page.locator('#atlas-native-view').click()
+  assert_detail('定安县',gen,'immediate Dingan detail')
+  gen=begin_view('imagery','rapid controls final Wanning')
+  page.locator('[data-atlas="imagery"]').click()
+  page.locator('#atlas-home-view').click()
+  page.locator('#hainan-atlas-map .leaflet-control-zoom-in').click()
+  page.locator('#atlas-region').select_option(label='定安县')
+  page.locator('#atlas-native-view').click()
+  page.locator('#atlas-region').select_option(label='万宁市')
+  page.locator('#atlas-native-view').click()
+  assert_detail('万宁市',gen,'rapid zoom county detail county detail')
+  gen=begin_view('imagery','rapid controls final whole island')
+  page.locator('[data-atlas="imagery"]').click()
+  page.locator('#atlas-region').select_option(label='定安县')
+  page.locator('#atlas-native-view').click()
+  page.locator('#atlas-region').select_option(label='万宁市')
+  page.locator('#atlas-native-view').click()
+  page.locator('#atlas-home-view').click()
+  page.wait_for_function("text=>document.querySelector('#atlas-scale-status').textContent.startsWith(text)",arg=home_scale,timeout=5000)
+  wait_for_settled('imagery')
+  # Require newly rendered overview canvases at the final zoom, not retained
+  # native tiles. Locate their map-center coordinates from visible tile bounds.
+  overview=page.evaluate("""({zoom,generation})=>{
+   const map=document.querySelector('#hainan-atlas-map'),b=map.getBoundingClientRect(),cx=(b.left+b.right)/2,cy=(b.top+b.bottom)/2,result=[];
+   for(const c of map.querySelectorAll('canvas.leaflet-tile')){
+    const q=c._regionalCoords,r=c.getBoundingClientRect(),meta=window.__regionalReview.canvases.get(c);
+    if(!q||q.z!==Math.round(zoom)||meta?.generation!==generation||c.dataset.mode!=='local-source-tiles'||!c._abort||c._abort.signal.aborted||c._coverage?.pending||!c.classList.contains('leaflet-tile-loaded')||getComputedStyle(c).visibility!=='visible'||Number(getComputedStyle(c).opacity)<=0||r.width<=0||r.height<=0||r.right<=b.left||r.left>=b.right||r.bottom<=b.top||r.top>=b.bottom)continue;
+    const sx=Math.max(0,Math.floor((Math.max(r.left,b.left)-r.left)/r.width*256)),sy=Math.max(0,Math.floor((Math.max(r.top,b.top)-r.top)/r.height*256)),ex=Math.min(256,Math.ceil((Math.min(r.right,b.right)-r.left)/r.width*256)),ey=Math.min(256,Math.ceil((Math.min(r.bottom,b.bottom)-r.top)/r.height*256));
+    const data=c.getContext('2d').getImageData(sx,sy,ex-sx,ey-sy).data;let pixels=0;for(let i=3;i<data.length;i+=4)if(data[i])pixels++;
+    if(!pixels)continue;
+    const n=2**q.z,x=q.x+(cx-r.left)/r.width,y=q.y+(cy-r.top)/r.height;
+    result.push({coords:q,pixels,center:[x/n*360-180,Math.atan(Math.sinh(Math.PI*(1-2*y/n)))*180/Math.PI]});
+   }return result;
+  }""",{'zoom':home_zoom,'generation':gen})
+  check('latest whole-island action restores region zoom and actual overview pixels',page.locator('#atlas-region').input_value()=='main' and page.locator('#atlas-view-status').inner_text()=='' and bool(overview) and all(abs(t['center'][0]-110)<.01 and abs(t['center'][1]-19.1555)<.01 for t in overview))
+  report['navigation'].append({'case':'whole island wins rapid controls','scale':home_scale,'overview':overview})
+  page.screenshot(path=str(out/'mainland-navigation-home-restored.png'),full_page=True)
+  # Re-rendering the atlas while zoom/detail work was just requested must not
+  # let an old map callback alter the new language or the next application page.
+  page.locator('#atlas-region').select_option(label='定安县')
+  page.locator('#atlas-native-view').click()
+  page.locator('#hainan-atlas-map .leaflet-control-zoom-in').click()
+  page.locator('button[data-language="en"]').click()
+  page.wait_for_function("document.querySelectorAll('#atlas-region [data-county-views] option').length===18")
+  gen=begin_view('imagery','English after interrupted navigation')
+  page.locator('[data-atlas="imagery"]').click()
+  page.locator('#atlas-region').select_option(label="Ding'an")
+  page.locator('#atlas-native-view').click()
+  assert_detail("Ding'an",gen,'English detail after map disposal',english=True)
+  page.locator('#hainan-atlas-map .leaflet-control-zoom-in').click()
+  page.locator('[data-nav="overview"]').click()
+  page.wait_for_selector('.parcel')
+  check('immediate navigation disposes the atlas and preserves110 FTW plots',page.locator('.parcel').count()==110 and page.locator('#hainan-atlas-map').count()==0 and not report['errors'])
+  page.locator('button[data-language="zh"]').click()
+  page.locator('[data-nav="research"]').click()
+  page.wait_for_selector('#atlas-region:not([disabled])')
+  choose('imagery','main')
   panel=page.locator('#atlas-coverage-panel')
   panel.locator('summary').click();page.wait_for_selector('#coverage-rows tr')
   check('coverage register shows172 source grids and10 named windows','172' in panel.inner_text() and '10' in panel.inner_text())
