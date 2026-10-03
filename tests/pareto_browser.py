@@ -6,8 +6,24 @@ import gc,hashlib,json,time
 def verify_pareto(browser,url,out,check):
     context=browser.new_context(viewport={'width':1440,'height':1050},accept_downloads=True)
     context.route('**/tile.openstreetmap.org/**',lambda route:route.abort())
-    page=context.new_page();errors=[]
-    page.on('pageerror',lambda error:errors.append(str(error)))
+    page=context.new_page();errors=[];stage='initialization'
+    metrics={'errors':errors,'checks':[]}
+    def write_metrics():
+        (out/'pareto-browser-metrics.json').write_text(json.dumps(metrics,indent=2),encoding='utf-8')
+    record_check=check
+    def check(name,value=True):
+        metrics['lastCheck']={'name':name,'passed':bool(value),'stage':stage,'url':page.url}
+        try:
+            record_check(name,value)
+            metrics['checks'].append(name)
+        finally:
+            write_metrics()
+    def page_error(error):
+        detail={'message':str(error),'stack':getattr(error,'stack',''),'stage':stage,'url':page.url}
+        errors.append(detail)
+        print('PARETO_BROWSER_ERROR '+json.dumps(detail,ensure_ascii=False),flush=True)
+        write_metrics()
+    page.on('pageerror',page_error)
     page.goto(url.rstrip('/')+'/#data',wait_until='networkidle')
     page.wait_for_selector('[data-action="export-weather"]:not([disabled])')
     release=page.request.get(url.rstrip('/')+'/version.json').json()
@@ -16,6 +32,7 @@ def verify_pareto(browser,url,out,check):
     page.locator('[data-action="close-modal"]').first.click()
     page.locator('nav [data-nav="planner"]').click()
     page.wait_for_selector('[data-action="run"]')
+    stage='search worker and in-flight preference'
     started=time.monotonic()
     page.locator('[data-action="run"]').first.click()
     check('preference changes while the real worker is running',page.locator('[data-action="cancel-run"]').is_visible() and page.locator('[data-action="run"]').first.is_disabled())
@@ -41,12 +58,14 @@ def verify_pareto(browser,url,out,check):
             digest.update(json.dumps({k:v for k,v in candidate.items() if k!='score'},sort_keys=True,separators=(',',':'),ensure_ascii=False).encode())
         return digest.hexdigest()
 
+    stage='complete initial export'
     first,export_bytes,export_ms=download_json('export-results','pareto-full-temporary.json')
     check('default worker exports all 1414 frontier candidates',first['evaluated']==3897 and first['feasibleCount']==2008 and first['frontierCount']==1414 and len(first['candidates'])==1414)
     check('worker arrival uses latest preference without forging run configuration',first['ranking']['objective']=='water' and first['config']['objective']=='balanced')
     ids=[c['id'] for c in first['candidates']];original_hash=first['inputHash'];original_config=first['config'];digest=accounting_digest(first)
     pages=(len(ids)+35)//36;target=first['candidates'][(pages-1)*36]
     del first;gc.collect()
+    stage='later-page navigation and selection'
     page.locator('[data-action="next-candidates"]').click()
     check('next page exposes candidates beyond the first 36',page.locator('tr[data-candidate]').first.get_attribute('data-candidate')==ids[36])
     page.locator('#candidate-page').fill(str(pages));page.locator('#candidate-page').dispatch_event('change')
@@ -54,6 +73,7 @@ def verify_pareto(browser,url,out,check):
     page.locator(f'tr[data-candidate="{target["id"]}"] button').click()
     check('late-page selection updates both table and chart',page.locator('tr.selected-row').get_attribute('data-candidate')==target['id'] and page.locator(f'.pareto-chart [data-candidate="{target["id"]}"]').get_attribute('r')=='7')
     page.screenshot(path=str(out/'pareto-last-page.png'),full_page=True)
+    stage='preference switching and reranked export'
     ranking_ms=[]
     for preference in ['income','environment','food','water','balanced']:
         started=time.monotonic();page.select_option('#objective',preference);ranking_ms.append(round((time.monotonic()-started)*1000))
@@ -62,6 +82,7 @@ def verify_pareto(browser,url,out,check):
     check('all preference switches preserve every candidate and complete accounting',set(c['id'] for c in second['candidates'])==set(ids) and accounting_digest(second)==digest)
     check('reranked export retains original run provenance and separate preference',second['inputHash']==original_hash and second['config']==original_config and second['ranking']['objective']=='balanced')
     del second;gc.collect()
+    stage='save selected snapshot'
     page.select_option('#objective','food')
     page.locator('[data-action="save-plan"]').click();page.locator('[name="name"]').fill('Late frontier regression');page.locator('#modal-form button[type="submit"]').click()
     stored=json.loads(page.evaluate("localStorage.getItem('farmsystem-workspace-v2')"));plan=stored['plans'][0]
@@ -69,32 +90,44 @@ def verify_pareto(browser,url,out,check):
     check('one saved snapshot stays below browser storage budget',len(page.evaluate("localStorage.getItem('farmsystem-workspace-v2')").encode('utf-8'))<1024*1024)
     check('saved ranking is separate from original run config and hash',plan['ranking']['objective']=='food' and plan['config']['objective']=='balanced' and plan['config']==original_config and plan['inputHash']==original_hash)
     baseline=[p['crop'] for p in stored['dataset']['plots']]
-    page.locator('[data-action="preview-candidate"]').click();page.wait_for_selector('.parcel');page.select_option('#map-theme','activity')
+    stage='candidate map preview'
+    page.locator('[data-action="preview-candidate"]').click();page.wait_for_selector('.parcel')
+    stage='preview map theme change'
+    page.select_option('#map-theme','activity')
     colors=page.evaluate("async()=>Object.fromEntries(Object.entries((await import('./src/data.js')).CROPS).map(([key,crop])=>[key,crop.color]))")
     displayed=page.locator('.parcel').evaluate_all("nodes=>Object.fromEntries(nodes.map(n=>[n.dataset.plotId,n.getAttribute('fill')]))")
     highlighted=stored['dataset']['plots'][0]['id']
     check('late-page map preview colors match the selected allocation',all(displayed[plot_id]==('#eac16f' if plot_id==highlighted else colors[crop]) for plot_id,crop in target['allocation'].items()))
     check('late-page preview leaves baseline crops unchanged',page.evaluate("JSON.parse(localStorage.getItem('farmsystem-workspace-v2')).dataset.plots.map(p=>p.crop)")==baseline)
+    stage='leave preview map for saved plan export'
     page.locator('nav [data-nav="feedback"]').click()
     snapshot,_,_=download_json('export-plan','pareto-plan-temporary.json')
     check('saved late-page plan export retains its full detail',snapshot['candidate']==plan['candidate'])
+    stage='project bundle export'
     page.locator('nav [data-nav="data"]').click()
     bundle,_,_=download_json('export-bundle','pareto-bundle-temporary.json')
     check('project export contains saved snapshot without entire search',len(bundle['plans'])==1 and bundle['plans'][0]['candidate']['id']==target['id'] and 'results' not in bundle and 'candidates' not in bundle)
     page.locator('nav [data-nav="planner"]').click()
+    stage='English and bilingual mobile rendering'
     page.locator('button[data-language="en"]').click()
     check('new paging and retention explanations translate to English','Previous page' in page.locator('.candidate-pagination').inner_text() and 'only in this session' in page.locator('.result-retention').inner_text() and 'current page' in page.locator('.pareto-chart + p').inner_text())
     page.set_viewport_size({'width':390,'height':844})
     page.locator('button[data-language="both"]').click()
     check('bilingual frontier controls fit a mobile viewport',page.evaluate('document.documentElement.scrollWidth<=innerWidth+1'))
     page.screenshot(path=str(out/'pareto-mobile-bilingual.png'),full_page=True)
+    stage='actual input staleness after preference switch'
     page.locator('#water').fill('90');page.locator('#water').dispatch_event('input');page.locator('#water').dispatch_event('change');page.select_option('#objective','food')
     check('preference switch cannot clear real input staleness',page.locator('[data-action="save-plan"]').is_disabled())
+    stage='reload and session cleanup'
     page.reload(wait_until='networkidle')
     check('reload clears session search but preserves chosen snapshot',page.locator('[data-action="save-plan"]').count()==0 and len(json.loads(page.evaluate("localStorage.getItem('farmsystem-workspace-v2')"))['plans'])==1)
-    check('full-frontier browser workflow has no JavaScript errors',not errors)
-    (out/'pareto-browser-metrics.json').write_text(json.dumps({'evaluated':3897,'feasible':2008,'frontier':1414,'pageSize':36,'pages':pages,'lateCandidate':target['id'],'candidateIds':ids,'accountingSha256':digest,'searchAndFirstRenderMs':search_ms,'compactExportBytes':export_bytes,'downloadAndParseMs':export_ms,'rerankedExportBytes':second_bytes,'rerankedDownloadAndParseMs':second_ms,'preferenceAndRenderMs':ranking_ms,'errors':errors},indent=2),encoding='utf-8')
-    context.close()
+    metrics.update({'evaluated':3897,'feasible':2008,'frontier':1414,'pageSize':36,'pages':pages,'lateCandidate':target['id'],'candidateIds':ids,'accountingSha256':digest,'searchAndFirstRenderMs':search_ms,'compactExportBytes':export_bytes,'downloadAndParseMs':export_ms,'rerankedExportBytes':second_bytes,'rerankedDownloadAndParseMs':second_ms,'preferenceAndRenderMs':ranking_ms,'errors':errors})
+    write_metrics()
+    try:
+        check('full-frontier browser workflow has no JavaScript errors',not errors)
+    finally:
+        write_metrics()
+        context.close()
 
 
 if __name__=='__main__':
