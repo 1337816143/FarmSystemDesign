@@ -1,0 +1,24 @@
+{
+  "source_zip_sha256": "c03d94289b3b1ecbcdd71feddb94a517d9078bfbc48899b55d1e498250b38fc6",
+  "tar_xz_sha256": "b7307242a88f39d295d75be548b844ed807c93b8457ebdbd0184fbf00ac5ef3b",
+  "tar_xz_bytes": 9346632,
+  "member_count": 2054,
+  "every_member_sha256_identical": true,
+  "format": "tar.xz",
+  "archive": "coverage-audit-repro.tar.xz",
+  "scientific_member_bytes_changed": false,
+  "extraction": "python3 -m tarfile -e coverage-audit-repro.tar.xz replay",
+  "parts": [
+    {
+      "file": "coverage-audit-repro.tar.xz.part001",
+      "bytes": 5000000,
+      "sha256": "99547418511a9d99ac522fad0c3ecffba15e56669fb7ba58ccb8ec446292908b"
+    },
+    {
+      "file": "coverage-audit-repro.tar.xz.part002",
+      "bytes": 4346632,
+      "sha256": "5a90a5b7a73813af694cf72480f2bcbe280a05829bc7b0aecb24d3fd8ae83c1e"
+    }
+  ],
+  "reassemble": "python3 join-coverage-replay.py"
+}

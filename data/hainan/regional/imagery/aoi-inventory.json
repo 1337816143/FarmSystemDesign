@@ -47,6 +47,59 @@
         118,
         12.5
       ]
+    },
+    {
+      "id": "targeted-offshore",
+      "name_zh": "离岸暗沙定向检索",
+      "name_en": "Targeted offshore shoals",
+      "bbox": [
+        113.0127374,
+        19.163235200000003,
+        113.9003214,
+        19.5636318
+      ],
+      "bbox_role": "navigation extent only; searches used the two independent query_windows",
+      "query_windows": [
+        {
+          "id": "way-297689140",
+          "group": "targeted-offshore",
+          "object_id": "way/297689140",
+          "name_zh": "神狐暗沙定向检索窗口",
+          "name_en": "Targeted offshore query way/297689140",
+          "bbox": [
+            113.0127374,
+            19.5321314,
+            113.0527863,
+            19.5636318
+          ],
+          "representative_point_wgs84": [
+            113.03155290513118,
+            19.54480855
+          ],
+          "kind": "targeted-point-query-window",
+          "scope": "Small independent geographic query; not an administrative boundary, whole-island coverage claim, or original Zhongsha envelope."
+        },
+        {
+          "id": "way-297689336",
+          "group": "targeted-offshore",
+          "object_id": "way/297689336",
+          "name_zh": "一统暗沙定向检索窗口",
+          "name_en": "Targeted offshore query way/297689336",
+          "bbox": [
+            113.87223510000001,
+            19.163235200000003,
+            113.9003214,
+            19.1863489
+          ],
+          "representative_point_wgs84": [
+            113.88697655010324,
+            19.1761097
+          ],
+          "kind": "targeted-point-query-window",
+          "scope": "Small independent geographic query; not an administrative boundary, whole-island coverage claim, or original Zhongsha envelope."
+        }
+      ],
+      "scope_note": "Two small geographic retrieval windows outside the original four envelopes; not administrative membership or territorial coverage."
     }
   ],
   "places": [
@@ -183,7 +236,85 @@
       ],
       "kind": "reef-sample",
       "note": "Geographic display window; territorial status is disputed. Not an administrative assignment."
+    },
+    {
+      "id": "way-297689140",
+      "group": "targeted-offshore",
+      "object_id": "way/297689140",
+      "name_zh": "神狐暗沙定向检索窗口",
+      "name_en": "Targeted offshore query way/297689140",
+      "bbox": [
+        113.0127374,
+        19.5321314,
+        113.0527863,
+        19.5636318
+      ],
+      "representative_point_wgs84": [
+        113.03155290513118,
+        19.54480855
+      ],
+      "kind": "targeted-point-query-window",
+      "scope": "Small independent geographic query; not an administrative boundary, whole-island coverage claim, or original Zhongsha envelope."
+    },
+    {
+      "id": "way-297689336",
+      "group": "targeted-offshore",
+      "object_id": "way/297689336",
+      "name_zh": "一统暗沙定向检索窗口",
+      "name_en": "Targeted offshore query way/297689336",
+      "bbox": [
+        113.87223510000001,
+        19.163235200000003,
+        113.9003214,
+        19.1863489
+      ],
+      "representative_point_wgs84": [
+        113.88697655010324,
+        19.1761097
+      ],
+      "kind": "targeted-point-query-window",
+      "scope": "Small independent geographic query; not an administrative boundary, whole-island coverage claim, or original Zhongsha envelope."
     }
   ],
-  "completion_gate": "Exhaustive named island inventory and current reusable administrative polygons remain unresolved; queried envelopes and these samples must not be called full provincial land coverage."
+  "completion_gate": "Exhaustive named island inventory and current reusable administrative polygons remain unresolved; queried envelopes and these samples must not be called full provincial land coverage.",
+  "targeted_query_windows": [
+    {
+      "id": "way-297689140",
+      "group": "targeted-offshore",
+      "object_id": "way/297689140",
+      "name_zh": "神狐暗沙定向检索窗口",
+      "name_en": "Targeted offshore query way/297689140",
+      "bbox": [
+        113.0127374,
+        19.5321314,
+        113.0527863,
+        19.5636318
+      ],
+      "representative_point_wgs84": [
+        113.03155290513118,
+        19.54480855
+      ],
+      "kind": "targeted-point-query-window",
+      "scope": "Small independent geographic query; not an administrative boundary, whole-island coverage claim, or original Zhongsha envelope."
+    },
+    {
+      "id": "way-297689336",
+      "group": "targeted-offshore",
+      "object_id": "way/297689336",
+      "name_zh": "一统暗沙定向检索窗口",
+      "name_en": "Targeted offshore query way/297689336",
+      "bbox": [
+        113.87223510000001,
+        19.163235200000003,
+        113.9003214,
+        19.1863489
+      ],
+      "representative_point_wgs84": [
+        113.88697655010324,
+        19.1761097
+      ],
+      "kind": "targeted-point-query-window",
+      "scope": "Small independent geographic query; not an administrative boundary, whole-island coverage claim, or original Zhongsha envelope."
+    }
+  ]
 }

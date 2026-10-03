@@ -1,123 +1,92 @@
 {
-  "verified_utc": "2026-10-03",
+  "verified_utc": "2026-10-03T07:42:28.169244+00:00",
+  "scope": "Current imagery-directory file hashes and unchanged 11 preview alpha/hash checks. Catalog scene/grid counts are metadata inventory, not full-image or provincial land coverage.",
+  "source_scene_count": 530,
+  "mgrs_count": 172,
+  "source_count_scope": "Current scene-catalog.json only. The original previews are unchanged and were not rebuilt from the 8 supplemental scenes.",
   "checks": [
     {
       "aoi": "danzhou",
       "status": "passed",
       "accepted_pixels": 1839754,
-      "rgba_sha256": "636ac5e2d4495f2f0a033695f33450e7530a149592afd322a97b7eba3174a46d",
-      "failed_sources": 0
+      "preview_file_sha256": "636ac5e2d4495f2f0a033695f33450e7530a149592afd322a97b7eba3174a46d",
+      "matches_historical_preview": true
     },
     {
       "aoi": "haikou",
       "status": "passed",
       "accepted_pixels": 1025491,
-      "rgba_sha256": "8a24b3fc6eddad037b2bd4b142ad79a110ce20d03af1036c654e7c866047cfbb",
-      "failed_sources": 0
+      "preview_file_sha256": "8a24b3fc6eddad037b2bd4b142ad79a110ce20d03af1036c654e7c866047cfbb",
+      "matches_historical_preview": true
     },
     {
       "aoi": "huangyan",
       "status": "passed",
       "accepted_pixels": 1720512,
-      "rgba_sha256": "4df69ac4f41da13583ab81ad2352e14ff4c1cc43347cf53fbeaf3020e2902e58",
-      "failed_sources": 0
+      "preview_file_sha256": "4df69ac4f41da13583ab81ad2352e14ff4c1cc43347cf53fbeaf3020e2902e58",
+      "matches_historical_preview": true
     },
     {
       "aoi": "main",
       "status": "passed",
       "accepted_pixels": 4284698,
-      "rgba_sha256": "554c7a0d0026f5e86318338aeacbdd2971b0f91dfd3631cce7d710e144fc017b",
-      "failed_sources": 0
+      "preview_file_sha256": "554c7a0d0026f5e86318338aeacbdd2971b0f91dfd3631cce7d710e144fc017b",
+      "matches_historical_preview": true
     },
     {
       "aoi": "sanya",
       "status": "passed",
       "accepted_pixels": 1354447,
-      "rgba_sha256": "2e930f4188b74d1a4c379752034fdaca4576d06057c1abe7a69504c88230b67e",
-      "failed_sources": 0
+      "preview_file_sha256": "2e930f4188b74d1a4c379752034fdaca4576d06057c1abe7a69504c88230b67e",
+      "matches_historical_preview": true
     },
     {
       "aoi": "wenchang",
       "status": "passed",
       "accepted_pixels": 1409536,
-      "rgba_sha256": "b735f2454aaac8ab08b4a3f447fb6883b00a3f0283ef37f33b6fe7876e166e96",
-      "failed_sources": 0
+      "preview_file_sha256": "b735f2454aaac8ab08b4a3f447fb6883b00a3f0283ef37f33b6fe7876e166e96",
+      "matches_historical_preview": true
     },
     {
       "aoi": "wuzhishan",
       "status": "passed",
       "accepted_pixels": 1468185,
-      "rgba_sha256": "904adf6550e9910239725fe887188d1a6c3a04a374e0d0c460190d80fc8fa3c8",
-      "failed_sources": 0
+      "preview_file_sha256": "904adf6550e9910239725fe887188d1a6c3a04a374e0d0c460190d80fc8fa3c8",
+      "matches_historical_preview": true
     },
     {
       "aoi": "xidao",
       "status": "passed",
       "accepted_pixels": 238476,
-      "rgba_sha256": "829b3a4a877fd145034c1687d9f17ca9676d94e05bc397408e4e82c88834ccfa",
-      "failed_sources": 0
+      "preview_file_sha256": "829b3a4a877fd145034c1687d9f17ca9676d94e05bc397408e4e82c88834ccfa",
+      "matches_historical_preview": true
     },
     {
       "aoi": "yongshu",
       "status": "passed",
       "accepted_pixels": 2905219,
-      "rgba_sha256": "19e1a5a2f5837d4996c5258ebd27fabe88d8f902bf5caaa1e93867b59adb1120",
-      "failed_sources": 0
+      "preview_file_sha256": "19e1a5a2f5837d4996c5258ebd27fabe88d8f902bf5caaa1e93867b59adb1120",
+      "matches_historical_preview": true
     },
     {
       "aoi": "yongxing",
       "status": "passed",
       "accepted_pixels": 756454,
-      "rgba_sha256": "a47c56c54abf549ad3e8d64fee78095e523b68434e729bfcb91ef8f015ff6fe2",
-      "failed_sources": 0
+      "preview_file_sha256": "a47c56c54abf549ad3e8d64fee78095e523b68434e729bfcb91ef8f015ff6fe2",
+      "matches_historical_preview": true
     },
     {
       "aoi": "zhubi",
       "status": "passed",
       "accepted_pixels": 862687,
-      "rgba_sha256": "a99627f059c19ada642b542e60fcd1cab0eb474f3213dd244f16e3a0f4a4203a",
-      "failed_sources": 0
+      "preview_file_sha256": "a99627f059c19ada642b542e60fcd1cab0eb474f3213dd244f16e3a0f4a4203a",
+      "matches_historical_preview": true
     }
   ],
-  "file_count": 80,
-  "total_bytes": 12236326,
+  "file_count": 76,
+  "total_bytes": 11652369,
+  "file_inventory_scope": "Current files relative to this imagery directory, excluding this verification.json itself.",
   "below_30mb": true,
-  "source_scene_count": 522,
-  "mgrs_count": 170,
-  "query_groups": [
-    {
-      "id": "main",
-      "unique_items": 2860,
-      "number_matched": 2860,
-      "pages": 4,
-      "pagination_exhausted": true
-    },
-    {
-      "id": "xisha",
-      "unique_items": 1511,
-      "number_matched": 1511,
-      "pages": 3,
-      "pagination_exhausted": true
-    },
-    {
-      "id": "zhongsha",
-      "unique_items": 2751,
-      "number_matched": 2751,
-      "pages": 4,
-      "pagination_exhausted": true
-    },
-    {
-      "id": "nansha",
-      "unique_items": 15976,
-      "number_matched": 15976,
-      "pages": 17,
-      "pagination_exhausted": true
-    }
-  ],
-  "software": {
-    "python": "3.13.5",
-    "gdal": "3100300"
-  },
   "files": [
     {
       "path": "README.md",
@@ -131,8 +100,8 @@
     },
     {
       "path": "aoi-inventory.json",
-      "bytes": 4574,
-      "sha256": "a73b041b5a788ec641ee09885f9e94cdd14333bbf4623f28f70de46f8170ea22"
+      "bytes": 9016,
+      "sha256": "3af81f2909e1fb68d5c1268cd8f6099fa59c7303344fdc9632f232f8ea5ade90"
     },
     {
       "path": "main-gap-additional-candidates.json",
@@ -148,16 +117,6 @@
       "path": "mask-regression-tests.json",
       "bytes": 314,
       "sha256": "565820ddd3b3c541b2c60f5608d57dd158b3e2e371273f87eedb434c923180bf"
-    },
-    {
-      "path": "preview-manifest-haikou-sanya-danzhou-wuzhishan-wenchang-xidao-yongxing-yongshu-zhubi-huangyan.json",
-      "bytes": 41427,
-      "sha256": "03812524cf2f9ab9a03817be000592b0252787873d6e1d9983fc29c52a27f444"
-    },
-    {
-      "path": "preview-manifest-main.json",
-      "bytes": 19637,
-      "sha256": "9d6e5ab13b80818be5d0f3bd04b54e32c445e353943c72b4f5dc3842f9780961"
     },
     {
       "path": "preview-manifest.json",
@@ -505,19 +464,173 @@
       "sha256": "e0a8af0d3ed558b0f4836220b0be53800d5fb7ca6ca137b530785582185c7036"
     },
     {
-      "path": "scene-catalog-main-xisha-zhongsha-nansha.json",
-      "bytes": 1174072,
-      "sha256": "f87140cde64d1d9bd08eb63be2e57a538ffd5753b230203d5fd1f0ae68fa0185"
-    },
-    {
-      "path": "scene-catalog-main.json",
-      "bytes": 143065,
-      "sha256": "fbb93d3c8c30f9f7ae93f50cac984ff7658e74bafe2e1c4e62acab2670ff8486"
-    },
-    {
       "path": "scene-catalog.json",
-      "bytes": 1174449,
-      "sha256": "b561f32abae694d9db922c5c949d7f5506670b51327564a1a055f18189cfde65"
+      "bytes": 1964251,
+      "sha256": "308022ec8520b9d145d0060aaf72286ada3265d341a5790e0adf47fa8d81427a"
     }
-  ]
+  ],
+  "current_query_group_ids": [
+    "main",
+    "xisha",
+    "zhongsha",
+    "nansha",
+    "targeted-offshore"
+  ],
+  "current_coverage_audit": "../coverage/verification.json",
+  "historical_preview_build": {
+    "scope": "Original phase-two producer inventory and preview verification; historical paths/hashes below are not assertions about the current website directory.",
+    "original_verification_sha256": "e133f619165d6f3c2badbb40ecc58669f090638a36c4dbe9b5175e8e0d9be62a",
+    "verified_utc": "2026-10-03",
+    "source_scene_count": 522,
+    "mgrs_count": 170,
+    "producer_file_count": 80,
+    "producer_total_bytes": 12236326,
+    "source_catalog_files": [
+      {
+        "path": "aoi-inventory.json",
+        "bytes": 4574,
+        "sha256": "a73b041b5a788ec641ee09885f9e94cdd14333bbf4623f28f70de46f8170ea22"
+      },
+      {
+        "path": "scene-catalog.json",
+        "bytes": 1174449,
+        "sha256": "b561f32abae694d9db922c5c949d7f5506670b51327564a1a055f18189cfde65"
+      }
+    ],
+    "producer_only_files": [
+      {
+        "path": "preview-manifest-haikou-sanya-danzhou-wuzhishan-wenchang-xidao-yongxing-yongshu-zhubi-huangyan.json",
+        "bytes": 41427,
+        "sha256": "03812524cf2f9ab9a03817be000592b0252787873d6e1d9983fc29c52a27f444"
+      },
+      {
+        "path": "preview-manifest-main.json",
+        "bytes": 19637,
+        "sha256": "9d6e5ab13b80818be5d0f3bd04b54e32c445e353943c72b4f5dc3842f9780961"
+      },
+      {
+        "path": "scene-catalog-main-xisha-zhongsha-nansha.json",
+        "bytes": 1174072,
+        "sha256": "f87140cde64d1d9bd08eb63be2e57a538ffd5753b230203d5fd1f0ae68fa0185"
+      },
+      {
+        "path": "scene-catalog-main.json",
+        "bytes": 143065,
+        "sha256": "fbb93d3c8c30f9f7ae93f50cac984ff7658e74bafe2e1c4e62acab2670ff8486"
+      }
+    ],
+    "query_groups": [
+      {
+        "id": "main",
+        "unique_items": 2860,
+        "number_matched": 2860,
+        "pages": 4,
+        "pagination_exhausted": true
+      },
+      {
+        "id": "xisha",
+        "unique_items": 1511,
+        "number_matched": 1511,
+        "pages": 3,
+        "pagination_exhausted": true
+      },
+      {
+        "id": "zhongsha",
+        "unique_items": 2751,
+        "number_matched": 2751,
+        "pages": 4,
+        "pagination_exhausted": true
+      },
+      {
+        "id": "nansha",
+        "unique_items": 15976,
+        "number_matched": 15976,
+        "pages": 17,
+        "pagination_exhausted": true
+      }
+    ],
+    "software": {
+      "python": "3.13.5",
+      "gdal": "3100300"
+    },
+    "checks": [
+      {
+        "aoi": "danzhou",
+        "status": "passed",
+        "accepted_pixels": 1839754,
+        "rgba_sha256": "636ac5e2d4495f2f0a033695f33450e7530a149592afd322a97b7eba3174a46d",
+        "failed_sources": 0
+      },
+      {
+        "aoi": "haikou",
+        "status": "passed",
+        "accepted_pixels": 1025491,
+        "rgba_sha256": "8a24b3fc6eddad037b2bd4b142ad79a110ce20d03af1036c654e7c866047cfbb",
+        "failed_sources": 0
+      },
+      {
+        "aoi": "huangyan",
+        "status": "passed",
+        "accepted_pixels": 1720512,
+        "rgba_sha256": "4df69ac4f41da13583ab81ad2352e14ff4c1cc43347cf53fbeaf3020e2902e58",
+        "failed_sources": 0
+      },
+      {
+        "aoi": "main",
+        "status": "passed",
+        "accepted_pixels": 4284698,
+        "rgba_sha256": "554c7a0d0026f5e86318338aeacbdd2971b0f91dfd3631cce7d710e144fc017b",
+        "failed_sources": 0
+      },
+      {
+        "aoi": "sanya",
+        "status": "passed",
+        "accepted_pixels": 1354447,
+        "rgba_sha256": "2e930f4188b74d1a4c379752034fdaca4576d06057c1abe7a69504c88230b67e",
+        "failed_sources": 0
+      },
+      {
+        "aoi": "wenchang",
+        "status": "passed",
+        "accepted_pixels": 1409536,
+        "rgba_sha256": "b735f2454aaac8ab08b4a3f447fb6883b00a3f0283ef37f33b6fe7876e166e96",
+        "failed_sources": 0
+      },
+      {
+        "aoi": "wuzhishan",
+        "status": "passed",
+        "accepted_pixels": 1468185,
+        "rgba_sha256": "904adf6550e9910239725fe887188d1a6c3a04a374e0d0c460190d80fc8fa3c8",
+        "failed_sources": 0
+      },
+      {
+        "aoi": "xidao",
+        "status": "passed",
+        "accepted_pixels": 238476,
+        "rgba_sha256": "829b3a4a877fd145034c1687d9f17ca9676d94e05bc397408e4e82c88834ccfa",
+        "failed_sources": 0
+      },
+      {
+        "aoi": "yongshu",
+        "status": "passed",
+        "accepted_pixels": 2905219,
+        "rgba_sha256": "19e1a5a2f5837d4996c5258ebd27fabe88d8f902bf5caaa1e93867b59adb1120",
+        "failed_sources": 0
+      },
+      {
+        "aoi": "yongxing",
+        "status": "passed",
+        "accepted_pixels": 756454,
+        "rgba_sha256": "a47c56c54abf549ad3e8d64fee78095e523b68434e729bfcb91ef8f015ff6fe2",
+        "failed_sources": 0
+      },
+      {
+        "aoi": "zhubi",
+        "status": "passed",
+        "accepted_pixels": 862687,
+        "rgba_sha256": "a99627f059c19ada642b542e60fcd1cab0eb474f3213dd244f16e3a0f4a4203a",
+        "failed_sources": 0
+      }
+    ]
+  }
 }

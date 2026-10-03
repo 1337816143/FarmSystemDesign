@@ -1,18 +1,18 @@
 {
-  "version": "0.3.9",
-  "name": "Hainan Regional Imagery and Environment",
+  "version": "0.3.10",
+  "name": "Hainan Coverage Register",
   "channel": "research-preview",
   "releasedOn": "2026-10-03",
   "modelVersion": "screening-0.2.0",
   "dataVersion": "evidence-2025-r1+assumptions-r2",
-  "regionalEvidenceVersion": "hainan-regional-2026-10-03-r1",
+  "regionalEvidenceVersion": "hainan-regional-2026-10-03-r2",
   "schemaVersion": 1,
   "storageVersion": 2,
   "commit": "local-preview",
   "changes": [
-    "2025全域影像按视窗读取，保留云与缺测",
-    "接入30m地形来源、5.5km降水和250m土壤，分别注明网页概览精度",
-    "加入本岛18单元OSM社区参考界；三沙完整聚合面仍缺失",
-    "原FTW田块、虚拟经营参数和农场模型保持不变"
+    "按172真实源图幅、11预览与137具名OSM对象分列覆盖证据，保留无值/排云/未核状态",
+    "地图实时区分无概览、目录外、质量排除、源无值与请求/解码失败，并支持重试；定向补充两处原查询框遗漏和6处质量缺口",
+    "新增真实三沙OSM父关系部分范围参考；不作为官方完整行政界或陆地掩膜",
+    "模型、FTW田块和经营情景未改动"
   ]
 }

@@ -1,0 +1,685 @@
+{
+  "audit_date": "2026-10-03",
+  "status": "source OSM parent and child reference geometries acquired and verified; official full jurisdiction and island completeness remain missing",
+  "source": "OpenStreetMap contributors; official OSM API read-only snapshots plus previously downloaded Geofabrik extract",
+  "license": "ODbL-1.0",
+  "license_url": "https://opendatacommons.org/licenses/odbl/1-0/",
+  "attribution": "© OpenStreetMap contributors",
+  "geometry_crs": "EPSG:4326",
+  "transformation": "GDAL OSM assembly from source outer ways. No coordinate editing, simplification, buffer, bounding-box polygon, geometry repair or invented union used for delivered parent geometry. Parent sourced directly from OSM relation 2833102.",
+  "relations": [
+    {
+      "osm_relation_id": 2833102,
+      "name": "三沙市",
+      "osm_version": 280,
+      "osm_timestamp": "2026-08-31T06:49:16Z",
+      "source_admin_level": "5",
+      "source_division_code": "460300",
+      "source_url": "https://www.openstreetmap.org/relation/2833102",
+      "source_api_url": "https://api.openstreetmap.org/api/0.6/relation/2833102/full",
+      "source_tags": {
+        "admin_level": "5",
+        "alt_name": "三沙",
+        "boundary": "administrative",
+        "division_code": "460300",
+        "name": "三沙市",
+        "name:en": "Sansha",
+        "name:zh": "三沙市",
+        "name:zh-Hans": "三沙市",
+        "name:zh-Hant": "三沙市",
+        "type": "boundary"
+      },
+      "members": [
+        {
+          "type": "node",
+          "ref": "2555280839",
+          "role": "admin_centre"
+        },
+        {
+          "type": "way",
+          "ref": "804352180",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1030038114",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "812607356",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240958",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240957",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "159002396",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240949",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240939",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240948",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240937",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240923",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240926",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240927",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240924",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240931",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240930",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240929",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1274527881",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1319181446",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1319181445",
+          "role": "outer"
+        },
+        {
+          "type": "relation",
+          "ref": "6753150",
+          "role": "subarea"
+        },
+        {
+          "type": "relation",
+          "ref": "6753263",
+          "role": "subarea"
+        },
+        {
+          "type": "relation",
+          "ref": "6753119",
+          "role": "subarea"
+        }
+      ],
+      "outer_way_count": 20,
+      "inner_way_count": 0,
+      "missing_outer_inner_ways": [],
+      "missing_outer_inner_nodes": [],
+      "geometry_type": "MultiPolygon",
+      "polygon_count": 12,
+      "coordinate_count_including_ring_closure": 6244,
+      "all_rings_closed": true,
+      "all_geometries_valid": true,
+      "all_coordinates_from_source_nodes": true,
+      "all_source_boundary_coordinates_used": true,
+      "bbox_wgs84": [
+        110.9808749,
+        8.6650385,
+        118.0551487,
+        17.3178567
+      ],
+      "geodesic_polygon_area_including_sea_km2": 52229.856327,
+      "official_complete_boundary": false,
+      "is_land_mask": false,
+      "is_complete_island_inventory": false,
+      "scope_status": "source-defined OSM partial reference; not official whole jurisdiction"
+    },
+    {
+      "osm_relation_id": 6753150,
+      "name": "西沙区",
+      "osm_version": 107,
+      "osm_timestamp": "2026-05-28T03:09:55Z",
+      "source_admin_level": "6",
+      "source_division_code": "460302",
+      "source_url": "https://www.openstreetmap.org/relation/6753150",
+      "source_api_url": "https://api.openstreetmap.org/api/0.6/relation/6753150/full",
+      "source_tags": {
+        "admin_level": "6",
+        "alt_name": "西沙",
+        "boundary": "administrative",
+        "division_code": "460302",
+        "name": "西沙区",
+        "name:en": "Xisha District",
+        "name:zh": "西沙区",
+        "name:zh-Hans": "西沙区",
+        "name:zh-Hant": "西沙區",
+        "old_name": "西沙群岛",
+        "type": "boundary"
+      },
+      "members": [
+        {
+          "type": "node",
+          "ref": "11111667609",
+          "role": "admin_centre"
+        },
+        {
+          "type": "node",
+          "ref": "11111659283",
+          "role": "label"
+        },
+        {
+          "type": "way",
+          "ref": "1030038114",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "812607356",
+          "role": "outer"
+        },
+        {
+          "type": "relation",
+          "ref": "11027051",
+          "role": "subarea"
+        },
+        {
+          "type": "relation",
+          "ref": "11027050",
+          "role": "subarea"
+        },
+        {
+          "type": "relation",
+          "ref": "11027052",
+          "role": "subarea"
+        }
+      ],
+      "outer_way_count": 2,
+      "inner_way_count": 0,
+      "missing_outer_inner_ways": [],
+      "missing_outer_inner_nodes": [],
+      "geometry_type": "MultiPolygon",
+      "polygon_count": 2,
+      "coordinate_count_including_ring_closure": 1015,
+      "all_rings_closed": true,
+      "all_geometries_valid": true,
+      "all_coordinates_from_source_nodes": true,
+      "all_source_boundary_coordinates_used": true,
+      "bbox_wgs84": [
+        110.9808749,
+        15.5735889,
+        112.9534055,
+        17.3178567
+      ],
+      "geodesic_polygon_area_including_sea_km2": 30420.100536,
+      "official_complete_boundary": false,
+      "is_land_mask": false,
+      "is_complete_island_inventory": false,
+      "scope_status": "source-defined OSM partial reference; not official whole jurisdiction"
+    },
+    {
+      "osm_relation_id": 6753263,
+      "name": "南沙区",
+      "osm_version": 100,
+      "osm_timestamp": "2026-07-26T12:56:49Z",
+      "source_admin_level": "6",
+      "source_division_code": "460303",
+      "source_url": "https://www.openstreetmap.org/relation/6753263",
+      "source_api_url": "https://api.openstreetmap.org/api/0.6/relation/6753263/full",
+      "source_tags": {
+        "admin_level": "6",
+        "alt_name": "南沙",
+        "boundary": "administrative",
+        "division_code": "460303",
+        "name": "南沙区",
+        "name:en": "Nansha District",
+        "name:zh": "南沙区",
+        "name:zh-Hans": "南沙区",
+        "name:zh-Hant": "南沙區",
+        "old_name": "南沙群岛",
+        "type": "boundary"
+      },
+      "members": [
+        {
+          "type": "node",
+          "ref": "4531648296",
+          "role": "label"
+        },
+        {
+          "type": "way",
+          "ref": "1120240958",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240957",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "159002396",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240949",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240939",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240948",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240937",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240923",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240926",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240927",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240924",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240931",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240930",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1120240929",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1319181446",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1319181445",
+          "role": "outer"
+        },
+        {
+          "type": "relation",
+          "ref": "11036106",
+          "role": "subarea"
+        },
+        {
+          "type": "relation",
+          "ref": "11034609",
+          "role": "subarea"
+        }
+      ],
+      "outer_way_count": 16,
+      "inner_way_count": 0,
+      "missing_outer_inner_ways": [],
+      "missing_outer_inner_nodes": [],
+      "geometry_type": "MultiPolygon",
+      "polygon_count": 8,
+      "coordinate_count_including_ring_closure": 4273,
+      "all_rings_closed": true,
+      "all_geometries_valid": true,
+      "all_coordinates_from_source_nodes": true,
+      "all_source_boundary_coordinates_used": true,
+      "bbox_wgs84": [
+        112.6723041,
+        8.6650385,
+        115.7819115,
+        11.1444599
+      ],
+      "geodesic_polygon_area_including_sea_km2": 9935.294104,
+      "official_complete_boundary": false,
+      "is_land_mask": false,
+      "is_complete_island_inventory": false,
+      "scope_status": "source-defined OSM partial reference; not official whole jurisdiction"
+    },
+    {
+      "osm_relation_id": 6753119,
+      "name": "中沙群岛的岛礁及其海域",
+      "osm_version": 55,
+      "osm_timestamp": "2024-09-21T09:48:07Z",
+      "source_admin_level": "6",
+      "source_division_code": "460323",
+      "source_url": "https://www.openstreetmap.org/relation/6753119",
+      "source_api_url": "https://api.openstreetmap.org/api/0.6/relation/6753119/full",
+      "source_tags": {
+        "admin_level": "6",
+        "alt_name": "中沙;黄岩岛",
+        "boundary": "administrative",
+        "division_code": "460323",
+        "name": "中沙群岛的岛礁及其海域",
+        "name:zh": "中沙群岛的岛礁及其海域",
+        "type": "boundary"
+      },
+      "members": [
+        {
+          "type": "way",
+          "ref": "804352180",
+          "role": "outer"
+        },
+        {
+          "type": "way",
+          "ref": "1274527881",
+          "role": "outer"
+        }
+      ],
+      "outer_way_count": 2,
+      "inner_way_count": 0,
+      "missing_outer_inner_ways": [],
+      "missing_outer_inner_nodes": [],
+      "geometry_type": "MultiPolygon",
+      "polygon_count": 2,
+      "coordinate_count_including_ring_closure": 956,
+      "all_rings_closed": true,
+      "all_geometries_valid": true,
+      "all_coordinates_from_source_nodes": true,
+      "all_source_boundary_coordinates_used": true,
+      "bbox_wgs84": [
+        113.5363395,
+        14.9019316,
+        118.0551487,
+        16.3358163
+      ],
+      "geodesic_polygon_area_including_sea_km2": 11874.461686,
+      "official_complete_boundary": false,
+      "is_land_mask": false,
+      "is_complete_island_inventory": false,
+      "scope_status": "source-defined OSM partial reference; not official whole jurisdiction"
+    }
+  ],
+  "topology_checks": {
+    "parent_equals_union_of_three_osm_subareas": true,
+    "parent_outer_way_set_equals_subarea_outer_way_union": true,
+    "scope_of_check": "OSM geometry only; does not approve source hierarchy or territorial claims"
+  },
+  "prior_cache_comparison": {
+    "2833102": {
+      "present_in_prior_assembled_cache": false,
+      "matches_api_geometry_topologically": null
+    },
+    "6753119": {
+      "present_in_prior_assembled_cache": true,
+      "matches_api_geometry_topologically": true
+    },
+    "6753150": {
+      "present_in_prior_assembled_cache": true,
+      "matches_api_geometry_topologically": true
+    },
+    "6753263": {
+      "present_in_prior_assembled_cache": false,
+      "matches_api_geometry_topologically": null
+    }
+  },
+  "named_object_inventory": {
+    "records": 137,
+    "distinct_names": 126,
+    "valid_polygonal_objects": 135,
+    "invalid_objects": [
+      {
+        "osm_type": "relation",
+        "osm_id": 11169306,
+        "name": "中建岛",
+        "source_place": null,
+        "source_natural": "reef",
+        "osm_version": 10,
+        "osm_timestamp": "2025-09-27T14:34:43Z",
+        "source_url": "https://www.openstreetmap.org/relation/11169306",
+        "geometry_valid": false,
+        "bbox_wgs84": [
+          111.1896692,
+          15.7743283,
+          111.2243519,
+          15.8020902
+        ],
+        "geometry_type": "MultiPolygon",
+        "administrative_membership": "not asserted",
+        "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+        "source_snapshot_date": "2026-10-03",
+        "license": "ODbL-1.0",
+        "name_zh": "中建岛",
+        "name_en": null,
+        "valid_geometry": false,
+        "bbox": [
+          111.1896692,
+          15.7743283,
+          111.2243519,
+          15.8020902
+        ],
+        "source_date": "2026-10-03",
+        "representative_point": null,
+        "representative_point_method": "none: invalid source geometry",
+        "representative_lon": null,
+        "representative_lat": null,
+        "source_tags": {
+          "name:zh": "中建岛"
+        }
+      },
+      {
+        "osm_type": "relation",
+        "osm_id": 19122386,
+        "name": "珊瑚岛礁盘",
+        "source_place": null,
+        "source_natural": "reef",
+        "osm_version": 5,
+        "osm_timestamp": "2026-05-26T10:21:21Z",
+        "source_url": "https://www.openstreetmap.org/relation/19122386",
+        "geometry_valid": false,
+        "bbox_wgs84": [
+          111.5955861,
+          16.5283828,
+          111.6273895,
+          16.5486259
+        ],
+        "geometry_type": "MultiPolygon",
+        "administrative_membership": "not asserted",
+        "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+        "source_snapshot_date": "2026-10-03",
+        "license": "ODbL-1.0",
+        "name_zh": "珊瑚岛礁盘",
+        "name_en": null,
+        "valid_geometry": false,
+        "bbox": [
+          111.5955861,
+          16.5283828,
+          111.6273895,
+          16.5486259
+        ],
+        "source_date": "2026-10-03",
+        "representative_point": null,
+        "representative_point_method": "none: invalid source geometry",
+        "representative_lon": null,
+        "representative_lat": null,
+        "source_tags": {
+          "name:zh": "珊瑚岛礁盘",
+          "name:zh-Hant": "珊瑚島礁盤"
+        }
+      }
+    ],
+    "complete_census": false,
+    "island_count": null
+  },
+  "network": {
+    "new_raw_response_bytes": 2185289,
+    "calls": 4,
+    "overpass_called": false,
+    "method_reason": "Known object IDs resolved from cached data and bounded OSM parent relation API. Reused local PBF instead of broad Overpass scans or large regional downloads.",
+    "raw_responses": [
+      {
+        "file": "raw/relation-metadata.osm",
+        "url": "https://api.openstreetmap.org/api/0.6/relations?relations=6753150,6753119,6753263",
+        "download_date": "2026-10-03",
+        "status": 200,
+        "bytes": 3197,
+        "sha256": "77040bf7ecd983c638942086d880aa1530ed20a3ad5130ad407460aea5cc77c4",
+        "note": "Initial bounded read; exact request clock not recorded. Raw payload frozen.",
+        "original_source_sha256": "fa13a10b792b3fcaaad916deb5f1e0915d027008ceec77fdd17edf5ceee56707",
+        "original_source_bytes": 5898,
+        "sanitized_sha256": "77040bf7ecd983c638942086d880aa1530ed20a3ad5130ad407460aea5cc77c4",
+        "sanitized_bytes": 3197,
+        "copy_status": "allowlisted sanitized copy; original response is not included"
+      },
+      {
+        "file": "raw/xisha-parents.osm",
+        "url": "https://api.openstreetmap.org/api/0.6/relation/6753150/relations",
+        "attempted_utc": "2026-10-03T05:59:49.944268+00:00",
+        "status": 200,
+        "bytes": 1997,
+        "last_modified": null,
+        "sha256": "f7f136fe9cd2444df3c45309e51f99597a74e069115114997464efda63e848fc",
+        "original_source_sha256": "6745373a26be26a76df3fe377d24dd5716282e3b148ecc9f028171e4d65e3fd2",
+        "original_source_bytes": 3465,
+        "sanitized_sha256": "f7f136fe9cd2444df3c45309e51f99597a74e069115114997464efda63e848fc",
+        "sanitized_bytes": 1997,
+        "copy_status": "allowlisted sanitized copy; original response is not included"
+      },
+      {
+        "file": "raw/nansha-full.osm",
+        "url": "https://api.openstreetmap.org/api/0.6/relation/6753263/full",
+        "attempted_utc": "2026-10-03T05:59:49.946177+00:00",
+        "status": 200,
+        "bytes": 637188,
+        "last_modified": null,
+        "sha256": "0a0e07b79842b966eef11110222dd64c53e9d414db6f275040278cc9f8b951ee",
+        "original_source_sha256": "a2c94df42badf8e1d6542a0ff7f7c82dd8e2562fdd7b8272e98fdf499aa129d3",
+        "original_source_bytes": 888296,
+        "sanitized_sha256": "0a0e07b79842b966eef11110222dd64c53e9d414db6f275040278cc9f8b951ee",
+        "sanitized_bytes": 637188,
+        "copy_status": "allowlisted sanitized copy; original response is not included"
+      },
+      {
+        "file": "raw/sansha-full.osm",
+        "url": "https://api.openstreetmap.org/api/0.6/relation/2833102/full",
+        "attempted_utc": "2026-10-03T06:01:11.710669+00:00",
+        "status": 200,
+        "bytes": 931301,
+        "last_modified": null,
+        "sha256": "374e5e1d90a7395249579c9c1c3d0a30cffb043d64b173d9065ccb1112af3496",
+        "original_source_sha256": "cc626e1bb8b8b1a3be8195a35dc253f248b2f16c30b901ca4d7e01946a6f3532",
+        "original_source_bytes": 1287630,
+        "sanitized_sha256": "374e5e1d90a7395249579c9c1c3d0a30cffb043d64b173d9065ccb1112af3496",
+        "sanitized_bytes": 931301,
+        "copy_status": "allowlisted sanitized copy; original response is not included"
+      }
+    ]
+  },
+  "software": {
+    "gdal": "GDAL 3.10.3, released 2025/04/01"
+  },
+  "limitations": [
+    "Community-maintained OSM administrative reference, not an authoritative surveyed or legally current administrative boundary.",
+    "Child source descriptions restrict their scope to the part described by OSM contributors as controlled by China. That description has not been independently verified here and is not a statement on sovereignty.",
+    "These polygons include sea. They are not island outlines, a terrestrial land mask, an exhaustive island/reef inventory, or the full legal/claimed maritime extent.",
+    "Zhongsha relation 6753119 retains legacy name/code 460323 and is stored as a separate OSM subarea. Official 2020 district structure has Xisha and Nansha, with Xisha administering Zhongsha; the legacy OSM row must not become a third current district.",
+    "OSM edit timestamps are object-edit dates, not dates of authoritative survey. A relation date alone does not date all member ways or nodes.",
+    "ODbL re-use permission and attribution do not establish public-map approval, official cartographic compliance, sovereignty, or statistical-join correctness.",
+    "Completeness is verified only for referenced outer-way/node geometry of these four OSM objects in the downloaded snapshot; completeness of real-world administration or islands remains unverified."
+  ],
+  "remaining_gaps": [
+    {
+      "item": "Authoritative current complete administrative GIS boundaries and approved display",
+      "status": "missing",
+      "needed": "Officially supplied or user-authorized/licensed WGS84/known-CRS GIS vector, version/date, source authority, permitted publication scope and any required map-review identifiers. A statistical table or generic web-map JSON is insufficient."
+    },
+    {
+      "item": "Exhaustive full-province island/reef inventory and terrestrial mask",
+      "status": "missing",
+      "needed": "Defined reference inventory with persistent island/reef identifiers, geometry/coordinates, tide/dry-land convention and coverage including southern Nansha. OSM named-object subset is only a starting list."
+    },
+    {
+      "item": "Administrative/statistical joins",
+      "status": "unapproved",
+      "needed": "Explicitly reconcile the official 19 city/county statistical rows, current Xisha/Nansha district hierarchy and source partial geometries. Do not allocate statistics to sea polygons."
+    }
+  ],
+  "original_source_sha256": "04bb722e642d3d6aa60ef1d2bfd750e3e4d619afe42b3ee61b0e1ec181b3fe3b",
+  "sanitization": {
+    "version": "public-scientific-fields-v1",
+    "allowed_source_tags": [
+      "admin_level",
+      "alt_name",
+      "boundary",
+      "division_code",
+      "name",
+      "name:en",
+      "name:zh",
+      "name:zh-Hans",
+      "name:zh-Hant",
+      "natural",
+      "old_name",
+      "place",
+      "type"
+    ],
+    "url_valued_tags_removed": true,
+    "source_note_comment_fields_removed": true,
+    "original_unfiltered_inputs_included": false,
+    "geometry_coordinates_changed": false,
+    "representative_points_changed": false,
+    "invalid_geometries_repaired": false,
+    "description": "Only allowlisted scientific/name tags without URL/domain values are retained. Arbitrary source, note and comment tags and contributor account metadata are excluded. Source links exposed by derived features are numeric official OpenStreetMap object URLs."
+  }
+}

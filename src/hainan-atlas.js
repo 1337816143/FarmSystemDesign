@@ -1,3 +1,4 @@
+import {CoveragePanel,coverageMarkup,runtimeCoverageText} from './coverage-panel.js';
 import {REGIONAL_INFO,regionalLayer,regionInventory,inspectRegional} from './regional-atlas-layers.js';
 import {createLandcoverLayer} from './landcover-layer.js';
 // Hainan evidence atlas. The geospatial products never enter the farm model.
@@ -92,15 +93,17 @@ export function atlasMarkup(language = 'zh') {
       <button type="button" data-atlas="soil" aria-pressed="false">${label('soil')}</button>
       <button type="button" data-atlas="soc" aria-pressed="false">${label('soc')}</button>
       <label><input id="atlas-osm-boundaries" type="checkbox"> ${language==='en'?'2026 OSM reference':'2026 OSM社区参照'}</label>
+      <label><input id="atlas-sansha-boundaries" type="checkbox"> ${language==='en'?'Sansha OSM partial reference':'三沙 OSM 部分范围参照'}</label>
       <label><input id="atlas-boundaries" type="checkbox"> ${label('borders')}</label>
     </div><div class="atlas-region-nav"><label>${language==='en'?'View region / sample':'浏览范围 / 核验样窗'} <select id="atlas-region" aria-label="Geographic view" disabled><option value="main">${language==='en'?'Hainan Island':'海南岛'}</option></select></label><span id="atlas-view-status" role="status"></span></div><div id="hainan-atlas-map" class="atlas-map" role="img" aria-label="Hainan spatial evidence map"></div><div class="atlas-map-foot"><span id="atlas-inspect" role="status" aria-live="polite">${label('click')}</span><strong id="atlas-load-label" hidden>${label('loading')}</strong><strong id="atlas-error-label" hidden>${label('loadError')}</strong><label>${label('overlay')} <input id="atlas-opacity" type="range" min="30" max="100" value="95"></label></div>
+    <div class="atlas-runtime-status"><span id="atlas-runtime-coverage" role="status" aria-live="polite"></span><button type="button" id="atlas-retry-raster" hidden>${language==='en'?'Retry current layer':'重试当前图层'}</button></div>${coverageMarkup(language==='en')}
     <div class="atlas-area" id="atlas-cover-summary"><strong>${label('areaTitle')}</strong><div id="atlas-area-chart" role="group" aria-label="${t.areaTitle}">${label('areaUnavailable')}</div><p>${label('areaMethod')}</p><a href="./docs/Hainan_DATA_SOURCE_AUDIT.md" target="_blank" rel="noopener noreferrer">${label('areaSource')} ↗</a></div></div>
     <aside class="atlas-aside"><div class="atlas-layer-id"><b id="atlas-current-title">${label('land')}</b><p id="atlas-current-type">${label('landType')}</p></div>
       <div class="atlas-unit-check"><strong>${label('unitTitle')}</strong><div class="atlas-unit-counts"><span><b>18</b>${label('unitHistorical')}</span><span><b>19</b>${label('unitOfficial')}</span><span><b>18</b>${label('unitAgriculture')}</span></div><p>${label('unitMismatch')}</p><a href="./docs/HAINAN_ADMIN_STAT_UNITS_AUDIT.md" target="_blank" rel="noopener noreferrer">${label('unitSource')} ↗</a></div>
       <div class="atlas-regional-legend" id="atlas-regional-legend" hidden></div><div class="atlas-land-legend" id="atlas-land-legend">${coverLegend}</div>
       <div class="atlas-soil-legend" id="atlas-soil-legend" hidden><div class="atlas-gradient"></div><div><span>4.0</span><span>5.0</span><span>6.0</span><span>7.0</span></div><p>${label('soilLegend')}</p></div>
       <div class="atlas-soil-legend" id="atlas-soc-legend" hidden><div class="atlas-gradient soc"></div><div><span>0</span><span>25</span><span>50</span><span>75</span><span>100+</span></div><p>${label('socLegend')}</p></div>
-      <p class="atlas-border-note">${language==='en'?'OSM snapshot downloaded 2026-10-03: 18 main-island aggregate polygons, including Wuzhishan. Sansha aggregate missing. Community reference, not authoritative current boundaries.':'OSM于2026-10-03下载快照：本岛18个聚合参考面，包含五指山；缺三沙完整聚合面。社区参照，不是权威现势行政界。'} <a href="./data/hainan/regional/county-osm-audit.json" target="_blank" rel="noreferrer">${language==='en'?'Audit':'核验记录'}</a> · <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors · ODbL</a></p><p class="atlas-border-note" id="atlas-border-note">${label('noCounty')}</p><p class="atlas-extent">${label('mapExtent')}</p><p class="atlas-caution">${label('caution')}</p>
+      <p class="atlas-border-note">${language==='en'?'OSM snapshot downloaded 2026-10-03: 18 main-island aggregate polygons, including Wuzhishan. Sansha has a separate OSM partial reference, including sea. These are community records, not authoritative full current boundaries.':'OSM于2026-10-03下载快照：本岛18个聚合参考面，包含五指山；另列三沙OSM部分范围参考（含海域）。这些是社区记录，不能替代权威完整现势行政界。'} <a href="./data/hainan/regional/county-osm-audit.json" target="_blank" rel="noreferrer">${language==='en'?'Audit':'核验记录'}</a> · <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">© OpenStreetMap contributors · ODbL</a></p><p class="atlas-border-note">${language==='en'?'Sansha relation 2833102: source version 280, dated 2026-08-31; 12 polygon parts. The OSM child records describe limited areas under Chinese control; the Zhongsha child uses an older administrative label. Not a legal-jurisdiction claim or a land mask.':'三沙 relation 2833102：源版本280，日期2026-08-31，含12个面片。OSM子关系描述为中国控制的部分范围；中沙子对象沿用旧行政标签。不据此判定法定辖界，也不用作陆地掩膜。'} <a href="./data/hainan/regional/administrative/audit.json" target="_blank" rel="noreferrer">${language==='en'?'Source relation audit':'来源关系核验'}</a></p><p class="atlas-border-note" id="atlas-border-note">${label('noCounty')}</p><p class="atlas-extent">${label('mapExtent')}</p><p class="atlas-caution">${label('caution')}</p>
       <div class="atlas-regional-audit"><strong>${language==='en'?'Coverage and source audit':'覆盖与来源核验'}</strong><p id="atlas-regional-status">${language==='en'?'Metadata coverage is not visible-pixel coverage.':'目录覆盖不等于可见有效像元覆盖。'}</p><a href="./docs/SPATIAL_COVERAGE_PHASE2.md" target="_blank" rel="noreferrer">${language==='en'?'Read methods, resolution and gaps':'查看方法、分辨率与缺口'} ↗</a><p id="atlas-2025-area"></p></div><div class="atlas-source-links"><a href="https://esa-worldcover.org/en/data-access" target="_blank" rel="noopener noreferrer">${label('landSource')} ↗</a><a href="https://docs.isric.org/globaldata/soilgrids/" target="_blank" rel="noopener noreferrer">${label('soilSource')} ↗</a><a href="https://www.geoboundaries.org/api/current/gbOpen/CHN/ADM2/" target="_blank" rel="noopener noreferrer">geoBoundaries CHN ADM2 (2017) ↗</a></div>
       <p class="atlas-attribution">© ESA WorldCover project 2021 / Contains modified Copernicus Sentinel data (2021) processed by ESA WorldCover consortium. © ISRIC — World Soil Information. geoBoundaries CHN ADM2, 2017.</p>
     </aside></div></section>`;
@@ -124,7 +127,10 @@ export class HainanAtlas {
     this.loadLandcoverSummary();
     this.loadBorders();
     this.loadOsmBorders();
+    this.loadSanshaBorders();
     this.loadRegionalInventory();
+    this.coveragePanel=new CoveragePanel(element,()=>this.map,language);
+    this.map.on('moveend',()=>this.updateRasterViewStatus());
     this.clickHandler = event => this.handleClick(event);
     element.addEventListener('click', this.clickHandler);
     this.inputHandler = event => this.handleInput(event);
@@ -204,12 +210,21 @@ export class HainanAtlas {
 
   async loadOsmBorders(){try{const r=await fetch('./data/hainan/regional/county-osm-reference-20261003.geojson');if(!r.ok)return;const data=await r.json();if(!this.map||data.features?.length!==18)return;this.osmBorders=L.geoJSON(data,{style:{color:'#244b57',weight:1.2,opacity:.9,fillOpacity:0,dashArray:'5 3'},onEachFeature:(f,l)=>l.bindTooltip(`${f.properties.name} · OSM 2026-10-03 · ${this.language==='en'?'community reference':'社区参考'}`,{sticky:true})});}catch{/* no guessed boundaries */}}
 
+  async loadSanshaBorders(){
+    try{const response=await fetch('./data/hainan/regional/administrative/sansha-osm-reference-20261003.geojson');if(!response.ok)return;const data=await response.json();if(!this.map||data.features?.length!==1||data.features[0].properties.osm_relation_id!==2833102)return;
+      this.sanshaBorders=L.geoJSON(data,{style:{color:'#aa773e',weight:1.5,opacity:.9,fillOpacity:0,dashArray:'2 5'},onEachFeature:(_f,layer)=>{const content=document.createElement('span');content.textContent=this.language==='en'?'Sansha · OSM partial reference including sea · not official full jurisdiction':'三沙 · OSM部分范围参考，含海域 · 非官方完整辖界';layer.bindTooltip(content,{sticky:true});}});
+      if(this.host.querySelector('#atlas-sansha-boundaries').checked)this.sanshaBorders.addTo(this.map);
+    }catch{/* Keep the source unavailable rather than construct a boundary. */}
+  }
+
   handleClick(event) {
+    if(event.target.closest('#atlas-retry-raster')){if(REGIONAL_INFO[this.layer]){this.host.classList.add('atlas-error');this.host.querySelector(`[data-atlas="${this.layer}"]`).click();}return;}
     const button = event.target.closest('[data-atlas]');
     if (!button || !this.host.contains(button)) return;
     if (button.dataset.atlas === this.layer && !this.host.classList.contains('atlas-error')) return;
     if(this.remoteLayer){this.map.removeLayer(this.remoteLayer);this.remoteLayer=null;}
     this.host.querySelector('#atlas-regional-legend').hidden=true;
+    this.host.querySelector('#atlas-runtime-coverage').textContent='';this.host.querySelector('#atlas-retry-raster').hidden=true;
     this.hasChosenLayer=true;
     this.layer = button.dataset.atlas;
     if(REGIONAL_INFO[this.layer]){this.selectRegional(button);return;}
@@ -275,6 +290,7 @@ export class HainanAtlas {
   handleInput(event) {
     if(event.target.id==='atlas-region'&&this.inventory){const scope=[...this.inventory.groups,...this.inventory.places].find(r=>r.id===event.target.value);if(scope){const b=scope.bbox;this.map.fitBounds([[b[1],b[0]],[b[3],b[2]]],{maxZoom:14});this.host.querySelector('#atlas-view-status').textContent=this.language==='en'?'Geographic query/sample; not an administrative boundary':'地理查询/样窗，非行政界';this.updateCoverage();}return;}
     if (event.target.id === 'atlas-opacity' && !this.host.classList.contains('atlas-loading')) (this.remoteLayer||this.overlay).setOpacity(Number(event.target.value) / 100);
+    if(event.target.id==='atlas-sansha-boundaries'&&this.sanshaBorders){if(event.target.checked)this.sanshaBorders.addTo(this.map);else this.map.removeLayer(this.sanshaBorders);}
     if(event.target.id==='atlas-osm-boundaries'&&this.osmBorders){if(event.target.checked)this.osmBorders.addTo(this.map);else this.map.removeLayer(this.osmBorders);}
     if (event.target.id === 'atlas-boundaries' && this.borderLayer) {
       if (event.target.checked) this.borderLayer.addTo(this.map); else this.map.removeLayer(this.borderLayer);
@@ -305,6 +321,7 @@ export class HainanAtlas {
     const config=this.remoteLayer?.regionalConfig;if(!config)return;const id=this.host.querySelector('#atlas-region').value||'main';const r=config.records.find(x=>x.id===id||x.id.endsWith('-'+id));const target=this.host.querySelector('#atlas-regional-status');const en=this.language==='en';
     if(!r){target.textContent=en?'No precomputed overview for this geographic group. Imagery loads original COG windows from zoom12; absence of an overview is not proof of native-source completeness.':'该地理分组尚无整组预览。影像12级起按任意视窗读取原始COG；没有预览不能解释为原始源完整。';return;}
     const c=r.coverage||{},accepted=c.accepted_pixels??c.valid_cells,total=c.total_bbox_pixels??c.grid_cells;let text=Number.isFinite(accepted)&&total?`${en?'Window accepted/valid cells':'窗口接受/有效格'}: ${accepted.toLocaleString()} / ${total.toLocaleString()} (${(100*accepted/total).toFixed(2)}%). `:'';
+    text=(en?'Selected-window record (does not follow panning). ':'所选样窗记录（不随平移改变）。')+text;
     text+=en?'Rectangle includes sea; not administrative land completeness. ':'矩形分母含海域，不是行政陆地完整率。';
     if(r.approx_main_island_land_audit){const a=r.approx_main_island_land_audit;text+=(en?'Inferred main-island mask display acceptance':'推测主岛掩膜内显示格接受率')+`: ${a.accepted_land_percent}%. `;}
     if(r.actual_contributing_dates?.length)text+=(en?'Contributing dates':'实际贡献日期')+`: ${r.actual_contributing_dates[0]} – ${r.actual_contributing_dates.at(-1)}. `;
@@ -331,12 +348,30 @@ export class HainanAtlas {
     const scales={dsm:{colors:['#e0efc1','#82b479','#b3a76f','#a67559','#faf3e6'],stops:[0,5.263,26.316,52.632,100],ticks:['0','100','500','1000','1900 m']},rain:{colors:['#f6e9ae','#9cca96','#409ba0','#2e64a6','#48337d'],stops:[0,25,50,75,100],ticks:['0','1000','2000','3000','4000 mm/yr']},soil:{colors:['#a13e34','#cc6740','#e1c16b','#539779'],stops:[0,28.571,57.143,100],ticks:['4.0','5.0','6.0','7.5 pH']},soc:{colors:['#f7eab3','#dcd282','#77a772','#216d70','#25395b'],stops:[0,20,40,65,100],ticks:['0','20','40','65','100 g/kg']}};
     const legend=this.host.querySelector('#atlas-regional-legend'),scale=scales[key];if(scale){legend.hidden=false;legend.innerHTML=`<div class="regional-gradient" style="background:linear-gradient(to right,${scale.colors.map((c,i)=>c+' '+scale.stops[i]+'%').join(',')})"></div><div class="regional-scale">${scale.ticks.map((t,i)=>key==='dsm'&&i===1?'':`<span style="left:${scale.stops[i]}%;transform:translateX(${i===0?'0':i===scale.ticks.length-1?'-100%':'-50%'})">${t}</span>`).join('')}</div><small>${this.language==='en'?'Transparent: no displayed source value; raster cells retain native support.':'透明：无可显示来源值；粗网格仍按原始空间支撑解释。'}</small>`;}
     const attribution=this.host.querySelector('.atlas-attribution');if(!this.originalAttribution)this.originalAttribution=attribution.textContent;attribution.textContent=info.attribution;
-    try{const layer=await regionalLayer(L,key,{opacity:Number(this.host.querySelector('#atlas-opacity').value)/100});if(token!==this.switchToken||!this.map)return;this.remoteLayer=layer;this.updateCoverage();layer.on('loading',()=>{if(this.remoteLayer!==layer)return;this.host.querySelector('#atlas-load-label').hidden=false;});layer.on('load',()=>{if(this.remoteLayer!==layer)return;this.host.classList.remove('atlas-loading');this.host.querySelector('#atlas-load-label').hidden=true;});layer.on('tileerror',()=>{if(this.remoteLayer!==layer)return;this.host.classList.add('atlas-error');this.host.querySelector('#atlas-error-label').hidden=false;});layer.addTo(this.map);
+    try{
+      const layer=await regionalLayer(L,key,{opacity:Number(this.host.querySelector('#atlas-opacity').value)/100});if(token!==this.switchToken||!this.map)return;
+      this.remoteLayer=layer;this.updateCoverage();
+      layer.on('loading',()=>{if(this.remoteLayer!==layer)return;this.host.querySelector('#atlas-load-label').hidden=false;this.updateRasterViewStatus();});
+      layer.on('load',()=>{if(this.remoteLayer!==layer)return;this.host.classList.remove('atlas-loading');this.host.querySelector('#atlas-load-label').hidden=true;this.updateRasterViewStatus();});
+      layer.on('coverage',()=>{if(this.remoteLayer===layer)this.updateRasterViewStatus();});
+      layer.on('tileerror',()=>{if(this.remoteLayer===layer)this.updateRasterViewStatus();});
+      layer.addTo(this.map);this.updateRasterViewStatus();
+    }catch{
+      if(token!==this.switchToken||!this.map)return;this.host.classList.remove('atlas-loading');this.host.classList.add('atlas-error');this.host.querySelector('#atlas-load-label').hidden=true;this.host.querySelector('#atlas-error-label').hidden=false;
+      this.host.querySelector('#atlas-runtime-coverage').textContent=this.language==='en'?'Layer metadata request failed. Source coverage is unknown; retry.':'图层目录请求失败；不能由此判断源覆盖，可重试。';this.host.querySelector('#atlas-retry-raster').hidden=false;
+    }
+  }
 
-    }catch{if(token!==this.switchToken||!this.map)return;this.host.classList.remove('atlas-loading');this.host.classList.add('atlas-error');this.host.querySelector('#atlas-load-label').hidden=true;this.host.querySelector('#atlas-error-label').hidden=false;}
+  updateRasterViewStatus(){
+    if(!this.map||!this.remoteLayer?.coverageForBounds)return;
+    const b=this.map.getBounds(),rows=this.remoteLayer.coverageForBounds([b.getWest(),b.getSouth(),b.getEast(),b.getNorth()]);
+    this.host.querySelector('#atlas-runtime-coverage').textContent=runtimeCoverageText(rows,this.language==='en');
+    const failed=rows.some(r=>['read-error','incomplete-read','partial-read','quality-unavailable','timeout'].includes(r.status));
+    this.host.querySelector('#atlas-retry-raster').hidden=!failed;this.host.querySelector('#atlas-error-label').hidden=!failed;this.host.classList.toggle('atlas-error',failed);
   }
 
   destroy() {
+    this.coveragePanel?.destroy();
     this.host.removeEventListener('click', this.clickHandler);
     this.host.removeEventListener('input', this.inputHandler);
     ++this.switchToken;

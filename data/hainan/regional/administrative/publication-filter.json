@@ -1,0 +1,136 @@
+{
+  "policy": {
+    "version": "public-scientific-fields-v1",
+    "allowed_source_tags": [
+      "admin_level",
+      "alt_name",
+      "boundary",
+      "division_code",
+      "name",
+      "name:en",
+      "name:zh",
+      "name:zh-Hans",
+      "name:zh-Hant",
+      "natural",
+      "old_name",
+      "place",
+      "type"
+    ],
+    "url_valued_tags_removed": true,
+    "source_note_comment_fields_removed": true,
+    "original_unfiltered_inputs_included": false,
+    "geometry_coordinates_changed": false,
+    "representative_points_changed": false,
+    "invalid_geometries_repaired": false,
+    "description": "Only allowlisted scientific/name tags without URL/domain values are retained. Arbitrary source, note and comment tags and contributor account metadata are excluded. Source links exposed by derived features are numeric official OpenStreetMap object URLs."
+  },
+  "geometry_and_points_verification": {
+    "date": "2026-10-03",
+    "public_field_filter": "public-scientific-fields-v1",
+    "offline_sanitized_reproduction_byte_identical_files": 7,
+    "geometry_sha256_before_and_after": "8e2690e4240c9ca663eb2debb229c768eefecd39cb7346c94a0cb1f274cae7d2",
+    "representative_points_sha256_before_and_after": "c3fba697c793800d8dc49db10bf0d509d5857194a65d8f29c126f47025951d10",
+    "source_object_count": 137,
+    "valid_geometry_count": 135,
+    "invalid_geometries_unchanged": 2,
+    "original_frozen_files_modified": false,
+    "original_unfiltered_snapshots_included": false,
+    "original_pbf_included": false,
+    "unverified_share_urls_present": false,
+    "network_requests": 0,
+    "environment": {
+      "python": "3.13.5",
+      "gdal": "3.10.3",
+      "pyproj": "3.7.1"
+    }
+  },
+  "deletion_log": "sanitization-input-manifest.json",
+  "original_values_in_deletion_log": false,
+  "public_source_links": "numeric OpenStreetMap object URLs plus curated primary license/government references",
+  "files": [
+    {
+      "file": "raw/cached-administrative-subset.geojson",
+      "original_source_sha256": "3b68ddd21204d2a994f5659ba69cc938ceb0b76322b7b5c57f667c463e7c7370",
+      "sanitized_sha256": "f44015ead943075512bb073b71e86685d65ccc4cc38fd23e252929716f097957",
+      "sanitized_bytes": 49685
+    },
+    {
+      "file": "raw/cached-named-islands.geojson",
+      "original_source_sha256": "ebefb2af8784c1ef38923c38f2a7168b40731e68f8c761d3c3ec808387982661",
+      "sanitized_sha256": "19ed2987d983a7aec51538ff15d753b4d3119d9045ed98a4f3bf7aa9644b1c0d",
+      "sanitized_bytes": 1055776
+    },
+    {
+      "file": "raw/nansha-assembled.geojson",
+      "original_source_sha256": "5026995f4fae00fce1f6e0448f61498c667ded3c0ba76958c439930464c51761",
+      "sanitized_sha256": "d33ca69e29e61222508c40ecc6d64ffcdc519d42173840ee3e4f662eeb73a461",
+      "sanitized_bytes": 104010
+    },
+    {
+      "file": "raw/nansha-full.osm",
+      "original_source_sha256": "a2c94df42badf8e1d6542a0ff7f7c82dd8e2562fdd7b8272e98fdf499aa129d3",
+      "sanitized_sha256": "0a0e07b79842b966eef11110222dd64c53e9d414db6f275040278cc9f8b951ee",
+      "sanitized_bytes": 637188
+    },
+    {
+      "file": "raw/relation-metadata.osm",
+      "original_source_sha256": "fa13a10b792b3fcaaad916deb5f1e0915d027008ceec77fdd17edf5ceee56707",
+      "sanitized_sha256": "77040bf7ecd983c638942086d880aa1530ed20a3ad5130ad407460aea5cc77c4",
+      "sanitized_bytes": 3197
+    },
+    {
+      "file": "raw/sansha-assembled.geojson",
+      "original_source_sha256": "dc9563afdff7cc4d0db1c97db8fc504cedd6afae0fb7b5b6d2a75b539d20d4ac",
+      "sanitized_sha256": "19ebc86eb471e0abc59b87f565cd23177a46ab36fbb4b780288195f0f1fb413c",
+      "sanitized_bytes": 306469
+    },
+    {
+      "file": "raw/sansha-full.osm",
+      "original_source_sha256": "cc626e1bb8b8b1a3be8195a35dc253f248b2f16c30b901ca4d7e01946a6f3532",
+      "sanitized_sha256": "374e5e1d90a7395249579c9c1c3d0a30cffb043d64b173d9065ccb1112af3496",
+      "sanitized_bytes": 931301
+    },
+    {
+      "file": "raw/xisha-parents.osm",
+      "original_source_sha256": "6745373a26be26a76df3fe377d24dd5716282e3b148ecc9f028171e4d65e3fd2",
+      "sanitized_sha256": "f7f136fe9cd2444df3c45309e51f99597a74e069115114997464efda63e848fc",
+      "sanitized_bytes": 1997
+    },
+    {
+      "file": "named-island-reef-object-inventory.json",
+      "original_source_sha256": "ffe5a5549f647a9483426e3d2429adc974f9676a5d5134ed3af98f76e887deb2",
+      "sanitized_sha256": "6a836d994f23384218e76424b2d62c3caa249a099c51f31f055962e7f221e21b",
+      "sanitized_bytes": 194081
+    },
+    {
+      "file": "named-island-reef-valid-reference.geojson",
+      "original_source_sha256": "958eb0b604f7aed52e6527bb6bd0ca5640ec7e28f9a01e6348ddac4ad3c1001b",
+      "sanitized_sha256": "272e5c216bc165e917e25e94ed2fdeb3f592489e48991151e025ad1eb7202fdc",
+      "sanitized_bytes": 1162129
+    },
+    {
+      "file": "audit.json",
+      "original_source_sha256": "04bb722e642d3d6aa60ef1d2bfd750e3e4d619afe42b3ee61b0e1ec181b3fe3b",
+      "sanitized_sha256": "7be55fea0795985954a14d446b3ac5a8b7a03a01e6905490c9b780ebb1e3e212",
+      "sanitized_bytes": 22827
+    },
+    {
+      "file": "sansha-osm-reference-20261003.geojson",
+      "original_source_sha256": "1d8bb2139f2c1cd1b8a3e22a2b4eea5625e1748b2dfb48696cc6c534c13d2720",
+      "sanitized_sha256": "8acd180adc445afd62abce07378eb37fcb3ca3cb42aa90ed5e0a250bebceef2f",
+      "sanitized_bytes": 155486
+    },
+    {
+      "file": "sansha-osm-subareas-20261003.geojson",
+      "original_source_sha256": "16a6fcebc0b14eb38aacdbf39f9fc558dcb23007367c532d5afe78a8b3cdf83e",
+      "sanitized_sha256": "491ac386296581b6764315bb5eb004491cbdc2dfb76ae9d3e3d0b19b2d55189b",
+      "sanitized_bytes": 157262
+    },
+    {
+      "file": "named-island-reef-object-inventory.csv",
+      "original_source_sha256": "5b4b7737b4d2b62c972b4fcdd1f1f31e9c61e3d88c52876d0d49ba56aa56e12e",
+      "sanitized_sha256": "5b4b7737b4d2b62c972b4fcdd1f1f31e9c61e3d88c52876d0d49ba56aa56e12e",
+      "sanitized_bytes": 59186
+    }
+  ]
+}

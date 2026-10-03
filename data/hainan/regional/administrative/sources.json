@@ -1,0 +1,56 @@
+[
+  {
+    "url": "https://api.openstreetmap.org/api/0.6/relation/2833102/full",
+    "role": "Primary source geometry and relation metadata",
+    "checked_date": "2026-10-03",
+    "status": "HTTP 200; frozen raw payload and SHA-256"
+  },
+  {
+    "url": "https://www.openstreetmap.org/copyright",
+    "role": "Primary license and attribution guidance",
+    "checked_date": "2026-10-03",
+    "status": "read",
+    "finding": "ODbL; attribution and applicable share-alike requirements"
+  },
+  {
+    "url": "https://operations.osmfoundation.org/policies/api/",
+    "role": "Primary API policy",
+    "checked_date": "2026-10-03",
+    "status": "read",
+    "finding": "Read-only alternatives preferred; bounded requests and no more than two concurrent downloads used"
+  },
+  {
+    "url": "https://osmfoundation.org/w/images/d/d8/DisputedTerritoriesInformation.pdf",
+    "role": "Primary OSMF disputed-territory explanation",
+    "checked_date": "2026-10-03",
+    "status": "read",
+    "finding": "OSM geometry, names and descriptions do not establish legal correctness in any jurisdiction"
+  },
+  {
+    "url": "https://wiki.openstreetmap.org/wiki/Relation:boundary",
+    "role": "Primary OSM boundary data-model documentation",
+    "checked_date": "2026-10-03",
+    "status": "read",
+    "finding": "Outer/inner way rings define geometry. Subarea relation references are optional and do not alone establish a complete current official hierarchy"
+  },
+  {
+    "url": "https://mzj.panjin.gov.cn/2020_04/20_14/content-63560.html",
+    "role": "Government republication of 2020 Ministry of Civil Affairs announcement",
+    "checked_date": "2026-10-03",
+    "status": "read",
+    "finding": "Xisha and Nansha districts established; Zhongsha administered by Xisha"
+  },
+  {
+    "url": "http://www.mca.gov.cn/article/xw/tzgg/202004/20200400026955.shtml",
+    "role": "Original announcement URL referenced in OSM source tags",
+    "checked_date": "2026-10-03",
+    "status": "fetch timed out; did not infer current content from failed fetch"
+  },
+  {
+    "url": "https://download.geofabrik.de/asia/china/hainan.html",
+    "role": "Extract provider and license reference",
+    "checked_date": "2026-10-03",
+    "status": "read; listing served through web extraction may be cached",
+    "finding": "Use local PBF hash for frozen source identity; do not substitute this page listing date as local PBF data timestamp"
+  }
+]

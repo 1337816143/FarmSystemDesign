@@ -1,0 +1,25 @@
+{
+  "version": "public-scientific-fields-v1",
+  "allowed_source_tags": [
+    "admin_level",
+    "alt_name",
+    "boundary",
+    "division_code",
+    "name",
+    "name:en",
+    "name:zh",
+    "name:zh-Hans",
+    "name:zh-Hant",
+    "natural",
+    "old_name",
+    "place",
+    "type"
+  ],
+  "url_valued_tags_removed": true,
+  "source_note_comment_fields_removed": true,
+  "original_unfiltered_inputs_included": false,
+  "geometry_coordinates_changed": false,
+  "representative_points_changed": false,
+  "invalid_geometries_repaired": false,
+  "description": "Only allowlisted scientific/name tags without URL/domain values are retained. Arbitrary source, note and comment tags and contributor account metadata are excluded. Source links exposed by derived features are numeric official OpenStreetMap object URLs."
+}

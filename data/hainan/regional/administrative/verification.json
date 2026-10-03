@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-03",
+  "public_field_filter": "public-scientific-fields-v1",
+  "offline_sanitized_reproduction_byte_identical_files": 7,
+  "geometry_sha256_before_and_after": "8e2690e4240c9ca663eb2debb229c768eefecd39cb7346c94a0cb1f274cae7d2",
+  "representative_points_sha256_before_and_after": "c3fba697c793800d8dc49db10bf0d509d5857194a65d8f29c126f47025951d10",
+  "source_object_count": 137,
+  "valid_geometry_count": 135,
+  "invalid_geometries_unchanged": 2,
+  "original_frozen_files_modified": false,
+  "original_unfiltered_snapshots_included": false,
+  "original_pbf_included": false,
+  "unverified_share_urls_present": false,
+  "network_requests": 0,
+  "environment": {
+    "python": "3.13.5",
+    "gdal": "3.10.3",
+    "pyproj": "3.7.1"
+  }
+}

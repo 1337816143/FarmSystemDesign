@@ -1,0 +1,44 @@
+{
+  "group": "targeted-offshore",
+  "windows": [
+    {
+      "id": "way-297689140",
+      "group": "targeted-offshore",
+      "object_id": "way/297689140",
+      "name_zh": "神狐暗沙定向检索窗口",
+      "name_en": "Targeted offshore query way/297689140",
+      "bbox": [
+        113.0127374,
+        19.5321314,
+        113.0527863,
+        19.5636318
+      ],
+      "representative_point_wgs84": [
+        113.03155290513118,
+        19.54480855
+      ],
+      "kind": "targeted-point-query-window",
+      "scope": "Small independent geographic query; not an administrative boundary, whole-island coverage claim, or original Zhongsha envelope."
+    },
+    {
+      "id": "way-297689336",
+      "group": "targeted-offshore",
+      "object_id": "way/297689336",
+      "name_zh": "一统暗沙定向检索窗口",
+      "name_en": "Targeted offshore query way/297689336",
+      "bbox": [
+        113.87223510000001,
+        19.163235200000003,
+        113.9003214,
+        19.1863489
+      ],
+      "representative_point_wgs84": [
+        113.88697655010324,
+        19.1761097
+      ],
+      "kind": "targeted-point-query-window",
+      "scope": "Small independent geographic query; not an administrative boundary, whole-island coverage claim, or original Zhongsha envelope."
+    }
+  ],
+  "administrative_membership": "not asserted"
+}

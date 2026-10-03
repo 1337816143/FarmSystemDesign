@@ -1,0 +1,21 @@
+{
+  "policy": "OSM scientific-field allowlist; arbitrary source/comment sharing annotations and URL-valued tags excluded",
+  "geometry_and_numeric_evidence_changed": false,
+  "administrative_inputs": {
+    "named-island-reef-object-inventory.json": {
+      "sanitized_sha256": "6a836d994f23384218e76424b2d62c3caa249a099c51f31f055962e7f221e21b"
+    },
+    "named-island-reef-valid-reference.geojson": {
+      "sanitized_sha256": "272e5c216bc165e917e25e94ed2fdeb3f592489e48991151e025ad1eb7202fdc"
+    }
+  },
+  "administrative_removal_log": {
+    "file": "sanitization-input-manifest.json",
+    "sha256": "900ce8bf38c6598dd8ceac26ebfddc9c69bd8d9878bfab6d1f07376fa515f0f3"
+  },
+  "prior_audit_removal_log": {
+    "file": "prior-audit-sanitization.json",
+    "sha256": "568b06727a1bda7c045e98c08cfc56d6825547dcbf9f9bfcb1318a4232395da3"
+  },
+  "unfiltered_archive_embedded": false
+}

@@ -10,6 +10,11 @@ const ATTRIBUTES = ['aria-label', 'title', 'placeholder', 'alt'];
 
 // Reviewed research terms take precedence over the generated draft catalog.
 const REVIEWED = {
+  "按172真实源图幅、11预览与137具名OSM对象分列覆盖证据，保留无值/排云/未核状态": "Coverage evidence separates172 true raster footprints,11 previews and137 named OSM objects, retaining no-value, cloud-screened and unverified states",
+  "地图实时区分无概览、目录外、质量排除、源无值与请求/解码失败，并支持重试；定向补充两处原查询框遗漏和6处质量缺口": "Live map diagnostics separate absent overviews, catalog limits, quality rejection, no-value and read failures, with retry; targeted dates address two query omissions and six quality gaps",
+  "新增真实三沙OSM父关系部分范围参考；不作为官方完整行政界或陆地掩膜": "Adds the actual Sansha OSM parent as a partial reference, not an official complete boundary or land mask",
+  "模型、FTW田块和经营情景未改动": "The model, FTW field geometries and operating scenarios remain unchanged",
+
   "2025全域影像按视窗读取，保留云与缺测": "2025 regional imagery uses viewport reads and preserves clouds and missing observations",
   "接入30m地形来源、5.5km降水和250m土壤，分别注明网页概览精度": "30 m terrain source, 5.5 km rainfall and 250 m soil retain separate web overview resolutions",
   "加入本岛18单元OSM社区参考界；三沙完整聚合面仍缺失": "Added18 main-island OSM community reference units; complete Sansha aggregate geometry remains missing",

@@ -1,0 +1,115 @@
+{
+  "status": "passed",
+  "check_count": 30,
+  "checks": {
+    "530_unique_selected_scenes": true,
+    "172_unique_raster_footprints": true,
+    "eight_new_scenes_guarded": true,
+    "old_522_scl_cache_bytes_unchanged": true,
+    "old_170_rgb_cache_bytes_unchanged": true,
+    "530_scl_metadata_reads_match": true,
+    "172_rgb_small_window_evidence": true,
+    "eight_targets_accepted_one_unresolved": true,
+    "new_source_output_is_bounded": true,
+    "max_twelve_new_candidates_per_object": true,
+    "exact_frontend_cloud_guard_passes": true,
+    "saturation_flags_derived_from_actual_rgb": true,
+    "no_whole_object_coverage_claim": true,
+    "catalogue_input_provenance_matches": true,
+    "aoi_input_provenance_matches": true,
+    "targeted_proof_hash_matches": true,
+    "objects_current_134_value_1_rejected_2_invalid": true,
+    "non_target_object_read_evidence_unchanged": true,
+    "prior_target_read_evidence_preserved": true,
+    "accepted_target_sources_selected_in_catalogue": true,
+    "all_guarded_target_scenes_are_preferred": true,
+    "register_matches_current_counts": true,
+    "register_evidence_status_consistent": true,
+    "register_retains_targeted_attempt_dates": true,
+    "lightweight_geometries_exact": true,
+    "all_grid_polygons_valid": true,
+    "offshore_group_distinct_from_original_envelopes": true,
+    "priority_bounds_are_point_only": true,
+    "11_frozen_previews_pass": true,
+    "frozen_prior_audit_unchanged": true
+  },
+  "summary": {
+    "selected_scene_count": 530,
+    "mgrs_grid_count": 172,
+    "source_footprints_indexed": 172,
+    "scene_sample_status_counts": {
+      "sampled_accepted": 530
+    },
+    "grid_sample_status_counts": {
+      "sampled_accepted": 172
+    },
+    "scl_sampled_scene_count": 530,
+    "scl_sampled_grid_count": 172,
+    "scl_sample_output_pixels": 13250,
+    "grids_with_existing_rgb_preview_evidence": 25,
+    "scenes_with_existing_rgb_preview_evidence": 84,
+    "preview_count": 11,
+    "named_preview_count": 10,
+    "preview_checks_passed": 11,
+    "exhaustive_island_inventory": false,
+    "province_wide_land_completeness_percent": null,
+    "province_area_statistic": null,
+    "rgb_grid_sample_status_counts": {
+      "sampled_rgb_nonzero_scl_accepted": 170,
+      "sampled_rgb_quality_rejected": 1,
+      "sampled_rgb_zero": 1
+    },
+    "rgb_sampled_grid_count": 172,
+    "rgb_sample_output_pixels": 1548,
+    "grids_with_contributing_rgb_preview_evidence": 24,
+    "scl_sample_observation_histogram": {
+      "0": 909,
+      "3": 62,
+      "4": 1267,
+      "5": 59,
+      "6": 10243,
+      "7": 10,
+      "8": 244,
+      "9": 196,
+      "10": 260
+    },
+    "scl_sample_observation_histogram_scope": "Sample observations across scenes/dates, including repeated spatial locations. Not unique native pixels, land area, or coverage.",
+    "named_objects": {
+      "object_count": 137,
+      "valid_geometry_count": 135,
+      "status_counts": {
+        "representative_point_value": 134,
+        "invalid_geometry": 2,
+        "representative_point_quality_rejected": 1
+      },
+      "sampled_object_count": 135,
+      "native_rgb_pixel_reads": 168,
+      "native_scl_pixel_reads": 552,
+      "complete_island_census": false,
+      "full_polygon_coverage_verified": false,
+      "objects_are_not_deduplicated_physical_islands": true,
+      "selected_read_attempt_count": 232,
+      "failed_read_attempt_count": 64,
+      "recovered_failed_read_count": 9,
+      "objects_with_partial_read_failures": 64,
+      "quality_rejected_objects_with_partial_read_failures": 0,
+      "targeted_guard_verified_objects": 8,
+      "targeted_guard_unresolved_objects": 1
+    }
+  },
+  "targeted_summary": {
+    "target_object_count": 9,
+    "closed_representative_point_count": 8,
+    "unresolved_object_count": 1,
+    "new_scene_count": 8,
+    "new_grid_ids": [
+      "MGRS-49QGB",
+      "MGRS-49QHB"
+    ],
+    "prior_scene_count": 522,
+    "proposed_scene_count": 530,
+    "prior_grid_count": 170,
+    "proposed_grid_count": 172,
+    "full_island_coverage_claimed": false
+  }
+}

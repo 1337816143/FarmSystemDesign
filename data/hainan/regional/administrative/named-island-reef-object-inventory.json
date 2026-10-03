@@ -1,0 +1,5867 @@
+{
+  "record_kind": "source OSM object inventory, not an island count or census",
+  "source_pbf_sha256": "f6bd87a10f1eb53b1afa4ff65447df743073faaad67891a51f95fea117f9aca3",
+  "selection": "name IS NOT NULL AND (place = 'island' OR place = 'islet' OR natural = 'reef') in GDAL multipolygons layer; no spatial clipping or administrative join",
+  "limitations": [
+    "Includes main Hainan Island and nearshore/offshore named objects. Same names may occur on island and reef polygons or multiple objects.",
+    "Only polygonal objects assembled from this extract. Unnamed objects, point-only islands and areas outside the extract are not covered.",
+    "Southern Nansha geography is outside the cached extract. The acquired Nansha administrative polygon does not supply the missing island/reef inventory.",
+    "Invalid source geometries are recorded here and excluded from the valid geometry layer; no automatic geometry repair was performed."
+  ],
+  "objects": [
+    {
+      "osm_type": "relation",
+      "osm_id": 2445882,
+      "name": "七洲列岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 3,
+      "osm_timestamp": "2021-02-12T14:24:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/2445882",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.1968783,
+        19.8836049,
+        111.2735051,
+        19.9866988
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "七洲列岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.1968783,
+        19.8836049,
+        111.2735051,
+        19.9866988
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.20019091541022,
+        19.90955445
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.20019091541022,
+      "representative_lat": 19.90955445,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 4094778,
+      "name": "海南岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 145,
+      "osm_timestamp": "2026-08-27T20:44:48Z",
+      "source_url": "https://www.openstreetmap.org/relation/4094778",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        108.6126696,
+        18.1591969,
+        111.0423311,
+        20.1625138
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "海南岛",
+      "name_en": "Hainan Island",
+      "valid_geometry": true,
+      "bbox": [
+        108.6126696,
+        18.1591969,
+        111.0423311,
+        20.1625138
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        109.62893206281255,
+        19.160385849999997
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 109.62893206281255,
+      "representative_lat": 19.160385849999997,
+      "source_tags": {
+        "name:en": "Hainan Island",
+        "name:zh": "海南岛",
+        "name:zh-Hans": "海南岛",
+        "name:zh-Hant": "海南島"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 4812933,
+      "name": "东岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 22,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/4812933",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.7205003,
+        16.658575,
+        112.7403636,
+        16.6760121
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "东岛",
+      "name_en": "Lincoln Island",
+      "valid_geometry": true,
+      "bbox": [
+        112.7205003,
+        16.658575,
+        112.7403636,
+        16.6760121
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.72903211262533,
+        16.6673367
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.72903211262533,
+      "representative_lat": 16.6673367,
+      "source_tags": {
+        "name:en": "Lincoln Island",
+        "name:zh": "东岛",
+        "name:zh-Hans": "东岛",
+        "name:zh-Hant": "東島"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 7250845,
+      "name": "琛航岛",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 11,
+      "osm_timestamp": "2024-10-10T15:43:17Z",
+      "source_url": "https://www.openstreetmap.org/relation/7250845",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.7053996,
+        16.4471748,
+        111.7153683,
+        16.4554727
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "琛航岛",
+      "name_en": "Duncan Island",
+      "valid_geometry": true,
+      "bbox": [
+        111.7053996,
+        16.4471748,
+        111.7153683,
+        16.4554727
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.71146060989604,
+        16.451544749999996
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.71146060989604,
+      "representative_lat": 16.451544749999996,
+      "source_tags": {
+        "alt_name": "Chen Hang Island",
+        "name:en": "Duncan Island",
+        "name:zh": "琛航岛",
+        "name:zh-Hans": "琛航岛",
+        "name:zh-Hant": "琛航島"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 7250846,
+      "name": "广金岛",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 13,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/7250846",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6991103,
+        16.4499083,
+        111.7035415,
+        16.4541988
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "广金岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.6991103,
+        16.4499083,
+        111.7035415,
+        16.4541988
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.70114781494709,
+        16.452134
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.70114781494709,
+      "representative_lat": 16.452134,
+      "source_tags": {
+        "alt_name": "Guangjin Island",
+        "name:zh": "广金岛",
+        "name:zh-Hans": "广金岛",
+        "name:zh-Hant": "廣金島"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 7434587,
+      "name": "永兴岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 35,
+      "osm_timestamp": "2024-10-10T15:43:17Z",
+      "source_url": "https://www.openstreetmap.org/relation/7434587",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3261184,
+        16.8235768,
+        112.3555845,
+        16.844638
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "永兴岛",
+      "name_en": "Woody Island",
+      "valid_geometry": true,
+      "bbox": [
+        112.3261184,
+        16.8235768,
+        112.3555845,
+        16.844638
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.33926056448664,
+        16.83414625
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.33926056448664,
+      "representative_lat": 16.83414625,
+      "source_tags": {
+        "name:en": "Woody Island",
+        "name:zh": "永兴岛",
+        "name:zh-Hans": "永兴岛",
+        "name:zh-Hant": "永興島"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 7434588,
+      "name": "石岛",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 12,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/7434588",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3458936,
+        16.8425773,
+        112.3488763,
+        16.8468621
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "石岛",
+      "name_en": "Rocky Island",
+      "valid_geometry": true,
+      "bbox": [
+        112.3458936,
+        16.8425773,
+        112.3488763,
+        16.8468621
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.3474740146398,
+        16.84472165
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.3474740146398,
+      "representative_lat": 16.84472165,
+      "source_tags": {
+        "name:en": "Rocky Island",
+        "name:zh": "石岛",
+        "name:zh-Hant": "石島"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 9443828,
+      "name": "东瑁洲",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 1,
+      "osm_timestamp": "2019-03-30T00:57:50Z",
+      "source_url": "https://www.openstreetmap.org/relation/9443828",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        109.4117139,
+        18.2120404,
+        109.4187076,
+        18.2230749
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "东瑁洲",
+      "name_en": "Dong Island",
+      "valid_geometry": true,
+      "bbox": [
+        109.4117139,
+        18.2120404,
+        109.4187076,
+        18.2230749
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        109.41494628565135,
+        18.217585800000002
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 109.41494628565135,
+      "representative_lat": 18.217585800000002,
+      "source_tags": {
+        "alt_name": "东岛;Dongdao;Tung-mei Chou;Dongmao Zhou",
+        "name:en": "Dong Island",
+        "name:zh": "东瑁洲"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 9443829,
+      "name": "西岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 2,
+      "osm_timestamp": "2020-09-11T10:46:10Z",
+      "source_url": "https://www.openstreetmap.org/relation/9443829",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        109.3615526,
+        18.2253465,
+        109.3777531,
+        18.2460293
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "西岛",
+      "name_en": "Xi Island",
+      "valid_geometry": true,
+      "bbox": [
+        109.3615526,
+        18.2253465,
+        109.3777531,
+        18.2460293
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        109.37043232573313,
+        18.236267400000003
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 109.37043232573313,
+      "representative_lat": 18.236267400000003,
+      "source_tags": {
+        "alt_name": "西瑁洲;Hsi-mei Chou;Xi Dao;Ximao Zhou",
+        "name:en": "Xi Island",
+        "name:zh": "西岛"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11011444,
+      "name": "琛航礁",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 26,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/relation/11011444",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6923921,
+        16.44454,
+        111.7235651,
+        16.4610696
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "琛航礁",
+      "name_en": "Chenhang Island",
+      "valid_geometry": true,
+      "bbox": [
+        111.6923921,
+        16.44454,
+        111.7235651,
+        16.4610696
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.71805874522806,
+        16.4528547
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.71805874522806,
+      "representative_lat": 16.4528547,
+      "source_tags": {
+        "name:en": "Chenhang Island",
+        "name:zh": "琛航礁"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11011445,
+      "name": "晋卿礁盘",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 22,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/relation/11011445",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.7354631,
+        16.4566598,
+        111.7813071,
+        16.5561988
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "晋卿礁盘",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.7354631,
+        16.4566598,
+        111.7813071,
+        16.5561988
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.77085191752678,
+        16.503840850000003
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.77085191752678,
+      "representative_lat": 16.503840850000003,
+      "source_tags": {
+        "name:zh": "晋卿礁盘",
+        "name:zh-Hans": "晋卿礁盘",
+        "name:zh-Hant": "晉卿礁盤"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11085885,
+      "name": "湛涵滩",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 3,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/11085885",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.6082293,
+        16.3227753,
+        112.7058135,
+        16.4009143
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "湛涵滩",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.6082293,
+        16.3227753,
+        112.7058135,
+        16.4009143
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.6916538749476,
+        16.3438612
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.6916538749476,
+      "representative_lat": 16.3438612,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11085886,
+      "name": "湛涵滩",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 1,
+      "osm_timestamp": "2020-05-10T04:45:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/11085886",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.6330291,
+        16.3362837,
+        112.6550017,
+        16.3563798
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "湛涵滩",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.6330291,
+        16.3362837,
+        112.6550017,
+        16.3563798
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.64347647131449,
+        16.3488028
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.64347647131449,
+      "representative_lat": 16.3488028,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11085887,
+      "name": "高尖石",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 2,
+      "osm_timestamp": "2026-08-15T10:04:47Z",
+      "source_url": "https://www.openstreetmap.org/relation/11085887",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.642394,
+        16.5770785,
+        112.6424155,
+        16.5770892
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "高尖石",
+      "name_en": "Pyramid Rocks",
+      "valid_geometry": true,
+      "bbox": [
+        112.642394,
+        16.5770785,
+        112.6424155,
+        16.5770892
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.6424043925,
+        16.57708385
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.6424043925,
+      "representative_lat": 16.57708385,
+      "source_tags": {
+        "name:en": "Pyramid Rocks"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11087478,
+      "name": "永兴岛礁盘",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 29,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/11087478",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.324637,
+        16.8219696,
+        112.3608261,
+        16.8493282
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "永兴岛礁盘",
+      "name_en": "Woody Island",
+      "valid_geometry": true,
+      "bbox": [
+        112.324637,
+        16.8219696,
+        112.3608261,
+        16.8493282
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.35164710858137,
+        16.83545075
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.35164710858137,
+      "representative_lat": 16.83545075,
+      "source_tags": {
+        "name:en": "Woody Island",
+        "name:zh": "永兴岛礁盘",
+        "name:zh-Hans": "永兴岛礁盘",
+        "name:zh-Hant": "永興島礁盤"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11169306,
+      "name": "中建岛",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 10,
+      "osm_timestamp": "2025-09-27T14:34:43Z",
+      "source_url": "https://www.openstreetmap.org/relation/11169306",
+      "geometry_valid": false,
+      "bbox_wgs84": [
+        111.1896692,
+        15.7743283,
+        111.2243519,
+        15.8020902
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "中建岛",
+      "name_en": null,
+      "valid_geometry": false,
+      "bbox": [
+        111.1896692,
+        15.7743283,
+        111.2243519,
+        15.8020902
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": null,
+      "representative_point_method": "none: invalid source geometry",
+      "representative_lon": null,
+      "representative_lat": null,
+      "source_tags": {
+        "name:zh": "中建岛"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11170959,
+      "name": "盘石屿",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 10,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/11170959",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.7526651,
+        16.0308408,
+        111.8271075,
+        16.0743781
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "盘石屿",
+      "name_en": "Passu Keah",
+      "valid_geometry": true,
+      "bbox": [
+        111.7526651,
+        16.0308408,
+        111.8271075,
+        16.0743781
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.81245092511693,
+        16.052342449999998
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.81245092511693,
+      "representative_lat": 16.052342449999998,
+      "source_tags": {
+        "name:en": "Passu Keah",
+        "name:zh": "盘石屿",
+        "name:zh-Hans": "盘石屿",
+        "name:zh-Hant": "盤石嶼"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11201623,
+      "name": "北岛",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 15,
+      "osm_timestamp": "2026-04-02T02:56:34Z",
+      "source_url": "https://www.openstreetmap.org/relation/11201623",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3037266,
+        16.9589936,
+        112.3175487,
+        16.9664467
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "北岛",
+      "name_en": "Beidao",
+      "valid_geometry": true,
+      "bbox": [
+        112.3037266,
+        16.9589936,
+        112.3175487,
+        16.9664467
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.3116439756453,
+        16.96255
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.3116439756453,
+      "representative_lat": 16.96255,
+      "source_tags": {
+        "name:en": "Beidao",
+        "name:zh": "北岛",
+        "name:zh-Hans": "北岛",
+        "name:zh-Hant": "北島"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11201625,
+      "name": "中岛",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 11,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/relation/11201625",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3218538,
+        16.9532285,
+        112.3268482,
+        16.9570379
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "中岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.3218538,
+        16.9532285,
+        112.3268482,
+        16.9570379
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.32438010839621,
+        16.95526955
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.32438010839621,
+      "representative_lat": 16.95526955,
+      "source_tags": {
+        "name:zh": "中岛",
+        "name:zh-Hans": "中岛",
+        "name:zh-Hant": "中島"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11201627,
+      "name": "南岛",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 11,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/relation/11201627",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3318159,
+        16.9434584,
+        112.3371613,
+        16.9498842
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "南岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.3318159,
+        16.9434584,
+        112.3371613,
+        16.9498842
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.33429785629238,
+        16.9467111
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.33429785629238,
+      "representative_lat": 16.9467111,
+      "source_tags": {
+        "name:zh": "南岛",
+        "name:zh-Hans": "南岛",
+        "name:zh-Hant": "南島"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11201629,
+      "name": "北沙洲",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 8,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/11201629",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3409598,
+        16.9369037,
+        112.3422036,
+        16.9389096
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "北沙洲",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.3409598,
+        16.9369037,
+        112.3422036,
+        16.9389096
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.34169358529962,
+        16.93788835
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.34169358529962,
+      "representative_lat": 16.93788835,
+      "source_tags": {
+        "name:zh": "北沙洲",
+        "name:zh-Hans": "北沙洲",
+        "name:zh-Hant": "北沙洲"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11201630,
+      "name": "中沙洲",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 8,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/relation/11201630",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3427179,
+        16.932627,
+        112.3444292,
+        16.9355688
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "中沙洲",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.3427179,
+        16.932627,
+        112.3444292,
+        16.9355688
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.34346208467292,
+        16.934144099999997
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.34346208467292,
+      "representative_lat": 16.934144099999997,
+      "source_tags": {
+        "name:zh": "中沙洲",
+        "name:zh-Hans": "中沙洲",
+        "name:zh-Hant": "中沙洲"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11201631,
+      "name": "南沙洲",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 10,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/11201631",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3446438,
+        16.9273263,
+        112.3475459,
+        16.930886
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "南沙洲",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.3446438,
+        16.9273263,
+        112.3475459,
+        16.930886
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.34559459917679,
+        16.9290937
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.34559459917679,
+      "representative_lat": 16.9290937,
+      "source_tags": {
+        "name:zh": "南沙洲",
+        "name:zh-Hans": "南沙洲",
+        "name:zh-Hant": "南沙洲"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11516599,
+      "name": "金银岛礁盘",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 18,
+      "osm_timestamp": "2026-05-26T10:22:07Z",
+      "source_url": "https://www.openstreetmap.org/relation/11516599",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.4868772,
+        16.4367988,
+        111.5448923,
+        16.4623666
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "金银岛礁盘",
+      "name_en": "Jinyin Island Reef",
+      "valid_geometry": true,
+      "bbox": [
+        111.4868772,
+        16.4367988,
+        111.5448923,
+        16.4623666
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.52709278143382,
+        16.449555750000002
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.52709278143382,
+      "representative_lat": 16.449555750000002,
+      "source_tags": {
+        "name:en": "Jinyin Island Reef",
+        "name:zh": "金银岛礁盘",
+        "name:zh-Hant": "金銀島礁盘"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11567453,
+      "name": "蜈支洲岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 6,
+      "osm_timestamp": "2024-08-30T06:45:02Z",
+      "source_url": "https://www.openstreetmap.org/relation/11567453",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        109.7549884,
+        18.3061104,
+        109.7692637,
+        18.3165297
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "蜈支洲岛",
+      "name_en": "Wuzhizhou Island",
+      "valid_geometry": true,
+      "bbox": [
+        109.7549884,
+        18.3061104,
+        109.7692637,
+        18.3165297
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        109.76184901156373,
+        18.3113515
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 109.76184901156373,
+      "representative_lat": 18.3113515,
+      "source_tags": {
+        "name:en": "Wuzhizhou Island"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11602043,
+      "name": "大洲岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 1,
+      "osm_timestamp": "2020-09-10T08:58:20Z",
+      "source_url": "https://www.openstreetmap.org/relation/11602043",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.4700199,
+        18.655023,
+        110.4944,
+        18.6903178
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "大洲岛",
+      "name_en": "Dazhou Island",
+      "valid_geometry": true,
+      "bbox": [
+        110.4700199,
+        18.655023,
+        110.4944,
+        18.6903178
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.48236574854602,
+        18.6727696
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.48236574854602,
+      "representative_lat": 18.6727696,
+      "source_tags": {
+        "name:en": "Dazhou Island",
+        "name:zh": "大洲岛"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 11681378,
+      "name": "海花岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 7,
+      "osm_timestamp": "2022-07-21T09:35:16Z",
+      "source_url": "https://www.openstreetmap.org/relation/11681378",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        109.1483466,
+        19.6476113,
+        109.2025947,
+        19.6925536
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "海花岛",
+      "name_en": "Ocean Flower Island",
+      "valid_geometry": true,
+      "bbox": [
+        109.1483466,
+        19.6476113,
+        109.2025947,
+        19.6925536
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        109.16904178458722,
+        19.66988855
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 109.16904178458722,
+      "representative_lat": 19.66988855,
+      "source_tags": {
+        "alt_name": "Sea Flower Island",
+        "name:en": "Ocean Flower Island",
+        "name:zh": "海花岛"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 13568600,
+      "name": "新埠岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 1,
+      "osm_timestamp": "2021-12-19T17:33:06Z",
+      "source_url": "https://www.openstreetmap.org/relation/13568600",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.3407791,
+        20.0511109,
+        110.3751344,
+        20.0913553
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "新埠岛",
+      "name_en": "Xinbu Island",
+      "valid_geometry": true,
+      "bbox": [
+        110.3407791,
+        20.0511109,
+        110.3751344,
+        20.0913553
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.3604068648232,
+        20.071309399999997
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.3604068648232,
+      "representative_lat": 20.071309399999997,
+      "source_tags": {
+        "name:en": "Xinbu Island",
+        "name:zh": "新埠岛"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 13579393,
+      "name": "海甸岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 1,
+      "osm_timestamp": "2021-12-22T09:32:39Z",
+      "source_url": "https://www.openstreetmap.org/relation/13579393",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.3005088,
+        20.0468193,
+        110.3565264,
+        20.0806847
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "海甸岛",
+      "name_en": "Haidian Island",
+      "valid_geometry": true,
+      "bbox": [
+        110.3005088,
+        20.0468193,
+        110.3565264,
+        20.0806847
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.32699386647681,
+        20.06380405
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.32699386647681,
+      "representative_lat": 20.06380405,
+      "source_tags": {
+        "name:en": "Haidian Island",
+        "name:zh": "海甸岛"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 14250745,
+      "name": "如意岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 2,
+      "osm_timestamp": "2022-06-14T10:39:45Z",
+      "source_url": "https://www.openstreetmap.org/relation/14250745",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.4039287,
+        20.1043295,
+        110.4436254,
+        20.1202272
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "如意岛",
+      "name_en": "Ruyi island",
+      "valid_geometry": true,
+      "bbox": [
+        110.4039287,
+        20.1043295,
+        110.4436254,
+        20.1202272
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.42980208314415,
+        20.11233145
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.42980208314415,
+      "representative_lat": 20.11233145,
+      "source_tags": {
+        "name:en": "Ruyi island"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 14548917,
+      "name": "银屿礁盘",
+      "source_place": "island",
+      "source_natural": "reef",
+      "osm_version": 13,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/relation/14548917",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6882115,
+        16.5641418,
+        111.7254831,
+        16.596194
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "银屿",
+      "name_en": "Observation Bank",
+      "valid_geometry": true,
+      "bbox": [
+        111.6882115,
+        16.5641418,
+        111.7254831,
+        16.596194
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.71356977497666,
+        16.58017055
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.71356977497666,
+      "representative_lat": 16.58017055,
+      "source_tags": {
+        "name:en": "Observation Bank",
+        "name:zh": "银屿",
+        "name:zh-Hant": "銀嶼礁"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 16610828,
+      "name": "羚羊礁",
+      "source_place": "island",
+      "source_natural": "reef",
+      "osm_version": 13,
+      "osm_timestamp": "2026-05-30T08:27:13Z",
+      "source_url": "https://www.openstreetmap.org/relation/16610828",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5701318,
+        16.4419712,
+        111.6086751,
+        16.4926532
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "羚羊礁",
+      "name_en": "Antelope Reef",
+      "valid_geometry": true,
+      "bbox": [
+        111.5701318,
+        16.4419712,
+        111.6086751,
+        16.4926532
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.60033275330395,
+        16.467272899999998
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.60033275330395,
+      "representative_lat": 16.467272899999998,
+      "source_tags": {
+        "name:en": "Antelope Reef",
+        "name:zh": "羚羊礁"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 18079749,
+      "name": "石塘连礁",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 1,
+      "osm_timestamp": "2024-09-22T19:42:52Z",
+      "source_url": "https://www.openstreetmap.org/relation/18079749",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.7405442,
+        16.0201755,
+        114.8136565,
+        16.0901346
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "石塘连礁",
+      "name_en": "Hardy Patches",
+      "valid_geometry": true,
+      "bbox": [
+        114.7405442,
+        16.0201755,
+        114.8136565,
+        16.0901346
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.7571814738913,
+        16.079960399999997
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.7571814738913,
+      "representative_lat": 16.079960399999997,
+      "source_tags": {
+        "name:en": "Hardy Patches",
+        "name:zh-Hant": "石塘連礁"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 18103445,
+      "name": "全富礁",
+      "source_place": "island",
+      "source_natural": "reef",
+      "osm_version": 7,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/relation/18103445",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6505665,
+        16.5573288,
+        111.6860588,
+        16.5817579
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "全富礁",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.6505665,
+        16.5573288,
+        111.6860588,
+        16.5817579
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.66629611550104,
+        16.56996015
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.66629611550104,
+      "representative_lat": 16.56996015,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 18554868,
+      "name": "黄岩岛",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 12,
+      "osm_timestamp": "2025-09-23T13:06:56Z",
+      "source_url": "https://www.openstreetmap.org/relation/18554868",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        117.7102857,
+        15.101378,
+        117.8490065,
+        15.225923
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "黄岩岛",
+      "name_en": "Scarborough Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        117.7102857,
+        15.101378,
+        117.8490065,
+        15.225923
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        117.79387906092902,
+        15.1635867
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 117.79387906092902,
+      "representative_lat": 15.1635867,
+      "source_tags": {
+        "name:en": "Scarborough Shoal",
+        "name:zh": "黄岩岛",
+        "name:zh-Hans": "黄岩岛",
+        "name:zh-Hant": "民主礁"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 18624006,
+      "name": "邻昌礁",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 2,
+      "osm_timestamp": "2025-01-31T00:54:13Z",
+      "source_url": "https://www.openstreetmap.org/relation/18624006",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        109.4133985,
+        19.9019175,
+        109.4778573,
+        19.925199
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "邻昌礁",
+      "name_en": "Linchang Reef",
+      "valid_geometry": true,
+      "bbox": [
+        109.4133985,
+        19.9019175,
+        109.4778573,
+        19.925199
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        109.45909983414052,
+        19.91342755
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 109.45909983414052,
+      "representative_lat": 19.91342755,
+      "source_tags": {
+        "alt_name": "Lingchang Jiao;Lingchang Dao",
+        "name:en": "Linchang Reef",
+        "name:zh": "邻昌礁"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 18624024,
+      "name": "大铲礁",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 2,
+      "osm_timestamp": "2025-01-31T01:01:33Z",
+      "source_url": "https://www.openstreetmap.org/relation/18624024",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        109.0794837,
+        19.6644462,
+        109.1124426,
+        19.691298
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "大铲礁",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        109.0794837,
+        19.6644462,
+        109.1124426,
+        19.691298
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        109.09953380488218,
+        19.677844450000002
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 109.09953380488218,
+      "representative_lat": 19.677844450000002,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 19122386,
+      "name": "珊瑚岛礁盘",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 5,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/relation/19122386",
+      "geometry_valid": false,
+      "bbox_wgs84": [
+        111.5955861,
+        16.5283828,
+        111.6273895,
+        16.5486259
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "珊瑚岛礁盘",
+      "name_en": null,
+      "valid_geometry": false,
+      "bbox": [
+        111.5955861,
+        16.5283828,
+        111.6273895,
+        16.5486259
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": null,
+      "representative_point_method": "none: invalid source geometry",
+      "representative_lon": null,
+      "representative_lat": null,
+      "source_tags": {
+        "name:zh": "珊瑚岛礁盘",
+        "name:zh-Hant": "珊瑚島礁盤"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 19123019,
+      "name": "金银岛",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 3,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/relation/19123019",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5000754,
+        16.4442314,
+        111.513887,
+        16.4502848
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "金银岛",
+      "name_en": "Money Island",
+      "valid_geometry": true,
+      "bbox": [
+        111.5000754,
+        16.4442314,
+        111.513887,
+        16.4502848
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.5075825977762,
+        16.44725455
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.5075825977762,
+      "representative_lat": 16.44725455,
+      "source_tags": {
+        "name:en": "Money Island",
+        "name:zh": "金银岛",
+        "name:zh-Hant": "金銀島"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 19260764,
+      "name": "分界洲",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 4,
+      "osm_timestamp": "2026-05-28T12:40:17Z",
+      "source_url": "https://www.openstreetmap.org/relation/19260764",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.1926286,
+        18.5742408,
+        110.20012,
+        18.5822469
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "分界洲",
+      "name_en": "Fenjie Island",
+      "valid_geometry": true,
+      "bbox": [
+        110.1926286,
+        18.5742408,
+        110.20012,
+        18.5822469
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.19651758819818,
+        18.5782785
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.19651758819818,
+      "representative_lat": 18.5782785,
+      "source_tags": {
+        "alt_name": "Fen-chieh Chou;Fenjie Zhou",
+        "name:en": "Fenjie Island",
+        "name:zh": "分界洲"
+      }
+    },
+    {
+      "osm_type": "relation",
+      "osm_id": 20778067,
+      "name": "羚羊岛",
+      "source_place": "island",
+      "source_natural": null,
+      "osm_version": 2,
+      "osm_timestamp": "2026-09-13T17:04:58Z",
+      "source_url": "https://www.openstreetmap.org/relation/20778067",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5716048,
+        16.4439612,
+        111.6074835,
+        16.4919286
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "羚羊岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.5716048,
+        16.4439612,
+        111.6074835,
+        16.4919286
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.57591287752786,
+        16.468367450000002
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.57591287752786,
+      "representative_lat": 16.468367450000002,
+      "source_tags": {
+        "name:zh": "羚羊岛"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14124533,
+      "name": "司马坡岛",
+      "source_place": "island",
+      "source_natural": "grassland",
+      "osm_version": 10,
+      "osm_timestamp": "2024-07-19T01:58:28Z",
+      "source_url": "https://www.openstreetmap.org/way/14124533",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.3739667,
+        20.0011037,
+        110.3866204,
+        20.0179653
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "司马坡岛",
+      "name_en": "Simapo Island",
+      "valid_geometry": true,
+      "bbox": [
+        110.3739667,
+        20.0011037,
+        110.3866204,
+        20.0179653
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.38012167879782,
+        20.00961205
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.38012167879782,
+      "representative_lat": 20.00961205,
+      "source_tags": {
+        "name:en": "Simapo Island",
+        "name:zh": "司马坡岛"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14126356,
+      "name": "北港岛",
+      "source_place": "island",
+      "source_natural": "coastline",
+      "osm_version": 8,
+      "osm_timestamp": "2021-01-13T20:11:21Z",
+      "source_url": "https://www.openstreetmap.org/way/14126356",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.5519244,
+        20.0141721,
+        110.566804,
+        20.0247566
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "北港岛",
+      "name_en": "Beigang",
+      "valid_geometry": true,
+      "bbox": [
+        110.5519244,
+        20.0141721,
+        110.566804,
+        20.0247566
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.5631670648036,
+        20.01945495
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.5631670648036,
+      "representative_lat": 20.01945495,
+      "source_tags": {
+        "name:en": "Beigang"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14128190,
+      "name": "甘蔗岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 3,
+      "osm_timestamp": "2022-03-12T01:42:39Z",
+      "source_url": "https://www.openstreetmap.org/way/14128190",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.5004544,
+        18.7599712,
+        110.5037562,
+        18.7638797
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "甘蔗岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.5004544,
+        18.7599712,
+        110.5037562,
+        18.7638797
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.50198730691605,
+        18.7619407
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.50198730691605,
+      "representative_lat": 18.7619407,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14129024,
+      "name": "东锣岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 8,
+      "osm_timestamp": "2021-08-24T20:45:55Z",
+      "source_url": "https://www.openstreetmap.org/way/14129024",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        108.9879678,
+        18.3237854,
+        108.9913595,
+        18.32963
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "东锣岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        108.9879678,
+        18.3237854,
+        108.9913595,
+        18.32963
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        108.9897761958066,
+        18.3266409
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 108.9897761958066,
+      "representative_lat": 18.3266409,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14130546,
+      "name": "小青州",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 8,
+      "osm_timestamp": "2023-04-26T18:11:33Z",
+      "source_url": "https://www.openstreetmap.org/way/14130546",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        109.4832779,
+        18.227097,
+        109.4863864,
+        18.2305163
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "小青州",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        109.4832779,
+        18.227097,
+        109.4863864,
+        18.2305163
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        109.48461907504449,
+        18.22874075
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 109.48461907504449,
+      "representative_lat": 18.22874075,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14130716,
+      "name": "西鼓岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 7,
+      "osm_timestamp": "2019-07-11T11:13:41Z",
+      "source_url": "https://www.openstreetmap.org/way/14130716",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        108.9513418,
+        18.3215537,
+        108.9541049,
+        18.3251094
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "西鼓岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        108.9513418,
+        18.3215537,
+        108.9541049,
+        18.3251094
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        108.95258793304274,
+        18.32338735
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 108.95258793304274,
+      "representative_lat": 18.32338735,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14235138,
+      "name": "中建岛",
+      "source_place": "island",
+      "source_natural": "coastline",
+      "osm_version": 45,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/way/14235138",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.1948231,
+        15.779965,
+        111.211545,
+        15.7909415
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "中建岛",
+      "name_en": "Triton Island",
+      "valid_geometry": true,
+      "bbox": [
+        111.1948231,
+        15.779965,
+        111.211545,
+        15.7909415
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.20391221788972,
+        15.785403800000001
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.20391221788972,
+      "representative_lat": 15.785403800000001,
+      "source_tags": {
+        "name:en": "Triton Island",
+        "name:zh": "中建岛",
+        "name:zh-Hans": "中建岛",
+        "name:zh-Hant": "中建島",
+        "old_name": "特里屯岛"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14235163,
+      "name": "北礁",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 6,
+      "osm_timestamp": "2021-09-22T05:52:16Z",
+      "source_url": "https://www.openstreetmap.org/way/14235163",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.4652233,
+        17.0659024,
+        111.4652896,
+        17.0659894
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "北礁",
+      "name_en": "North Reef",
+      "valid_geometry": true,
+      "bbox": [
+        111.4652233,
+        17.0659024,
+        111.4652896,
+        17.0659894
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.46525992989098,
+        17.065959399999997
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.46525992989098,
+      "representative_lat": 17.065959399999997,
+      "source_tags": {
+        "name:en": "North Reef",
+        "name:zh": "北礁"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14235204,
+      "name": "盘石屿",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 15,
+      "osm_timestamp": "2024-10-10T15:41:19Z",
+      "source_url": "https://www.openstreetmap.org/way/14235204",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.7586888,
+        16.0545406,
+        111.7646388,
+        16.057433
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "盘石屿",
+      "name_en": "Passu Keah",
+      "valid_geometry": true,
+      "bbox": [
+        111.7586888,
+        16.0545406,
+        111.7646388,
+        16.057433
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.76236494441574,
+        16.05594455
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.76236494441574,
+      "representative_lat": 16.05594455,
+      "source_tags": {
+        "name:en": "Passu Keah",
+        "name:zh": "盘石屿",
+        "name:zh-Hans": "盘石屿",
+        "name:zh-Hant": "盤石嶼"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14235277,
+      "name": "赵述岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 44,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/way/14235277",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.2660333,
+        16.9740722,
+        112.2740995,
+        16.9818502
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "赵述岛",
+      "name_en": "Tree Island",
+      "valid_geometry": true,
+      "bbox": [
+        112.2660333,
+        16.9740722,
+        112.2740995,
+        16.9818502
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.27005481768703,
+        16.97799165
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.27005481768703,
+      "representative_lat": 16.97799165,
+      "source_tags": {
+        "alt_name": "Zhaoshu Island",
+        "name:en": "Tree Island",
+        "name:zh": "赵述岛",
+        "name:zh-Hans": "赵述岛",
+        "name:zh-Hant": "趙述島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 14235302,
+      "name": "西新沙洲",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 21,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/way/14235302",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3456134,
+        16.9232072,
+        112.3460224,
+        16.9235331
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "西新沙洲",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.3456134,
+        16.9232072,
+        112.3460224,
+        16.9235331
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.34582116464044,
+        16.9233695
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.34582116464044,
+      "representative_lat": 16.9233695,
+      "source_tags": {
+        "name:zh": "西新沙洲",
+        "name:zh-Hans": "西新沙洲",
+        "name:zh-Hant": "西新沙洲"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 39459203,
+      "name": "玉琢礁",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 47,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/way/39459203",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.9592666,
+        16.3170878,
+        112.0933548,
+        16.3649957
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "玉琢礁",
+      "name_en": "Vuladdore Reef",
+      "valid_geometry": true,
+      "bbox": [
+        111.9592666,
+        16.3170878,
+        112.0933548,
+        16.3649957
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.03168078679306,
+        16.340589299999998
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.03168078679306,
+      "representative_lat": 16.340589299999998,
+      "source_tags": {
+        "name:en": "Vuladdore Reef",
+        "name:zh": "玉琢礁",
+        "name:zh-Hans": "玉琢礁",
+        "name:zh-Hant": "玉琢礁"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 39459320,
+      "name": "浪花礁",
+      "source_place": "island",
+      "source_natural": "reef",
+      "osm_version": 31,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/way/39459320",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.439144,
+        16.0128573,
+        112.5963636,
+        16.0838307
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "浪花礁",
+      "name_en": "Bombay Reef",
+      "valid_geometry": true,
+      "bbox": [
+        112.439144,
+        16.0128573,
+        112.5963636,
+        16.0838307
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.50257860996815,
+        16.047514200000002
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.50257860996815,
+      "representative_lat": 16.047514200000002,
+      "source_tags": {
+        "name:en": "Bombay Reef",
+        "name:zh": "浪花礁",
+        "name:zh-Hans": "浪花礁",
+        "name:zh-Hant": "浪花礁"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 50548004,
+      "name": "甘泉岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 35,
+      "osm_timestamp": "2026-08-20T15:29:15Z",
+      "source_url": "https://www.openstreetmap.org/way/50548004",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5828796,
+        16.502122,
+        111.5881377,
+        16.5089807
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "甘泉岛",
+      "name_en": "Robert Island",
+      "valid_geometry": true,
+      "bbox": [
+        111.5828796,
+        16.502122,
+        111.5881377,
+        16.5089807
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.58555066058777,
+        16.50526145
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.58555066058777,
+      "representative_lat": 16.50526145,
+      "source_tags": {
+        "name:en": "Robert Island",
+        "name:zh": "甘泉岛",
+        "name:zh-Hant": "甘泉島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 50548005,
+      "name": "晋卿岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 52,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/way/50548005",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.7386328,
+        16.4601009,
+        111.7445045,
+        16.4665608
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "晋卿岛",
+      "name_en": "Drummond Island",
+      "valid_geometry": true,
+      "bbox": [
+        111.7386328,
+        16.4601009,
+        111.7445045,
+        16.4665608
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.74151446217414,
+        16.463306250000002
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.74151446217414,
+      "representative_lat": 16.463306250000002,
+      "source_tags": {
+        "alt_name": "Drummond Island",
+        "name:en": "Drummond Island",
+        "name:zh": "晋卿岛",
+        "name:zh-Hant": "晉卿島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 50548010,
+      "name": "珊瑚岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 35,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/way/50548010",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6031355,
+        16.5302629,
+        111.6110711,
+        16.5363025
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "珊瑚岛",
+      "name_en": "Pattle Island",
+      "valid_geometry": true,
+      "bbox": [
+        111.6031355,
+        16.5302629,
+        111.6110711,
+        16.5363025
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.60712287857626,
+        16.5332832
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.60712287857626,
+      "representative_lat": 16.5332832,
+      "source_tags": {
+        "name:en": "Pattle Island",
+        "name:zh": "珊瑚岛",
+        "name:zh-Hant": "珊瑚島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 50548011,
+      "name": "鸭公岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 35,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/way/50548011",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6856761,
+        16.5655615,
+        111.6869385,
+        16.5672037
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "鸭公岛",
+      "name_en": "Yagong Island",
+      "valid_geometry": true,
+      "bbox": [
+        111.6856761,
+        16.5655615,
+        111.6869385,
+        16.5672037
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.68647004811575,
+        16.5663799
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.68647004811575,
+      "representative_lat": 16.5663799,
+      "source_tags": {
+        "name:en": "Yagong Island",
+        "name:zh": "鸭公岛",
+        "name:zh-Hant": "鴨公島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 50548012,
+      "name": "银屿岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 36,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/way/50548012",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.7031707,
+        16.5782527,
+        111.7051405,
+        16.5803049
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "银屿",
+      "name_en": "Observation Bank",
+      "valid_geometry": true,
+      "bbox": [
+        111.7031707,
+        16.5782527,
+        111.7051405,
+        16.5803049
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.70438263506409,
+        16.579287299999997
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.70438263506409,
+      "representative_lat": 16.579287299999997,
+      "source_tags": {
+        "name:en": "Observation Bank",
+        "name:zh": "银屿",
+        "name:zh-Hant": "銀嶼"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 89355728,
+      "name": "凤凰岛",
+      "source_place": "island",
+      "source_natural": "coastline",
+      "osm_version": 16,
+      "osm_timestamp": "2024-01-08T17:06:00Z",
+      "source_url": "https://www.openstreetmap.org/way/89355728",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        109.4852073,
+        18.2381989,
+        109.4943509,
+        18.245538
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "凤凰岛",
+      "name_en": "Phoenix Island",
+      "valid_geometry": true,
+      "bbox": [
+        109.4852073,
+        18.2381989,
+        109.4943509,
+        18.245538
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        109.4899622461163,
+        18.242073050000002
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 109.4899622461163,
+      "representative_lat": 18.242073050000002,
+      "source_tags": {
+        "name:en": "Phoenix Island"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 159002361,
+      "name": "北礁",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 32,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/way/159002361",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.4500167,
+        17.0593284,
+        111.5606767,
+        17.1141886
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "北礁",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.4500167,
+        17.0593284,
+        111.5606767,
+        17.1141886
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.53362333342041,
+        17.086814500000003
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.53362333342041,
+      "representative_lat": 17.086814500000003,
+      "source_tags": {
+        "name:zh": "北礁"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 181126483,
+      "name": "华光礁",
+      "source_place": "island",
+      "source_natural": "reef",
+      "osm_version": 35,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/way/181126483",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5665912,
+        16.1618386,
+        111.813986,
+        16.275849
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "华光礁",
+      "name_en": "Discovery Reef",
+      "valid_geometry": true,
+      "bbox": [
+        111.5665912,
+        16.1618386,
+        111.813986,
+        16.275849
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.6934225370849,
+        16.2163174
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.6934225370849,
+      "representative_lat": 16.2163174,
+      "source_tags": {
+        "name:en": "Discovery Reef",
+        "name:zh": "华光礁",
+        "name:zh-Hans": "华光礁",
+        "name:zh-Hant": "華光礁"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 181127402,
+      "name": "浪花礁",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 7,
+      "osm_timestamp": "2021-07-25T00:49:39Z",
+      "source_url": "https://www.openstreetmap.org/way/181127402",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.4452589,
+        16.0260106,
+        112.4455472,
+        16.0262801
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "浪花礁",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.4452589,
+        16.0260106,
+        112.4455472,
+        16.0262801
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.44539432376827,
+        16.0261094
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.44539432376827,
+      "representative_lat": 16.0261094,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 181127685,
+      "name": "滨湄滩",
+      "source_place": "island",
+      "source_natural": "reef",
+      "osm_version": 13,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/way/181127685",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.330898,
+        16.2947398,
+        112.5050765,
+        16.4007958
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "滨湄滩",
+      "name_en": "Bremen Bank",
+      "valid_geometry": true,
+      "bbox": [
+        112.330898,
+        16.2947398,
+        112.5050765,
+        16.4007958
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.45831879471979,
+        16.35036475
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.45831879471979,
+      "representative_lat": 16.35036475,
+      "source_tags": {
+        "name:en": "Bremen Bank",
+        "name:zh": "滨湄滩",
+        "name:zh-Hant": "濱湄灘"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 181132853,
+      "name": "银砾滩",
+      "source_place": "island",
+      "source_natural": "reef",
+      "osm_version": 15,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/way/181132853",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.2016511,
+        16.7551311,
+        112.2377,
+        16.7969595
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "银砾滩",
+      "name_en": "Iltis Bank",
+      "valid_geometry": true,
+      "bbox": [
+        112.2016511,
+        16.7551311,
+        112.2377,
+        16.7969595
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.21732529347271,
+        16.778275999999998
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.21732529347271,
+      "representative_lat": 16.778275999999998,
+      "source_tags": {
+        "name:en": "Iltis Bank",
+        "name:zh": "银砾滩",
+        "name:zh-Hant": "銀礫灘"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 241059364,
+      "name": "山屿湖",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 4,
+      "osm_timestamp": "2018-02-03T14:39:34Z",
+      "source_url": "https://www.openstreetmap.org/way/241059364",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        109.5178338,
+        18.2765041,
+        109.5202666,
+        18.2815622
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "山屿湖",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        109.5178338,
+        18.2765041,
+        109.5202666,
+        18.2815622
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        109.51905142288447,
+        18.27912105
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 109.51905142288447,
+      "representative_lat": 18.27912105,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297677314,
+      "name": "永南暗沙",
+      "source_place": "island",
+      "source_natural": "reef",
+      "osm_version": 15,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/way/297677314",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6434516,
+        16.447795,
+        111.6686381,
+        16.4588825
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "永南暗沙",
+      "name_en": "Yongnan Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        111.6434516,
+        16.447795,
+        111.6686381,
+        16.4588825
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.6569320975907,
+        16.452678849999998
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.6569320975907,
+      "representative_lat": 16.452678849999998,
+      "source_tags": {
+        "name:en": "Yongnan Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297677420,
+      "name": "咸舍屿",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 26,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/way/297677420",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.7074341,
+        16.544053,
+        111.7182004,
+        16.550162
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "咸舍屿",
+      "name_en": "Salty Hut",
+      "valid_geometry": true,
+      "bbox": [
+        111.7074341,
+        16.544053,
+        111.7182004,
+        16.550162
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.71161434292404,
+        16.5470921
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.71161434292404,
+      "representative_lat": 16.5470921,
+      "source_tags": {
+        "name:en": "Salty Hut",
+        "name:zh": "咸舍屿",
+        "name:zh-Hant": "咸舍嶼"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297678257,
+      "name": "石屿",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 15,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/way/297678257",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.7478784,
+        16.5447382,
+        111.7485299,
+        16.5453141
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "石屿",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.7478784,
+        16.5447382,
+        111.7485299,
+        16.5453141
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.7481450918919,
+        16.54505255
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.7481450918919,
+      "representative_lat": 16.54505255,
+      "source_tags": {
+        "name:zh-Hant": "石嶼"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297682291,
+      "name": "北边廊",
+      "source_place": "island",
+      "source_natural": "reef",
+      "osm_version": 5,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/way/297682291",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.4842303,
+        16.4783878,
+        112.5624048,
+        16.5265439
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "北边廊",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.4842303,
+        16.4783878,
+        112.5624048,
+        16.5265439
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.50851039254971,
+        16.50438145
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.50851039254971,
+      "representative_lat": 16.50438145,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297682468,
+      "name": "嵩焘滩",
+      "source_place": "island",
+      "source_natural": "reef",
+      "osm_version": 12,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/way/297682468",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.2149342,
+        15.7078725,
+        112.2566775,
+        15.7380085
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "嵩焘滩",
+      "name_en": "Herald Bank",
+      "valid_geometry": true,
+      "bbox": [
+        112.2149342,
+        15.7078725,
+        112.2566775,
+        15.7380085
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.23384904935986,
+        15.720597099999999
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.23384904935986,
+      "representative_lat": 15.720597099999999,
+      "source_tags": {
+        "name:en": "Herald Bank",
+        "name:zh": "嵩焘滩"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297682600,
+      "name": "西渡滩",
+      "source_place": "islet",
+      "source_natural": "reef",
+      "osm_version": 7,
+      "osm_timestamp": "2022-02-10T12:32:14Z",
+      "source_url": "https://www.openstreetmap.org/way/297682600",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.8813579,
+        16.814025,
+        112.8842081,
+        16.8172875
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "西渡滩",
+      "name_en": "Dido Bank",
+      "valid_geometry": true,
+      "bbox": [
+        112.8813579,
+        16.814025,
+        112.8842081,
+        16.8172875
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.88290233030757,
+        16.81549475
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.88290233030757,
+      "representative_lat": 16.81549475,
+      "source_tags": {
+        "name:en": "Dido Bank",
+        "name:zh": "西渡滩"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297682793,
+      "name": "三峙仔",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 16,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/way/297682793",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3299084,
+        16.9496217,
+        112.3301384,
+        16.9497503
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "三峙仔",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.3299084,
+        16.9496217,
+        112.3301384,
+        16.9497503
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.33002692237761,
+        16.9496871
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.33002692237761,
+      "representative_lat": 16.9496871,
+      "source_tags": {
+        "name:zh": "三峙仔"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297687753,
+      "name": "本固暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 6,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297687753",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.063498,
+        15.9840824,
+        114.1177195,
+        16.0039597
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "本固暗沙",
+      "name_en": "Bankok Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.063498,
+        15.9840824,
+        114.1177195,
+        16.0039597
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.09064672434215,
+        15.993674200000001
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.09064672434215,
+      "representative_lat": 15.993674200000001,
+      "source_tags": {
+        "name:en": "Bankok Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297687755,
+      "name": "中北暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-10-31T09:59:38Z",
+      "source_url": "https://www.openstreetmap.org/way/297687755",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.3263343,
+        16.0653458,
+        114.5247086,
+        16.1091184
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "中北暗沙",
+      "name_en": "Oliver Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.3263343,
+        16.0653458,
+        114.5247086,
+        16.1091184
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.40543914777132,
+        16.0865395
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.40543914777132,
+      "representative_lat": 16.0865395,
+      "source_tags": {
+        "name:en": "Oliver Shoal",
+        "name:zh": "中北暗沙",
+        "old_name": "立夫暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297687756,
+      "name": "美滨暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 6,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297687756",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.1822605,
+        16.0321693,
+        114.2532386,
+        16.0577574
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "美滨暗沙",
+      "name_en": "Magpie Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.1822605,
+        16.0321693,
+        114.2532386,
+        16.0577574
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.22392649081033,
+        16.04648605
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.22392649081033,
+      "representative_lat": 16.04648605,
+      "source_tags": {
+        "name:en": "Magpie Shoal",
+        "name:zh-Hant": "美濱暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297687762,
+      "name": "鲁班暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 6,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297687762",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.268324,
+        16.0462489,
+        114.2970573,
+        16.0663551
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "鲁班暗沙",
+      "name_en": "Carpenter Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.268324,
+        16.0462489,
+        114.2970573,
+        16.0663551
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.28290912757465,
+        16.052441899999998
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.28290912757465,
+      "representative_lat": 16.052441899999998,
+      "source_tags": {
+        "name:en": "Carpenter Shoal",
+        "name:zh-Hant": "魯班暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297687763,
+      "name": "西门暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 6,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297687763",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.0361247,
+        15.9562509,
+        114.0590343,
+        15.9770145
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "西门暗沙",
+      "name_en": "Siamese Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.0361247,
+        15.9562509,
+        114.0590343,
+        15.9770145
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.04758177124287,
+        15.966317400000001
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.04758177124287,
+      "representative_lat": 15.966317400000001,
+      "source_tags": {
+        "name:en": "Siamese Shoal",
+        "name:zh-Hant": "西門暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688257,
+      "name": "比微暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 6,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688257",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.5968912,
+        16.1392117,
+        114.8216138,
+        16.2279619
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "比微暗沙",
+      "name_en": "Pigmy Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.5968912,
+        16.1392117,
+        114.8216138,
+        16.2279619
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.80333546405194,
+        16.1835537
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.80333546405194,
+      "representative_lat": 16.1835537,
+      "source_tags": {
+        "name:en": "Pigmy Shoal",
+        "name:zh-Hant": "比微暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688258,
+      "name": "隱磯灘",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 7,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688258",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.860606,
+        16.0214374,
+        114.9236893,
+        16.0875767
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "隱磯灘",
+      "name_en": "Engeria Bank",
+      "valid_geometry": true,
+      "bbox": [
+        114.860606,
+        16.0214374,
+        114.9236893,
+        16.0875767
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.89847928135737,
+        16.05673515
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.89847928135737,
+      "representative_lat": 16.05673515,
+      "source_tags": {
+        "name:en": "Engeria Bank",
+        "name:zh-Hant": "隱磯灘"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688262,
+      "name": "布德暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688262",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.1463215,
+        15.4339308,
+        114.1741294,
+        15.4560913
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "布德暗沙",
+      "name_en": "Bassett Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.1463215,
+        15.4339308,
+        114.1741294,
+        15.4560913
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.16172288583999,
+        15.44374495
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.16172288583999,
+      "representative_lat": 15.44374495,
+      "source_tags": {
+        "name:en": "Bassett Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688265,
+      "name": "排洪滩",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 9,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688265",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        113.6703012,
+        15.6049108,
+        113.75186,
+        15.6512168
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "排洪滩",
+      "name_en": "Penguin Bank",
+      "valid_geometry": true,
+      "bbox": [
+        113.6703012,
+        15.6049108,
+        113.75186,
+        15.6512168
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        113.71084007773791,
+        15.6307925
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 113.71084007773791,
+      "representative_lat": 15.6307925,
+      "source_tags": {
+        "name:en": "Penguin Bank",
+        "name:zh-Hant": "排洪灘"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688266,
+      "name": "安定连礁",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688266",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.3905992,
+        15.6066015,
+        114.4176083,
+        15.6359443
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "安定连礁",
+      "name_en": "Addington Patch",
+      "valid_geometry": true,
+      "bbox": [
+        114.3905992,
+        15.6066015,
+        114.4176083,
+        15.6359443
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.40487698427037,
+        15.62314295
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.40487698427037,
+      "representative_lat": 15.62314295,
+      "source_tags": {
+        "name:en": "Addington Patch",
+        "name:zh-Hant": "安定連礁"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688267,
+      "name": "漫步暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 9,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688267",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.4740976,
+        15.9104018,
+        114.4943486,
+        15.9210301
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "漫步暗沙",
+      "name_en": "Walker Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.4740976,
+        15.9104018,
+        114.4943486,
+        15.9210301
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.48417046797042,
+        15.9159168
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.48417046797042,
+      "representative_lat": 15.9159168,
+      "source_tags": {
+        "name:en": "Walker Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688269,
+      "name": "华夏暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688269",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        113.9568274,
+        15.8687555,
+        113.9820346,
+        15.8900331
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "华夏暗沙",
+      "name_en": "Cathay Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        113.9568274,
+        15.8687555,
+        113.9820346,
+        15.8900331
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        113.96917067321726,
+        15.8780687
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 113.96917067321726,
+      "representative_lat": 15.8780687,
+      "source_tags": {
+        "name:en": "Cathay Shoal",
+        "name:zh-Hant": "華夏暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688271,
+      "name": "波洑暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688271",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        113.9646185,
+        15.4255864,
+        114.015644,
+        15.4631073
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "波洑暗沙",
+      "name_en": "Balfour Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        113.9646185,
+        15.4255864,
+        114.015644,
+        15.4631073
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        113.99174206735901,
+        15.443999699999999
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 113.99174206735901,
+      "representative_lat": 15.443999699999999,
+      "source_tags": {
+        "name:en": "Balfour Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688272,
+      "name": "南扉暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688272",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.6278688,
+        15.9018272,
+        114.6559288,
+        15.9274625
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "南扉暗沙",
+      "name_en": "Margesson Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.6278688,
+        15.9018272,
+        114.6559288,
+        15.9274625
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.64488845367947,
+        15.91842295
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.64488845367947,
+      "representative_lat": 15.91842295,
+      "source_tags": {
+        "name:en": "Margesson Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688274,
+      "name": "涛静暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688274",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        113.8778585,
+        15.6796207,
+        113.8944663,
+        15.7000335
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "涛静暗沙",
+      "name_en": "Tancred Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        113.8778585,
+        15.6796207,
+        113.8944663,
+        15.7000335
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        113.88619232518028,
+        15.6885633
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 113.88619232518028,
+      "representative_lat": 15.6885633,
+      "source_tags": {
+        "name:en": "Tancred Shoal",
+        "name:zh-Hant": "濤靜暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688275,
+      "name": "乐西暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688275",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.3929851,
+        15.845452,
+        114.4227069,
+        15.8684642
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "乐西暗沙",
+      "name_en": "Phillip's Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.3929851,
+        15.845452,
+        114.4227069,
+        15.8684642
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.40763424355731,
+        15.854587500000001
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.40763424355731,
+      "representative_lat": 15.854587500000001,
+      "source_tags": {
+        "name:en": "Phillip's Shoal",
+        "name:zh-Hant": "樂西暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688276,
+      "name": "武勇暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688276",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.7571519,
+        15.818362,
+        114.7939122,
+        15.9090991
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "武勇暗沙",
+      "name_en": "Howard Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.7571519,
+        15.818362,
+        114.7939122,
+        15.9090991
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.77335640812552,
+        15.8555583
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.77335640812552,
+      "representative_lat": 15.8555583,
+      "source_tags": {
+        "name:en": "Howard Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688279,
+      "name": "指掌暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688279",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.6274238,
+        15.9911318,
+        114.6641825,
+        16.0154071
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "指掌暗沙",
+      "name_en": "Hand Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.6274238,
+        15.9911318,
+        114.6641825,
+        16.0154071
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.64719212332903,
+        16.0042137
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.64719212332903,
+      "representative_lat": 16.0042137,
+      "source_tags": {
+        "name:en": "Hand Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688283,
+      "name": "排波暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688283",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        113.8339923,
+        15.4743009,
+        113.8900059,
+        15.5141475
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "排波暗沙",
+      "name_en": "Parry Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        113.8339923,
+        15.4743009,
+        113.8900059,
+        15.5141475
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        113.86156284376412,
+        15.49458905
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 113.86156284376412,
+      "representative_lat": 15.49458905,
+      "source_tags": {
+        "name:en": "Parry Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688285,
+      "name": "屏南暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688285",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.5527866,
+        15.84531,
+        114.5827472,
+        15.8693588
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "屏南暗沙",
+      "name_en": "Payne Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.5527866,
+        15.84531,
+        114.5827472,
+        15.8693588
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.56622921408746,
+        15.8556169
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.56622921408746,
+      "representative_lat": 15.8556169,
+      "source_tags": {
+        "name:en": "Payne Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688286,
+      "name": "控湃暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 7,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688286",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        113.8913023,
+        15.7737459,
+        113.9096302,
+        15.7944311
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "控湃暗沙",
+      "name_en": "Combe Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        113.8913023,
+        15.7737459,
+        113.9096302,
+        15.7944311
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        113.90003799802213,
+        15.78604835
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 113.90003799802213,
+      "representative_lat": 15.78604835,
+      "source_tags": {
+        "name:en": "Combe Shoal",
+        "name:zh-Hant": "控湃暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688287,
+      "name": "美溪暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688287",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.187486,
+        15.4292874,
+        114.2170456,
+        15.4459611
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "美溪暗沙",
+      "name_en": "Smith Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.187486,
+        15.4292874,
+        114.2170456,
+        15.4459611
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.20226652517128,
+        15.43741325
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.20226652517128,
+      "representative_lat": 15.43741325,
+      "source_tags": {
+        "name:en": "Smith Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688288,
+      "name": "济猛暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688288",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.678717,
+        15.6994768,
+        114.704757,
+        15.730662
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "济猛暗沙",
+      "name_en": "Learmonth Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.678717,
+        15.6994768,
+        114.704757,
+        15.730662
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.69291649051333,
+        15.713096199999999
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.69291649051333,
+      "representative_lat": 15.713096199999999,
+      "source_tags": {
+        "name:en": "Learmonth Shoal",
+        "name:zh-Hant": "濟猛暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688289,
+      "name": "果淀暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688289",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        113.7441818,
+        15.5060211,
+        113.7809368,
+        15.5430118
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "果淀暗沙",
+      "name_en": "Cawston Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        113.7441818,
+        15.5060211,
+        113.7809368,
+        15.5430118
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        113.76292472724136,
+        15.5215761
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 113.76292472724136,
+      "representative_lat": 15.5215761,
+      "source_tags": {
+        "name:en": "Cawston Shoal"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297688290,
+      "name": "海鸠暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 8,
+      "osm_timestamp": "2024-09-22T19:42:56Z",
+      "source_url": "https://www.openstreetmap.org/way/297688290",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        114.4494156,
+        15.59346,
+        114.5166344,
+        15.63114
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "海鸠暗沙",
+      "name_en": "Plover Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        114.4494156,
+        15.59346,
+        114.5166344,
+        15.63114
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        114.48467879937095,
+        15.613186
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 114.48467879937095,
+      "representative_lat": 15.613186,
+      "source_tags": {
+        "name:en": "Plover Shoal",
+        "name:zh-Hant": "海鳩暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297689140,
+      "name": "神狐暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 5,
+      "osm_timestamp": "2024-04-20T10:19:50Z",
+      "source_url": "https://www.openstreetmap.org/way/297689140",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        113.0147374,
+        19.5341314,
+        113.0507863,
+        19.5616318
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "神狐暗沙",
+      "name_en": "Saint Esprit Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        113.0147374,
+        19.5341314,
+        113.0507863,
+        19.5616318
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        113.03155290513118,
+        19.54480855
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 113.03155290513118,
+      "representative_lat": 19.54480855,
+      "source_tags": {
+        "name:en": "Saint Esprit Shoal",
+        "name:zh": "神狐暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 297689336,
+      "name": "一统暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 5,
+      "osm_timestamp": "2024-04-20T10:19:50Z",
+      "source_url": "https://www.openstreetmap.org/way/297689336",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        113.8742351,
+        19.1652352,
+        113.8983214,
+        19.1843489
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "一统暗沙",
+      "name_en": "Helen Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        113.8742351,
+        19.1652352,
+        113.8983214,
+        19.1843489
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        113.88697655010324,
+        19.1761097
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 113.88697655010324,
+      "representative_lat": 19.1761097,
+      "source_tags": {
+        "name:en": "Helen Shoal",
+        "name:zh": "一统暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 389174634,
+      "name": "加井岛",
+      "source_place": "island",
+      "source_natural": "coastline",
+      "osm_version": 4,
+      "osm_timestamp": "2023-12-01T09:44:21Z",
+      "source_url": "https://www.openstreetmap.org/way/389174634",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.285503,
+        18.6472187,
+        110.289044,
+        18.6532765
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "加井岛",
+      "name_en": "Jiajing Island",
+      "valid_geometry": true,
+      "bbox": [
+        110.285503,
+        18.6472187,
+        110.289044,
+        18.6532765
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.28699583983621,
+        18.65033265
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.28699583983621,
+      "representative_lat": 18.65033265,
+      "source_tags": {
+        "alt_name": "Chia-ching Tao;Jiajing Dao",
+        "name:en": "Jiajing Island",
+        "name:zh": "加井岛"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 389174645,
+      "name": "洲仔岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 5,
+      "osm_timestamp": "2024-04-20T10:19:50Z",
+      "source_url": "https://www.openstreetmap.org/way/389174645",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.3526852,
+        18.6372584,
+        110.3631964,
+        18.6435207
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "洲仔岛",
+      "name_en": "Zhouzai island",
+      "valid_geometry": true,
+      "bbox": [
+        110.3526852,
+        18.6372584,
+        110.3631964,
+        18.6435207
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.35806515539558,
+        18.64034515
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.35806515539558,
+      "representative_lat": 18.64034515,
+      "source_tags": {
+        "name:en": "Zhouzai island",
+        "name:zh": "洲仔岛"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 549923558,
+      "name": "融创日岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 5,
+      "osm_timestamp": "2020-09-03T17:22:06Z",
+      "source_url": "https://www.openstreetmap.org/way/549923558",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.2004263,
+        18.6100218,
+        110.2084564,
+        18.6176316
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "融创日岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.2004263,
+        18.6100218,
+        110.2084564,
+        18.6176316
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.2044413550222,
+        18.6137497
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.2044413550222,
+      "representative_lat": 18.6137497,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 550243187,
+      "name": "双帆石",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 4,
+      "osm_timestamp": "2025-03-11T14:50:25Z",
+      "source_url": "https://www.openstreetmap.org/way/550243187",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.1399833,
+        18.4355531,
+        110.1411098,
+        18.4364539
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "双帆石",
+      "name_en": "Shuangfan Rock",
+      "valid_geometry": true,
+      "bbox": [
+        110.1399833,
+        18.4355531,
+        110.1411098,
+        18.4364539
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.14058229161864,
+        18.4359617
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.14058229161864,
+      "representative_lat": 18.4359617,
+      "source_tags": {
+        "alt_name": "Tienfung Rock",
+        "name:en": "Shuangfan Rock",
+        "name:zh": "双帆石"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 591044102,
+      "name": "南海明珠人工岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 7,
+      "osm_timestamp": "2023-12-01T09:44:21Z",
+      "source_url": "https://www.openstreetmap.org/way/591044102",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.2246863,
+        20.0613726,
+        110.2467362,
+        20.0832452
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "南海明珠人工岛",
+      "name_en": "Nanhai Pearl Artificial Island",
+      "valid_geometry": true,
+      "bbox": [
+        110.2246863,
+        20.0613726,
+        110.2467362,
+        20.0832452
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.23049683674759,
+        20.07225495
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.23049683674759,
+      "representative_lat": 20.07225495,
+      "source_tags": {
+        "name:en": "Nanhai Pearl Artificial Island",
+        "name:zh": "南海明珠人工岛"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 605490515,
+      "name": "仕尾岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2022-06-18T15:38:29Z",
+      "source_url": "https://www.openstreetmap.org/way/605490515",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.5675724,
+        20.0925962,
+        110.5679694,
+        20.0928784
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "仕尾岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.5675724,
+        20.0925962,
+        110.5679694,
+        20.0928784
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.567722336056,
+        20.0927222
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.567722336056,
+      "representative_lat": 20.0927222,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 605490516,
+      "name": "仕尾沙岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2022-06-18T15:38:29Z",
+      "source_url": "https://www.openstreetmap.org/way/605490516",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.5670682,
+        20.0933922,
+        110.5673257,
+        20.0935736
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "仕尾沙岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.5670682,
+        20.0933922,
+        110.5673257,
+        20.0935736
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.56721423143605,
+        20.09347785
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.56721423143605,
+      "representative_lat": 20.09347785,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 703452478,
+      "name": "独屋岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2022-06-18T15:38:29Z",
+      "source_url": "https://www.openstreetmap.org/way/703452478",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.6243634,
+        20.1081127,
+        110.6249589,
+        20.1086466
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "独屋岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.6243634,
+        20.1081127,
+        110.6249589,
+        20.1086466
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.62469833935367,
+        20.108334300000003
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.62469833935367,
+      "representative_lat": 20.108334300000003,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 703452479,
+      "name": "谈文南岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2022-06-18T15:38:29Z",
+      "source_url": "https://www.openstreetmap.org/way/703452479",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.6257474,
+        20.1095785,
+        110.6259674,
+        20.1098052
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "谈文南岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.6257474,
+        20.1095785,
+        110.6259674,
+        20.1098052
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.62585777127094,
+        20.109694400000002
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.62585777127094,
+      "representative_lat": 20.109694400000002,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 703452481,
+      "name": "谈文岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2022-06-18T15:38:29Z",
+      "source_url": "https://www.openstreetmap.org/way/703452481",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.6258708,
+        20.1114726,
+        110.6265736,
+        20.1119159
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "谈文岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.6258708,
+        20.1114726,
+        110.6265736,
+        20.1119159
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.62618807155036,
+        20.1117219
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.62618807155036,
+      "representative_lat": 20.1117219,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 703452482,
+      "name": "飞鹰岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2022-06-18T15:38:29Z",
+      "source_url": "https://www.openstreetmap.org/way/703452482",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.6297922,
+        20.1128981,
+        110.6300068,
+        20.113145
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "飞鹰岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.6297922,
+        20.1128981,
+        110.6300068,
+        20.113145
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.62990929819381,
+        20.1129989
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.62990929819381,
+      "representative_lat": 20.1129989,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 703452484,
+      "name": "铁砧石",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2022-06-18T15:38:29Z",
+      "source_url": "https://www.openstreetmap.org/way/703452484",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.6265199,
+        20.113553,
+        110.6269437,
+        20.1141474
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "铁砧石",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.6265199,
+        20.113553,
+        110.6269437,
+        20.1141474
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.62675080474659,
+        20.11379225
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.62675080474659,
+      "representative_lat": 20.11379225,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 703452485,
+      "name": "叠岩岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2022-06-18T15:38:29Z",
+      "source_url": "https://www.openstreetmap.org/way/703452485",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.619868,
+        20.1110998,
+        110.6200826,
+        20.1112358
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "叠岩岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.619868,
+        20.1110998,
+        110.6200826,
+        20.1112358
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.61998485007354,
+        20.1111829
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.61998485007354,
+      "representative_lat": 20.1111829,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 703452488,
+      "name": "民石",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2022-06-18T15:38:29Z",
+      "source_url": "https://www.openstreetmap.org/way/703452488",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.6008995,
+        20.1119713,
+        110.6013232,
+        20.1122987
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "民石",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.6008995,
+        20.1119713,
+        110.6013232,
+        20.1122987
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.60115128179717,
+        20.11217025
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.60115128179717,
+      "representative_lat": 20.11217025,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 724359480,
+      "name": "东新沙洲",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 9,
+      "osm_timestamp": "2026-01-20T07:34:25Z",
+      "source_url": "https://www.openstreetmap.org/way/724359480",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.3441603,
+        16.9248367,
+        112.3443796,
+        16.925019
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "东新沙洲",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.3441603,
+        16.9248367,
+        112.3443796,
+        16.925019
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.34426434617646,
+        16.9249308
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.34426434617646,
+      "representative_lat": 16.9249308,
+      "source_tags": {
+        "name:zh": "东新沙洲",
+        "name:zh-Hans": "东新沙洲",
+        "name:zh-Hant": "東新沙洲"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 759111371,
+      "name": "西沙洲",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 16,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/way/759111371",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        112.2077655,
+        16.975821,
+        112.2158573,
+        16.979718
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "西沙洲",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        112.2077655,
+        16.975821,
+        112.2158573,
+        16.979718
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        112.21203095039141,
+        16.9777789
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 112.21203095039141,
+      "representative_lat": 16.9777789,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 794435650,
+      "name": "银屿东岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 3,
+      "osm_timestamp": "2025-05-12T18:03:53Z",
+      "source_url": "https://www.openstreetmap.org/way/794435650",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.7063424,
+        16.5777195,
+        111.7070988,
+        16.5782028
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "银屿东岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.7063424,
+        16.5777195,
+        111.7070988,
+        16.5782028
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.7067450098207,
+        16.57796245
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.7067450098207,
+      "representative_lat": 16.57796245,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 794435651,
+      "name": "银屿仔西岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 4,
+      "osm_timestamp": "2021-07-25T00:49:55Z",
+      "source_url": "https://www.openstreetmap.org/way/794435651",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6930334,
+        16.584844,
+        111.6934379,
+        16.5853194
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "银屿仔西岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.6930334,
+        16.584844,
+        111.6934379,
+        16.5853194
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.6931329787769,
+        16.58506655
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.6931329787769,
+      "representative_lat": 16.58506655,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 794435652,
+      "name": "广金北一岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 5,
+      "osm_timestamp": "2021-07-25T00:49:55Z",
+      "source_url": "https://www.openstreetmap.org/way/794435652",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6984594,
+        16.4547688,
+        111.6989905,
+        16.4551315
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "广金北一岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.6984594,
+        16.4547688,
+        111.6989905,
+        16.4551315
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.69876168190476,
+        16.4549443
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.69876168190476,
+      "representative_lat": 16.4549443,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 794435653,
+      "name": "广金北二岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 4,
+      "osm_timestamp": "2020-06-24T14:15:42Z",
+      "source_url": "https://www.openstreetmap.org/way/794435653",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6980168,
+        16.4547868,
+        111.6982448,
+        16.4548755
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "广金北二岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.6980168,
+        16.4547868,
+        111.6982448,
+        16.4548755
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.69808027192556,
+        16.454833700000002
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.69808027192556,
+      "representative_lat": 16.454833700000002,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 794435654,
+      "name": "广金西岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 4,
+      "osm_timestamp": "2021-07-25T00:49:55Z",
+      "source_url": "https://www.openstreetmap.org/way/794435654",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6954835,
+        16.4521424,
+        111.6957557,
+        16.452316
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "广金西岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.6954835,
+        16.4521424,
+        111.6957557,
+        16.452316
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.69561561454974,
+        16.4522266
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.69561561454974,
+      "representative_lat": 16.4522266,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 794435655,
+      "name": "筐仔北岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 12,
+      "osm_timestamp": "2026-05-30T08:27:13Z",
+      "source_url": "https://www.openstreetmap.org/way/794435655",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6063864,
+        16.4518655,
+        111.6070049,
+        16.4525688
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "筐仔北岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.6063864,
+        16.4518655,
+        111.6070049,
+        16.4525688
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.60671642836074,
+        16.45219475
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.60671642836074,
+      "representative_lat": 16.45219475,
+      "source_tags": {
+        "name:zh-Hant": "筐仔北島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 794435656,
+      "name": "老粗峙仔岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 9,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/way/794435656",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6193242,
+        16.5417057,
+        111.6203775,
+        16.5429017
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "老粗峙仔岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.6193242,
+        16.5417057,
+        111.6203775,
+        16.5429017
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.6198847148018,
+        16.5423403
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.6198847148018,
+      "representative_lat": 16.5423403,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 794435657,
+      "name": "尾峙仔岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 3,
+      "osm_timestamp": "2021-06-23T19:55:21Z",
+      "source_url": "https://www.openstreetmap.org/way/794435657",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5175786,
+        16.4467637,
+        111.5177538,
+        16.4473035
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "尾峙仔岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.5175786,
+        16.4467637,
+        111.5177538,
+        16.4473035
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.51764971066997,
+        16.44707555
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.51764971066997,
+      "representative_lat": 16.44707555,
+      "source_tags": {
+        "name:zh-Hant": "尾峙仔島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 794435658,
+      "name": "金银东岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 10,
+      "osm_timestamp": "2026-05-26T10:22:07Z",
+      "source_url": "https://www.openstreetmap.org/way/794435658",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5236928,
+        16.4419638,
+        111.5281645,
+        16.4469825
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "金银东岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.5236928,
+        16.4419638,
+        111.5281645,
+        16.4469825
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.52605424511296,
+        16.44454305
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.52605424511296,
+      "representative_lat": 16.44454305,
+      "source_tags": {
+        "name:zh-Hant": "金銀東島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 795081113,
+      "name": "全富岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 15,
+      "osm_timestamp": "2025-07-28T15:41:26Z",
+      "source_url": "https://www.openstreetmap.org/way/795081113",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6710446,
+        16.5734413,
+        111.6748213,
+        16.5755747
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "全富岛",
+      "name_en": "Quanfu Island",
+      "valid_geometry": true,
+      "bbox": [
+        111.6710446,
+        16.5734413,
+        111.6748213,
+        16.5755747
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.67307809999572,
+        16.5745641
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.67307809999572,
+      "representative_lat": 16.5745641,
+      "source_tags": {
+        "name:en": "Quanfu Island",
+        "name:zh": "全富岛",
+        "name:zh-Hant": "全富島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 795081114,
+      "name": "全富仔",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 7,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/way/795081114",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6815345,
+        16.5715793,
+        111.682309,
+        16.5720615
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "全富仔",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.6815345,
+        16.5715793,
+        111.682309,
+        16.5720615
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.68188240894787,
+        16.5718085
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.68188240894787,
+      "representative_lat": 16.5718085,
+      "source_tags": {
+        "name:zh": "全富仔"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 795084057,
+      "name": "银屿仔",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 8,
+      "osm_timestamp": "2025-05-12T18:03:53Z",
+      "source_url": "https://www.openstreetmap.org/way/795084057",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.7021689,
+        16.5815498,
+        111.7032069,
+        16.5825421
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "银屿仔",
+      "name_en": "Silver Inlet",
+      "valid_geometry": true,
+      "bbox": [
+        111.7021689,
+        16.5815498,
+        111.7032069,
+        16.5825421
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.70252650343895,
+        16.5820061
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.70252650343895,
+      "representative_lat": 16.5820061,
+      "source_tags": {
+        "alt_name": "Silver Islet",
+        "name:en": "Silver Inlet",
+        "name:zh": "银屿仔"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 819128629,
+      "name": "珊瑚东暗沙",
+      "source_place": "islet",
+      "source_natural": "reef",
+      "osm_version": 10,
+      "osm_timestamp": "2026-05-26T10:21:21Z",
+      "source_url": "https://www.openstreetmap.org/way/819128629",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.6262845,
+        16.5324767,
+        111.6296244,
+        16.5344379
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "珊瑚东暗沙",
+      "name_en": "E. Shanhu Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        111.6262845,
+        16.5324767,
+        111.6296244,
+        16.5344379
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.62795073793754,
+        16.533486850000003
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.62795073793754,
+      "representative_lat": 16.533486850000003,
+      "source_tags": {
+        "name:en": "E. Shanhu Shoal",
+        "name:zh-Hant": "珊瑚東暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 848884404,
+      "name": "北礁",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2021-09-22T05:51:25Z",
+      "source_url": "https://www.openstreetmap.org/way/848884404",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.4648303,
+        17.066097,
+        111.4649543,
+        17.066215
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "北礁",
+      "name_en": "North Reef",
+      "valid_geometry": true,
+      "bbox": [
+        111.4648303,
+        17.066097,
+        111.4649543,
+        17.066215
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.464880905418,
+        17.066153749999998
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.464880905418,
+      "representative_lat": 17.066153749999998,
+      "source_tags": {
+        "name:en": "North Reef",
+        "name:zh": "北礁"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 1270883016,
+      "name": "奎星岛",
+      "source_place": "islet",
+      "source_natural": null,
+      "osm_version": 1,
+      "osm_timestamp": "2024-04-08T13:01:41Z",
+      "source_url": "https://www.openstreetmap.org/way/1270883016",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        110.5097113,
+        19.9771832,
+        110.5115966,
+        19.9786279
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "奎星岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        110.5097113,
+        19.9771832,
+        110.5115966,
+        19.9786279
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        110.51085039843207,
+        19.9779371
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 110.51085039843207,
+      "representative_lat": 19.9779371,
+      "source_tags": {}
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 1352853358,
+      "name": "宪法暗沙",
+      "source_place": null,
+      "source_natural": "reef",
+      "osm_version": 2,
+      "osm_timestamp": "2025-05-05T00:22:26Z",
+      "source_url": "https://www.openstreetmap.org/way/1352853358",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        116.6523668,
+        16.5910136,
+        116.7732943,
+        16.6344591
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "宪法暗沙",
+      "name_en": "Truro Shoal",
+      "valid_geometry": true,
+      "bbox": [
+        116.6523668,
+        16.5910136,
+        116.7732943,
+        16.6344591
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        116.69522375888312,
+        16.6123944
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 116.69522375888312,
+      "representative_lat": 16.6123944,
+      "source_tags": {
+        "name:en": "Truro Shoal",
+        "name:zh": "宪法暗沙"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 1385848049,
+      "name": "金银东岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 1,
+      "osm_timestamp": "2025-05-12T16:35:46Z",
+      "source_url": "https://www.openstreetmap.org/way/1385848049",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5280934,
+        16.4411136,
+        111.5291009,
+        16.4418317
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "金银东岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.5280934,
+        16.4411136,
+        111.5291009,
+        16.4418317
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.52843077247371,
+        16.44142685
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.52843077247371,
+      "representative_lat": 16.44142685,
+      "source_tags": {
+        "name:zh-Hant": "金銀東島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 1385848050,
+      "name": "金银东岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 2,
+      "osm_timestamp": "2025-05-12T16:46:28Z",
+      "source_url": "https://www.openstreetmap.org/way/1385848050",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5304473,
+        16.4403926,
+        111.5309187,
+        16.4407324
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "金银东岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.5304473,
+        16.4403926,
+        111.5309187,
+        16.4407324
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.53068802192436,
+        16.440540400000003
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.53068802192436,
+      "representative_lat": 16.440540400000003,
+      "source_tags": {
+        "name:zh-Hant": "金銀東島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 1385848051,
+      "name": "金银东岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 1,
+      "osm_timestamp": "2025-05-12T16:35:46Z",
+      "source_url": "https://www.openstreetmap.org/way/1385848051",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5359432,
+        16.4456304,
+        111.5364896,
+        16.4461589
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "金银东岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.5359432,
+        16.4456304,
+        111.5364896,
+        16.4461589
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.5362016664089,
+        16.4459114
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.5362016664089,
+      "representative_lat": 16.4459114,
+      "source_tags": {
+        "name:zh-Hant": "金銀東島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 1385848052,
+      "name": "金银东岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 1,
+      "osm_timestamp": "2025-05-12T16:35:46Z",
+      "source_url": "https://www.openstreetmap.org/way/1385848052",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.5293786,
+        16.4410272,
+        111.5297405,
+        16.4414191
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "金银东岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.5293786,
+        16.4410272,
+        111.5297405,
+        16.4414191
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.52957087768786,
+        16.44122025
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.52957087768786,
+      "representative_lat": 16.44122025,
+      "source_tags": {
+        "name:zh-Hant": "金銀東島"
+      }
+    },
+    {
+      "osm_type": "way",
+      "osm_id": 1385848053,
+      "name": "金银东岛",
+      "source_place": "islet",
+      "source_natural": "coastline",
+      "osm_version": 4,
+      "osm_timestamp": "2026-05-26T10:22:07Z",
+      "source_url": "https://www.openstreetmap.org/way/1385848053",
+      "geometry_valid": true,
+      "bbox_wgs84": [
+        111.522401,
+        16.4423542,
+        111.5231165,
+        16.4445767
+      ],
+      "geometry_type": "MultiPolygon",
+      "administrative_membership": "not asserted",
+      "inventory_scope": "named polygonal island/islet/reef OSM objects in cached Geofabrik Hainan extract; incomplete and not deduplicated by physical feature",
+      "source_snapshot_date": "2026-10-03",
+      "license": "ODbL-1.0",
+      "name_zh": "金银东岛",
+      "name_en": null,
+      "valid_geometry": true,
+      "bbox": [
+        111.522401,
+        16.4423542,
+        111.5231165,
+        16.4445767
+      ],
+      "source_date": "2026-10-03",
+      "representative_point": [
+        111.52281711237765,
+        16.44361265
+      ],
+      "representative_point_method": "OGR PointOnSurface of valid source polygon (display/sample locator, not administrative centre)",
+      "representative_lon": 111.52281711237765,
+      "representative_lat": 16.44361265,
+      "source_tags": {
+        "name:zh-Hant": "金銀東島"
+      }
+    }
+  ],
+  "original_source_sha256": "ffe5a5549f647a9483426e3d2429adc974f9676a5d5134ed3af98f76e887deb2",
+  "sanitization": {
+    "version": "public-scientific-fields-v1",
+    "allowed_source_tags": [
+      "admin_level",
+      "alt_name",
+      "boundary",
+      "division_code",
+      "name",
+      "name:en",
+      "name:zh",
+      "name:zh-Hans",
+      "name:zh-Hant",
+      "natural",
+      "old_name",
+      "place",
+      "type"
+    ],
+    "url_valued_tags_removed": true,
+    "source_note_comment_fields_removed": true,
+    "original_unfiltered_inputs_included": false,
+    "geometry_coordinates_changed": false,
+    "representative_points_changed": false,
+    "invalid_geometries_repaired": false,
+    "description": "Only allowlisted scientific/name tags without URL/domain values are retained. Arbitrary source, note and comment tags and contributor account metadata are excluded. Source links exposed by derived features are numeric official OpenStreetMap object URLs."
+  }
+}

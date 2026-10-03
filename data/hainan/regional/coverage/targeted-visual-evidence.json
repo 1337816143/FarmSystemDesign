@@ -1,0 +1,122 @@
+[
+  {
+    "object_id": "relation/11201629",
+    "name": "北沙洲",
+    "date": "2025-03-04",
+    "file": "targeted-visual/relation-11201629.png",
+    "source": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/49/Q/FU/2025/3/S2C_T49QFU_20250304T030435_L2A/TCI.tif",
+    "native_window_xywh": [
+      4159,
+      2556,
+      256,
+      256
+    ],
+    "sha256": "cff4c07f8a615ca39b68c5e776dd293f160df4158850e1e4f0915179c4455c5c",
+    "evidence_scope": "native RGB display window only; not full-object coverage, not cloud-free certification"
+  },
+  {
+    "object_id": "way/14235204",
+    "name": "盘石屿",
+    "date": "2025-03-14",
+    "file": "targeted-visual/way-14235204.png",
+    "source": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/49/P/ET/2025/3/S2C_T49PET_20250314T030340_L2A/TCI.tif",
+    "native_window_xywh": [
+      8028,
+      2344,
+      256,
+      256
+    ],
+    "sha256": "bb908701a2472d088e3de6b2a4b753427176c3dc640a9a1e51c3e7a9661ce699",
+    "evidence_scope": "native RGB display window only; not full-object coverage, not cloud-free certification"
+  },
+  {
+    "object_id": "way/297678257",
+    "name": "石屿",
+    "date": "2025-10-15",
+    "file": "targeted-visual/way-297678257.png",
+    "source": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/49/Q/EU/2025/10/S2B_T49QEU_20251015T031138_L2A/TCI.tif",
+    "native_window_xywh": [
+      7856,
+      6936,
+      256,
+      256
+    ],
+    "sha256": "9c1245bb9f77773a0801e2c04a42c2dbaae255f8aeb01c447c1039c1e44ec38d",
+    "evidence_scope": "native RGB display window only; not full-object coverage, not cloud-free certification"
+  },
+  {
+    "object_id": "way/297682600",
+    "name": "西渡滩",
+    "date": "2025-08-01",
+    "file": "targeted-visual/way-297682600.png",
+    "source": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/49/Q/FU/2025/8/S2C_T49QFU_20250801T030622_L2A/TCI.tif",
+    "native_window_xywh": [
+      9936,
+      3864,
+      256,
+      256
+    ],
+    "sha256": "4aa1b502185d50caf6c117c05089838e8da9e6541fa62119297c81235da351c4",
+    "evidence_scope": "native RGB display window only; not full-object coverage, not cloud-free certification"
+  },
+  {
+    "object_id": "way/297689140",
+    "name": "神狐暗沙",
+    "date": "2025-03-24",
+    "file": "targeted-visual/way-297689140.png",
+    "source": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/49/Q/GB/2025/3/S2C_T49QGB_20250324T030806_L2A/TCI.tif",
+    "native_window_xywh": [
+      1191,
+      3636,
+      256,
+      256
+    ],
+    "sha256": "25cdb470b512f2805e263b93d9bc241aba428a20366c3e8f96c1c2cf531ee268",
+    "evidence_scope": "native RGB display window only; not full-object coverage, not cloud-free certification"
+  },
+  {
+    "object_id": "way/297689336",
+    "name": "一统暗沙",
+    "date": "2025-10-09",
+    "file": "targeted-visual/way-297689336.png",
+    "source": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/49/Q/HB/2025/10/S2A_T49QHB_20251009T025933_L2A/TCI.tif",
+    "native_window_xywh": [
+      237,
+      7591,
+      256,
+      256
+    ],
+    "sha256": "3ba7af500d7311cd4acb8518b1f5745599e32cd0328755caae813a37a5dcb8f8",
+    "evidence_scope": "native RGB display window only; not full-object coverage, not cloud-free certification"
+  },
+  {
+    "object_id": "way/50548011",
+    "name": "鸭公岛",
+    "date": "2025-05-18",
+    "file": "targeted-visual/way-50548011.png",
+    "source": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/49/Q/EU/2025/5/S2B_T49QEU_20250518T030841_L2A/TCI.tif",
+    "native_window_xywh": [
+      7197,
+      6702,
+      256,
+      256
+    ],
+    "sha256": "68ffbf60094f28c21dbf5ca1187100ae7b485a3d08e6c833e3c654fcfdb8416f",
+    "evidence_scope": "native RGB display window only; not full-object coverage, not cloud-free certification"
+  },
+  {
+    "object_id": "way/794435655",
+    "name": "筐仔北岛",
+    "date": "2025-07-17",
+    "file": "targeted-visual/way-794435655.png",
+    "source": "https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/49/Q/EU/2025/7/S2B_T49QEU_20250717T030848_L2A/TCI.tif",
+    "native_window_xywh": [
+      6350,
+      7968,
+      256,
+      256
+    ],
+    "sha256": "a2e6f958ae8f4ad755c7586b9d1c1af7ac0390a6403f627b1cb6ba5c9f0638eb",
+    "evidence_scope": "native RGB display window only; not full-object coverage, not cloud-free certification"
+  }
+]

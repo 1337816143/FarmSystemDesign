@@ -1,3 +1,10 @@
+## v0.3.10 — Hainan Coverage Register (2026-10-03)
+
+- Adds a browsable register of selected source grids, verified preview windows and named OSM objects, with sparse sample evidence kept distinct from whole-island coverage.
+- Explains current raster blank areas and source read failures with a retry action.
+- Adds the source Sansha OSM relation as a separately labeled partial community reference, including sea and preserving unresolved official-boundary status.
+- Preserves the farm model, 110 original FTW geometries and scenario inputs.
+
 # 0.3.9 · 2026-10-03
 
 - Regional2025 imagery, source-class crops, terrain, rainfall and soil display with explicit resolution and coverage records

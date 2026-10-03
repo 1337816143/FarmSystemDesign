@@ -1,0 +1,10 @@
+﻿object_id,name,prior_status,targeted_status,new_status,new_scene_id,new_date,scl,quality_guard_m,attempted_candidates,point_only
+relation/11201627,南岛,representative_point_quality_rejected,unresolved-after-bounded-candidates,representative_point_quality_rejected,,,,60,12,True
+relation/11201629,北沙洲,representative_point_quality_rejected,targeted-point-closed,representative_point_value,S2C_T49QFU_20250304T030435_L2A,2025-03-04,6,60,9,True
+way/14235204,盘石屿,representative_point_quality_rejected,targeted-point-closed,representative_point_value,S2C_T49PET_20250314T030340_L2A,2025-03-14,6,60,1,True
+way/297678257,石屿,representative_point_quality_rejected,targeted-point-closed,representative_point_value,S2B_T49QEU_20251015T031138_L2A,2025-10-15,6,60,6,True
+way/297682600,西渡滩,representative_point_quality_rejected,targeted-point-closed,representative_point_value,S2C_T49QFU_20250801T030622_L2A,2025-08-01,6,60,1,True
+way/297689140,神狐暗沙,no_indexed_source_at_representative_point,targeted-point-closed,representative_point_value,S2C_T49QGB_20250324T030806_L2A,2025-03-24,6,60,1,True
+way/297689336,一统暗沙,no_indexed_source_at_representative_point,targeted-point-closed,representative_point_value,S2A_T49QHB_20251009T025933_L2A,2025-10-09,6,60,1,True
+way/50548011,鸭公岛,representative_point_quality_rejected,targeted-point-closed,representative_point_value,S2B_T49QEU_20250518T030841_L2A,2025-05-18,5,60,7,True
+way/794435655,筐仔北岛,representative_point_quality_rejected,targeted-point-closed,representative_point_value,S2B_T49QEU_20250717T030848_L2A,2025-07-17,6,60,1,True
