@@ -74,3 +74,11 @@
 平衡排序=0.45×归一化收益+0.20×归一化节水+0.15×归一化氮余量绝对值改善+0.20×归一化食物能量。所有归一化取本次已检验可行候选范围；偏好权重不是估计参数或客观“最优”定义。劳动参与五指标非支配筛选与月度约束，但不重复加入这一偏好加权。
 
 候选指纹是FNV-1a变更标识，不是密码学证明；公开原始文件另用SHA-256。应用、模型、数据和构建源提交独立记录。旧计划保留旧模型版本，不自动作为新模型结果。
+
+## Content identity and provenance records
+
+The legacy `inputHash` and candidate `fingerprint` identify input changes; they do not include the executable parameter table or all inline coefficients. New `FrozenRun` records supplement them without changing numerical accounting or IDs. The declared build-source manifest covers model, data, worker and provenance modules. Its precise source hashes identify reproducible files, not the already-executed bytes or their authenticity.
+
+Inputs and actual CROPS/ANNUALS parameters are captured before search. SHA256 leaves cover each candidate's complete accounting except its view score. A root covers the ID-sorted leaf list, baseline, best infeasible result, search counts, search method and normalization ranges. Ranking order, timestamps and late metadata-loading state are outside the computational root. Canonical JSON preserves array order and rejects nonfinite/unsupported values. Parameter, input, engine-source, output and explanatory digests are separate, with an explicit domain and format version. A separate build-identity digest protects captured release metadata and the selected snapshot’s parent reference without changing the computational root. Verification also checks displayed configuration, actors, model/data versions and legacy input markers against the captured inputs.
+
+The full candidate collection is not repeated in the record. A saved selected snapshot refers to its existing input, candidate and baseline fields. Its parent-run digest records lineage only. Retained-content verification does not authenticate an imported source claim. Older snapshots are never backfilled from current parameters. Documentation or Paper evidence cannot override the model coefficients, and moving coordinates or switching independent quarter labels does not create a spatial interaction or dynamic multi-period model.

@@ -45,6 +45,8 @@ jobs:
             test-results/pareto-*.png
             test-results/browser-report.json
             test-results/pareto-browser-metrics.json
+            test-results/provenance-*.png
+            test-results/provenance-browser-report.json
             test-results/regional/mainland-*.png
             test-results/regional/report.json
           retention-days: 14

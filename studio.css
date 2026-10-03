@@ -11,3 +11,6 @@
 
 /* Frontier pages keep the full result out of the DOM, including on narrow screens. */
 .candidate-pagination{gap:8px;margin:12px 0}.candidate-pagination input{width:76px;min-width:0}.candidate-pagination label{font-size:12px}.candidate-pagination .candidate-range{margin-left:auto}.result-retention{margin:12px 0}
+
+/* Compact evidence and run records; existing planning layout is retained. */
+.metric-contracts{max-width:780px}.metric-contract{padding:18px 0;border-bottom:1px solid var(--border,#ddd)}.metric-contract h3{display:flex;justify-content:space-between;gap:12px}.metric-contract p,.metric-contract li{font-size:13px;line-height:1.65}.metric-contract ul{padding-left:20px}.metric-contract details{margin-top:10px}.run-record-panel{padding:12px 14px;margin:10px 0;border:1px solid var(--border,#ddd);border-radius:10px;background:var(--surface,#fafbf8)}.run-record-panel>p{font-size:12px;margin:0 0 7px}.frozen-record pre{max-height:320px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font-size:11px}.frozen-record details{margin:14px 0}.hash-cell{overflow-wrap:anywhere;word-break:break-word}#modal .metric-contracts a{display:inline-block}@media(max-width:600px){.metric-contract h3{display:block}.metric-contract h3 small{display:block}.page-heading>div:last-child{flex-wrap:wrap}}

@@ -10,6 +10,22 @@ const ATTRIBUTES = ['aria-label', 'title', 'placeholder', 'alt'];
 
 // Reviewed research terms take precedence over the generated draft catalog.
 const REVIEWED = {
+  "保留已保存的输入、范围和版本；参数来源以各快照记录为准": "Retain saved inputs, scope and versions; parameter provenance depends on each snapshot record",
+  "指标定义与论文证据": "Metric definitions and paper evidence",
+  "运行记录与内容摘要": "Run record and content digests",
+  "来源记录": "Provenance record",
+  "构建信息加载中": "Loading build information",
+  "暂未取得一致的构建信息": "Consistent build information is currently unavailable",
+  "版本状态独立于地图加载；构建身份一致不代表科学模型已校准。": "Version status loads independently of map resources. Consistent build identity does not mean the scientific model is calibrated.",
+  "输入已变化或快照正在准备，请稍后重试。": "Inputs have changed or the snapshot is being prepared. Try again shortly.",
+  "输入或候选结果已变化，请重新选择并保存。": "Inputs or candidate results changed. Select a candidate again before saving.",
+  "输入或候选结果已变化，请关闭后重新运行。": "Inputs or candidate results changed. Close this dialog and run again.",
+  "完整计算包含原始输入、几何和备注，仅下载到本地；分享前请检查私人信息。": "The full calculation includes original inputs, geometry and notes, downloaded locally only. Check private information before sharing.",
+  "为五项现有指标添加单位、统计边界与论文证据说明，保持假设筛选与科学验证分开": "Added units, accounting boundaries and paper evidence for the five existing metrics, separating hypothetical screening from scientific validation",
+  "运行记录冻结实际参数、输入、输出及声明的引擎源码身份，计算与解释分别保存SHA256摘要": "Run records capture actual parameters, inputs, outputs and declared engine-source identity, with separate computational and explanatory SHA256 digests",
+  "完整前沿只存一份；历史方案保持原记录，不补入当前参数": "The complete frontier is stored once; historical plans retain their original records without current-parameter backfilling",
+  "版本信息独立加载，明确显示加载中、身份一致或暂不可用": "Version information loads independently and explicitly shows pending, consistent identity or unavailable states",
+
   "本岛114个连续近10m卫星显示细块与56个分级预览，按视野加载": "114 continuous near-10m mainland display blocks and 56 overview blocks load by viewport",
   "14级起显示最细图格，质量透明区保留；来源日期、覆盖CSV和方法可查": "Finest display cells start at zoom14. Quality gaps stay transparent; source dates, coverage CSV and methods are available",
   "本岛不再实时拼接远程COG，离岸区域仍保留原来源读取": "Precomputed mainland imagery replaces live COG mosaicking; offshore views retain original-source reads",

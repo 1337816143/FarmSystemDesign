@@ -1,3 +1,10 @@
+## 0.3.14 · 2026-10-03 — Metric evidence and frozen run records
+
+- Explain the five existing screening metrics with units, selected-actor boundaries, independent three-month periods, exclusions and stable Paper evidence links. All remain synthetic, uncalibrated grade-D implementations; literature definitions and parameters are not adopted into calculation.
+- Capture actual crop coefficients, original run inputs, declared engine-source hashes and complete output accounting once per search. Separate computational and explanatory SHA256 digests; keep legacy input markers and ranking views unchanged.
+- Selected snapshots retain only their selected output and baseline with compact provenance. Historical snapshots receive no current-parameter backfill. Content digests are not signatures, runtime attestations or scientific validation.
+- Load release metadata independently, distinguish pending/consistent/unavailable states, and update only an already-open version dialog. Missing build identity leaves an explicitly incomplete record without suppressing numerical results.
+
 ## v0.3.13 — Complete Pareto Results (2026-10-03)
 
 - 完整保留已检验候选中的非支配集，36条限制仅用于图表和表格分页；完整计算导出包含全部候选。

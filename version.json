@@ -1,6 +1,6 @@
 {
-  "version": "0.3.13",
-  "name": "Complete Pareto Results",
+  "version": "0.3.14",
+  "name": "Metric Evidence and Frozen Runs",
   "channel": "research-preview",
   "releasedOn": "2026-10-03",
   "modelVersion": "screening-0.2.0",
@@ -10,9 +10,10 @@
   "storageVersion": 2,
   "commit": "local-preview",
   "changes": [
-    "完整保留本次搜索的全部非支配候选，导出与方案选择不再受36条展示限制",
-    "图表与表格每页最多36个方案，可翻页或输入页码查看",
-    "切换偏好即时重排完整候选集，保留候选ID、原搜索输入与指纹",
-    "完整搜索仅在当前会话保留；方案库与项目包仍只持久保存已选快照"
-  ]
+    "为五项现有指标添加单位、统计边界与论文证据说明，保持假设筛选与科学验证分开",
+    "运行记录冻结实际参数、输入、输出及声明的引擎源码身份，计算与解释分别保存SHA256摘要",
+    "完整前沿只存一份；历史方案保持原记录，不补入当前参数",
+    "版本信息独立加载，明确显示加载中、身份一致或暂不可用"
+  ],
+  "engineDigest": "c01f01477d309a1ff2403aef4fa21f1fde26ad7f8dce3f4a29afec20ae006b81"
 }

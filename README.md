@@ -1,6 +1,6 @@
 最新覆盖清单：见 [SPATIAL_COVERAGE_REGISTER.md](docs/SPATIAL_COVERAGE_REGISTER.md)。现为530景、172源图幅，另完成9处定向检查中的8处代表点读值补缺；南岛仍未通过质量规则。源图幅、具名OSM对象和整岛覆盖是不同概念，保留所有未核、质量和无值状态。
 
-# FarmSystem Design · v0.3.13
+# FarmSystem Design · v0.3.14
 
 **研究路线 → 数据审计 → 空间证据 → 约束核算 → 情景比较**
 
@@ -88,3 +88,11 @@ NASA POWER为2025历史网格数据，非逐地块实测或实时气象。
 生产系数、价格、资源配额及关联全部是示例假设。模型结果不构成经营建议。
 
 FTW CC-BY-4.0；OSM ODbL-1.0；Contains modified Copernicus Sentinel data (2025)。详见来源文档。Leaflet许可证随vendor保留。
+
+### Metric evidence and run records (0.3.14)
+
+The scenario lab and system analysis expose the existing five metric definitions through **指标定义与论文证据 / Metric definitions and paper evidence**. These are synthetic, uncalibrated screening indicators. Paper links document background and differences; they do not supply executable coefficients. See [the metric contracts](docs/METRIC_CONTRACTS.md).
+
+New full-search downloads contain the original inputs (including geometry and local notes), the complete frontier exactly once, the actual CROPS/ANNUALS snapshot, declared engine-source SHA256 hashes and separate computational/explanatory digests. Downloads remain local. Review private information before sharing them. Saved plans retain only their selected candidate, baseline and compact provenance; the parent-run digest is a reference, not proof of a retained full frontier.
+
+A **complete record** means captured content and consistent declared published build identity, not authenticated execution or scientific validation. Missing or mismatched release metadata produces an incomplete record while calculation remains available. Old snapshots are preserved without retroactive parameter claims. Baseline accounting exports retain their existing simpler format; use a new scenario search to capture a FrozenRun.

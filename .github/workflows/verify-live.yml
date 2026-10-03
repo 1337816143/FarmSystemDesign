@@ -20,7 +20,7 @@ jobs:
           import urllib.request,json,time,pathlib,datetime
           base='https://1337816143.github.io/FarmSystemDesign/'
           report={'checkedAt':datetime.datetime.now(datetime.timezone.utc).isoformat(),'url':base,'checks':[]}
-          paths=['','src/app.js','src/model.js','src/results.js','src/optimizer.worker.js','data/public/climate.json','data/public/osm-context.geojson','data/public/imagery.json','sw.js']
+          paths=['','src/app.js','src/model.js','src/results.js','src/frozen-run.js','src/metric-contracts.js','src/engine-identity.generated.js','src/release-state.js','src/provenance-ui.js','src/optimizer.worker.js','data/public/climate.json','data/public/osm-context.geojson','data/public/imagery.json','sw.js']
           for path in paths:
             for attempt in range(4):
               try:
