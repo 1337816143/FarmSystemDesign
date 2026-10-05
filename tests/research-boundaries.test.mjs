@@ -10,7 +10,9 @@ const climate=JSON.parse(fs.readFileSync(new URL('../data/public/climate.json',i
 test('all default accounting outputs match the independently captured 0.3.13 release',()=>{
   const result=search(data,ids,config,climate),digest=createHash('sha256');
   for(const candidate of [...result.candidates].sort((a,b)=>a.id.localeCompare(b.id))){
-    const {score,...accounting}=candidate;digest.update(JSON.stringify(accounting));
+    const {score,...accounting}=candidate;
+    // Numerical/structural compatibility with captured legacy outputs; the optional-input engine has a new declared version.
+    accounting.modelVersion='screening-0.2.0';digest.update(JSON.stringify(accounting));
   }
   assert.equal(result.evaluated,3897);assert.equal(result.feasibleCount,2008);assert.equal(result.frontierCount,1414);
   assert.equal(result.inputHash,'b8d1c685');

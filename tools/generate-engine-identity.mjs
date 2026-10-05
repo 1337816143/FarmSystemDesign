@@ -6,7 +6,7 @@ import {VERSION,MODEL_VERSION,DATA_VERSION} from '../src/version.js';
 
 export const ENGINE_MODULE_PATHS=Object.freeze([
   'src/data.js','src/evidence.generated.js','src/frozen-run.js','src/model.js',
-  'src/optimizer.worker.js','src/release-state.js','src/version.js'
+  'src/optimizer.worker.js','src/release-state.js','src/spatial-inputs.js','src/version.js'
 ]);
 function canonical(value){
   if(Array.isArray(value))return `[${value.map(canonical).join(',')}]`;

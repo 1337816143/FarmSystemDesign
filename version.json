@@ -1,19 +1,20 @@
 {
-  "version": "0.3.14",
-  "name": "Metric Evidence and Frozen Runs",
+  "version": "0.3.15",
+  "name": "Spatial Rainfall Input Contract",
   "channel": "research-preview",
-  "releasedOn": "2026-10-03",
-  "modelVersion": "screening-0.2.0",
+  "releasedOn": "2026-10-04",
+  "modelVersion": "screening-0.2.1",
   "dataVersion": "evidence-2025-r1+assumptions-r2",
   "regionalEvidenceVersion": "hainan-regional-2026-10-03-r4",
   "schemaVersion": 1,
   "storageVersion": 2,
   "commit": "local-preview",
   "changes": [
-    "为五项现有指标添加单位、统计边界与论文证据说明，保持假设筛选与科学验证分开",
-    "运行记录冻结实际参数、输入、输出及声明的引擎源码身份，计算与解释分别保存SHA256摘要",
-    "完整前沿只存一份；历史方案保持原记录，不补入当前参数",
-    "版本信息独立加载，明确显示加载中、身份一致或暂不可用"
+    "Optional CHIRPS 2025 representative-point rainfall input with a frozen, auditable source contract",
+    "110 unchanged plots resolve to one 0.05-degree climate cell; no plot-scale rainfall or calibration claim",
+    "Original NASA default, maps, model assumptions, complete candidate frontier and saved snapshots remain available",
+    "Land-cover, OSM administrative and temperature joins remain context only; missing spatial inputs block the optional mode"
   ],
-  "engineDigest": "c01f01477d309a1ff2403aef4fa21f1fde26ad7f8dce3f4a29afec20ae006b81"
+  "engineDigest": "6840fc085bfb9c0513c325118af756c4b5b908213daa5eeb2a78988cee9438e6",
+  "spatialInputVersion": "spatial-inputs-2025-r1"
 }

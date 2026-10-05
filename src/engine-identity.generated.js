@@ -2,8 +2,8 @@
 export const ENGINE_IDENTITY = {
   "format": "FarmSystemDesign.EngineSource.v1",
   "algorithm": "SHA-256",
-  "applicationVersion": "0.3.14",
-  "modelVersion": "screening-0.2.0",
+  "applicationVersion": "0.3.15",
+  "modelVersion": "screening-0.2.1",
   "dataVersion": "evidence-2025-r1+assumptions-r2",
   "modules": [
     {
@@ -18,13 +18,13 @@ export const ENGINE_IDENTITY = {
     },
     {
       "path": "src/frozen-run.js",
-      "bytes": 17317,
-      "sha256": "aa5d0a8b3f5447817d625fefba3aa4de4235e34ba9971959a57679e53111ea53"
+      "bytes": 17671,
+      "sha256": "024c0c4a921e99068bb0f62b0220963a21736860b3071b87f10db85a3f5eac5b"
     },
     {
       "path": "src/model.js",
-      "bytes": 12157,
-      "sha256": "60cfc1cad84bf2ea7224314aebf49b25607d6c51c2acd1b2cae61cdbd87fb53f"
+      "bytes": 12982,
+      "sha256": "85e5258c3cddf3277749dfbdab02202a6b7397df3dd8b4a7d0addbfe1be3f413"
     },
     {
       "path": "src/optimizer.worker.js",
@@ -37,10 +37,15 @@ export const ENGINE_IDENTITY = {
       "sha256": "f56268d5203d27cddd1f3d06eea2b50f70a623d4507b82d07cce4fec29cd0b4f"
     },
     {
+      "path": "src/spatial-inputs.js",
+      "bytes": 3751,
+      "sha256": "ad084873510447832b67449395231252df2a75be1e128db518371324d812e9c5"
+    },
+    {
       "path": "src/version.js",
       "bytes": 327,
-      "sha256": "5bfce8f052071fd02bf498cfc9f11df5a01e2eaaaea611318acfbcf3c1e7c007"
+      "sha256": "621ff9fef1b32e9aa09c541490dbc59b869ef683e40becd31d27d7064f5017f2"
     }
   ],
-  "digest": "c01f01477d309a1ff2403aef4fa21f1fde26ad7f8dce3f4a29afec20ae006b81"
+  "digest": "6840fc085bfb9c0513c325118af756c4b5b908213daa5eeb2a78988cee9438e6"
 };

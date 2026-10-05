@@ -25,8 +25,9 @@ jobs:
       - name: Independent spatial validation
         run: |
           if [ -f tests/spatial.py ]; then
-            python -m pip install shapely==2.1.2 pyproj==3.7.2
+            python -m pip install shapely==2.1.2 pyproj==3.7.2 rasterio==1.4.3 Pillow
             python tests/spatial.py
+            python tests/spatial_inputs.py
           fi
       - name: Stamp deployed source identity
         run: |

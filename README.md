@@ -96,3 +96,7 @@ The scenario lab and system analysis expose the existing five metric definitions
 New full-search downloads contain the original inputs (including geometry and local notes), the complete frontier exactly once, the actual CROPS/ANNUALS snapshot, declared engine-source SHA256 hashes and separate computational/explanatory digests. Downloads remain local. Review private information before sharing them. Saved plans retain only their selected candidate, baseline and compact provenance; the parent-run digest is a reference, not proof of a retained full frontier.
 
 A **complete record** means captured content and consistent declared published build identity, not authenticated execution or scientific validation. Missing or mismatched release metadata produces an incomplete record while calculation remains available. Old snapshots are preserved without retroactive parameter claims. Baseline accounting exports retain their existing simpler format; use a new scenario search to capture a FrozenRun.
+
+### Optional spatial rainfall input (0.3.15)
+
+Scenario lab now compares the original NASA rainfall series with an opt-in CHIRPS 2025 representative-point grid input. All 110 unchanged demo plots fall in one 0.05° climate cell, so no between-plot rainfall differentiation is claimed. The public source contract binds 1,320 monthly assignments and preserves land-cover, OSM and temperature as context only. Missing/stale spatial inputs block the optional mode. See [input contract, reproduction and limitations](docs/SPATIAL_INPUT_CONTRACT.md).

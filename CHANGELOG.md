@@ -1,3 +1,10 @@
+# 0.3.15 — Spatial rainfall input contract (2026-10-04)
+
+- Added an opt-in CHIRPS 2025 native-grid rainfall sensitivity input with a frozen public source contract and explicit admission checks
+- Preserved all maps, original FTW geometry, NASA default, candidate frontier and saved snapshots; land-cover/admin/temperature remain context only
+- Reported 110 plot assignments to one independent rainfall cell without claiming plot-scale climate or calibrated coefficients
+- Added independent raster-source, model, FrozenRun and desktop/mobile browser regressions
+
 ## 0.3.14 · 2026-10-03 — Metric evidence and frozen run records
 
 - Explain the five existing screening metrics with units, selected-actor boundaries, independent three-month periods, exclusions and stable Paper evidence links. All remain synthetic, uncalibrated grade-D implementations; literature definitions and parameters are not adopted into calculation.

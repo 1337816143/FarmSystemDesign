@@ -45,7 +45,7 @@ test('regional evidence remains outside the farm model and export is route-speci
   assert.ok(auditCsvRows('province').slice(1).every(row=>row[0]==='province'));
   const version=JSON.parse(fs.readFileSync(new URL('../version.json',import.meta.url)));
   assert.equal(version.regionalEvidenceVersion,REGIONAL_EVIDENCE_VERSION);
-  assert.equal(version.modelVersion,'screening-0.2.0');
+  assert.equal(version.modelVersion,'screening-0.2.1');
 });
 
 test('main-island cover summary preserves its source, mask and area accounting',()=>{

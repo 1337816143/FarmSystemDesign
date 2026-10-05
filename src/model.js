@@ -1,5 +1,6 @@
 /** Auditable screening model. All production coefficients are synthetic and uncalibrated. */
 import {CROPS,ANNUALS,MODEL_VERSION,baselineAllocation,climateForQuarter,rng,hash} from './data.js';
+import {prepareSpatialRainfall} from './spatial-inputs.js';
 const sum=a=>a.reduce((s,n)=>s+n,0);
 const eps=1e-6;
 export function validateConfig(c){
@@ -27,12 +28,17 @@ function distributeManure(rows, mode){
   return transfers;
 }
 export function evaluate(data, farmIds, allocation, config, climate, participationBase=null,contextHash=null){
+  const selected=new Set(farmIds);
+  const spatial=config.spatialRainfall?prepareSpatialRainfall(config.spatialRainfall,data.plots.filter(p=>selected.has(p.farmId))):null;
+  return evaluatePrepared(data,farmIds,allocation,config,climate,participationBase,contextHash,spatial);
+}
+function evaluatePrepared(data, farmIds, allocation, config, climate, participationBase=null,contextHash=null,spatial=null){
   validateConfig(config);
   const selected=new Set(farmIds),farms=data.farms.filter(f=>selected.has(f.id));
   if(selected.size!==farmIds.length||farms.length!==selected.size)throw new Error('经营主体ID重复或不存在');
   if(!farms.length)throw new Error('请选择至少一个经营主体');
   const plots=data.plots.filter(p=>selected.has(p.farmId)),rain=climateForQuarter(climate,config.quarter);
-  const warnings=[];if(rain.some(x=>x===null))warnings.push('部分公开气候缺失：缺失月份按0 mm降雨进行保守需求核算，不代表真实天气。');
+  const warnings=[];if(!spatial&&rain.some(x=>x===null))warnings.push('部分公开气候缺失：缺失月份按0 mm降雨进行保守需求核算，不代表真实天气。');
   const rows=farms.map(f=>({id:f.id,name:f.name,villageId:f.villageId,area:0,revenue:f.poultry*28,cost:f.poultry*16,waterMonths:[0,0,0],labourMonths:[0,0,0],waterCapacity:f.water.map(v=>v*config.water),labourCapacity:f.labour.map(v=>v*config.labour),nNeed:0,nFix:0,nHarvest:f.poultry*.12,nFeed:f.poultry*.4,manureProduced:f.poultry*.22,manureRecovered:f.poultry*.22*.65,manureApplied:0,transferCost:0,nTransferIn:0,nTransferOut:0,energy:f.poultry*.008,production:[],crops:new Set()}));
   const byId=Object.fromEntries(rows.map(r=>[r.id,r])),plotResults=[];
   const violations=[];
@@ -42,12 +48,13 @@ export function evaluate(data, farmIds, allocation, config, climate, participati
     if(CROPS[p.crop].annual&&!CROPS[activity].annual&&activity!==p.crop)violations.push(`${p.id}：当前模型不支持无投资成本地新建固定活动`);
     const c=CROPS[activity],r=byId[p.farmId],a=p.areaHa,s=p.soilFactor,stress=Math.max(.35,1-config.shock*c.risk*2);
     const yieldFactor=s*stress,priceFactor=activity==='vegetable'?config.price:1;
-    const waterMonths=c.waterCurve.map((w,m)=>Math.max(0,c.water*w-(rain[m]??0)*config.rain*10*(activity==='pond'?.15:.35))*a);
+    const plotRain=spatial?spatial.rainByPlot.get(p.id).slice(config.quarter*3,config.quarter*3+3):rain;
+    const waterMonths=c.waterCurve.map((w,m)=>Math.max(0,c.water*w-(plotRain[m]??0)*config.rain*10*(activity==='pond'?.15:.35))*a);
     const labourMonths=c.labourCurve.map(w=>c.labour*w*a);
     const revenue=c.revenue*a*yieldFactor*priceFactor,cost=c.cost*a;
     r.area+=a;r.revenue+=revenue;r.cost+=cost;r.nNeed+=c.nNeed*a;r.nFix+=c.nFix*a;r.nHarvest+=c.nHarvest*a*yieldFactor;r.nFeed+=(c.feedN||0)*a;r.energy+=c.energy*a*yieldFactor;r.crops.add(activity);
     for(let m=0;m<3;m++){r.waterMonths[m]+=waterMonths[m];r.labourMonths[m]+=labourMonths[m];}
-    plotResults.push({id:p.id,farmId:p.farmId,activity,area:a,revenue,baseCost:cost,water:sum(waterMonths),labour:sum(labourMonths),yieldTonnes:c.yield*a*yieldFactor,energy:c.energy*a*yieldFactor});
+    plotResults.push({id:p.id,farmId:p.farmId,activity,area:a,revenue,baseCost:cost,water:sum(waterMonths),labour:sum(labourMonths),yieldTonnes:c.yield*a*yieldFactor,energy:c.energy*a*yieldFactor,...(spatial?{rainMonths:plotRain}: {})});
   }
   const transfers=distributeManure(rows,config.mode);
   for(const f of farms){const r=byId[f.id];for(let m=0;m<3;m++){r.waterMonths[m]+=f.poultry*.07/3;r.labourMonths[m]+=f.poultry*.04/3;}
@@ -78,7 +85,7 @@ export function evaluate(data, farmIds, allocation, config, climate, participati
   totals.waterCapacity=sum(rows.map(r=>sum(r.waterCapacity)));totals.labourCapacity=sum(rows.map(r=>sum(r.labourCapacity)));
   const allCrops=new Set(plotResults.map(p=>p.activity));totals.diversity=allCrops.size;
   const outsideFarms=data.farms.filter(f=>!selected.has(f.id));
-  return {modelVersion:MODEL_VERSION,allocation:{...allocation},totals,farms:rows,plots:plotResults,transfers,balances,feasible:violations.length===0,violations,warnings:[...new Set(warnings)],rainMonths:rain,
+  return {modelVersion:MODEL_VERSION,allocation:{...allocation},totals,farms:rows,plots:plotResults,transfers,balances,feasible:violations.length===0,violations,warnings:[...new Set(warnings)],rainMonths:spatial?null:rain,...(spatial?{spatialRainfall:spatial.summary}:{}),
     boundary:{farmIds:[...selected],outsideReservedWater:sum(outsideFarms.map(f=>sum(f.water)))*config.water,note:'仅合并所选主体的配额；未选主体的水、劳动和粪肥不参与共享。'},
     sensitivity:{lowMargin:totals.revenue*.8-totals.cost,highMargin:totals.revenue*1.2-totals.cost,label:'仅收入±20%的确定性敏感性区间，不是置信区间'},
     fingerprint:hash({contextHash:contextHash||hash({data,farmIds,config,climate}),allocation})};
@@ -103,10 +110,11 @@ export function rankResults(result,objective=result.ranking.objective){
 }
 export function search(data,farmIds,config,climate,onProgress=()=>{}){
   validateConfig(config);const contextHash=hash({data,farmIds,config,climate});const selected=new Set(farmIds),plots=data.plots.filter(p=>selected.has(p.farmId)),variable=plots.filter(p=>!p.locked&&CROPS[p.crop].annual);
-  const baseAllocation=baselineAllocation(plots),baseline=evaluate(data,farmIds,baseAllocation,config,climate),rand=rng(config.seed),seen=new Set(),candidates=[];
+  const spatial=config.spatialRainfall?prepareSpatialRainfall(config.spatialRainfall,plots):null;
+  const baseAllocation=baselineAllocation(plots),baseline=evaluatePrepared(data,farmIds,baseAllocation,config,climate,null,null,spatial),rand=rng(config.seed),seen=new Set(),candidates=[];
   let bestInfeasible=null;const add=allocation=>{
     const key=plots.map(p=>allocation[p.id]).join('|');if(seen.has(key))return;seen.add(key);
-    const result=evaluate(data,farmIds,allocation,config,climate,baseline.farms,contextHash);result.id=`candidate-${seen.size}`;
+    const result=evaluatePrepared(data,farmIds,allocation,config,climate,baseline.farms,contextHash,spatial);result.id=`candidate-${seen.size}`;
     if(result.feasible)candidates.push(result);else if(!bestInfeasible||result.violations.length<bestInfeasible.violations.length)bestInfeasible=result;
   };
   add(baseAllocation);for(const activity of ANNUALS)add({...baseAllocation,...Object.fromEntries(variable.map(p=>[p.id,activity]))});

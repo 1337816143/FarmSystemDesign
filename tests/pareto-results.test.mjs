@@ -110,6 +110,6 @@ test('JSON retains every candidate and a late-page selection with original accou
 
 test('release cache includes the pagination module and old cache is replaced',()=>{
   const sw=fs.readFileSync(new URL('../sw.js',import.meta.url),'utf8');
-  assert.match(sw,/farmsystem-v0\.3\.14-/);assert.match(sw,/'\.\/src\/results\.js'/);
+  assert.match(sw,/farmsystem-v0\.3\.15-/);assert.match(sw,/'\.\/src\/results\.js'/);
   assert.match(sw,/k!==CACHE/);
 });

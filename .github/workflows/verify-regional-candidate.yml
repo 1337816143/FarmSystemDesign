@@ -20,11 +20,12 @@ jobs:
         run: npm run check && npm test
       - name: Test runtime
         run: |
-          python -m pip install shapely==2.1.2 pyproj==3.7.2 playwright
+          python -m pip install shapely==2.1.2 pyproj==3.7.2 rasterio==1.4.3 Pillow playwright
           python -m playwright install --with-deps chromium
       - name: Independent geometry and full browser regression
         run: |
           python tests/spatial.py
+          python tests/spatial_inputs.py
           python3 -m http.server 4173 > /tmp/farmsystem-http.log 2>&1 &
           python tests/browser.py --url http://127.0.0.1:4173 --output test-results
           python tests/regional_browser.py --url http://127.0.0.1:4173 --output test-results/regional
