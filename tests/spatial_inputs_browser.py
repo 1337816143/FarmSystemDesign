@@ -31,9 +31,12 @@ def verify_spatial_inputs(browser,url,out,check):
     page.select_option('#rainfall-input','spatial')
     # Authorized local fixture import through the same controls as users, not a hidden state mutation.
     changed=json.loads(json.dumps(record['runInputs']['dataset']));changed['version']='test-spatial-stale-geometry'
-    for ring in changed['plots'][0]['geometry']['coordinates']:
+    # Mutate a plot in the actor actually selected below. P001 belongs to F13, not F01.
+    altered_plot=next(plot for plot in changed['plots'] if plot['farmId']=='F01')
+    assert altered_plot['id'] in [plot['id'] for plot in record['baseline']['plots']]
+    for ring in altered_plot['geometry']['coordinates']:
         for point in ring:point[0]+=.001
-    changed['plots'][0]['representativePoint'][0]+=.001
+    altered_plot['representativePoint'][0]+=.001
     altered=out/'spatial-stale-geometry.json';altered.write_text(json.dumps(changed),encoding='utf-8')
     page.locator('nav [data-nav="data"]').click();page.locator('#import-file').set_input_files(str(altered));page.wait_for_selector('#modal[open]');page.locator('#modal-form button[type="submit"]').click()
     page.locator('nav [data-nav="planner"]').click();page.select_option('#scope','single');page.select_option('#scope-object','F01')
