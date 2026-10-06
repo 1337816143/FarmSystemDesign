@@ -14,7 +14,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -52,6 +52,16 @@ jobs:
           name: browser-test-evidence
           path: test-results
           retention-days: 30
+      - name: Preserve focused offline and discussion evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: farm-offline-discussion-evidence
+          path: |
+            test-results/offline-*.json
+            test-results/offline-*.png
+            test-results/discussion/**
+          retention-days: 14
       - name: Prepare website without transfer files or workflows
         run: node tools/build.mjs
       - uses: actions/upload-artifact@v4

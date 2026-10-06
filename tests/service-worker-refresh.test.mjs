@@ -12,7 +12,7 @@ function runtime({offline=false,installFails=false}={}){
   const self={location:{origin:'https://example.test'},registration:{scope:'https://example.test/Farm/'},
     addEventListener:(type,fn)=>listeners[type]=fn,skipWaiting:async()=>state.skip++,clients:{claim:async()=>state.claim++}};
   vm.runInNewContext(source,{self,URL,Response,Request:class{constructor(url,options){this.url=url;Object.assign(this,options);}},
-    caches:{open:async key=>{state.cacheKey=key;return cache;},keys:async()=>['farmsystem-old','unrelated-cache'],delete:async key=>deleted.push(key)},
+    caches:{open:async key=>{state.cacheKey=key;return cache;},keys:async()=>['farmsystem-shell-%2FFarm%2F-v0.3.16','farmsystem-shell-%2FPaper%2F-v0.3.17','farmsystem-full-v1-%2FFarm%2F-test','unrelated-cache'],delete:async key=>deleted.push(key)},
     fetch:async(request,options)=>{requests.push({request,options});if(offline)throw new Error('offline');return {ok:true,clone:()=>({copy:true})};}});
   state.event=(path,mode='cors',method='GET')=>{let response;listeners.fetch({request:{url:new URL(path,self.registration.scope).href,mode,method},respondWith:value=>response=value,waitUntil:value=>waits.push(value)});return response;};
   return state;
@@ -20,7 +20,7 @@ function runtime({offline=false,installFails=false}={}){
 test('new shell installation revalidates every asset and only succeeds as a complete install',async()=>{
   const r=runtime();let install;r.listeners.install({waitUntil:p=>install=p});await install;
   assert.ok(r.requests.length>40);assert.ok(r.requests.every(x=>x.cache==='reload'));assert.equal(r.skip,1);
-  assert.match(r.cacheKey,/v0\.3\.16/);
+  assert.match(r.cacheKey,/v0\.3\.17/);
   const failure=runtime({installFails:true});failure.listeners.install({waitUntil:p=>install=p});await assert.rejects(install,/missing shell/);assert.equal(failure.skip,0);assert.deepEqual(failure.deleted,[]);
 });
 test('only application shell fetches force revalidation, with durable cache writes',async()=>{
@@ -30,12 +30,12 @@ test('only application shell fetches force revalidation, with durable cache writ
   }
 });
 test('offline fallback is scoped to the current cache, not arbitrary historical app caches',async()=>{
-  const r=runtime({offline:true});const result=await r.event('src/app.js');assert.equal(result.cached,true);assert.match(r.cacheKey,/v0\.3\.16/);assert.equal(r.matches.length,1);
+  const r=runtime({offline:true});const result=await r.event('src/app.js');assert.equal(result.cached,true);assert.match(r.cacheKey,/v0\.3\.17/);assert.equal(r.matches.length,2);assert.match(String(r.matches[0]),/offline-active-v0\.3\.17\.json/);
   assert.doesNotMatch(source,/await caches\.match/);
 });
 test('activation removes only old app caches and does not reload pages or touch plans',async()=>{
   const r=runtime();let activation;r.listeners.activate({waitUntil:p=>activation=p});await activation;
-  assert.deepEqual(r.deleted,['farmsystem-old']);assert.equal(r.claim,1);assert.doesNotMatch(source,/localStorage|\.navigate\(|\.reload\(/);
+  assert.deepEqual(r.deleted,['farmsystem-shell-%2FFarm%2F-v0.3.16']);assert.equal(r.claim,1);assert.doesNotMatch(source,/localStorage|\.navigate\(|\.reload\(/);
   const external=runtime();assert.equal(external.event('https://other.test/src/app.js'),undefined);assert.equal(external.requests.length,0);
 });
 test('upgrade fixture retains exact original legacy bytes rather than a rewritten old-page mock',()=>{

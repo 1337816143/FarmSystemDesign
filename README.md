@@ -100,3 +100,7 @@ A **complete record** means captured content and consistent declared published b
 ### Optional spatial rainfall input (0.3.15)
 
 Scenario lab now compares the original NASA rainfall series with an opt-in CHIRPS 2025 representative-point grid input. All 110 unchanged demo plots fall in one 0.05° climate cell, so no between-plot rainfall differentiation is claimed. The public source contract binds 1,320 monthly assignments and preserves land-cover, OSM and temperature as context only. Missing/stale spatial inputs block the optional mode. See [input contract, reproduction and limitations](docs/SPATIAL_INPUT_CONTRACT.md).
+
+## Complete offline presentation bundle (0.3.17)
+
+Use the navigation link **完整离线包 / Complete offline bundle** before disconnecting. It verifies the whole published file set, supports resume/retry and warns about insufficient space or incomplete files. External live map APIs and linked websites remain online-only. See [offline boundaries and verification](docs/FULL_OFFLINE.md). The independent **PhD2 discussion** tab contains the bilingual, self-contained discussion deck.

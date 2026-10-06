@@ -1,6 +1,6 @@
 {
-  "version": "0.3.16",
-  "name": "Constraint Diagnostics and Safe Shell Refresh",
+  "version": "0.3.17",
+  "name": "Complete Offline Research Bundle",
   "channel": "research-preview",
   "releasedOn": "2026-10-06",
   "modelVersion": "screening-0.2.1",
@@ -10,11 +10,12 @@
   "storageVersion": 2,
   "commit": "local-preview",
   "changes": [
-    "Complete candidate-level constraint reasons and monthly demand, capacity and shortfall units",
-    "Representative failure diagnostics are not a global infeasibility certificate or a minimum-resource recommendation",
-    "Versioned application shell refresh avoids combining fresh release metadata with stale application modules",
-    "Preserve original maps, NASA default, model coefficients, stored plans and uncalibrated research boundaries"
+    "Full published-site offline bundle with per-file SHA-256, visible progress, resumable downloads, retries and quota checks",
+    "Independent bilingual PhD2 discussion tab, self-contained for offline presentation",
+    "Current controlling-worker identity and complete-shell gate for real warm-cache upgrade regression",
+    "External OSM, ArcGIS, offshore remote COG and linked external sites remain online dependencies; local Hainan layers stay available",
+    "User plans, notes, original map data and scientific model coefficients remain unchanged"
   ],
-  "engineDigest": "a9dfc0f3b2b9cde7dca0e0de92e715b85a3b0c5b40692782aa0854e68f776790",
+  "engineDigest": "880fe13ef821e8b4e0c1654302a54495965b643bed33f444dbe1414098cdf4e0",
   "spatialInputVersion": "spatial-inputs-2025-r1"
 }

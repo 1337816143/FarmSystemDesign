@@ -113,7 +113,7 @@ def verify_upgrade(browser, url, out, check):
                 const app=await cache.match(new URL('src/app.js',location.href));
                 const version=await cache.match(new URL('src/version.js',location.href));
                 return !!app && !!version && (await app.text()).includes('infeasibleDetails') &&
-                       (await version.text()).includes("VERSION = '0.3.16'");
+                       (await version.text()).includes("VERSION = '0.3.17'");
             }""", expected_cache)
             if ready:
                 return
@@ -151,7 +151,7 @@ def verify_upgrade(browser, url, out, check):
         snapshot('warm-legacy')
         state['phase'] = 'candidate'
         page.reload(wait_until='networkidle')
-        new_cache = 'farmsystem-v0.3.16-20261006-constraint-diagnostics-r1'
+        new_cache = 'farmsystem-shell-%2F-v0.3.17'
         wait_current_worker(page, new_cache)
         first_version = page.locator('.top-version').inner_text()
         report['firstReloadAppVersion'] = first_version
@@ -165,7 +165,7 @@ def verify_upgrade(browser, url, out, check):
         # Activation cannot replace code already running. Do not auto-reload or clear user state.
         page.reload(wait_until='networkidle')
         snapshot('after-second-ordinary-reload')
-        wait_version('0.3.16')
+        wait_version('0.3.17')
         run_zero()
         page.wait_for_selector('.infeasible-details')
         page.locator('.infeasible-details summary').click()
@@ -180,7 +180,7 @@ def verify_upgrade(browser, url, out, check):
                page.evaluate("JSON.parse(localStorage.getItem('farmsystem-workspace-v2')).plans") == saved)
         context.set_offline(True)
         page.reload(wait_until='domcontentloaded')
-        wait_version('0.3.16')
+        wait_version('0.3.17')
         run_zero()
         verify('offline reload retains new code and old saved plans',
                page.locator('.infeasible-violations li').count() == 78 and
@@ -207,7 +207,7 @@ def verify_upgrade(browser, url, out, check):
             probe = mixed.new_page()
             probe.on('pageerror', lambda error: errors.append('mixed: ' + str(error)))
             probe.goto(f'http://127.0.0.1:{server.server_port}/#planner', wait_until='networkidle')
-            probe.wait_for_function("document.querySelector('.top-version')?.textContent==='v0.3.16'")
+            probe.wait_for_function("document.querySelector('.top-version')?.textContent==='v0.3.17'")
             probe.wait_for_function('navigator.serviceWorker.controller !== null', timeout=60000)
             for name in ['water', 'labour']:
                 probe.locator('#' + name).press('Home')
