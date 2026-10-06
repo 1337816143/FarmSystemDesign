@@ -12,7 +12,7 @@ OUT=Path(sys.argv[2]).resolve() if len(sys.argv)>2 else ROOT/'qa/browser';OUT.mk
 checks=[];errors=[];requests=[];results=[]
 def ok(s):checks.append(s)
 def geometry(page):
- return page.evaluate('''()=>{const s=document.querySelector('.slide.active'),r=s.getBoundingClientRect(),bad=[];const walk=document.createTreeWalker(s,NodeFilter.SHOW_TEXT);let n;while(n=walk.nextNode()){if(!n.textContent.trim())continue;const p=n.parentElement;if(!p||p.closest('script,style,template')||!p.getClientRects().length||getComputedStyle(p).display==='none')continue;if(p.closest('.tablewrap')&&innerWidth<=900)continue;const range=document.createRange();range.selectNodeContents(n);for(const q of range.getClientRects()){if(q.width&&q.height&&(q.bottom>r.bottom+2||q.top<r.top-2||q.left<r.left-2||q.right>r.right+2))bad.push(n.textContent.slice(0,95));}} const rows=[...s.children].filter(e=>e.getClientRects().length).map(e=>({name:e.className,r:e.getBoundingClientRect()}));for(let i=1;i<rows.length;i++)if(rows[i].r.top<rows[i-1].r.bottom-2)bad.push('Overlap '+rows[i-1].name+' / '+rows[i].name);return [...new Set(bad)]}''')
+ return page.evaluate('''()=>{const s=document.querySelector('.slide.active'),r=s.getBoundingClientRect(),bad=[];const walk=document.createTreeWalker(s,NodeFilter.SHOW_TEXT);let n;while(n=walk.nextNode()){if(!n.textContent.trim())continue;const p=n.parentElement;if(!p||p.closest('script,style,template')||!p.getClientRects().length||getComputedStyle(p).display==='none')continue;if(p.closest('.tablewrap')&&innerWidth<=900)continue;const range=document.createRange();range.selectNodeContents(n);for(const q of range.getClientRects()){if(q.width&&q.height&&(q.bottom>r.bottom+2||q.top<r.top-2||q.left<r.left-2||q.right>r.right+2))bad.push(n.textContent.slice(0,95));}} for(const box of s.querySelectorAll('.tablewrap,.purpose-grid')){if(!box.getClientRects().length)continue;const br=box.getBoundingClientRect(),walker=document.createTreeWalker(box,NodeFilter.SHOW_TEXT);let t;while(t=walker.nextNode()){if(!t.textContent.trim()||!t.parentElement.getClientRects().length)continue;const tr=document.createRange();tr.selectNodeContents(t);for(const qr of tr.getClientRects())if(qr.width&&qr.height&&(qr.top<br.top-2||qr.bottom>br.bottom+2))bad.push('Clipped inside '+box.className+': '+t.textContent.slice(0,80));}} const rows=[...s.children].filter(e=>e.getClientRects().length).map(e=>({name:e.className,r:e.getBoundingClientRect()}));for(let i=1;i<rows.length;i++)if(rows[i].r.top<rows[i-1].r.bottom-2)bad.push('Overlap '+rows[i-1].name+' / '+rows[i].name);return [...new Set(bad)]}''')
 with sync_playwright() as p:
  kwargs={'headless':True}
  if os.getenv('CHROMIUM_EXECUTABLE'):kwargs['executable_path']=os.environ['CHROMIUM_EXECUTABLE']
@@ -29,11 +29,7 @@ with sync_playwright() as p:
     page.evaluate('n=>phdDeck.go(n)',i);page.wait_for_timeout(35)
     assert page.locator('.slide.active').count()==1
     assert page.locator('#page-counter').inner_text()==f'{i+1} / 18'
-    bad=geometry(page)
-    horizontal=page.evaluate('({width:innerWidth,scrollWidth:document.documentElement.scrollWidth})')
-    if horizontal['scrollWidth']>horizontal['width']+1:bad.append('Document horizontal overflow: '+json.dumps(horizontal))
-    results.append({'width':w,'height':h,'lang':lang,'slide':i+1,'overflow':bad})
-    (OUT/'browser-report.partial.json').write_text(json.dumps({'checks':checks,'page_errors':errors,'geometries':results,'failed_geometries':[r for r in results if r['overflow']]},ensure_ascii=False,indent=2),encoding='utf-8')
+    bad=geometry(page);results.append({'width':w,'height':h,'lang':lang,'slide':i+1,'overflow':bad})
     page.screenshot(path=str(OUT/f'{w}-{lang}-{i+1:02}.png'),full_page=True)
  ok('108 actual desktop slide screenshots across 3 viewports and 2 languages')
  # Numerical assertions compare source aggregate JSON and generated chart marks.
@@ -64,22 +60,25 @@ with sync_playwright() as p:
  ok('Fullscreen or explicit browser limitation')
  page.locator('#reading').click();assert page.locator('.slide:visible').count()==18;page.locator('#reading').click();assert page.locator('.slide:visible').count()==1;ok('Reading mode')
  ctx.set_offline(True);page.reload(wait_until='load');page.wait_for_function('window.phdDeck');assert page.locator('.slide.active').count()==1;ok('Offline reload of self-contained HTML')
- page.emulate_media(media='print');page.pdf(path=str(OUT/'print-en.pdf'),print_background=True,prefer_css_page_size=True);page.evaluate("phdDeck.language('zh')");page.pdf(path=str(OUT/'print-zh.pdf'),print_background=True,prefer_css_page_size=True)
+ page.emulate_media(media='print')
+ for print_lang in ['en','zh']:
+  page.evaluate('l=>phdDeck.language(l)',print_lang)
+  for i in range(18):
+   page.evaluate('n=>phdDeck.go(n)',i);bad=geometry(page);results.append({'mode':'print','lang':print_lang,'slide':i+1,'overflow':bad})
+  page.pdf(path=str(OUT/f'print-{print_lang}.pdf'),print_background=True,prefer_css_page_size=True)
  for lang in ['en','zh']:
   pdf=(OUT/f'print-{lang}.pdf').read_bytes();n=len(re.findall(rb'/Type\s*/Page\b',pdf));assert n==18,(lang,n)
- ok('English and Chinese print exports contain exactly 18 pages')
+ ok('English and Chinese print exports contain exactly 18 pages; all 36 printed slide bounds recorded')
  page.emulate_media(media='screen')
  for w,h in [(390,844),(768,1024)]:
   page.set_viewport_size({'width':w,'height':h})
   for lang in ['en','zh']:
    page.evaluate('l=>phdDeck.language(l)',lang)
    for i in range(18):
-    page.evaluate('n=>phdDeck.go(n)',i);page.screenshot(path=str(OUT/f'mobile-{w}-{lang}-{i+1:02}.png'),full_page=True)
-    bad=geometry(page)
-    horizontal=page.evaluate('({width:innerWidth,scrollWidth:document.documentElement.scrollWidth})')
-    if horizontal['scrollWidth']>horizontal['width']+1:bad.append('Document horizontal overflow: '+json.dumps(horizontal))
+    page.evaluate('n=>phdDeck.go(n)',i);page.screenshot(path=str(OUT/f'mobile-{w}-{lang}-{i+1:02}.png'),full_page=True);horizontal=page.evaluate('document.documentElement.scrollWidth>innerWidth+1')
+    bad=geometry(page);
+    if horizontal:bad.append('Page-level horizontal overflow')
     results.append({'width':w,'height':h,'lang':lang,'slide':i+1,'overflow':bad})
-    (OUT/'browser-report.partial.json').write_text(json.dumps({'checks':checks,'page_errors':errors,'geometries':results,'failed_geometries':[r for r in results if r['overflow']]},ensure_ascii=False,indent=2),encoding='utf-8')
  ok('72 real mobile/tablet screenshots; no page-level horizontal overflow')
  reduced_ctx=browser.new_context(viewport={'width':1440,'height':900},reduced_motion='reduce');rp=reduced_ctx.new_page();rp.goto(url);assert rp.evaluate('phdDeck.getState().reducedMotion');assert not rp.evaluate('phdDeck.getState().animationPlaying');rp.evaluate('phdDeck.go(11)');rp.locator('#anim-next').click();assert rp.evaluate('phdDeck.getState().animationStep')==1;ok('Reduced motion defaults to paused; manual step works')
  assert not errors,errors;external=[u for u in requests if u.startswith(('http://','https://')) and u!=url];assert not external,external;ok('No runtime errors or external runtime asset requests')

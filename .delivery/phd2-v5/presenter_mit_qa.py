@@ -37,8 +37,16 @@ with tempfile.TemporaryDirectory(prefix='mit-speaker-qa-') as td:
     a.evaluate('phdDeck.go(16)');wait_pair(a,b,16);b.screenshot(path=str(OUT/f'{scheme}-slide17-zh.png'),full_page=True);checks.append(scheme+': bidirectional navigation/language and repeated-open reuse')
     # Read-only manuscripts follow upstream; dropdown typing cannot navigate the deck.
     index=a.evaluate('phdDeck.getState().index');b.locator('#speaker-language').focus();b.locator('#speaker-language').press('ArrowLeft');assert a.evaluate('phdDeck.getState().index')==index
-    b.locator('#btn-pause').click();b.wait_for_timeout(1200);assert b.locator('#timer-display').inner_text()!='00:00';b.locator('#btn-pause').click();paused=b.locator('#timer-display').inner_text();b.wait_for_timeout(600);assert b.locator('#timer-display').inner_text()==paused
-    b.locator('#btn-reset').click();b.wait_for_function("document.getElementById('timer-display').textContent==='00:00'");checks.append(scheme+': timer start/pause/reset and input-key isolation')
+    b.locator('#btn-pause').click()
+    b.wait_for_function('presenterTest.getState().clock.running');a.wait_for_function('phdDeck.presenter.getState().clock.running')
+    started=b.evaluate('presenterTest.getState().clock');assert started['startedAt']==a.evaluate('phdDeck.presenter.getState().clock.startedAt')
+    # Await the actual display transition. A 250ms tick plus integer-second
+    # formatting can legitimately update just after a fixed 1200ms sample.
+    b.wait_for_function("document.getElementById('timer-display').textContent!=='00:00'",timeout=4000)
+    b.locator('#btn-pause').click();b.wait_for_function('!presenterTest.getState().clock.running');a.wait_for_function('!phdDeck.presenter.getState().clock.running')
+    paused_state=b.evaluate('presenterTest.getState().clock');assert paused_state['elapsedMs']>=1000;assert paused_state==a.evaluate('phdDeck.presenter.getState().clock')
+    paused=b.locator('#timer-display').inner_text();b.wait_for_timeout(1200);assert b.locator('#timer-display').inner_text()==paused;assert b.evaluate('presenterTest.getState().clock')==paused_state
+    b.locator('#btn-reset').click();b.wait_for_function("document.getElementById('timer-display').textContent==='00:00'&&presenterTest.getState().clock.elapsedMs===0&&!presenterTest.getState().clock.running");a.wait_for_function('phdDeck.presenter.getState().clock.elapsedMs===0&&!phdDeck.presenter.getState().clock.running');checks.append(scheme+': timer starts on both windows, display advances, pause remains stable and reset is shared; input-key isolation')
     # Opening at the final slide must load Next too, so going back can reveal it.
     a.evaluate('phdDeck.go(17)');wait_pair(a,b,17);b.close();b=launch(a);assert b.locator('#iframe-nxt').get_attribute('src');b.locator('#btn-prev').click();wait_pair(a,b,16);assert b.locator('#iframe-nxt').is_visible();assert b.frame_locator('#iframe-nxt').locator('.slide.active').get_attribute('id')=='joint-decisions';checks.append(scheme+': last-slide reopen and Next recovery')
     # Two copies of the same deck remain separate.

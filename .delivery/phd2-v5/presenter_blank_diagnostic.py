@@ -12,10 +12,13 @@ with sync_playwright() as p:
   pg.on('pageerror',lambda err:records.append({'type':'pageerror','page':pg.url,'message':str(err)}))
   pg.on('console',lambda msg:records.append({'type':'console','level':msg.type,'page':pg.url,'message':msg.text}) if msg.type in ['error','warning'] else None)
  ctx.on('page',record_page);page=ctx.new_page();page.goto(f.as_uri());page.wait_for_function('window.phdDeck')
+ def observe(pg):
+  pg.evaluate("window.__messageOrigins=[];window.addEventListener('message',e=>{const m=e.data;if(m&&typeof m==='object'&&(m.protocol||m.bridge))window.__messageOrigins.push({origin:e.origin,type:m.type,protocol:m.protocol||m.bridge,ports:e.ports.length})})")
+ observe(page)
  with page.expect_popup() as pop:page.locator('#presenter').click()
- speaker=pop.value;speaker.wait_for_timeout(2500)
+ speaker=pop.value;observe(speaker);speaker.wait_for_timeout(2500)
  def state(pg):
-  return pg.evaluate('''()=>{const read=(fn)=>{try{return fn()}catch(e){return {error:e.name+': '+e.message}}};return {url:location.href,origin:location.origin,windowOrigin:self.origin,hasOpener:!!opener,openerOrigin:read(()=>opener.location.origin),openerDocumentReadable:read(()=>!!opener.document),scriptCount:document.scripts.length,bodyText:document.body.innerText.slice(-2500),presenterApi:read(()=>window.presenterTest?.getState()),audienceApi:read(()=>window.phdDeck?.presenter.getState()),bootstrap:read(()=>{const b=window.__PRESENTER_BOOTSTRAP__;return b?{expectedOrigin:b.expectedOrigin,targetOrigin:b.targetOrigin}:null})}}''')
+  return pg.evaluate('''()=>{const read=(fn)=>{try{return fn()}catch(e){return {error:e.name+': '+e.message}}};return {url:location.href,origin:location.origin,windowOrigin:self.origin,messageOrigins:window.__messageOrigins,hasOpener:!!opener,openerOrigin:read(()=>opener.location.origin),openerDocumentReadable:read(()=>!!opener.document),scriptCount:document.scripts.length,bodyText:document.body.innerText.slice(-2500),presenterApi:read(()=>window.presenterTest?.getState()),audienceApi:read(()=>window.phdDeck?.presenter.getState()),bootstrap:read(()=>{const b=window.__PRESENTER_BOOTSTRAP__;return b?{expectedOrigin:b.expectedOrigin,targetOrigin:b.targetOrigin}:null})}}''')
  result={'html_sha256':hashlib.sha256(f.read_bytes()).hexdigest(),'audience':state(page),'presenter':state(speaker),'events':records}
  page.screenshot(path=str(out/'audience.png'),full_page=True);speaker.screenshot(path=str(out/'presenter.png'),full_page=True)
  (out/'diagnostic.json').write_text(json.dumps(result,ensure_ascii=False,indent=2));print(json.dumps(result,ensure_ascii=False));browser.close()
