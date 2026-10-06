@@ -36,7 +36,7 @@ jobs:
         run: |
           from pathlib import Path
           import hashlib,json,py_compile
-          expected={'.delivery/phd2-v4/candidate.html':'bf8b4a0e51e12a512446bec88d10142caa15e85e9339d521ee28936c2c6aafd4','.delivery/phd2-v5/candidate.html':'56286f3ba1c33f1baf17525e45d828c302d4b6f2559095c4519389f5efb1be0c'}
+          expected={'.delivery/phd2-v4/candidate.html':'bf8b4a0e51e12a512446bec88d10142caa15e85e9339d521ee28936c2c6aafd4','.delivery/phd2-v5/candidate.html':'5e441b28aacbcf0f687e212871b95b425262e1884949ac7d39d506f47a6da932'}
           for name,sha in expected.items():
               assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==sha,name
           for script in Path('.delivery/phd2-v5').glob('*.py'):
