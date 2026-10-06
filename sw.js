@@ -4,6 +4,7 @@ const SHELL=['./','./index.html','./styles.css','./studio.css','./research.css',
 SHELL.push('./src/spatial-inputs.js','./data/derived/spatial-inputs-2025.json','./src/atlas-status.js','./src/local-classification.js','./src/coverage-panel.js','./src/cover-summary.js','./src/landcover-layer.js','./src/regional-raster.js','./src/regional-atlas-layers.js','./vendor/geotiff.js','./vendor/proj4.js');
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(SHELL.map(url=>new Request(url,{cache:'reload'})))).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('farmsystem-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
+self.addEventListener('message',e=>{if(e.data?.type==='FARM_SHELL_IDENTITY'&&e.ports?.[0])e.ports[0].postMessage({cache:CACHE,shell:SHELL});});
 self.addEventListener('fetch',e=>{const u=new URL(e.request.url);if(e.request.method!=='GET'||u.origin!==self.location.origin||!u.pathname.startsWith(new URL(self.registration.scope).pathname))return;
  // Metadata already revalidates. Revalidate executable/UI assets too, so a warm HTTP
  // cache cannot keep old modules beside a fresh version.json. Large map data keep
