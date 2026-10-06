@@ -37,6 +37,10 @@ jobs:
           from pathlib import Path
           import hashlib,json,py_compile
           expected={'.delivery/phd2-v4/candidate.html':'bf8b4a0e51e12a512446bec88d10142caa15e85e9339d521ee28936c2c6aafd4','.delivery/phd2-v5/candidate.html':'5e441b28aacbcf0f687e212871b95b425262e1884949ac7d39d506f47a6da932'}
+          expected['.delivery/phd2-v06-r2/candidate.html']='8639b5d34dc3e0a389bca3aa82d4519ab6673452df40c40b5d49adc2d5819e6d'
+          assert Path('.delivery/phd2-v06-r2/candidate.html').stat().st_size==5402339
+          for script in Path('.delivery/phd2-v06-r2').glob('*.py'):
+              py_compile.compile(str(script),doraise=True)
           for name,sha in expected.items():
               assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==sha,name
           for script in Path('.delivery/phd2-v5').glob('*.py'):
@@ -82,6 +86,40 @@ jobs:
       - name: Render all 18 pages, languages, mobile and print
         if: ${{ !cancelled() && steps.browser-identity.outcome == 'success' }}
         run: python .delivery/phd2-v5/browser_qa.py .delivery/phd2-v5/candidate.html test-results/phd2/layout
+      - name: Frozen r2 original 16 presenter acceptance checks unchanged
+        if: ${{ !cancelled() && steps.browser-identity.outcome == 'success' }}
+        run: python .delivery/phd2-v5/presenter_mit_qa.py .delivery/phd2-v06-r2/candidate.html test-results/phd2/r2-original-presenter
+      - name: Frozen r2 file HTTP presenter appendix isolation and offline acceptance
+        if: ${{ !cancelled() && steps.browser-identity.outcome == 'success' }}
+        env:
+          QA_BROWSER_LABEL: ${{ matrix.label }}
+        run: python .delivery/phd2-v06-r2/browser_acceptance.py .delivery/phd2-v06-r2/candidate.html test-results/phd2/r2-presenter
+      - name: Frozen r2 all 18 main pages using unchanged visual assertions
+        if: ${{ !cancelled() && steps.browser-identity.outcome == 'success' }}
+        run: python .delivery/phd2-v5/browser_qa.py .delivery/phd2-v06-r2/candidate.html test-results/phd2/r2-main-layout
+      - name: Frozen r2 all 27 appendix pages languages DPI mobile and print
+        if: ${{ !cancelled() && steps.browser-identity.outcome == 'success' }}
+        run: python .delivery/phd2-v06-r2/appendix_layout.py .delivery/phd2-v06-r2/candidate.html test-results/phd2/r2-appendix-layout
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phd2-r2-${{ matrix.label }}-acceptance
+          path: |
+            test-results/phd2/r2-presenter
+            test-results/phd2/r2-original-presenter
+            test-results/phd2/r2-main-layout/*.json
+            test-results/phd2/r2-main-layout/*.pdf
+            test-results/phd2/r2-appendix-layout/*.json
+            test-results/phd2/r2-appendix-layout/*.pdf
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phd2-r2-${{ matrix.label }}-screenshots
+          path: |
+            test-results/phd2/r2-main-layout/*.png
+            test-results/phd2/r2-appendix-layout/*.png
+          retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -125,3 +163,4 @@ jobs:
           name: phd2-${{ matrix.label }}-layout-tablet768
           path: test-results/phd2/layout/mobile-768-*.png
           retention-days: 14
+
