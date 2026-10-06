@@ -14,6 +14,7 @@ import subprocess
 import threading
 import time
 import traceback
+import zipfile
 
 
 ROUTES = ['atlas', 'research', 'overview', 'resources', 'analysis', 'planner',
@@ -373,6 +374,12 @@ def verify_offline(browser, out, check):
         page.goto(base + 'offline.html', wait_until='networkidle', timeout=budget())
         wait_ready()
 
+        page.evaluate("""() => {
+            const state=window.__blobAudit={created:[],revoked:[]};
+            const create=URL.createObjectURL.bind(URL),revoke=URL.revokeObjectURL.bind(URL);
+            URL.createObjectURL=blob=>{const url=create(blob);state.created.push({url,bytes:blob.size,type:blob.type});return url;};
+            URL.revokeObjectURL=url=>{state.revoked.push(url);return revoke(url);};
+        }""")
         for kind, row in [('zip', min(zip_rows, key=lambda row: row['bytes'])),
                           ('tif', min(tif_rows, key=lambda row: row['bytes']))]:
             page.evaluate('''path => {
@@ -384,14 +391,27 @@ def verify_offline(browser, out, check):
             with page.expect_download(timeout=budget(30000)) as event:
                 page.locator('#offline-test-download').click()
             download = event.value
+            verify(f'{kind.upper()} download is generated from a local Blob while offline', download.url.startswith('blob:'))
             destination = out / ('offline-download-' + Path(row['path']).name)
             download.save_as(str(destination))
             payload = destination.read_bytes()
+            verify(f'{kind.upper()} native download reports success and a safe expected filename', download.failure() is None and download.suggested_filename == Path(row['path']).name)
+            if kind == 'zip':
+                with zipfile.ZipFile(destination) as archive:
+                    verify('downloaded offline ZIP has a valid archive and CRC', archive.testzip() is None)
             verify(f'real browser {kind.upper()} download succeeds offline with exact original bytes',
                    len(payload) == row['bytes'] and hashlib.sha256(payload).hexdigest() == row['sha256'])
             report.setdefault('downloads', []).append({'path': row['path'], 'file': destination.name,
                                                        'bytes': len(payload), 'sha256': hashlib.sha256(payload).hexdigest()})
 
+        picker_row=min(zip_rows,key=lambda row:row['bytes'])
+        page.locator('details').first.locator('summary').click()
+        page.locator('#asset-filter').fill(picker_row['path'])
+        page.select_option('#asset-file',picker_row['path'])
+        with page.expect_download(timeout=budget(30000)) as event:
+            page.locator('#asset-download').click()
+        picker_download=event.value;picker_path=out/'offline-picker.zip';picker_download.save_as(str(picker_path))
+        verify('the real cached-file picker saves the same exact ZIP bytes',picker_download.failure() is None and picker_download.suggested_filename==Path(picker_row['path']).name and hashlib.sha256(picker_path.read_bytes()).hexdigest()==picker_row['sha256'])
         raster = min((row for row in tif_rows if row['bytes'] >= 4096), key=lambda row: row['bytes'])
         source = (site / raster['path']).read_bytes()
         range_cases = [('bytes=128-1023', 206, source[128:1024], f'bytes 128-1023/{len(source)}'),
@@ -409,6 +429,34 @@ def verify_offline(browser, out, check):
             verify(f'offline TIFF {header} returns correct {status} body and Content-Range',
                    observed['status'] == status and observed['range'] == content_range and
                    observed['bytes'] == len(expected) and observed['sha256'] == hashlib.sha256(expected).hexdigest())
+        # Exercise repeat/cancel/lifetime in the actual browser, without live networking.
+        repeat=min(zip_rows,key=lambda row:row['bytes'])
+        page.evaluate("path => {const a=document.querySelector('#offline-test-download');a.href=new URL(path,location.href);a.download=path.split('/').pop();}",repeat['path'])
+        with page.expect_download(timeout=budget(30000)) as event:
+            page.locator('#offline-test-download').click()
+        repeated=event.value;repeat_file=out/'offline-repeat.zip';repeated.save_as(str(repeat_file))
+        verify('repeating the same offline download produces the same exact ZIP bytes',hashlib.sha256(repeat_file.read_bytes()).hexdigest()==repeat['sha256'])
+        page.once('download',lambda download:download.cancel())
+        with page.expect_download(timeout=budget(30000)) as event:
+            page.evaluate("""async()=>{
+                const {saveBlobFile}=await import('./src/offline-downloads.js');
+                saveBlobFile({blob:new Blob([new Uint8Array(128*1024*1024)],{type:'application/octet-stream'}),filename:'offline-cancellation-fixture.bin'});
+            }""")
+        cancel_download=event.value;cancel_download.cancel();cancel_failure=cancel_download.failure()
+        report['cancellation']={'fixtureBytes':128*1024*1024,'failure':cancel_failure,'cancelled':cancel_failure=='canceled','completedBeforeCancel':cancel_failure is None}
+        verify('canceling an in-progress local Blob download is handled without a page exception',cancel_failure == 'canceled' and not report['pageErrors'])
+        audit=page.evaluate('window.__blobAudit')
+        verify('verified ZIP and TIFF Blob MIME types are preserved',audit['created'][0]['type']=='application/zip' and audit['created'][1]['type']=='image/tiff')
+        verify('ObjectURLs remain available through the initial download window',not audit['revoked'])
+        page.wait_for_function('window.__blobAudit.created.every(row=>window.__blobAudit.revoked.includes(row.url))',timeout=budget(65000))
+        report['blobLifetime']=page.evaluate('window.__blobAudit')
+        verify('all local download ObjectURLs are released after the bounded use window',len(report['blobLifetime']['created'])==len(report['blobLifetime']['revoked']))
+        with page.expect_download(timeout=budget(30000)) as event:
+            page.locator('#offline-test-download').click()
+        leaving=event.value
+        page.goto(base+'#data',wait_until='networkidle',timeout=budget(30000))
+        after_leave=out/'offline-after-navigation.zip';leaving.save_as(str(after_leave))
+        verify('leaving the document after download starts preserves the exact ZIP result',hashlib.sha256(after_leave.read_bytes()).hexdigest()==repeat['sha256'])
         sentinels = page.evaluate('''async () => {
             const other = await (await caches.open('user-other-cache')).match(new URL('private-sentinel.txt', location.origin));
             const scope = await (await caches.open('farmsystem-shell-%2Fother%2F-vtest')).match(new URL('/other/index.html', location.origin));

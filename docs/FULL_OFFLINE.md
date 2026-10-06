@@ -13,3 +13,7 @@ All frozen files published at this site's path are covered. The build's existing
 ## Upgrade and storage safety
 
 The app shell is revalidated independently of large map assets. Worker identity is established through a read-only message on the actual page controller. Activation does not reload pages or rewrite user plans. The complete bundle and metadata cache names include the site path; the worker ignores other scopes. Old complete bundles are retained, so low space is reported rather than silently deleting user storage. Offline raster single-range requests receive proper 206 responses from verified complete files.
+
+## Saving a file while disconnected
+
+Same-origin download links use the verified retained bytes when available and create a local Blob download. The offline page also provides a searchable file picker. This avoids relying on the browser network download path while disconnected. Each retained file is checked again by size and SHA-256 before saving; external links are unchanged.
