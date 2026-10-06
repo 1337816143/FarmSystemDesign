@@ -1,4 +1,4 @@
-name: Verify PhD2 private-review candidate without deployment
+name: Verify PhD2 presenter repair without deployment
 on:
   push:
     branches: [review/phd2-visual-20261006]
@@ -9,59 +9,111 @@ concurrency:
   cancel-in-progress: false
 jobs:
   verify:
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
+    name: ${{ matrix.label }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            label: linux-chromium
+          - os: windows-2025
+            label: windows-edge
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
-      - name: Verify frozen input
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify exact old and repaired inputs
+        shell: python
         run: |
-          echo 'bf8b4a0e51e12a512446bec88d10142caa15e85e9339d521ee28936c2c6aafd4  .delivery/phd2-v4/candidate.html' | sha256sum -c -
-          python -m py_compile .delivery/phd2-v4/layout_qa.py .delivery/phd2-v4/presenter_qa.py
-      - name: Install official browser testing runtime
+          from pathlib import Path
+          import hashlib,json,py_compile
+          expected={'.delivery/phd2-v4/candidate.html':'bf8b4a0e51e12a512446bec88d10142caa15e85e9339d521ee28936c2c6aafd4','.delivery/phd2-v5/candidate.html':'3a54eeb7c4ce3710462459b9bf188262749d51beb6ec5c8cd70255b21d1bf407'}
+          for name,sha in expected.items():
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==sha,name
+          for script in Path('.delivery/phd2-v5').glob('*.py'):
+              py_compile.compile(str(script),doraise=True)
+          Path('test-results/phd2').mkdir(parents=True,exist_ok=True)
+          Path('test-results/phd2/input-identities.json').write_text(json.dumps(expected,indent=2))
+      - name: Install official Playwright runtime
+        run: python -m pip install playwright==1.63.0
+      - name: Install Chromium on Linux
+        if: runner.os == 'Linux'
+        run: python -m playwright install --with-deps chromium
+      - name: Select and record the preinstalled signed Microsoft Edge
+        if: runner.os == 'Windows'
+        shell: pwsh
         run: |
-          python -m pip install playwright
-          python -m playwright install --with-deps chromium
-      - name: Render all pages, languages, mobile and print
-        run: python .delivery/phd2-v4/layout_qa.py .delivery/phd2-v4/candidate.html test-results/phd2/layout
-      - name: Test real separate presenter windows
+          $candidates = @(
+            (Join-Path ${env:ProgramFiles(x86)} 'Microsoft\Edge\Application\msedge.exe'),
+            (Join-Path $env:ProgramFiles 'Microsoft\Edge\Application\msedge.exe')
+          )
+          $edge = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+          if (-not $edge) { throw 'Preinstalled Edge executable was not found; do not substitute an unverified download' }
+          $signature = Get-AuthenticodeSignature $edge
+          if ($signature.Status -ne 'Valid' -or $signature.SignerCertificate.Subject -notmatch 'Microsoft') { throw 'Edge signature is not valid Microsoft software' }
+          @{path=$edge;version=(Get-Item $edge).VersionInfo.ProductVersion;signature=$signature.Status.ToString();sha256=(Get-FileHash $edge -Algorithm SHA256).Hash} | ConvertTo-Json | Set-Content test-results/phd2/edge-identity.json
+          "CHROMIUM_EXECUTABLE=$edge" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+      - name: Verify frozen presenter message ordering
+        run: node .delivery/phd2-v5/presenter_sequence_standalone.cjs .delivery/phd2-v5/candidate.html test-results/phd2/presenter-sequence.json
+      - name: Record the actual running browser version
+        run: python .delivery/phd2-v5/runtime_identity.py test-results/phd2/browser-identity.json
+      - name: Diagnose original user-preview blank presenter
         if: ${{ !cancelled() }}
-        run: python .delivery/phd2-v4/presenter_qa.py .delivery/phd2-v4/candidate.html test-results/phd2/presenter
+        run: python .delivery/phd2-v5/presenter_blank_diagnostic.py .delivery/phd2-v4/candidate.html test-results/phd2/v4-diagnostic
+      - name: Diagnose repaired presenter
+        if: ${{ !cancelled() }}
+        run: python .delivery/phd2-v5/presenter_blank_diagnostic.py .delivery/phd2-v5/candidate.html test-results/phd2/v5-diagnostic
+      - name: Real file and HTTP presenter windows
+        if: ${{ !cancelled() }}
+        run: python .delivery/phd2-v5/presenter_mit_qa.py .delivery/phd2-v5/candidate.html test-results/phd2/presenter
+      - name: Render all 18 pages, languages, mobile and print
+        if: ${{ !cancelled() }}
+        run: python .delivery/phd2-v5/browser_qa.py .delivery/phd2-v5/candidate.html test-results/phd2/layout
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: phd2-report-presenter-print
+          name: phd2-${{ matrix.label }}-reports-presenter-print
           path: |
+            test-results/phd2/*.json
+            test-results/phd2/v4-diagnostic
+            test-results/phd2/v5-diagnostic
+            test-results/phd2/presenter
             test-results/phd2/layout/*.json
             test-results/phd2/layout/*.pdf
-            test-results/phd2/presenter
           retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: phd2-layout-2048
+          name: phd2-${{ matrix.label }}-layout-2048
           path: test-results/phd2/layout/2048-*.png
           retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: phd2-layout-1440
+          name: phd2-${{ matrix.label }}-layout-1440
           path: test-results/phd2/layout/1440-*.png
           retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: phd2-layout-1366
+          name: phd2-${{ matrix.label }}-layout-1366
           path: test-results/phd2/layout/1366-*.png
           retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: phd2-layout-mobile390
+          name: phd2-${{ matrix.label }}-layout-mobile390
           path: test-results/phd2/layout/mobile-390-*.png
           retention-days: 14
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: phd2-layout-tablet768
+          name: phd2-${{ matrix.label }}-layout-tablet768
           path: test-results/phd2/layout/mobile-768-*.png
           retention-days: 14
