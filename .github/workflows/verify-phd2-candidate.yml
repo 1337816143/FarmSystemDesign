@@ -1,0 +1,67 @@
+name: Verify PhD2 private-review candidate without deployment
+on:
+  push:
+    branches: [review/phd2-visual-20261006]
+permissions:
+  contents: read
+concurrency:
+  group: phd2-review-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify frozen input
+        run: |
+          echo 'bf8b4a0e51e12a512446bec88d10142caa15e85e9339d521ee28936c2c6aafd4  .delivery/phd2-v4/candidate.html' | sha256sum -c -
+          python -m py_compile .delivery/phd2-v4/layout_qa.py .delivery/phd2-v4/presenter_qa.py
+      - name: Install official browser testing runtime
+        run: |
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Render all pages, languages, mobile and print
+        run: python .delivery/phd2-v4/layout_qa.py .delivery/phd2-v4/candidate.html test-results/phd2/layout
+      - name: Test real separate presenter windows
+        if: ${{ !cancelled() }}
+        run: python .delivery/phd2-v4/presenter_qa.py .delivery/phd2-v4/candidate.html test-results/phd2/presenter
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phd2-report-presenter-print
+          path: |
+            test-results/phd2/layout/*.json
+            test-results/phd2/layout/*.pdf
+            test-results/phd2/presenter
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phd2-layout-2048
+          path: test-results/phd2/layout/2048-*.png
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phd2-layout-1440
+          path: test-results/phd2/layout/1440-*.png
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phd2-layout-1366
+          path: test-results/phd2/layout/1366-*.png
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phd2-layout-mobile390
+          path: test-results/phd2/layout/mobile-390-*.png
+          retention-days: 14
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: phd2-layout-tablet768
+          path: test-results/phd2/layout/mobile-768-*.png
+          retention-days: 14
