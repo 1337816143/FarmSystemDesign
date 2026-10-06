@@ -1,8 +1,8 @@
 {
-  "version": "0.3.15",
-  "name": "Spatial Rainfall Input Contract",
+  "version": "0.3.16",
+  "name": "Constraint Diagnostics and Safe Shell Refresh",
   "channel": "research-preview",
-  "releasedOn": "2026-10-04",
+  "releasedOn": "2026-10-06",
   "modelVersion": "screening-0.2.1",
   "dataVersion": "evidence-2025-r1+assumptions-r2",
   "regionalEvidenceVersion": "hainan-regional-2026-10-03-r4",
@@ -10,11 +10,11 @@
   "storageVersion": 2,
   "commit": "local-preview",
   "changes": [
-    "Optional CHIRPS 2025 representative-point rainfall input with a frozen, auditable source contract",
-    "110 unchanged plots resolve to one 0.05-degree climate cell; no plot-scale rainfall or calibration claim",
-    "Original NASA default, maps, model assumptions, complete candidate frontier and saved snapshots remain available",
-    "Land-cover, OSM administrative and temperature joins remain context only; missing spatial inputs block the optional mode"
+    "Complete candidate-level constraint reasons and monthly demand, capacity and shortfall units",
+    "Representative failure diagnostics are not a global infeasibility certificate or a minimum-resource recommendation",
+    "Versioned application shell refresh avoids combining fresh release metadata with stale application modules",
+    "Preserve original maps, NASA default, model coefficients, stored plans and uncalibrated research boundaries"
   ],
-  "engineDigest": "6840fc085bfb9c0513c325118af756c4b5b908213daa5eeb2a78988cee9438e6",
+  "engineDigest": "a9dfc0f3b2b9cde7dca0e0de92e715b85a3b0c5b40692782aa0854e68f776790",
   "spatialInputVersion": "spatial-inputs-2025-r1"
 }

@@ -1,3 +1,11 @@
+# 0.3.16 — Constraint diagnostics and safe shell refresh (2026-10-06)
+
+- Show every retained candidate-level constraint reason, with monthly boundary IDs, demand, capacity, shortfall and resource units
+- Distinguish fewest failed constraints from smallest shortfall, and sampled-search failure from proof that the real decision problem is infeasible
+- Give this UI repair its own release identity and cache; revalidate application shell assets while retaining existing map/raster request behavior
+- Preserve model/data versions, NASA default, geometry and historical saved plans; all production assumptions remain uncalibrated
+- Verify warm-cache upgrades, ordinary reload, saved-plan retention and offline use in the existing browser regression workflow
+
 # 0.3.15 — Spatial rainfall input contract (2026-10-04)
 
 - Added an opt-in CHIRPS 2025 native-grid rainfall sensitivity input with a frozen public source contract and explicit admission checks

@@ -2,7 +2,7 @@
 export const ENGINE_IDENTITY = {
   "format": "FarmSystemDesign.EngineSource.v1",
   "algorithm": "SHA-256",
-  "applicationVersion": "0.3.15",
+  "applicationVersion": "0.3.16",
   "modelVersion": "screening-0.2.1",
   "dataVersion": "evidence-2025-r1+assumptions-r2",
   "modules": [
@@ -43,9 +43,9 @@ export const ENGINE_IDENTITY = {
     },
     {
       "path": "src/version.js",
-      "bytes": 327,
-      "sha256": "621ff9fef1b32e9aa09c541490dbc59b869ef683e40becd31d27d7064f5017f2"
+      "bytes": 341,
+      "sha256": "51351341f185eaeaaae7d3192e3bd076d7857de879b94e74e13ff9f9b25fa657"
     }
   ],
-  "digest": "6840fc085bfb9c0513c325118af756c4b5b908213daa5eeb2a78988cee9438e6"
+  "digest": "a9dfc0f3b2b9cde7dca0e0de92e715b85a3b0c5b40692782aa0854e68f776790"
 };
