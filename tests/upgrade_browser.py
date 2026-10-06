@@ -183,28 +183,29 @@ def verify_upgrade(browser, url, out, check):
         wait_version('0.3.16')
         run_zero()
         verify('offline reload retains new code and old saved plans',
-               page.locator('.infeasible-details').count() == 1 and
+               page.locator('.infeasible-violations li').count() == 78 and
+               page.locator('.infeasible-balances tbody tr').count() == 78 and
                page.evaluate("JSON.parse(localStorage.getItem('farmsystem-workspace-v2')).plans") == saved)
         context.set_offline(False)
         page.set_viewport_size({'width': 390, 'height': 844})
         page.locator('button[data-language="both"]').click()
-        page.wait_for_function("!document.querySelector('#toast').classList.contains('show')")
+        page.wait_for_function("!document.querySelector('#toast').classList.contains('show') && getComputedStyle(document.querySelector('#toast')).opacity==='0'")
         page.wait_for_function("document.querySelector('.sidebar').getBoundingClientRect().right<=1")
         page.locator('.infeasible-details summary').scroll_into_view_if_needed()
         verify('settled bilingual mobile upgrade has no document overflow or toast overlay',
-               page.evaluate("document.documentElement.scrollWidth<=innerWidth+1 && !document.querySelector('#toast').classList.contains('show')"))
+               page.evaluate("document.documentElement.scrollWidth<=innerWidth+1 && !document.querySelector('#toast').classList.contains('show') && getComputedStyle(document.querySelector('#toast')).opacity==='0'"))
         page.screenshot(path=str(out / 'planner-upgraded-mobile-clean.png'))
         page.set_viewport_size({'width': 1440, 'height': 1050})
         page.locator('button[data-language="zh"]').click()
         page.locator('.infeasible-details summary').scroll_into_view_if_needed()
         page.screenshot(path=str(out / 'planner-upgraded-desktop-clean.png'))
-        verify('upgrade workflow has no JavaScript exceptions', not errors)
         # Negative control: fresh version/identity modules alone can label an old UI.
         # Actual DOM behavior, rather than the badge, is the upgrade acceptance criterion.
         mixed = browser.new_context(viewport={'width': 1440, 'height': 1050})
         try:
             state['phase'] = 'mixed'
             probe = mixed.new_page()
+            probe.on('pageerror', lambda error: errors.append('mixed: ' + str(error)))
             probe.goto(f'http://127.0.0.1:{server.server_port}/#planner', wait_until='networkidle')
             probe.wait_for_function("document.querySelector('.top-version')?.textContent==='v0.3.16'")
             probe.wait_for_function('navigator.serviceWorker.controller !== null', timeout=60000)
@@ -230,6 +231,7 @@ def verify_upgrade(browser, url, out, check):
                    probe.locator('.infeasible-violations li').count() == 78)
         finally:
             mixed.close()
+        verify('upgrade workflow including mixed negative control has no JavaScript exceptions', not errors)
         report['requests'] = state['requests']
         (out / 'upgrade-browser-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2))
     except BaseException as error:

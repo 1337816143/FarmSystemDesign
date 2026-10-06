@@ -160,5 +160,5 @@ with sync_playwright() as p:
     verify_infeasible(browser,args.url,out,check)
     verify_upgrade(browser,args.url,out,check)
     browser.close()
-(out/'browser-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'errors':errors},ensure_ascii=False,indent=2),encoding='utf-8')
-print(json.dumps({'passed':len(checks),'checks':checks,'errors':errors},ensure_ascii=False))
+(out/'browser-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'errors':errors,'upgrade':json.loads((out/'upgrade-browser-report.json').read_text())},ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps({'passed':len(checks),'checks':checks,'errors':errors,'upgrade':json.loads((out/'upgrade-browser-report.json').read_text())},ensure_ascii=False))
