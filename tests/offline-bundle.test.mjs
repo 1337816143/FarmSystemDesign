@@ -487,3 +487,13 @@ test('a stale incomplete scan cannot revoke another tab\'s freshly reverified ge
     assert.ok(await otherTab.validResponse(await originalMatch(new URL(row.path, f.scope)), row));
   }
 });
+
+
+test('default fetch keeps the Window receiver required by native browsers', async () => {
+  const f=await fixture(),original=globalThis.fetch;let calls=0;
+  try {
+    globalThis.fetch=function(input,init){assert.equal(this,globalThis,'Native Window.fetch must retain its global receiver');calls++;return f.fetcher(input,init);};
+    const bundle=new OfflineBundle({scope:f.scope,cacheStorage:f.cacheStorage,estimate:async()=>({})});
+    await bundle.start();assert.equal(bundle.state.status,'complete');assert.ok(calls>f.manifest.totalFiles);
+  } finally {globalThis.fetch=original;}
+});

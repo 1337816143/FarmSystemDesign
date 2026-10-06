@@ -1,7 +1,7 @@
 import fs from 'node:fs';
 import {makeOfflineManifest} from './offline-manifest.mjs';
 const target='_site';fs.rmSync(target,{recursive:true,force:true});fs.mkdirSync(target);
-for(const p of ['index.html','offline.html','discussion','styles.css','studio.css','research.css','language.css','vendor','version.json','CHANGELOG.md','GLOSSARY.md','icon.svg','manifest.webmanifest','sw.js','src','data','docs'])fs.cpSync(p,`${target}/${p}`,{recursive:true});
+for(const p of ['index.html','offline.html','styles.css','studio.css','research.css','language.css','vendor','version.json','CHANGELOG.md','GLOSSARY.md','icon.svg','manifest.webmanifest','sw.js','src','data','docs'])fs.cpSync(p,`${target}/${p}`,{recursive:true});
 fs.rmSync(`${target}/data/hainan/source`,{recursive:true,force:true});
 fs.writeFileSync(`${target}/.nojekyll`,'');
 // Old failed browse acquisition is a QC record, not an image offered as valid data.

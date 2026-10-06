@@ -1,6 +1,5 @@
 ## 0.3.17 · 2026-10-06
 
-- Added the self-contained bilingual PhD2 discussion as an independent navigation tab.
 - Added a complete published-site offline manifest with SHA-256 and byte counts, verified resumable downloads, retry and quota reporting.
 - Offline fallback includes local raster byte ranges. External live sources remain explicitly online-only.
 - Only the current site scope app-shell caches are replaced; full bundles, saved plans, notes and other websites are preserved.

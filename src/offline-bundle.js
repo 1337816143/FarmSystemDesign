@@ -28,7 +28,7 @@ export async function validateManifest(manifest, scope) {
   return manifest;
 }
 export class OfflineBundle {
-  constructor({scope=new URL('../',import.meta.url).href,cacheStorage=globalThis.caches,fetcher=globalThis.fetch,
+  constructor({scope=new URL('../',import.meta.url).href,cacheStorage=globalThis.caches,fetcher=(...args)=>globalThis.fetch(...args),
     estimate=()=>navigator.storage?.estimate?.()||Promise.resolve({}),onProgress=()=>{},concurrency=3,retries=2}={}) {
     this.scope=new URL(scope).href;this.caches=cacheStorage;this.fetcher=fetcher;this.estimate=estimate;
     this.onProgress=onProgress;this.concurrency=concurrency;this.retries=retries;this.running=false;this.loading=false;this.inspecting=false;this.cancelled=false;

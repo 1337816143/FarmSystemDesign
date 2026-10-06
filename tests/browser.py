@@ -1,6 +1,6 @@
 """End-to-end UI test against a real static HTTP server; no external map tile scraping."""
 from pathlib import Path
-import argparse,json,os,subprocess,sys
+import argparse,json,os
 from playwright.sync_api import sync_playwright
 from pareto_browser import verify_pareto
 from provenance_browser import verify_provenance
@@ -162,6 +162,5 @@ with sync_playwright() as p:
     verify_upgrade(browser,args.url,out,check)
     verify_offline(browser,out,check)
     browser.close()
-subprocess.run([sys.executable,str(Path(__file__).with_name('discussion_browser.py')),str(Path(__file__).resolve().parents[1]/'discussion/index.html'),str(out/'discussion')],check=True)
-(out/'browser-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'errors':errors,'upgrade':json.loads((out/'upgrade-browser-report.json').read_text()),'offline':json.loads((out/'offline-browser-report.json').read_text()),'discussion':json.loads((out/'discussion/result.json').read_text())},ensure_ascii=False,indent=2),encoding='utf-8')
-print(json.dumps({'passed':len(checks),'checks':checks,'errors':errors,'upgrade':json.loads((out/'upgrade-browser-report.json').read_text()),'offline':json.loads((out/'offline-browser-report.json').read_text()),'discussion':json.loads((out/'discussion/result.json').read_text())},ensure_ascii=False))
+(out/'browser-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'errors':errors,'upgrade':json.loads((out/'upgrade-browser-report.json').read_text()),'offline':json.loads((out/'offline-browser-report.json').read_text())},ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps({'passed':len(checks),'checks':checks,'errors':errors,'upgrade':json.loads((out/'upgrade-browser-report.json').read_text()),'offline':json.loads((out/'offline-browser-report.json').read_text())},ensure_ascii=False))

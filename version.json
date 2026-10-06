@@ -11,7 +11,6 @@
   "commit": "local-preview",
   "changes": [
     "Full published-site offline bundle with per-file SHA-256, visible progress, resumable downloads, retries and quota checks",
-    "Independent bilingual PhD2 discussion tab, self-contained for offline presentation",
     "Current controlling-worker identity and complete-shell gate for real warm-cache upgrade regression",
     "External OSM, ArcGIS, offshore remote COG and linked external sites remain online dependencies; local Hainan layers stay available",
     "User plans, notes, original map data and scientific model coefficients remain unchanged"

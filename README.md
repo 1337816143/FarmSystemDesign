@@ -103,4 +103,4 @@ Scenario lab now compares the original NASA rainfall series with an opt-in CHIRP
 
 ## Complete offline presentation bundle (0.3.17)
 
-Use the navigation link **完整离线包 / Complete offline bundle** before disconnecting. It verifies the whole published file set, supports resume/retry and warns about insufficient space or incomplete files. External live map APIs and linked websites remain online-only. See [offline boundaries and verification](docs/FULL_OFFLINE.md). The independent **PhD2 discussion** tab contains the bilingual, self-contained discussion deck.
+Use the navigation link **完整离线包 / Complete offline bundle** before disconnecting. It verifies the whole published file set, supports resume/retry and warns about insufficient space or incomplete files. External live map APIs and linked websites remain online-only. See [offline boundaries and verification](docs/FULL_OFFLINE.md).

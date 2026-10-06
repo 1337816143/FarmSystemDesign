@@ -130,8 +130,8 @@ def verify_offline(browser, out, check):
         entries = manifest['entries']
         report['manifest'] = {key: value for key, value in manifest.items() if key != 'entries'}
         files = sorted(path.relative_to(site).as_posix() for path in site.rglob('*')
-                       if path.is_file() and path.relative_to(site).as_posix() != 'offline-manifest.json')
-        verify('manifest enumerates every published file without exclusions or duplicates',
+                       if path.is_file() and path.relative_to(site).as_posix() not in ['offline-manifest.json', '.nojekyll'])
+        verify('manifest enumerates every served asset, excluding only the deployment control marker',
                sorted(row['path'] for row in entries) == files)
         identity = hashlib.sha256(json.dumps(entries, ensure_ascii=False, separators=(',', ':')).encode()).hexdigest()
         verify('manifest identifier and totals independently recompute',
@@ -143,9 +143,13 @@ def verify_offline(browser, out, check):
                 raise AssertionError('Build manifest does not match published bytes: ' + row['path'])
         verify('all published bytes independently match their SHA-256 records')
         by_path = {row['path']: row for row in entries}
-        verify('published bundle includes the application, offline UI and standalone discussion',
+        verify('only the proven non-served GitHub Pages control marker is omitted',
+               manifest.get('excludedControlFiles') == ['.nojekyll'] and (site / '.nojekyll').is_file() and '.nojekyll' not in by_path)
+        verify('published bundle includes the application and complete offline UI',
                all(path in by_path for path in ['index.html', 'offline.html', 'sw.js',
-                                               'src/offline-bundle.js', 'discussion/index.html']))
+                                               'src/offline-bundle.js']))
+        verify('the separate discussion draft is not included in this offline release',
+               not (site / 'discussion').exists() and not any(p.startswith('discussion/') for p in by_path))
         zip_rows = [row for row in entries if row['path'].lower().endswith('.zip')]
         tif_rows = [row for row in entries if row['path'].lower().endswith(('.tif', '.tiff'))]
         verify('published download archive and TIFF source rasters are included', bool(zip_rows) and bool(tif_rows))
@@ -166,6 +170,9 @@ def verify_offline(browser, out, check):
 
             def do_GET(self):
                 path = unquote(urlsplit(self.path).path).lstrip('/')
+                if path == '.nojekyll':
+                    self.send_error(404, 'GitHub Pages deployment control marker is not served')
+                    return
                 report['requests'].append({'phase': network['phase'], 'path': path,
                                            'range': self.headers.get('Range'),
                                            'offlineBundle': self.headers.get('X-Farm-Offline-Bundle')})
@@ -363,18 +370,6 @@ def verify_offline(browser, out, check):
         page.goto(base, wait_until='networkidle', timeout=budget())
         verify('the site-root directory alias resolves to the offline application',
                page.locator('nav [data-nav="atlas"][aria-current="page"]').count() == 1)
-        page.goto(base + 'discussion/index.html', wait_until='networkidle', timeout=budget())
-        page.wait_for_function('window.phdDeck && window.phdDeck.getState().count === 15', timeout=budget())
-        for index in range(15):
-            page.evaluate('index => window.phdDeck.go(index)', index)
-            verify(f'discussion page {index + 1}/15 renders offline',
-                   page.locator('.slide.active').count() == 1 and
-                   page.locator('#page-counter').inner_text() == f'{index + 1} / 15' and
-                   len(page.locator('.slide.active').inner_text().strip()) > 20)
-        page.screenshot(path=str(out / 'offline-discussion-15.png'), full_page=True, timeout=budget())
-        page.goto(base + 'discussion/', wait_until='networkidle', timeout=budget())
-        page.wait_for_function('window.phdDeck && window.phdDeck.getState().count === 15', timeout=budget())
-        verify('the discussion directory alias resolves offline without falling back to the main app')
         page.goto(base + 'offline.html', wait_until='networkidle', timeout=budget())
         wait_ready()
 

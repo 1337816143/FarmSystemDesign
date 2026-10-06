@@ -8,7 +8,7 @@ export function makeOfflineManifest(root, version) {
       const filename=path.join(dir,item.name),relative=path.relative(root,filename).split(path.sep).join('/');
       if(item.isSymbolicLink())throw Error(`Published symlinks are not supported: ${relative}`);
       if(item.isDirectory())walk(filename);
-      else if(relative!=='offline-manifest.json') {
+      else if(relative!=='offline-manifest.json' && relative!=='.nojekyll') {
         const buffer=fs.readFileSync(filename);
         entries.push({path:relative,bytes:buffer.length,sha256:createHash('sha256').update(buffer).digest('hex')});
       }
@@ -17,6 +17,7 @@ export function makeOfflineManifest(root, version) {
   walk(root);entries.sort((a,b)=>a.path<b.path?-1:a.path>b.path?1:0);
   return {schema:1,id:createHash('sha256').update(JSON.stringify(entries)).digest('hex'),version,
     totalFiles:entries.length,totalBytes:entries.reduce((sum,row)=>sum+row.bytes,0),
-    scope:'All published same-origin files; external live services and linked external websites are excluded.',
+    excludedControlFiles:['.nojekyll'],
+    scope:'All served same-origin files; the GitHub Pages .nojekyll control marker (HTTP 404), external live services and linked external websites are excluded.',
     entries};
 }
