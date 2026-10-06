@@ -24,6 +24,7 @@ export function classifiedTileText(rows,cropsOnly,en=false){
  const parts=[en?`${loaded} classification tiles loaded`:`${loaded} 块分类瓦片已加载`];
  if(pending)parts.push(en?`${pending} loading`:`${pending} 块正在读取`);
  if(failed)parts.push(en?`${failed} requests failed; retry; blank is not confirmed source no-data`:`${failed} 块请求失败，可重试；空白不能认定为无数据`);
+ const offline=rows.filter(r=>r.status==='offline-unavailable').length;if(offline)parts.push(en?`${offline} online-only tiles are unavailable offline; retained local classification remains available`:`${offline} 块仅在线图块离线不可用；已缓存的本地分类仍可显示`);
  const hidden=rows.reduce((n,r)=>n+(Number(r.hiddenClasses)||0),0);if(cropsOnly&&hidden)parts.push(en?`${hidden.toLocaleString('en-US')} non-Crops display pixels hidden`:`${hidden.toLocaleString('zh-CN')} 个非作物显示像元已隐藏`);
  parts.push(cropsOnly?(en?'Crops-only hides all classes except 5; switch to full classification to inspect transparent areas':'作物模式仅显示类别5；透明区请切完整分类核查'):(en?'Class 10 is cloud; source code 0 is no-data':'类别10为云，来源码0为无数据'));
  return parts.join(en?'. ':'；');

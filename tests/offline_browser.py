@@ -360,6 +360,8 @@ def verify_offline(browser, out, check):
                 page.wait_for_function("Array.from(document.querySelectorAll('#hainan-atlas-map canvas.leaflet-tile')).some(c => Number(c.dataset.validPixels) > 0)",
                                        timeout=budget(30000))
                 verify('the local 2025 atlas renders actual valid raster pixels offline')
+                page.wait_for_function("document.querySelector('#atlas-runtime-coverage').textContent.includes('离线')",timeout=budget(30000))
+                verify('online-only classification gaps are labeled explicitly without claiming source no-data')
                 page.screenshot(path=str(out / 'offline-atlas.png'), full_page=True, timeout=budget())
             if route == 'planner':
                 page.select_option('#scope', 'single')
