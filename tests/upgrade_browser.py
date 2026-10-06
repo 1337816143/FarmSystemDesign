@@ -52,6 +52,35 @@ def verify_upgrade(browser, url, out, check):
     page.on('pageerror', lambda error: errors.append(str(error)))
     report = {'sourceCommit': fixture['sourceCommit'], 'checks': [], 'errors': errors}
 
+    def snapshot(stage):
+        report.setdefault('stages', []).append({'stage': stage, 'observed': page.evaluate('''async()=>{
+            const r=await navigator.serviceWorker.getRegistration(),keys=await caches.keys(),cached=[];
+            for(const key of keys){const cache=await caches.open(key);const values={};
+              for(const path of ['src/app.js','src/version.js','src/engine-identity.generated.js']){
+                const response=await cache.match(new URL(path,location.href));
+                if(response){const text=await response.text();values[path]={length:text.length,hasDiagnostics:text.includes('infeasibleDetails'),version:text.match(/(?:VERSION = |applicationVersion": )['"]([^'"]+)/)?.[1]||null};}
+              }cached.push({key,values});
+            }
+            const worker=w=>w?{url:w.scriptURL,state:w.state}:null;
+            return {badge:document.querySelector('.top-version')?.textContent,title:document.title,body:document.body.innerText.slice(0,1800),controller:worker(navigator.serviceWorker.controller),registration:r?{scope:r.scope,active:worker(r.active),installing:worker(r.installing),waiting:worker(r.waiting)}:null,cached};
+        }''')})
+        report['requests'] = state['requests']
+        (out / 'upgrade-browser-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2))
+
+    def response_observed(response):
+        path = urlsplit(response.url).path.lstrip('/')
+        if path not in ['src/app.js', 'src/version.js', 'src/engine-identity.generated.js', 'version.json']:
+            return
+        try:
+            payload = response.body()
+            report.setdefault('moduleResponses', []).append({'phase': state['phase'], 'path': path,
+                'status': response.status, 'fromServiceWorker': response.from_service_worker,
+                'sha256': hashlib.sha256(payload).hexdigest(), 'bytes': len(payload),
+                'cacheControl': response.headers.get('cache-control')})
+        except Exception as error:
+            report.setdefault('observationErrors', []).append(str(error))
+    page.on('response', response_observed)
+
     def verify(name, value=True):
         check('upgrade: ' + name, value)
         report['checks'].append(name)
@@ -88,6 +117,7 @@ def verify_upgrade(browser, url, out, check):
                page.locator('.infeasible-details').count() == 0 and
                'F02 · 1月劳动超限' in page.locator('main').inner_text() and
                'F13 · 3月劳动超限' not in page.locator('main').inner_text())
+        snapshot('warm-legacy')
         state['phase'] = 'candidate'
         page.reload(wait_until='networkidle')
         new_cache = 'farmsystem-v0.3.16-20261006-constraint-diagnostics-r1'
@@ -99,6 +129,7 @@ def verify_upgrade(browser, url, out, check):
         }''', arg=new_cache, timeout=60000)
         first_version = page.locator('.top-version').inner_text()
         report['firstReloadAppVersion'] = first_version
+        snapshot('new-cache-ready-before-second-reload')
         if first_version == 'v0.3.15':
             page.locator('.top-version').click()
             page.wait_for_selector('[data-release-state="unavailable"]')
@@ -107,6 +138,7 @@ def verify_upgrade(browser, url, out, check):
             page.locator('#modal [data-action="close-modal"]').first.click()
         # Activation cannot replace code already running. Do not auto-reload or clear user state.
         page.reload(wait_until='networkidle')
+        snapshot('after-second-ordinary-reload')
         wait_version('0.3.16')
         run_zero()
         page.wait_for_selector('.infeasible-details')
@@ -179,6 +211,11 @@ def verify_upgrade(browser, url, out, check):
             mixed.close()
         report['requests'] = state['requests']
         (out / 'upgrade-browser-report.json').write_text(json.dumps(report, ensure_ascii=False, indent=2))
+    except BaseException as error:
+        report['failure'] = str(error)
+        snapshot('failure')
+        page.screenshot(path=str(out / 'planner-upgrade-failure.png'), full_page=True)
+        raise
     finally:
         context.close()
         server.shutdown()
