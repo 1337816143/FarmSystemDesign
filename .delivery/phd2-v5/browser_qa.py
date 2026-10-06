@@ -29,7 +29,11 @@ with sync_playwright() as p:
     page.evaluate('n=>phdDeck.go(n)',i);page.wait_for_timeout(35)
     assert page.locator('.slide.active').count()==1
     assert page.locator('#page-counter').inner_text()==f'{i+1} / 18'
-    bad=geometry(page);results.append({'width':w,'height':h,'lang':lang,'slide':i+1,'overflow':bad})
+    bad=geometry(page)
+    horizontal=page.evaluate('({width:innerWidth,scrollWidth:document.documentElement.scrollWidth})')
+    if horizontal['scrollWidth']>horizontal['width']+1:bad.append('Document horizontal overflow: '+json.dumps(horizontal))
+    results.append({'width':w,'height':h,'lang':lang,'slide':i+1,'overflow':bad})
+    (OUT/'browser-report.partial.json').write_text(json.dumps({'checks':checks,'page_errors':errors,'geometries':results,'failed_geometries':[r for r in results if r['overflow']]},ensure_ascii=False,indent=2),encoding='utf-8')
     page.screenshot(path=str(OUT/f'{w}-{lang}-{i+1:02}.png'),full_page=True)
  ok('108 actual desktop slide screenshots across 3 viewports and 2 languages')
  # Numerical assertions compare source aggregate JSON and generated chart marks.
@@ -70,8 +74,12 @@ with sync_playwright() as p:
   for lang in ['en','zh']:
    page.evaluate('l=>phdDeck.language(l)',lang)
    for i in range(18):
-    page.evaluate('n=>phdDeck.go(n)',i);page.screenshot(path=str(OUT/f'mobile-{w}-{lang}-{i+1:02}.png'),full_page=True);assert page.evaluate('document.documentElement.scrollWidth<=innerWidth+1')
-    bad=geometry(page);results.append({'width':w,'height':h,'lang':lang,'slide':i+1,'overflow':bad})
+    page.evaluate('n=>phdDeck.go(n)',i);page.screenshot(path=str(OUT/f'mobile-{w}-{lang}-{i+1:02}.png'),full_page=True)
+    bad=geometry(page)
+    horizontal=page.evaluate('({width:innerWidth,scrollWidth:document.documentElement.scrollWidth})')
+    if horizontal['scrollWidth']>horizontal['width']+1:bad.append('Document horizontal overflow: '+json.dumps(horizontal))
+    results.append({'width':w,'height':h,'lang':lang,'slide':i+1,'overflow':bad})
+    (OUT/'browser-report.partial.json').write_text(json.dumps({'checks':checks,'page_errors':errors,'geometries':results,'failed_geometries':[r for r in results if r['overflow']]},ensure_ascii=False,indent=2),encoding='utf-8')
  ok('72 real mobile/tablet screenshots; no page-level horizontal overflow')
  reduced_ctx=browser.new_context(viewport={'width':1440,'height':900},reduced_motion='reduce');rp=reduced_ctx.new_page();rp.goto(url);assert rp.evaluate('phdDeck.getState().reducedMotion');assert not rp.evaluate('phdDeck.getState().animationPlaying');rp.evaluate('phdDeck.go(11)');rp.locator('#anim-next').click();assert rp.evaluate('phdDeck.getState().animationStep')==1;ok('Reduced motion defaults to paused; manual step works')
  assert not errors,errors;external=[u for u in requests if u.startswith(('http://','https://')) and u!=url];assert not external,external;ok('No runtime errors or external runtime asset requests')

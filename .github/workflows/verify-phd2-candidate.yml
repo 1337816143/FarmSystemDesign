@@ -20,6 +20,8 @@ jobs:
             label: windows-edge
     runs-on: ${{ matrix.os }}
     timeout-minutes: 25
+    env:
+      PYTHONUTF8: '1'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -29,6 +31,7 @@ jobs:
         with:
           node-version: '22'
       - name: Verify exact old and repaired inputs
+        id: inputs
         shell: python
         run: |
           from pathlib import Path
@@ -62,18 +65,22 @@ jobs:
       - name: Verify frozen presenter message ordering
         run: node .delivery/phd2-v5/presenter_sequence_standalone.cjs .delivery/phd2-v5/candidate.html test-results/phd2/presenter-sequence.json
       - name: Record the actual running browser version
+        id: browser-identity
         run: python .delivery/phd2-v5/runtime_identity.py test-results/phd2/browser-identity.json
       - name: Diagnose original user-preview blank presenter
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.browser-identity.outcome == 'success' }}
         run: python .delivery/phd2-v5/presenter_blank_diagnostic.py .delivery/phd2-v4/candidate.html test-results/phd2/v4-diagnostic
       - name: Diagnose repaired presenter
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.browser-identity.outcome == 'success' }}
         run: python .delivery/phd2-v5/presenter_blank_diagnostic.py .delivery/phd2-v5/candidate.html test-results/phd2/v5-diagnostic
+      - name: Diagnose timer state and focus without relaxing acceptance
+        if: ${{ !cancelled() && steps.browser-identity.outcome == 'success' }}
+        run: python .delivery/phd2-v5/presenter_timer_diagnostic.py .delivery/phd2-v5/candidate.html test-results/phd2/timer-diagnostic
       - name: Real file and HTTP presenter windows
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.browser-identity.outcome == 'success' }}
         run: python .delivery/phd2-v5/presenter_mit_qa.py .delivery/phd2-v5/candidate.html test-results/phd2/presenter
       - name: Render all 18 pages, languages, mobile and print
-        if: ${{ !cancelled() }}
+        if: ${{ !cancelled() && steps.browser-identity.outcome == 'success' }}
         run: python .delivery/phd2-v5/browser_qa.py .delivery/phd2-v5/candidate.html test-results/phd2/layout
       - uses: actions/upload-artifact@v4
         if: always()
@@ -84,6 +91,7 @@ jobs:
             test-results/phd2/v4-diagnostic
             test-results/phd2/v5-diagnostic
             test-results/phd2/presenter
+            test-results/phd2/timer-diagnostic
             test-results/phd2/layout/*.json
             test-results/phd2/layout/*.pdf
           retention-days: 14
