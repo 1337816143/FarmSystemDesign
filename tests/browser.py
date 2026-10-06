@@ -5,6 +5,7 @@ from playwright.sync_api import sync_playwright
 from pareto_browser import verify_pareto
 from provenance_browser import verify_provenance
 from spatial_inputs_browser import verify_spatial_inputs
+from infeasible_browser import verify_infeasible
 parser=argparse.ArgumentParser();parser.add_argument('--url',default='http://127.0.0.1:4173');parser.add_argument('--output',default='test-results');args=parser.parse_args()
 out=Path(args.output);out.mkdir(exist_ok=True,parents=True)
 checks=[]
@@ -155,6 +156,7 @@ with sync_playwright() as p:
     verify_pareto(browser,args.url,out,check)
     verify_provenance(browser,args.url,out,check)
     verify_spatial_inputs(browser,args.url,out,check)
+    verify_infeasible(browser,args.url,out,check)
     browser.close()
 (out/'browser-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'errors':errors},ensure_ascii=False,indent=2),encoding='utf-8')
 print(json.dumps({'passed':len(checks),'checks':checks,'errors':errors},ensure_ascii=False))
