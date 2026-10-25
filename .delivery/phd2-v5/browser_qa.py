@@ -66,8 +66,12 @@ with sync_playwright() as p:
   for i in range(18):
    page.evaluate('n=>phdDeck.go(n)',i);bad=geometry(page);results.append({'mode':'print','lang':print_lang,'slide':i+1,'overflow':bad})
   page.pdf(path=str(OUT/f'print-{print_lang}.pdf'),print_background=True,prefer_css_page_size=True)
+ print_counts={}
  for lang in ['en','zh']:
-  pdf=(OUT/f'print-{lang}.pdf').read_bytes();n=len(re.findall(rb'/Type\s*/Page\b',pdf));assert n==18,(lang,n)
+  pdf=(OUT/f'print-{lang}.pdf').read_bytes();print_counts[lang]=len(re.findall(rb'/Type\s*/Page\b',pdf))
+ (OUT/'print-page-counts.json').write_text(json.dumps({'expected_pages':18,'actual_pages':print_counts},indent=2),encoding='utf-8')
+ print(json.dumps({'expected_print_pages':18,'actual_print_pages':print_counts}),flush=True)
+ for lang,n in print_counts.items():assert n==18,(lang,n)
  ok('English and Chinese print exports contain exactly 18 pages; all 36 printed slide bounds recorded')
  page.emulate_media(media='screen')
  for w,h in [(390,844),(768,1024)]:

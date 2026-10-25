@@ -17,6 +17,7 @@ def check(name,fn):
  try: detail=fn(); report['checks'].append({'name':name,'status':'passed','detail':detail})
  except Exception as e: report['checks'].append({'name':name,'status':'failed','error':str(e),'traceback':traceback.format_exc()})
  save()
+ print(json.dumps(report['checks'][-1],ensure_ascii=False),flush=True)
 def launch(a):
  with a.expect_popup() as pending: a.locator('#presenter').click()
  b=pending.value
