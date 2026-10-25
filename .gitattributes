@@ -1,3 +1,6 @@
 # Evidence digests describe exact committed bytes on every platform.
 data/hainan/landcover-2025/*.json text eol=lf
 tools/verify_latest_landcover.py text eol=lf
+
+# Preserve the frozen r2 acceptance input exactly on Windows and Linux.
+.delivery/phd2-v06-r2/candidate.html -text
