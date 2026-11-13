@@ -20,6 +20,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
       - name: JavaScript syntax and model invariants
         run: npm run check && npm test
       - name: Independent spatial validation
