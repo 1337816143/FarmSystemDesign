@@ -25,6 +25,14 @@ test('A1 cancel, Escape and direct close all expire their stored submit callback
 test('A1 reopening the same filename binds only the latest file content and confirmation',async()=>{
  const h=importHarness();await h.importFile(sourceFile('same.json','old'));const old=h.modal.form;h.cancel();await h.importFile(sourceFile('same.json','new'));h.confirm(old);assert.equal(h.state.npDraft,null);h.confirm();assert.equal(h.state.npDraft.bindings[0].source,'new');assert.equal(h.audits.length,1);
 });
+test('A1 a queued close from a cancelled dialog cannot expire the next import',async()=>{
+ for(const duringRead of [true,false]){
+  const h=importHarness({deferClose:true});await h.importFile(sourceFile('same.json','old'));h.cancel();
+  const wait=deferred(),next=sourceFile('same.json','new',()=>wait.promise),read=h.importFile(next);
+  if(duringRead)h.flushClose();wait.resolve(next.raw);await read;if(!duringRead)h.flushClose();h.confirm();
+  assert.equal(h.state.npDraft?.bindings[0].source,'new');assert.equal(h.audits.length,1);
+ }
+});
 test('A1 an edit expires an already-open confirmation, without mutating previous draft',async()=>{
  const h=importHarness();await h.importFile(sourceFile('accepted.json','previous'));h.confirm();const previous=JSON.stringify(h.state.npDraft);await h.importFile(sourceFile('new.json','new'));const pending=h.modal.form;h.edit();h.confirm(pending);assert.equal(JSON.stringify(h.state.npDraft),previous);assert.match(h.modal.error.textContent,/expired/);
 });
