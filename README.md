@@ -1,3 +1,25 @@
+# FarmSystem Design · v0.3.26
+
+在线入口：https://1337816143.github.io/FarmSystemDesign/
+
+Windows 完整便携版：[下载 ZIP](https://github.com/1337816143/FarmSystemDesign/releases/download/v0.3.26/FarmSystemDesign-Windows-v0.3.26.zip) · [发行说明及 SHA-256](https://github.com/1337816143/FarmSystemDesign/releases/tag/v0.3.26)
+
+在线版包含 A/B 工作台、公开地图资源及 FarmDESIGN 案例输入编辑和 JSON 项目导出。作者 FarmDESIGN 4.21.5.0 的真实核算、优化、XML 交换以及浏览器／桌面两种原版界面，需要使用 Windows 便携版。解压整个文件夹，双击 `启动Farm.cmd`；不单独复制 HTML。
+
+项目在浏览器或本地便携文件夹保存，没有云端自动同步。发布包不含个人 UserData。原计算程序集及作者案例来源、系统条件和验收边界见 [原版界面说明](docs/FARMDESIGN_ORIGINAL_INTERFACE.md)。软件验收不是海南实测校准；原案例缺失照片和另一台实体电脑复验仍为明确边界。
+
+本次网站沿用远端 main 的提交历史并整合已验收的本地 v0.3.26，不改写历史，也不移除既有公开地图资源。
+
+<details><summary>历史开发与版本说明</summary>
+
+# Local review candidate 0.3.22 · reviewed A + dated B
+
+This unpublished candidate combines reviewed A R1 and B 0.1.6-dated-ui-r2. It is not a completed release, calibrated provincial model, or verified full-offline deployment. The locally available map/vendor bytes are unchanged; 619 original assets are not materialized here.
+
+Review CI may validate a complete remote checkout, but its artifacts contain reports and actual UI screenshots only. Native downloads, bytes/SHA-256/ZIP CRC checks, and full pressure recovery remain runner-local; no downloaded archive, source raster/tile, `_site/data` or large B archive is uploaded or used to recover those 619 assets. See [the bounded CI plan](docs/CI_PLAN_MINIMAL_AB.md).
+
+The existing platform description below is historical context; it does not override this candidate's verification limits.
+
 最新覆盖清单：见 [SPATIAL_COVERAGE_REGISTER.md](docs/SPATIAL_COVERAGE_REGISTER.md)。现为530景、172源图幅，另完成9处定向检查中的8处代表点读值补缺；南岛仍未通过质量规则。源图幅、具名OSM对象和整岛覆盖是不同概念，保留所有未核、质量和无值状态。
 
 # FarmSystem Design · v0.3.16
@@ -100,3 +122,9 @@ A **complete record** means captured content and consistent declared published b
 ### Optional spatial rainfall input (0.3.15)
 
 Scenario lab now compares the original NASA rainfall series with an opt-in CHIRPS 2025 representative-point grid input. All 110 unchanged demo plots fall in one 0.05° climate cell, so no between-plot rainfall differentiation is claimed. The public source contract binds 1,320 monthly assignments and preserves land-cover, OSM and temperature as context only. Missing/stale spatial inputs block the optional mode. See [input contract, reproduction and limitations](docs/SPATIAL_INPUT_CONTRACT.md).
+
+## Complete offline presentation bundle (0.3.17)
+
+Use the navigation link **完整离线包 / Complete offline bundle** before disconnecting. It verifies the whole published file set, supports resume/retry and warns about insufficient space or incomplete files. External live map APIs and linked websites remain online-only. See [offline boundaries and verification](docs/FULL_OFFLINE.md).
+
+</details>

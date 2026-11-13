@@ -18,6 +18,11 @@ jobs:
           node-version: '22'
       - name: Syntax, model invariants, raster source and regression tests
         run: npm run check && npm test
+      - name: Reviewed A N/P and B dated-source checks
+        run: |
+          node --test route-b/tests/*.test.mjs
+          node tools/check-route-a-np-offline.mjs
+          (cd route-b && node tools/check-syntax.mjs && node tools/check-i18n.mjs && python3 tools/static-audit.py && node tools/security-audit.mjs)
       - name: Test runtime
         run: |
           python -m pip install shapely==2.1.2 pyproj==3.7.2 rasterio==1.4.3 Pillow playwright
@@ -33,7 +38,111 @@ jobs:
         if: always()
         with:
           name: regional-candidate-browser-evidence
-          path: test-results
+          # Reports and known UI screenshot families only; never source/download payloads.
+          path: |
+            test-results/*-report.json
+            test-results/*-metrics.json
+            test-results/browser-errors.json
+            test-results/hainan-home-desktop.png
+            test-results/overview-*.png
+            test-results/research-route2-*.png
+            test-results/version.png
+            test-results/evidence.png
+            test-results/planner*.png
+            test-results/pareto-*.png
+            test-results/provenance-*.png
+            test-results/spatial-input-*.png
+            test-results/offline-*.png
+            test-results/regional/report.json
+            test-results/regional/*.png
+            !**/*.zip
+            !**/*.tif
+            !**/*.tiff
+            !**/*.webp
+            !**/*.npz
+            !**/data/**
+            !**/_site/**
+            !**/tiles/**
+            !**/classes/**
+            !**/imagery-local/**
+            !**/overview-[0-9]*.png
+            !**/detail-[0-9]*.png
+          retention-days: 14
+      - name: Built A N/P and B dated UI native browser gates
+        run: |
+          npm install --no-save --package-lock=false --ignore-scripts playwright@1.63.0
+          npx playwright install chromium
+          node tools/build.mjs
+          node tools/check-route-a-np-offline.mjs --site _site
+          python3 -m http.server 4188 --bind 127.0.0.1 --directory _site > /tmp/farm-ab-http.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          python - <<'PY_READY'
+          import time,urllib.request
+          for attempt in range(100):
+              try:
+                  with urllib.request.urlopen('http://127.0.0.1:4188/route-b/index.html',timeout=1) as response:
+                      assert response.status==200
+                  break
+              except Exception:
+                  if attempt==99: raise
+                  time.sleep(.1)
+          PY_READY
+          FARM_ALLOW_BROWSER=1 python tests/route_a_np_browser.py --url http://127.0.0.1:4188 --out test-results/route-a-np
+          ROUTE_B_QA_URL=http://127.0.0.1:4188/route-b/index.html node route-b/tests/browser-qa.mjs
+          ROUTE_B_RECOVERY_QA_AUTHORIZED=yes ROUTE_B_QA_URL=http://127.0.0.1:4188/route-b/index.html node route-b/tests/recovery-browser-qa.mjs
+          ROUTE_B_DATED_QA_AUTHORIZED=yes ROUTE_B_QA_URL=http://127.0.0.1:4188/route-b/index.html node route-b/tests/dated-browser-qa.mjs
+      - name: Preserve A and dated B integrated browser evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: farm-minimal-ab-browser-evidence
+          path: |
+            test-results/route-a-np/browser-checks.json
+            test-results/route-a-np/np-bilingual-*.png
+            test-results/route-b/route-b-browser-report.json
+            test-results/route-b/route-b-*.png
+            route-b/evidence/browser-qa/results.json
+            route-b/evidence/browser-qa/en-*.png
+            route-b/evidence/browser-qa/both-*.png
+            route-b/evidence/recovery-browser-qa/results.json
+            route-b/evidence/recovery-browser-qa/*-restored.png
+            route-b/evidence/dated-browser-qa/report.json
+            route-b/evidence/dated-browser-qa/preview-*.png
+            route-b/evidence/dated-browser-qa/final-*.png
+            !**/*.zip
+            !**/*.tif
+            !**/*.tiff
+            !**/*.webp
+            !**/*.npz
+            !**/data/**
+            !**/_site/**
+            !**/tiles/**
+            !**/classes/**
+            !**/imagery-local/**
+            !**/overview-[0-9]*.png
+            !**/detail-[0-9]*.png
+          retention-days: 14
+      - name: Preserve focused complete-offline evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: farm-complete-offline-evidence
+          path: |
+            test-results/offline-browser-report.json
+            test-results/offline-*.png
+            !**/*.zip
+            !**/*.tif
+            !**/*.tiff
+            !**/*.webp
+            !**/*.npz
+            !**/data/**
+            !**/_site/**
+            !**/tiles/**
+            !**/classes/**
+            !**/imagery-local/**
+            !**/overview-[0-9]*.png
+            !**/detail-[0-9]*.png
           retention-days: 14
       - name: Preserve a compact mainland UI review bundle
         uses: actions/upload-artifact@v4
@@ -50,4 +159,16 @@ jobs:
             test-results/provenance-browser-report.json
             test-results/regional/mainland-*.png
             test-results/regional/report.json
+            !**/*.zip
+            !**/*.tif
+            !**/*.tiff
+            !**/*.webp
+            !**/*.npz
+            !**/data/**
+            !**/_site/**
+            !**/tiles/**
+            !**/classes/**
+            !**/imagery-local/**
+            !**/overview-[0-9]*.png
+            !**/detail-[0-9]*.png
           retention-days: 14

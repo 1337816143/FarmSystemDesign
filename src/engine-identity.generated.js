@@ -2,8 +2,8 @@
 export const ENGINE_IDENTITY = {
   "format": "FarmSystemDesign.EngineSource.v1",
   "algorithm": "SHA-256",
-  "applicationVersion": "0.3.16",
-  "modelVersion": "screening-0.2.1",
+  "applicationVersion": "0.3.26",
+  "modelVersion": "screening-0.2.3",
   "dataVersion": "evidence-2025-r1+assumptions-r2",
   "modules": [
     {
@@ -18,13 +18,23 @@ export const ENGINE_IDENTITY = {
     },
     {
       "path": "src/frozen-run.js",
-      "bytes": 17671,
-      "sha256": "024c0c4a921e99068bb0f62b0220963a21736860b3071b87f10db85a3f5eac5b"
+      "bytes": 18099,
+      "sha256": "2153b0b31421abf232c145e89e83620688e465e8536746c7e5ef7989656b0fbf"
+    },
+    {
+      "path": "src/manure-np-input.js",
+      "bytes": 4894,
+      "sha256": "e1682d8a964ecc0040eab37abad5a5a0e96ac1da8c8820f1ff5b7a999c222e05"
+    },
+    {
+      "path": "src/manure-np.js",
+      "bytes": 7152,
+      "sha256": "69d8ac11e60c8497e96b517a8b85bdd814c6c0dc0bfc93745076e45153ee03d5"
     },
     {
       "path": "src/model.js",
-      "bytes": 12982,
-      "sha256": "85e5258c3cddf3277749dfbdab02202a6b7397df3dd8b4a7d0addbfe1be3f413"
+      "bytes": 14182,
+      "sha256": "6eb8584feb77607cf2a23738ff73b3bde56a0be9fa903ff3be4f67dd645e7070"
     },
     {
       "path": "src/optimizer.worker.js",
@@ -43,9 +53,9 @@ export const ENGINE_IDENTITY = {
     },
     {
       "path": "src/version.js",
-      "bytes": 341,
-      "sha256": "51351341f185eaeaaae7d3192e3bd076d7857de879b94e74e13ff9f9b25fa657"
+      "bytes": 347,
+      "sha256": "432855ac9d36644abd55b3a2e68ca0c02ffa8bcbdefc903f1aebeb44bcbd355f"
     }
   ],
-  "digest": "a9dfc0f3b2b9cde7dca0e0de92e715b85a3b0c5b40692782aa0854e68f776790"
+  "digest": "d6c8d78eded05327280f2514371ba8de87bbd940d759ce0c76fa386fce452833"
 };

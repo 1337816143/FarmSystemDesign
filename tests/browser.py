@@ -7,6 +7,8 @@ from provenance_browser import verify_provenance
 from spatial_inputs_browser import verify_spatial_inputs
 from infeasible_browser import verify_infeasible
 from upgrade_browser import verify_upgrade
+from offline_browser import verify_offline
+from route_a_np_browser import verify_route_a_np
 parser=argparse.ArgumentParser();parser.add_argument('--url',default='http://127.0.0.1:4173');parser.add_argument('--output',default='test-results');args=parser.parse_args()
 out=Path(args.output);out.mkdir(exist_ok=True,parents=True)
 checks=[]
@@ -78,12 +80,12 @@ with sync_playwright() as p:
     check('110 source prediction objects rendered',page.locator('.parcel').count()==110)
     check('no boot errors',not errors)
     page.screenshot(path=str(out/'overview-desktop.png'),full_page=True)
-    check('visible version badge',page.locator('.top-version').inner_text()=='v0.3.16')
-    page.locator('.top-version').click();check('independent model version in modal','screening-0.2.1' in page.locator('#modal').inner_text());page.screenshot(path=str(out/'version.png'));page.locator('[data-action="close-modal"]').first.click()
+    check('visible version badge',page.locator('.top-version').inner_text()=='v0.3.26')
+    page.locator('.top-version').click();check('independent model version in modal','screening-0.2.3' in page.locator('#modal').inner_text());page.screenshot(path=str(out/'version.png'));page.locator('[data-action="close-modal"]').first.click()
     page.locator('.parcel').first.dispatch_event('click');check('map updates inspector without replacing canvas',page.locator('.inspector').count()==1)
     page.locator('#show-osm').check();check('auxiliary source layer turns on',page.locator('.leaflet-source-pane path').count()==15)
     page.locator('#show-osm').uncheck();page.locator('#map-opacity').fill('25');page.locator('#map-opacity').dispatch_event('input');check('opacity control changes actual polygons',page.locator('.parcel').nth(1).get_attribute('fill-opacity')=='0.25')
-    page.locator('[data-map="compare"]').click();check('image-only comparison hides geometry pane',page.locator('.leaflet-parcels-pane').evaluate('(e)=>e.style.opacity')=='0');page.locator('[data-map="compare"]').click()
+    page.locator('[data-map="compare"]').click();page.wait_for_function("document.querySelector('.leaflet-parcels-pane')?.style.opacity==='0'");check('image-only comparison hides geometry pane',page.locator('.leaflet-parcels-pane').evaluate('(e)=>e.style.opacity')=='0');page.locator('[data-map="compare"]').click()
     page.locator('nav [data-nav="evidence"]').click();check('quality checks are sourced','110' in page.locator('.selection-pipeline').inner_text());page.screenshot(path=str(out/'evidence.png'),full_page=True);page.locator('nav [data-nav="overview"]').click()
 
     def nav(name):page.locator(f'nav [data-nav="{name}"]').click()
@@ -126,7 +128,7 @@ with sync_playwright() as p:
     with page.expect_download() as event:page.locator('[data-action="export-bundle"]').first.click()
     event.value.save_as(str(out/'project.json'));bundle=json.loads((out/'project.json').read_text(encoding='utf-8'))
     check('project export retains snapshots and observations',len(bundle['plans'])==2 and len(bundle['observations'])==1)
-    check('export distinguishes app, model and regional evidence',bundle['version']=='0.3.16' and bundle['modelVersion']=='screening-0.2.1' and bundle['regionalEvidenceVersion']=='hainan-regional-2026-10-03-r4')
+    check('export distinguishes app, model and regional evidence',bundle['version']=='0.3.26' and bundle['modelVersion']=='screening-0.2.3' and bundle['regionalEvidenceVersion']=='hainan-regional-2026-10-06-task6-r5')
     page.locator('#import-file').set_input_files(str(out/'project.json'));page.wait_for_selector('#modal[open]');page.locator('#modal-form button[type="submit"]').click()
     check('project import round-trip',len(json.loads(page.evaluate("localStorage.getItem('farmsystem-workspace-v2')"))['plans'])==2)
     bad=out/'invalid.json';bad.write_text('{"schemaVersion":1,"crs":"GCJ-02"}')
@@ -136,7 +138,7 @@ with sync_playwright() as p:
         nav(name);check(f'{name} renders without fallback','当前输入无法计算' not in page.locator('h1').inner_text())
     nav('overview');page.reload(wait_until='networkidle');check('snapshots survive reload',len(json.loads(page.evaluate("localStorage.getItem('farmsystem-workspace-v2')"))['plans'])==2)
     page.wait_for_function('navigator.serviceWorker.controller !== null')
-    context.set_offline(True);page.reload(wait_until='domcontentloaded');page.wait_for_selector('.parcel');page.wait_for_timeout(200)
+    context.set_offline(True);page.reload(wait_until='domcontentloaded');page.wait_for_selector('.parcel:visible');page.wait_for_timeout(200)
     check('offline shell, vector snapshot and model modules load',page.locator('.parcel').count()==110)
     context.set_offline(False)
     page.set_viewport_size({'width':390,'height':844});page.wait_for_timeout(400);page.screenshot(path=str(out/'overview-mobile.png'),full_page=True)
@@ -159,6 +161,9 @@ with sync_playwright() as p:
     verify_spatial_inputs(browser,args.url,out,check)
     verify_infeasible(browser,args.url,out,check)
     verify_upgrade(browser,args.url,out,check)
+    np_checks=verify_route_a_np(browser,args.url,out/'route-a-np')
+    check('reviewed A N/P browser input, frozen records and offline reopen',bool(np_checks) and all(item['passed'] for item in np_checks))
+    verify_offline(browser,out,check)
     browser.close()
-(out/'browser-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'errors':errors,'upgrade':json.loads((out/'upgrade-browser-report.json').read_text())},ensure_ascii=False,indent=2),encoding='utf-8')
-print(json.dumps({'passed':len(checks),'checks':checks,'errors':errors,'upgrade':json.loads((out/'upgrade-browser-report.json').read_text())},ensure_ascii=False))
+(out/'browser-report.json').write_text(json.dumps({'passed':len(checks),'checks':checks,'errors':errors,'upgrade':json.loads((out/'upgrade-browser-report.json').read_text()),'offline':json.loads((out/'offline-browser-report.json').read_text())},ensure_ascii=False,indent=2),encoding='utf-8')
+print(json.dumps({'passed':len(checks),'checks':checks,'errors':errors,'upgrade':json.loads((out/'upgrade-browser-report.json').read_text()),'offline':json.loads((out/'offline-browser-report.json').read_text())},ensure_ascii=False))

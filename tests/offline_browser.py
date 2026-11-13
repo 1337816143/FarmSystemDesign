@@ -1,0 +1,544 @@
+"""Full published-site offline proof, using a real server and a fresh browser context.
+
+Imported by browser.py as verify_offline(browser, out, check). The supplied browser
+is reused, but caches, workers and storage are isolated from the other tests. No
+Playwright request routing or synthetic network responses are used. Browser runs
+belong in the existing GitHub Actions job, not restricted cloud Chromium.
+"""
+from pathlib import Path
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from urllib.parse import unquote, urlsplit
+import hashlib
+import json
+import subprocess
+import threading
+import time
+import traceback
+import zipfile
+from route_b_browser import exercise_route_b
+
+
+ROUTES = ['atlas', 'research', 'overview', 'resources', 'analysis', 'planner',
+          'feedback', 'data', 'evidence', 'guide']
+WORKSPACE_KEY = 'farmsystem-workspace-v2'
+
+
+def verify_offline(browser, out, check):
+    root = Path(__file__).resolve().parents[1]
+    out = Path(out)
+    out.mkdir(parents=True, exist_ok=True)
+    started = time.monotonic()
+    deadline = started + 540  # Whole function, including build, stays below ten minutes.
+    report = {'status': 'running', 'checks': [], 'pageErrors': [], 'externalRequests': [],
+              'requests': [], 'stages': []}
+    context = page = server = None
+    server_closed = False
+    network = {'phase': 'prepare', 'delay': 0}
+    response_sources = {}
+
+    def write_report():
+        report['elapsedSeconds'] = round(time.monotonic() - started, 2)
+        (out / 'offline-browser-report.json').write_text(
+            json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+
+    def budget(limit=30000):
+        remaining = int((deadline - time.monotonic()) * 1000)
+        if remaining <= 0:
+            raise AssertionError('Full offline verification exceeded its nine-minute budget')
+        return min(limit, remaining)
+
+    def verify(name, value=True):
+        budget()
+        check('offline: ' + name, value)
+        report['checks'].append(name)
+        write_report()
+
+    def observe_request(request):
+        parts = urlsplit(request.url)
+        if parts.scheme in ['http', 'https'] and parts.hostname not in ['127.0.0.1', 'localhost']:
+            report['externalRequests'].append({'url': request.url, 'type': request.resource_type,
+                                               'phase': network['phase']})
+
+    def observe_response(response):
+        if network['phase'] == 'offline':
+            response_sources[unquote(urlsplit(response.url).path).lstrip('/')] = response.from_service_worker
+
+    def new_page():
+        result = context.new_page()
+        result.on('pageerror', lambda error: report['pageErrors'].append(str(error)))
+        result.on('response', observe_response)
+        return result
+
+    def controller_proof():
+        proof = page.evaluate('''async () => {
+            const registration = await navigator.serviceWorker.getRegistration();
+            const controller = navigator.serviceWorker.controller;
+            if (!registration || !controller) return null;
+            const identity = await new Promise(resolve => {
+                const channel = new MessageChannel();
+                const timer = setTimeout(() => {channel.port1.close();resolve(null);}, 1500);
+                channel.port1.onmessage = event => {clearTimeout(timer);channel.port1.close();resolve(event.data);};
+                controller.postMessage({type:'FARM_SHELL_IDENTITY'}, [channel.port2]);
+            });
+            return {scope:registration.scope, identity, active:controller === registration.active,
+                    installing:!!registration.installing, waiting:!!registration.waiting};
+        }''')
+        report.setdefault('controllerProofs', []).append(proof)
+        expected = 'farmsystem-shell-%2F-v' + manifest['version']
+        verify('download/readiness uses an acknowledged controller matching the exact scope and manifest version',
+               bool(proof) and proof['scope'] == base and proof['active'] and
+               not proof['installing'] and not proof['waiting'] and
+               bool(proof['identity']) and proof['identity'].get('cache') == expected)
+
+    def shell_snapshot():
+        return page.evaluate('''async () => {
+            const result = [];
+            for (const name of (await caches.keys()).filter(key => key.startsWith('farmsystem-shell-%2F-v'))) {
+                const cache = await caches.open(name);
+                result.push({name,paths:(await cache.keys()).map(r => new URL(r.url).pathname.slice(1)).sort()});
+            }
+            return result;
+        }''')
+
+    def wait_ready():
+        page.wait_for_function("navigator.serviceWorker.controller !== null", timeout=budget(45000))
+        page.wait_for_function("!document.querySelector('#start').disabled || document.querySelector('#status').classList.contains('complete')",
+                               timeout=budget(45000))
+        verify('offline manager loads a real manifest',
+               str(manifest['totalFiles']) in page.locator('#count').inner_text().replace(',', ''))
+        controller_proof()
+
+    def cache_snapshot():
+        return page.evaluate('''async ({id, prefix, version}) => {
+            const cache = await caches.open(prefix + id);
+            const paths = (await cache.keys()).map(r => new URL(r.url).pathname.slice(1));
+            const meta = await caches.open('farmsystem-full-meta-v1-' + encodeURIComponent('/'));
+            const active = await meta.match(new URL('offline-active-v'+encodeURIComponent(version)+'.json', location.origin));
+            return {paths, active: active ? await active.json() : null,
+                    progress: document.querySelector('#progress').value,
+                    status: document.querySelector('#status').textContent};
+        }''', {'id': manifest['id'], 'prefix': 'farmsystem-full-v1-%2F-', 'version': manifest['version']})
+
+    def current_plans():
+        return page.evaluate('(key) => JSON.parse(localStorage.getItem(key)).plans', WORKSPACE_KEY)
+
+    try:
+        built = subprocess.run(['node', 'tools/build.mjs'], cwd=root, capture_output=True,
+                               text=True, timeout=budget(90000) / 1000)
+        report['build'] = {'exitCode': built.returncode, 'stdout': built.stdout, 'stderr': built.stderr}
+        verify('publication build succeeds before testing its exact output', built.returncode == 0)
+        site = root / '_site'
+        manifest = json.loads((site / 'offline-manifest.json').read_text(encoding='utf-8'))
+        entries = manifest['entries']
+        report['manifest'] = {key: value for key, value in manifest.items() if key != 'entries'}
+        files = sorted(path.relative_to(site).as_posix() for path in site.rglob('*')
+                       if path.is_file() and path.relative_to(site).as_posix() not in ['offline-manifest.json', '.nojekyll'])
+        verify('manifest enumerates every served asset, excluding only the deployment control marker',
+               sorted(row['path'] for row in entries) == files)
+        identity = hashlib.sha256(json.dumps(entries, ensure_ascii=False, separators=(',', ':')).encode()).hexdigest()
+        verify('manifest identifier and totals independently recompute',
+               identity == manifest['id'] and len(entries) == manifest['totalFiles'] and
+               sum(row['bytes'] for row in entries) == manifest['totalBytes'])
+        for row in entries:
+            payload = (site / row['path']).read_bytes()
+            if len(payload) != row['bytes'] or hashlib.sha256(payload).hexdigest() != row['sha256']:
+                raise AssertionError('Build manifest does not match published bytes: ' + row['path'])
+        verify('all published bytes independently match their SHA-256 records')
+        by_path = {row['path']: row for row in entries}
+        verify('only the proven non-served GitHub Pages control marker is omitted',
+               manifest.get('excludedControlFiles') == ['.nojekyll'] and (site / '.nojekyll').is_file() and '.nojekyll' not in by_path)
+        verify('published bundle includes the application and complete offline UI',
+               all(path in by_path for path in ['index.html', 'offline.html', 'sw.js',
+                                               'src/offline-bundle.js']))
+        verify('the separate discussion draft is not included in this offline release',
+               not (site / 'discussion').exists() and not any(p.startswith('discussion/') for p in by_path))
+        verify('built route B includes runtime and research docs but excludes development test fixtures',
+               all(path in by_path for path in ['route-b/index.html','route-b/styles.css','route-b/src/app.js','route-b/src/engine.js','route-b/src/build.generated.js','route-b/docs/RESEARCH_DESIGN.md']) and not any(p.startswith(('route-b/tests/','route-b/tools/','route-b/evidence/','route-b/deliverables/')) for p in by_path))
+        b_identity_source = (site / 'route-b/src/build.generated.js').read_text()
+        b_identity = json.loads(b_identity_source.split('=', 1)[1].strip().removesuffix(';'))
+        b_runtime = [*b_identity['sourceHashes'], 'src/build.generated.js']
+        verify('frozen dated B BUILD17 and all 18 runtime files are present in the built offline manifest',
+               b_identity['version'] == '0.1.6-dated-ui-r2' and len(b_runtime) == 18 and
+               all('route-b/' + path in by_path for path in b_runtime) and
+               all(by_path['route-b/' + path]['sha256'] == digest
+                   for path, digest in b_identity['sourceHashes'].items()))
+        zip_rows = [row for row in entries if row['path'].lower().endswith('.zip')]
+        tif_rows = [row for row in entries if row['path'].lower().endswith(('.tif', '.tiff'))]
+        verify('published download archive and TIFF source rasters are included', bool(zip_rows) and bool(tif_rows))
+
+        class Handler(SimpleHTTPRequestHandler):
+            extensions_map = {**SimpleHTTPRequestHandler.extensions_map,
+                              '.mjs': 'text/javascript', '.js': 'text/javascript'}
+            def __init__(self, *args, **kwargs):
+                super().__init__(*args, directory=str(site), **kwargs)
+
+            def log_message(self, *args):
+                pass
+
+            def end_headers(self):
+                self.send_header('Cache-Control', 'no-cache')
+                # Explicitly disallow live external map/API retrieval, without any
+                # browser route interception (which would disable HTTP caching).
+                self.send_header('Content-Security-Policy', "connect-src 'self'; img-src 'self' data: blob:")
+                super().end_headers()
+
+            def do_GET(self):
+                path = unquote(urlsplit(self.path).path).lstrip('/')
+                if path == '.nojekyll':
+                    self.send_error(404, 'GitHub Pages deployment control marker is not served')
+                    return
+                report['requests'].append({'phase': network['phase'], 'path': path,
+                                           'range': self.headers.get('Range'),
+                                           'offlineBundle': self.headers.get('X-Farm-Offline-Bundle')})
+                if path == '__offline_test_seed.html':
+                    payload = b'<!doctype html><title>Offline test origin</title><p>Isolated test origin</p>'
+                    self.send_response(200)
+                    self.send_header('Content-Type', 'text/html')
+                    self.send_header('Content-Length', str(len(payload)))
+                    self.end_headers()
+                    self.wfile.write(payload)
+                    return
+                if network['delay'] and path in by_path:
+                    time.sleep(network['delay'])
+                try:
+                    super().do_GET()
+                except (BrokenPipeError, ConnectionResetError):
+                    pass  # Expected when the interrupted tab is closed.
+
+        server = ThreadingHTTPServer(('127.0.0.1', 0), Handler)
+        server.daemon_threads = True
+        threading.Thread(target=server.serve_forever, daemon=True).start()
+        base = f'http://127.0.0.1:{server.server_port}/'
+        report['origin'] = base
+        context = browser.new_context(viewport={'width': 1440, 'height': 1050}, accept_downloads=True)
+        context.set_default_timeout(30000)
+        context.on('request', observe_request)
+        page = new_page()
+        page.goto(base + '__offline_test_seed.html', wait_until='load', timeout=budget())
+        page.evaluate('''async () => {
+            localStorage.setItem('offline-test-user-sentinel', 'keep-private-user-state');
+            const other = await caches.open('user-other-cache');
+            await other.put(new URL('private-sentinel.txt', location.origin), new Response('keep-other-cache'));
+            const anotherScope = await caches.open('farmsystem-shell-%2Fother%2F-vtest');
+            await anotherScope.put(new URL('/other/index.html', location.origin), new Response('keep-other-scope'));
+        }''')
+        page.goto(base + 'index.html#planner', wait_until='networkidle', timeout=budget(45000))
+        page.wait_for_function('navigator.serviceWorker.controller !== null', timeout=budget(45000))
+        page.select_option('#scope', 'single')
+        page.select_option('#scope-object', 'F01')
+        page.locator('[data-action="run"]').first.click()
+        page.wait_for_selector('[data-action="save-plan"]', timeout=budget(45000))
+        page.locator('[data-action="save-plan"]').click()
+        page.locator('#plan-name').fill('Actual plan preserved across complete offline download')
+        page.locator('#modal-form button[type="submit"]').click()
+        saved = current_plans()
+        verify('a real optimizer result is saved before the offline operation',
+               len(saved) == 1 and bool(saved[0].get('candidate')) and bool(saved[0].get('frozenRun')))
+        saved_digest = hashlib.sha256(json.dumps(saved, sort_keys=True).encode()).hexdigest()
+        report['savedPlanSha256'] = saved_digest
+        page.goto(base + 'offline.html', wait_until='networkidle', timeout=budget(45000))
+        wait_ready()
+        initial = cache_snapshot()
+        verify('fresh full bundle is visibly incomplete with no active marker',
+               not initial['active'] and not page.locator('#status').evaluate("e => e.classList.contains('complete')"))
+        shell_before = shell_snapshot()
+        report['shellCachesBeforeBulk'] = shell_before
+        network.update(phase='download-pause', delay=0.025)
+        page.locator('#start').click()
+        page.wait_for_function("document.querySelector('#progress').value > 0 && !document.querySelector('#pause').disabled",
+                               timeout=budget(60000))
+        page.locator('#pause').click()
+        page.wait_for_function("!document.querySelector('#start').disabled && document.querySelector('#pause').disabled",
+                               timeout=budget(30000))
+        retained = cache_snapshot()
+        retained_paths = set(retained['paths']) - {'offline-manifest.json'}
+        report['stages'].append({'stage': 'paused-before-close', **retained})
+        verify('pause retains partial verified bytes and cannot claim complete readiness',
+               0 < len(retained_paths) < manifest['totalFiles'] and not retained['active'] and
+               'offline-manifest.json' not in retained['paths'])
+        page.close()
+        network.update(phase='reopen', delay=0)
+        page = new_page()  # Same browser and context, different document and JS heap.
+        page.goto(base + 'offline.html', wait_until='networkidle', timeout=budget(45000))
+        wait_ready()
+        reopened = cache_snapshot()
+        report['stages'].append({'stage': 'reopened-partial', **reopened})
+        verify('closing and reopening the tab retains exactly the verified partial files',
+               set(reopened['paths']) == set(retained['paths']) and reopened['progress'] == retained['progress'])
+        network['phase'] = 'resume'
+        page.locator('#start').click()
+        page.wait_for_function("document.querySelector('#status').classList.contains('complete') || (!document.querySelector('#start').disabled && document.querySelector('#errors').textContent.trim()) || document.querySelector('#capacity').textContent.trim()",
+                               timeout=budget(210000))
+        verify('resumed full download finishes with every file verified and no error',
+               page.locator('#status').evaluate("e => e.classList.contains('complete')") and
+               not page.locator('#errors').inner_text().strip())
+        controller_proof()
+        completed = cache_snapshot()
+        report['stages'].append({'stage': 'complete', 'cachedFiles': len(completed['paths']),
+                                 'active': completed['active'], 'progress': completed['progress']})
+        verify('complete marker, cached paths and displayed bytes match the published manifest',
+               completed['active']['id'] == manifest['id'] and
+               set(completed['paths']) == set(by_path) | {'offline-manifest.json'} and
+               completed['progress'] == manifest['totalBytes'])
+        bulk_paths = {request['path'] for request in report['requests']
+                      if request['phase'] in ['download-pause', 'resume'] and request['offlineBundle'] == '1'}
+        verify('every published file download carries the runtime-cache opt-out header through the real worker',
+               bulk_paths == set(by_path))
+        shell_after = shell_snapshot()
+        report['shellCachesAfterBulk'] = shell_after
+        data_before = {path for cache in shell_before for path in cache['paths'] if path.startswith('data/')}
+        data_after = {path for cache in shell_after for path in cache['paths'] if path.startswith('data/')}
+        published_data = {path for path in by_path if path.startswith('data/')}
+        verify('full download does not make a second copy of all data in the ordinary runtime shell cache',
+               data_after == data_before and data_after < published_data)
+        resume_paths = {request['path'] for request in report['requests'] if request['phase'] == 'resume'}
+        verify('resume does not redownload any retained verified file', not (retained_paths & resume_paths))
+        verify('download operation preserves the pre-existing saved plan byte-for-byte', current_plans() == saved)
+        page.screenshot(path=str(out / 'offline-complete-manager.png'), full_page=True, timeout=budget())
+        verify('no OSM or other external host was requested while online', not report['externalRequests'])
+
+        # Remove only this isolated origin's ordinary shell caches so a broken
+        # full-bundle reader cannot silently pass via incidental online warm-up.
+        removed_shells = page.evaluate('''async () => {
+            const keys = (await caches.keys()).filter(key => key.startsWith('farmsystem-shell-%2F-v'));
+            for (const key of keys) await caches.delete(key);
+            return keys;
+        }''')
+        report['removedOrdinaryShellCaches'] = removed_shells
+        verify('ordinary shell warm-up cache is removed before proving the complete bundle', bool(removed_shells))
+
+        # Disconnect Chromium AND stop the actual server. Reload-cache fetches below
+        # cannot quietly succeed through a warm HTTP cache or a still-live server.
+        context.set_offline(True)
+        server.shutdown()
+        server.server_close()
+        server_closed = True
+        network['phase'] = 'offline'
+        request_count = len(report['requests'])
+        page.close()
+        page = new_page()
+        page.goto(base + 'offline.html', wait_until='networkidle', timeout=budget(45000))
+        wait_ready()
+        verify('a fresh offline document revalidates the retained full bundle',
+               page.locator('#status').evaluate("e => e.classList.contains('complete')"))
+        negative = page.evaluate("async () => { const r = await fetch('__offline_missing_probe__.bin', {cache:'reload'}); return {status:r.status, body:await r.text()}; }")
+        verify('a never-cached resource cannot be fetched after disconnection', negative['status'] >= 400)
+
+        # Keep per-file proof, not only a completion label. Use bounded concurrency
+        # and in-page SHA-256 to avoid transferring 284 MB over the DevTools bridge.
+        page.evaluate('''rows => {
+            window.__offlineAudit = {done:false, rows:[], failures:[], count:0, bytes:0};
+            const state = window.__offlineAudit;
+            void (async () => {
+                let next = 0;
+                const work = async () => {
+                    while (next < rows.length) {
+                        const row = rows[next++];
+                        try {
+                            const response = await fetch(row.path, {cache:'reload', signal:AbortSignal.timeout(20000)});
+                            const body = await response.arrayBuffer();
+                            const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', body))]
+                                .map(x => x.toString(16).padStart(2,'0')).join('');
+                            const result = {path:row.path, status:response.status, bytes:body.byteLength, sha256:digest};
+                            state.rows.push(result);
+                            if (response.status !== 200 || body.byteLength !== row.bytes || digest !== row.sha256)
+                                state.failures.push(result);
+                            state.count++; state.bytes += body.byteLength;
+                        } catch (error) { state.failures.push({path:row.path,error:String(error)}); }
+                    }
+                };
+                await Promise.all(Array.from({length:4}, work));
+                state.done = true;
+            })().catch(error => {state.failures.push({error:String(error)});state.done=true;});
+        }''', entries)
+        page.wait_for_function('window.__offlineAudit.done', timeout=budget(180000))
+        audit = page.evaluate('window.__offlineAudit')
+        report['offlineFiles'] = sorted(audit['rows'], key=lambda row: row['path'])
+        report['offlineFileFailures'] = audit['failures']
+        verify('every manifest file is fetched with real networking disabled and matches exact bytes/SHA-256',
+               not audit['failures'] and audit['count'] == manifest['totalFiles'] and
+               audit['bytes'] == manifest['totalBytes'])
+        missing_worker_proof = [row['path'] for row in entries if response_sources.get(row['path']) is not True]
+        report['missingServiceWorkerProof'] = missing_worker_proof
+        verify('all manifest responses actually came from the service worker', not missing_worker_proof)
+
+        for route in ROUTES:
+            page.goto(base + 'index.html#' + route, wait_until='networkidle', timeout=budget(30000))
+            page.wait_for_selector(f'nav [data-nav="{route}"][aria-current="page"]', timeout=budget())
+            verify(f'#{route} reopens independently while offline',
+                   page.locator('main h1').count() == 1 and
+                   '当前输入无法计算' not in page.locator('main h1').inner_text())
+            if route == 'atlas':
+                page.locator('[data-atlas="classes2025"]').click()
+                page.wait_for_function("Array.from(document.querySelectorAll('#hainan-atlas-map canvas.leaflet-tile')).some(c => Number(c.dataset.validPixels) > 0)",
+                                       timeout=budget(30000))
+                verify('the local 2025 atlas renders actual valid raster pixels offline')
+                page.wait_for_function("document.querySelector('#atlas-runtime-coverage').textContent.includes('离线')",timeout=budget(30000))
+                verify('online-only classification gaps are labeled explicitly without claiming source no-data')
+                page.screenshot(path=str(out / 'offline-atlas.png'), full_page=True, timeout=budget())
+            if route == 'planner':
+                page.select_option('#scope', 'single')
+                page.select_option('#scope-object', 'F01')
+                page.locator('[data-action="run"]').first.click()
+                page.wait_for_selector('[data-action="save-plan"]', timeout=budget(45000))
+                verify('the real module optimizer runs and returns candidates offline',
+                       page.locator('tr[data-candidate]').count() > 0)
+        page.goto(base + 'index.html#guide', wait_until='networkidle', timeout=budget())
+        for lang in ['zh', 'en', 'both']:
+            page.locator(f'button[data-language="{lang}"]').click()
+            link = page.locator('a[href^="./route-b/index.html?lang="]')
+            verify(f'route-B parent navigation exposes the {lang} URL',
+                   link.count() == 1 and link.get_attribute('href') == f'./route-b/index.html?lang={lang}')
+            parent_url = page.url
+            popup_errors = []
+            with context.expect_page(timeout=budget()) as popup_event:
+                link.click()
+            popup = popup_event.value
+            popup.on('pageerror', lambda error: popup_errors.append(str(error)))
+            try:
+                popup.wait_for_load_state('networkidle', timeout=budget())
+                expected_status = ('Fully evaluated 9 combinations; 5 satisfy this mode' if lang == 'en'
+                                   else '已完整核算 9 个组合；5 个满足本模式')
+                popup.wait_for_function("""expected =>
+                    document.querySelectorAll('#select-result option').length === 9 &&
+                    document.querySelector('#results') && !document.querySelector('#results').classList.contains('stale') &&
+                    !document.querySelector('#export-run').disabled &&
+                    document.querySelector('#status').textContent.includes(expected)""",
+                    arg=expected_status, timeout=budget())
+                verify(f'route-B {lang} parent-link click opens a working offline window with the selected language',
+                       popup.url == base + f'route-b/index.html?lang={lang}' and
+                       popup.locator('#language').input_value() == lang and
+                       popup.locator('#select-result option').count() == 9 and
+                       expected_status in popup.locator('#status').inner_text() and
+                       'stale' not in (popup.locator('#results').get_attribute('class') or '').split() and
+                       page.url == parent_url and popup.evaluate('window.opener === null') and
+                       not popup_errors)
+            finally:
+                popup.close()
+        page.locator('button[data-language="zh"]').click()
+        page.goto(base + 'route-b/index.html', wait_until='networkidle', timeout=budget())
+        exercise_route_b(page, out / 'route-b', check)
+        verify('route-B offline computation and exports leave route-A saved plans byte-identical', current_plans() == saved)
+        page.goto(base, wait_until='networkidle', timeout=budget())
+        verify('the site-root directory alias resolves to the offline application',
+               page.locator('nav [data-nav="atlas"][aria-current="page"]').count() == 1)
+        page.goto(base + 'offline.html', wait_until='networkidle', timeout=budget())
+        wait_ready()
+
+        page.evaluate("""() => {
+            const state=window.__blobAudit={created:[],revoked:[]};
+            const create=URL.createObjectURL.bind(URL),revoke=URL.revokeObjectURL.bind(URL);
+            URL.createObjectURL=blob=>{const url=create(blob);state.created.push({url,bytes:blob.size,type:blob.type});return url;};
+            URL.revokeObjectURL=url=>{state.revoked.push(url);return revoke(url);};
+        }""")
+        for kind, row in [('zip', min(zip_rows, key=lambda row: row['bytes'])),
+                          ('tif', min(tif_rows, key=lambda row: row['bytes']))]:
+            page.evaluate('''path => {
+                document.querySelector('#offline-test-download')?.remove();
+                const link = document.createElement('a'); link.id = 'offline-test-download';
+                link.href = new URL(path, location.href); link.download = path.split('/').pop();
+                link.textContent = 'Download verified offline file'; document.body.append(link);
+            }''', row['path'])
+            with page.expect_download(timeout=budget(30000)) as event:
+                page.locator('#offline-test-download').click()
+            download = event.value
+            verify(f'{kind.upper()} download is generated from a local Blob while offline', download.url.startswith('blob:'))
+            destination = out / ('offline-download-' + Path(row['path']).name)
+            download.save_as(str(destination))
+            payload = destination.read_bytes()
+            verify(f'{kind.upper()} native download reports success and a safe expected filename', download.failure() is None and download.suggested_filename == Path(row['path']).name)
+            if kind == 'zip':
+                with zipfile.ZipFile(destination) as archive:
+                    verify('downloaded offline ZIP has a valid archive and CRC', archive.testzip() is None)
+            verify(f'real browser {kind.upper()} download succeeds offline with exact original bytes',
+                   len(payload) == row['bytes'] and hashlib.sha256(payload).hexdigest() == row['sha256'])
+            report.setdefault('downloads', []).append({'path': row['path'], 'file': destination.name,
+                                                       'bytes': len(payload), 'sha256': hashlib.sha256(payload).hexdigest()})
+
+        picker_row=min(zip_rows,key=lambda row:row['bytes'])
+        page.locator('details').first.locator('summary').click()
+        page.locator('#asset-filter').fill(picker_row['path'])
+        page.select_option('#asset-file',picker_row['path'])
+        with page.expect_download(timeout=budget(30000)) as event:
+            page.locator('#asset-download').click()
+        picker_download=event.value;picker_path=out/'offline-picker.zip';picker_download.save_as(str(picker_path))
+        verify('the real cached-file picker saves the same exact ZIP bytes',picker_download.failure() is None and picker_download.suggested_filename==Path(picker_row['path']).name and hashlib.sha256(picker_path.read_bytes()).hexdigest()==picker_row['sha256'])
+        raster = min((row for row in tif_rows if row['bytes'] >= 4096), key=lambda row: row['bytes'])
+        source = (site / raster['path']).read_bytes()
+        range_cases = [('bytes=128-1023', 206, source[128:1024], f'bytes 128-1023/{len(source)}'),
+                       ('bytes=-1024', 206, source[-1024:], f'bytes {len(source)-1024}-{len(source)-1}/{len(source)}'),
+                       (f'bytes={len(source)}-', 416, b'', f'bytes */{len(source)}')]
+        for header, status, expected, content_range in range_cases:
+            observed = page.evaluate('''async ({path, range}) => {
+                const r = await fetch(path, {cache:'reload',headers:{Range:range},signal:AbortSignal.timeout(15000)});
+                const bytes = await r.arrayBuffer();
+                const sha256 = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))]
+                    .map(x => x.toString(16).padStart(2,'0')).join('');
+                return {status:r.status,range:r.headers.get('Content-Range'),bytes:bytes.byteLength,sha256};
+            }''', {'path': raster['path'], 'range': header})
+            report.setdefault('ranges', []).append({'path': raster['path'], 'request': header, **observed})
+            verify(f'offline TIFF {header} returns correct {status} body and Content-Range',
+                   observed['status'] == status and observed['range'] == content_range and
+                   observed['bytes'] == len(expected) and observed['sha256'] == hashlib.sha256(expected).hexdigest())
+        # Exercise repeat/cancel/lifetime in the actual browser, without live networking.
+        repeat=min(zip_rows,key=lambda row:row['bytes'])
+        page.evaluate("path => {const a=document.querySelector('#offline-test-download');a.href=new URL(path,location.href);a.download=path.split('/').pop();}",repeat['path'])
+        with page.expect_download(timeout=budget(30000)) as event:
+            page.locator('#offline-test-download').click()
+        repeated=event.value;repeat_file=out/'offline-repeat.zip';repeated.save_as(str(repeat_file))
+        verify('repeating the same offline download produces the same exact ZIP bytes',hashlib.sha256(repeat_file.read_bytes()).hexdigest()==repeat['sha256'])
+        page.once('download',lambda download:download.cancel())
+        with page.expect_download(timeout=budget(30000)) as event:
+            page.evaluate("""async()=>{
+                const {saveBlobFile}=await import('./src/offline-downloads.js');
+                saveBlobFile({blob:new Blob([new Uint8Array(128*1024*1024)],{type:'application/octet-stream'}),filename:'offline-cancellation-fixture.bin'});
+            }""")
+        cancel_download=event.value;cancel_download.cancel();cancel_failure=cancel_download.failure()
+        report['cancellation']={'fixtureBytes':128*1024*1024,'failure':cancel_failure,'cancelled':cancel_failure=='canceled','completedBeforeCancel':cancel_failure is None}
+        verify('canceling an in-progress local Blob download is handled without a page exception',cancel_failure == 'canceled' and not report['pageErrors'])
+        audit=page.evaluate('window.__blobAudit')
+        verify('verified ZIP and TIFF Blob MIME types are preserved',audit['created'][0]['type']=='application/zip' and audit['created'][1]['type']=='image/tiff')
+        verify('ObjectURLs remain available through the initial download window',not audit['revoked'])
+        page.wait_for_function('window.__blobAudit.created.every(row=>window.__blobAudit.revoked.includes(row.url))',timeout=budget(65000))
+        report['blobLifetime']=page.evaluate('window.__blobAudit')
+        verify('all local download ObjectURLs are released after the bounded use window',len(report['blobLifetime']['created'])==len(report['blobLifetime']['revoked']))
+        with page.expect_download(timeout=budget(30000)) as event:
+            page.locator('#offline-test-download').click()
+        leaving=event.value
+        page.goto(base+'#data',wait_until='networkidle',timeout=budget(30000))
+        after_leave=out/'offline-after-navigation.zip';leaving.save_as(str(after_leave))
+        verify('leaving the document after download starts preserves the exact ZIP result',hashlib.sha256(after_leave.read_bytes()).hexdigest()==repeat['sha256'])
+        sentinels = page.evaluate('''async () => {
+            const other = await (await caches.open('user-other-cache')).match(new URL('private-sentinel.txt', location.origin));
+            const scope = await (await caches.open('farmsystem-shell-%2Fother%2F-vtest')).match(new URL('/other/index.html', location.origin));
+            return {local:localStorage.getItem('offline-test-user-sentinel'),other:other && await other.text(),
+                    scope:scope && await scope.text(),keys:await caches.keys()};
+        }''')
+        report['sentinels'] = sentinels
+        verify('saved plan remains unchanged after offline navigation, optimization, downloads and ranges', current_plans() == saved)
+        verify('unrelated user localStorage, cache and other-site-scope cache survive unchanged',
+               sentinels['local'] == 'keep-private-user-state' and sentinels['other'] == 'keep-other-cache' and
+               sentinels['scope'] == 'keep-other-scope')
+        verify('no server request succeeds after real server shutdown', len(report['requests']) == request_count)
+        verify('offline workflow has no uncaught JavaScript exceptions', not report['pageErrors'])
+        verify('no external live OSM/map/API request was triggered', not report['externalRequests'])
+        report['status'] = 'PASS'
+        write_report()
+    except BaseException as error:
+        report['status'] = 'FAIL'
+        report['failure'] = str(error)
+        report['traceback'] = traceback.format_exc()
+        if page and not page.is_closed():
+            try:
+                report['failurePage'] = {'url': page.url, 'text': page.locator('body').inner_text(timeout=3000)[:12000]}
+                page.screenshot(path=str(out / 'offline-failure.png'), full_page=True, timeout=5000)
+            except Exception as capture_error:
+                report['failureCaptureError'] = str(capture_error)
+        write_report()
+        raise
+    finally:
+        if context:
+            context.close()
+        if server and not server_closed:
+            server.shutdown()
+            server.server_close()

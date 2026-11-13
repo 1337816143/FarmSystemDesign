@@ -651,7 +651,7 @@ def verify_provenance(browser, url, out, check):
         response = probe.request.get(url.rstrip('/') + '/version.json')
         suite.check('served metadata is available for the fixture', response.ok)
         release = response.json()
-        suite.check('served application metadata is v0.3.16', release['version'] == '0.3.16')
+        suite.check('served application metadata is v0.3.26', release['version'] == '0.3.26')
     finally:
         probe.close()
     published = {**release, 'commit': PUBLISHED_COMMIT}

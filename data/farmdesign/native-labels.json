@@ -1,0 +1,2833 @@
+{
+  "input": [
+    {
+      "VarName": "Name",
+      "Description": "Name",
+      "Explanation": "Name of the farm component",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "Description",
+      "Description": "Description",
+      "Explanation": "Description of the farm component",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "SoilType",
+      "Description": "Soil type",
+      "Explanation": "Type of soil",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "ActiveOM",
+      "Description": "Active org. matter",
+      "Explanation": "Active organic matter content, the fraction of soil organic matter that is subject to mineralisation",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "OmDegradationRate",
+      "Description": "OM degradation",
+      "Explanation": "Fraction of soil organic matter degraded",
+      "SIUnit": "%/year"
+    },
+    {
+      "VarName": "SoilDepth",
+      "Description": "Soil depth",
+      "Explanation": "Depth of the soil profile considered for SOM breakdown",
+      "SIUnit": "m"
+    },
+    {
+      "VarName": "BulkDensity",
+      "Description": "Bulk density",
+      "Explanation": "Bulk density of the soil profile",
+      "SIUnit": "kg/m3"
+    },
+    {
+      "VarName": "TextureFactor",
+      "Description": "Texture factor",
+      "Explanation": "Texture factor influences the mineralisation of soil organic matter. Take a value of 1.2 for sandy soils, 1.0 for loam and 0.8 for clay.",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "SoilpH",
+      "Description": "Soil pH",
+      "Explanation": "Soil pH. The pH-value of the soil influences the availability of minerals, the activity of soil organisms (and mineralisation), and the soil structure.",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "Pw",
+      "Description": "Pw value",
+      "Explanation": "Water extractable phosphorus content",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "KValue",
+      "Description": "Potassium content",
+      "Explanation": "Potassium content in dry matter",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "Lime",
+      "Description": "Lime content",
+      "Explanation": "Lime content",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "NonSymbFixation",
+      "Description": "Non-symbiotic N fixation",
+      "Explanation": "Non-symbiotic nitrogen fixation",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "MoistPeriodPf35",
+      "Description": "Period with pF<3.5",
+      "Explanation": "Period of the year (0-365 days) while soil-pF is less then 3.5. The standard values for mineralisation of soil organic matter, crop residues and organic manure have been determined in permanently moist soil. In this model mineralisation of organic matter is stopped when soil pF rises above 3.5.",
+      "SIUnit": "days"
+    },
+    {
+      "VarName": "IrrigationWater",
+      "Description": "Water available",
+      "Explanation": "Amount of water available on the farm for crop production",
+      "SIUnit": "m3/year"
+    },
+    {
+      "VarName": "NDeposition",
+      "Description": "Nitrogen deposition",
+      "Explanation": "Nitrogen deposition",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "PDeposition",
+      "Description": "Phosphorus deposition",
+      "Explanation": "Phosphorus deposition with dust and flooding",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "KDeposition",
+      "Description": "Potassium deposition",
+      "Explanation": "Potassium deposition with dust and flooding",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "MeanTemperature",
+      "Description": "Mean temperature",
+      "Explanation": "Average temperature during the moist period, when organic matter degradation is possible",
+      "SIUnit": "ºC"
+    },
+    {
+      "VarName": "ErosionAmount",
+      "Description": "Soil eroded",
+      "Explanation": "Amount of soil eroded per year",
+      "SIUnit": "mm"
+    },
+    {
+      "VarName": "ErosionOmContent",
+      "Description": "OM content in erosion",
+      "Explanation": "Percentage of organic matter in eroded soil",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "ErosionNContent",
+      "Description": "N content in erosion",
+      "Explanation": "Percentage of nitrogen in eroded soil",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "ErosionPContent",
+      "Description": "P content in erosion",
+      "Explanation": "Percentage of potassium in eroded soil",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "ErosionKContent",
+      "Description": "K content in erosion",
+      "Explanation": "Percentage of potassium in eroded soil",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "Currency",
+      "Description": "Currency",
+      "Explanation": "Currency for economic calculations",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "InterestRate",
+      "Description": "Interest rate",
+      "Explanation": "Interest rate",
+      "SIUnit": "%/year"
+    },
+    {
+      "VarName": "LandCostsPerHa",
+      "Description": "Land costs",
+      "Explanation": "Costs of land",
+      "SIUnit": "Curr/ha"
+    },
+    {
+      "VarName": "GeneralCosts",
+      "Description": "General costs",
+      "Explanation": "General costs related to the farm enterprise",
+      "SIUnit": "Curr"
+    },
+    {
+      "VarName": "OtherAnimalCosts",
+      "Description": "Other animal costs",
+      "Explanation": "Other animal herd related costs",
+      "SIUnit": "Curr"
+    },
+    {
+      "VarName": "CasualLabourPrice",
+      "Description": "Casual labor price",
+      "Explanation": "Costs of casually hired labour",
+      "SIUnit": "Curr/hour"
+    },
+    {
+      "VarName": "RegularLabourPrice",
+      "Description": "Regular labor price",
+      "Explanation": "Costs of skilled hired labour",
+      "SIUnit": "Curr/hour"
+    },
+    {
+      "VarName": "LabourFarmConstant",
+      "Description": "Farm labor",
+      "Explanation": "Constant  labour required for farm maintenance",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "LabourHerdConstant",
+      "Description": "Herd labor",
+      "Explanation": "Constant labour required for keeping animals",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "RegularLaborInput",
+      "Description": "Regular labor",
+      "Explanation": "Regular, skilled labor that is provided by the farmer family",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "CasualLaborInput",
+      "Description": "Casual labor",
+      "Explanation": "Casual, unskilled labor that is provided by the farmer family",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "RegularLabourAnimal",
+      "Description": "Regular labor",
+      "Explanation": "Skilled labor that is required for this animal type",
+      "SIUnit": "h/animal/year"
+    },
+    {
+      "VarName": "CasualLabourAnimal",
+      "Description": "Casual labor",
+      "Explanation": "Unskilled labor that is required for this animal type",
+      "SIUnit": "h/animal/year"
+    },
+    {
+      "VarName": "HiredRegularLabor",
+      "Description": "Hired regular labor",
+      "Explanation": "Hired regular labor",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "HiredCasualLabor",
+      "Description": "Hired casual labor",
+      "Explanation": "Hired casual labor",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "OffFarmLaborInput",
+      "Description": "Off-farm labor",
+      "Explanation": "Off-farm labor",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "SpeciesNumber",
+      "Description": "Number of plant species",
+      "Explanation": "Number of plant species present in the field",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "ErosionCFactor",
+      "Description": "Erosion C factor",
+      "Explanation": "Crop cover factor of the RUSLE soil loss equation",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "NFixation",
+      "Description": "Nitrogen fixation",
+      "Explanation": "Symbiotic nitrogen fixation (legumes)",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "EffOrganicMatter",
+      "Description": "Effective org.matter",
+      "Explanation": "Effective organic matter input by crop",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "WaterDemand",
+      "Description": "Water demand",
+      "Explanation": "Amount of water required to grow the crop to the given production level(s)",
+      "SIUnit": "m3/ha/year"
+    },
+    {
+      "VarName": "Costs",
+      "Description": "Cultivation costs",
+      "Explanation": "Cost for production of the crop",
+      "SIUnit": "Curr/ha"
+    },
+    {
+      "VarName": "ContractWorkCosts",
+      "Description": "Contract work costs",
+      "Explanation": "Costs for contract work",
+      "SIUnit": "Curr/ha"
+    },
+    {
+      "VarName": "Subsidies",
+      "Description": "Subsidies",
+      "Explanation": "Subsidies for production of the crop",
+      "SIUnit": "Curr/ha"
+    },
+    {
+      "VarName": "RegularLabourCrop",
+      "Description": "Regular labor needed",
+      "Explanation": "Regular (skilled) labour requirements",
+      "SIUnit": "h/ha/year"
+    },
+    {
+      "VarName": "CasualLabourCrop",
+      "Description": "Casual labor needed",
+      "Explanation": "Casual labour requirement",
+      "SIUnit": "h/ha/year"
+    },
+    {
+      "VarName": "ScoreEffort",
+      "Description": "Score for effort",
+      "Explanation": "Score for effort (physical) for the production activity per ha of crop or per animal",
+      "SIUnit": "per ha/per animal"
+    },
+    {
+      "VarName": "ScoreRisk",
+      "Description": "Score for risk",
+      "Explanation": "Score for risk for the production activity per ha of crop or per animal",
+      "SIUnit": "per ha/per animal"
+    },
+    {
+      "VarName": "ScoreComplexity",
+      "Description": "Score for complexity",
+      "Explanation": "Score for complexity for the production activity per ha of crop or per animal",
+      "SIUnit": "per ha/per animal"
+    },
+    {
+      "VarName": "ScoreSatisfaction",
+      "Description": "Score for satisfaction",
+      "Explanation": "Score for satisfaction for the production activity per ha of crop or per animal",
+      "SIUnit": "per ha/per animal"
+    },
+    {
+      "VarName": "ToSoil",
+      "Description": "Used as green manure",
+      "Explanation": "Use as green manure, applied to the soil",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "ToAnimals",
+      "Description": "Used as feed for animals",
+      "Explanation": "Use as feed for animals",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "ToAnimalsAPR",
+      "Description": "Used as feed for animals",
+      "Explanation": "Use as feed for animals",
+      "SIUnit": "kg FM"
+    },
+    {
+      "VarName": "FractionNonGrazPeriod",
+      "Description": "Fraction fed in non-graz.per.",
+      "Explanation": "Fraction of the amount fed to animals that is supplied during the non-grazing period (dry season/winter)",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "ToBedding",
+      "Description": "Used as bedding",
+      "Explanation": "Use for bedding of animals in the stable",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "ToHomeUse",
+      "Description": "Used for home consumption",
+      "Explanation": "Use for home consumption by the farm family",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "ToHomeUseAPR",
+      "Description": "Used for home consumption",
+      "Explanation": "Use for home consumption by the farm family",
+      "SIUnit": "kg FM"
+    },
+    {
+      "VarName": "ToBurning",
+      "Description": "Used to burn",
+      "Explanation": "Amount of dry matter burned on the field",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "ToFireWood",
+      "Description": "Used as fire wood",
+      "Explanation": "Amount of dry matter used as fire wood",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "FullSelfSupply",
+      "Description": "Only used on farm",
+      "Explanation": "Indicates if the product is fully on farm produced",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "FreshYield",
+      "Description": "Fresh yield",
+      "Explanation": "Yield of fresh material",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "DMContent",
+      "Description": "Dry matter content",
+      "Explanation": "Dry matter content",
+      "SIUnit": "g/100 g FM"
+    },
+    {
+      "VarName": "FeedLoss",
+      "Description": "Feed loss",
+      "Explanation": "Losses during feeding to animals",
+      "SIUnit": "g/100 g DM"
+    },
+    {
+      "VarName": "AshContent",
+      "Description": "Ash content",
+      "Explanation": "Ash content in dry matter",
+      "SIUnit": "g/100 g DM"
+    },
+    {
+      "VarName": "SaturationValue",
+      "Description": "Feed saturation value",
+      "Explanation": "Feed saturation value",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "StructureValue",
+      "Description": "Feed structure value",
+      "Explanation": "Feed structure value",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "DMD",
+      "Description": "Dry matter digestibility",
+      "Explanation": "Dry matter digestibility",
+      "SIUnit": "g/kg DM"
+    },
+    {
+      "VarName": "FeedEnergy",
+      "Description": "Energy contents",
+      "Explanation": "Energy contents",
+      "SIUnit": "per kg DM"
+    },
+    {
+      "VarName": "FeedProtein",
+      "Description": "Protein contents",
+      "Explanation": "Protein contents",
+      "SIUnit": "g/kg DM"
+    },
+    {
+      "VarName": "Energy",
+      "Description": "Energy contents",
+      "Explanation": "Energy contents",
+      "SIUnit": "per kg DM"
+    },
+    {
+      "VarName": "Protein",
+      "Description": "Protein contents",
+      "Explanation": "Protein contents",
+      "SIUnit": "g/100 g FM"
+    },
+    {
+      "VarName": "EnergyFireWood",
+      "Description": "Energy contents fire wood",
+      "Explanation": "Energy contents when used as fire wood",
+      "SIUnit": "MJ/kg DM"
+    },
+    {
+      "VarName": "FreshPrice",
+      "Description": "Price fresh matter",
+      "Explanation": "Price of the fresh material",
+      "SIUnit": "Curr/kg"
+    },
+    {
+      "VarName": "NContent",
+      "Description": "Nitrogen",
+      "Explanation": "Nitrogen content ",
+      "SIUnit": "g/100 g DM"
+    },
+    {
+      "VarName": "PContent",
+      "Description": "Phosphorus",
+      "Explanation": "Phosphorus content ",
+      "SIUnit": "g/100 g DM"
+    },
+    {
+      "VarName": "KContent",
+      "Description": "Potassium",
+      "Explanation": "Potassium content ",
+      "SIUnit": "g/100 g DM"
+    },
+    {
+      "VarName": "Carbohydrates",
+      "Description": "Carbohydrates",
+      "Explanation": "Koolhydraat content ",
+      "SIUnit": "g/100 g FM"
+    },
+    {
+      "VarName": "DietaryEnergy",
+      "Description": "Dietary energy",
+      "Explanation": "Dietary energy content",
+      "SIUnit": "kcal/100 g FM"
+    },
+    {
+      "VarName": "DietaryFiber",
+      "Description": "Dietary fiber",
+      "Explanation": "Dietary fiber content ",
+      "SIUnit": "g/100 g FM"
+    },
+    {
+      "VarName": "Magnesium",
+      "Description": "Magnesium",
+      "Explanation": "Magnesium content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "Manganese",
+      "Description": "Manganese",
+      "Explanation": "Manganese content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "Calcium",
+      "Description": "Calcium",
+      "Explanation": "Calcium content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "Sodium",
+      "Description": "Sodium",
+      "Explanation": "Sodium content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "Iron",
+      "Description": "Iron",
+      "Explanation": "Iron content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "Zinc",
+      "Description": "Zinc",
+      "Explanation": "Zinc content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "Sulfur",
+      "Description": "Sulfur",
+      "Explanation": "Sulfur content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "VitaminA",
+      "Description": "Vitamin A",
+      "Explanation": "Vitamin-A content ",
+      "SIUnit": "µg/100 g FM"
+    },
+    {
+      "VarName": "VitaminC",
+      "Description": "Vitamin C",
+      "Explanation": "Vitamin-C content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "Tiamin",
+      "Description": "Tiamin",
+      "Explanation": "Tiamin content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "Riboflavin",
+      "Description": "Riboflavin",
+      "Explanation": "Riboflavin content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "Folate",
+      "Description": "Folate",
+      "Explanation": "Folate content ",
+      "SIUnit": "µg/100 g FM"
+    },
+    {
+      "VarName": "Niacin",
+      "Description": "Niacin",
+      "Explanation": "Niacin content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "VitaminB6",
+      "Description": "Vitamin B6",
+      "Explanation": "Vitamin-B6 content ",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "VitaminB12",
+      "Description": "Vitamin B12",
+      "Explanation": "Vitamine-B12 content",
+      "SIUnit": "µg/100 g FM"
+    },
+    {
+      "VarName": "Copper",
+      "Description": "Copper",
+      "Explanation": "Copper content ",
+      "SIUnit": "µg/100 g FM"
+    },
+    {
+      "VarName": "VitaminD",
+      "Description": "Vitamin D",
+      "Explanation": "Vitamine-D content",
+      "SIUnit": "µg/100 g FM"
+    },
+    {
+      "VarName": "VitaminE",
+      "Description": "Vitamin E",
+      "Explanation": "Vitamine-E content",
+      "SIUnit": "mg/100 g FM"
+    },
+    {
+      "VarName": "FoodGroup",
+      "Description": "Food group",
+      "Explanation": "Food group",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Area",
+      "Description": "Crop area",
+      "Explanation": "Area of the crop in the rotation",
+      "SIUnit": "ha"
+    },
+    {
+      "VarName": "Whereabouts",
+      "Description": "Whereabouts",
+      "Explanation": "Time spent at different sites: B|P|Y|O: B=barn, P=pasture or crop stubble, Y=open yard, O=off-farm grazing",
+      "SIUnit": "hours"
+    },
+    {
+      "VarName": "AnimalCosts",
+      "Description": "Costs per animal",
+      "Explanation": "Costs for this animal, for breeding, veterinary care, etc.",
+      "SIUnit": "curr/animal"
+    },
+    {
+      "VarName": "LengthGrazingPeriod",
+      "Description": "Duration grazing period",
+      "Explanation": "Duration of the grazing period",
+      "SIUnit": "days"
+    },
+    {
+      "VarName": "AnmNumber",
+      "Description": "Number of animals",
+      "Explanation": "Number of animals of this type",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "ReplacementRate",
+      "Description": "Replacement rate",
+      "Explanation": "Replacement rate of adult animals",
+      "SIUnit": "per year"
+    },
+    {
+      "VarName": "Breed",
+      "Description": "Breed",
+      "Explanation": "Breed",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Age",
+      "Description": "Average age",
+      "Explanation": "Average age of the animals",
+      "SIUnit": "years"
+    },
+    {
+      "VarName": "Weight",
+      "Description": "Body weight",
+      "Explanation": "Body weight (BW)",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "LivestockUnits",
+      "Description": "Livestock units",
+      "Explanation": "Livestock units per animal",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Carcass",
+      "Description": "Carcass percentage",
+      "Explanation": "Carcass percentage",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "Growth",
+      "Description": "Growth rate",
+      "Explanation": "Growth",
+      "SIUnit": "kg/day"
+    },
+    {
+      "VarName": "Production",
+      "Description": "Production",
+      "Explanation": "Average production level during the year (or the period on the farm)",
+      "SIUnit": "kg/day"
+    },
+    {
+      "VarName": "BeddingSupplied",
+      "Description": "Bedding material",
+      "Explanation": "Amount of bedding material supplied per animal per day",
+      "SIUnit": "kg DM/animal/day"
+    },
+    {
+      "VarName": "SaturationFactor",
+      "Description": "Saturation factor",
+      "Explanation": "Saturation value, expressed per kg body weight",
+      "SIUnit": "per kg BW"
+    },
+    {
+      "VarName": "StructureFactor",
+      "Description": "Structure factor",
+      "Explanation": "Structure value, expressed per kg dry matter intake",
+      "SIUnit": "per kg DMI"
+    },
+    {
+      "VarName": "EnergyMaint",
+      "Description": "Energy maintenance",
+      "Explanation": "Energy requirement for maintenance",
+      "SIUnit": "units/kg MW"
+    },
+    {
+      "VarName": "ProteinMaint",
+      "Description": "Protein maintenance",
+      "Explanation": "Protein requirement for maintenance",
+      "SIUnit": "g/kg MW"
+    },
+    {
+      "VarName": "TimeInPasture",
+      "Description": "Time in pasture",
+      "Explanation": "Time per day in pasture during grazing season",
+      "SIUnit": "hours/day"
+    },
+    {
+      "VarName": "TimeInYard",
+      "Description": "Time in yard",
+      "Explanation": "Time per day in yard during grazing season",
+      "SIUnit": "hours/day"
+    },
+    {
+      "VarName": "AmountUsed",
+      "Description": "Amount used",
+      "Explanation": "Amount of manure used on the farm",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "ProducedAtSite",
+      "Description": "Produced at site",
+      "Explanation": "Manure produced at which site on the farm (P=pasture, Y=yard or S=stable)",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "ProportionAtSite",
+      "Description": "Proportion at site",
+      "Explanation": "Proportion of the total manure produced at a site (pasture, yard or stable)",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "FractionMineralNitrogen",
+      "Description": "Fraction mineral N",
+      "Explanation": "Fraction of the total fertilizer N that is in inorganic form",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "OMContent",
+      "Description": "Organic matter content",
+      "Explanation": "Organic matter content in dry matter",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "PriceManure",
+      "Description": "Price of the product",
+      "Explanation": "Price of the product",
+      "SIUnit": "Curr/kg"
+    },
+    {
+      "VarName": "FractionToSoil",
+      "Description": "Fraction for fertilization",
+      "Explanation": "Fraction of the produced manure that is allocated for crop fertilization in the field",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "FractionToBiogas",
+      "Description": "Fraction for biogas",
+      "Explanation": "Fraction of the produced manure that is allocated for biogas production",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "FractionToFirewood",
+      "Description": "Fraction for firewood",
+      "Explanation": "Fraction of the produced manure that is allocated for use as firewood after drying for cooking and heating",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "FractionBeddingMaterial",
+      "Description": "Fraction of bedding",
+      "Explanation": "Fraction of the bedding material and feed losses that is added to this type of manure",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "AmountFertilizer",
+      "Description": "Amount fertilizer",
+      "Explanation": "Amount imported into the farm",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "PriceFertilizer",
+      "Description": "Price of the product",
+      "Explanation": "Price of the product",
+      "SIUnit": "Curr/kg"
+    },
+    {
+      "VarName": "ExcretionLoss",
+      "Description": "Nmin excretion loss",
+      "Explanation": "Fraction of mineral nitrogen lost from excreted manure",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "ApplicationLoss",
+      "Description": "Nmin application loss",
+      "Explanation": "Fraction of mineral nitrogen lost from applied manure",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "FractionOxic",
+      "Description": "Fraction aerobic",
+      "Explanation": "Proportion degraded in aerobic conditions",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "MineralNLossOxic",
+      "Description": "Nmin storage loss (aerobic)",
+      "Explanation": "Fraction of mineral N lost during storage in oxic conditions",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "DegradationRateOxic",
+      "Description": "Degradation rate aerobic",
+      "Explanation": "Fractional organic matter degradation rate in oxic conditions",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "MicrobialEffOxic",
+      "Description": "Microbial efficiency aerobic",
+      "Explanation": "Efficiency of substrate utilization by microbes in oxic conditions",
+      "SIUnit": "g/g"
+    },
+    {
+      "VarName": "MicrobialCNOxic",
+      "Description": "CN ratio micr. aerobic",
+      "Explanation": "C:N ratio of microbes in oxic conditions",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "MineralNLossAnoxic",
+      "Description": "Nmin storage loss (anaerobic)",
+      "Explanation": "Fraction of mineral N lost during storage in anoxic conditions",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "DegradationRateAnoxic",
+      "Description": "Degradation rate anaerobic",
+      "Explanation": "Fractional organic matter degradation rate in anoxic conditions",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "MicrobialEffAnoxic",
+      "Description": "Microbial efficiency anaerobic",
+      "Explanation": "Efficiency of substrate utilization by microbes in anoxic conditions",
+      "SIUnit": "g/g"
+    },
+    {
+      "VarName": "MicrobialCNAnoxic",
+      "Description": "CN ratio microbial anaerobic",
+      "Explanation": "C:N ratio of microbes in anoxic conditions",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "HumificationCoeff",
+      "Description": "Humification coefficient",
+      "Explanation": "Humification coefficient, the proportion of organic matter remaining after one year",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Number",
+      "Description": "Number",
+      "Explanation": "Number present on the farm / in the household",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Price",
+      "Description": "Price for purchase",
+      "Explanation": "Price of the machine",
+      "SIUnit": "Curr"
+    },
+    {
+      "VarName": "Depreciation",
+      "Description": "Depreciation costs",
+      "Explanation": "Percentage of the purchase price for depreciation costs",
+      "SIUnit": "%/year"
+    },
+    {
+      "VarName": "OperationalCosts",
+      "Description": "Costs for OMI",
+      "Explanation": "Percentage of the purchase price for costs of operation, maintenance and insurance",
+      "SIUnit": "%/year"
+    },
+    {
+      "VarName": "FeedEvaluationSystem",
+      "Description": "Feed evaluation system",
+      "Explanation": "Evaluation system and units that are used in  the quality assessment of feeds for energy. protein en intake",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "LengthYardPeriod",
+      "Description": "Duration in yard",
+      "Explanation": "Number of days that the animals (partly) spend in the open yard",
+      "SIUnit": "days"
+    },
+    {
+      "VarName": "AmountPesticide",
+      "Description": "Amount",
+      "Explanation": "Amount of Pesticide",
+      "SIUnit": "L or kg"
+    },
+    {
+      "VarName": "PricePesticide",
+      "Description": "Price",
+      "Explanation": "Price of Pesticide",
+      "SIUnit": "Curr/L or kg"
+    },
+    {
+      "VarName": "ActiveIngredients",
+      "Description": "Active Ingredients",
+      "Explanation": "Active Ingredients",
+      "SIUnit": "g/L or kg"
+    },
+    {
+      "VarName": "CarcassPrice",
+      "Description": "Carcass price",
+      "Explanation": "Price of carcass of slaughtered animals",
+      "SIUnit": "Curr/kg"
+    },
+    {
+      "VarName": "ProductType",
+      "Description": "Product type",
+      "Explanation": "Type of product (use \"Milk\", \"Meat\" or \"Other\")",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "MarketableProportion",
+      "Description": "Marketable portion",
+      "Explanation": "Fraction of the product that can effectively be sold, including conversion-correction",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "ProteinContent",
+      "Description": "Protein content",
+      "Explanation": "Percentage protein in the product",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "Fat",
+      "Description": "Fat content",
+      "Explanation": "Percentage fat in the product",
+      "SIUnit": "g/100 g FM"
+    },
+    {
+      "VarName": "EnergyRequirement",
+      "Description": "Energy requirement",
+      "Explanation": "Requirement of energie for production",
+      "SIUnit": "units/kg"
+    },
+    {
+      "VarName": "ProteinRequirement",
+      "Description": "Protein requirement",
+      "Explanation": "Requirement of protein for production",
+      "SIUnit": "units/kg"
+    },
+    {
+      "VarName": "LengthOffFarmPeriod",
+      "Description": "Duration off-farm grazing",
+      "Explanation": "Number of days that the animals (partly) spend grazing outside the farm (within the grazing season!)",
+      "SIUnit": "days"
+    },
+    {
+      "VarName": "TimeOffFarm",
+      "Description": "Time off-farm grazing",
+      "Explanation": "Time per day off farm grazing during grazing season",
+      "SIUnit": "hours"
+    },
+    {
+      "VarName": "LaborProfile",
+      "Description": "Labor profile",
+      "Explanation": "Type in total labor hours or double click to enter labor hours month wise",
+      "SIUnit": "hours"
+    },
+    {
+      "VarName": "LowerHeatingValue",
+      "Description": "Lower Heating Value",
+      "Explanation": "Lower heating value ",
+      "SIUnit": "MJ/kg"
+    },
+    {
+      "VarName": "ToEnergyProduction",
+      "Description": "Used for energy production",
+      "Explanation": "Amount of feedstock fed to the digester yearly",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "DegradationRateEP",
+      "Description": "Degradation rate (EP)",
+      "Explanation": "Degradation rate of substrate in anaerobic digester for energy production",
+      "SIUnit": "per year"
+    },
+    {
+      "VarName": "Crop_CH4_EmissionFactor",
+      "Description": "Crop CH4 emission-factor",
+      "Explanation": "Crop-specific emission factor for CH4 (methane), in particular for rice cultivation",
+      "SIUnit": "kg CH4/ha"
+    },
+    {
+      "VarName": "Enteric_CH4_EmissionFactor",
+      "Description": "CH4 emission rumen",
+      "Explanation": "CH4 (methane) emission from fermentation processes in the rumen",
+      "SIUnit": "kg CH4/animal/year"
+    },
+    {
+      "VarName": "Manure_CH4_EmissionFactor",
+      "Description": "CH4 emission manure",
+      "Explanation": "CH4 (methane) emissie from excreted animal manure",
+      "SIUnit": "kg CH4/animal/year"
+    },
+    {
+      "VarName": "ManureNitrogen_N2O_EmissionFactor",
+      "Description": "N2O emission manure",
+      "Explanation": "N2O (di-nitrogen-oxide) emission from animal manure (direct emission)",
+      "SIUnit": "kg N2O/kg N"
+    },
+    {
+      "VarName": "Volatilization_N2O_EmissionFactor",
+      "Description": "N2O emission volatiliz.",
+      "Explanation": "N2O (di-nitrogen-oxide) emission as a fraction of volatilized ammonia-nitrogen (indirecte emissie)",
+      "SIUnit": "kg N2O/kg NH3-N"
+    },
+    {
+      "VarName": "AppliedNitrogen_N2O_EmissionFactor",
+      "Description": "N2O emission application",
+      "Explanation": "N2O (di-nitrogen-oxide) emission as a fraction of applied nitrogen",
+      "SIUnit": "kg N2O/kg N"
+    },
+    {
+      "VarName": "BodyWeight",
+      "Description": "Body weight",
+      "Explanation": "Body weight (BW)",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "Length",
+      "Description": "Length",
+      "Explanation": "Body length",
+      "SIUnit": "cm"
+    },
+    {
+      "VarName": "OffFarmLabor",
+      "Description": "Off-farm labor",
+      "Explanation": "Use of labor outside the own farm",
+      "SIUnit": "hours"
+    },
+    {
+      "VarName": "ConsumerUnits",
+      "Description": "Consumer units",
+      "Explanation": "Consumer-units for the calculation of requirements of energy, nutrients and vitamins in food",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Expenditures",
+      "Description": "Expenditures",
+      "Explanation": "Expenditures by a household member",
+      "SIUnit": "Curr"
+    },
+    {
+      "VarName": "PersonAge",
+      "Description": "Age",
+      "Explanation": "Age of the person",
+      "SIUnit": "years"
+    },
+    {
+      "VarName": "Status",
+      "Description": "Physiological state",
+      "Explanation": "Physiological status of the person (Normal, Pregnant, Lactating)",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "RetentionFactor",
+      "Description": "Retention factor",
+      "Explanation": "Retention of nutrients in the food, relative to the raw material",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "OffFarmLabourPrice",
+      "Description": "Off-farm labor price",
+      "Explanation": "Returns gained from off-farm labor",
+      "SIUnit": "Curr/h"
+    },
+    {
+      "VarName": "Pension",
+      "Description": "Pension",
+      "Explanation": "Revenues from pensions",
+      "SIUnit": "Curr"
+    },
+    {
+      "VarName": "Remittances",
+      "Description": "Remittances",
+      "Explanation": "Revenues from remittances",
+      "SIUnit": "Curr"
+    }
+  ],
+  "output": [
+    {
+      "VarName": "OrganicMatterBalance",
+      "Description": "Organic matter balance",
+      "Explanation": "Balance of soil organic matter added and removed or mineralized",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "PerFarm",
+      "Description": "Per farm",
+      "Explanation": "Aggregated for the whole farm",
+      "SIUnit": "per farm"
+    },
+    {
+      "VarName": "PerHa",
+      "Description": "Per hectare",
+      "Explanation": "Averaged over the cultivated area",
+      "SIUnit": "per ha"
+    },
+    {
+      "VarName": "Per1000m3",
+      "Description": "Per 1000 m3",
+      "Explanation": "Averaged over the amount of water used",
+      "SIUnit": "per 1000 m3"
+    },
+    {
+      "VarName": "Inputs",
+      "Description": "Inputs",
+      "Explanation": "Imported into the farm",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "Outputs",
+      "Description": "Outputs",
+      "Explanation": "Exported from the farm",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "Balance",
+      "Description": "Balance",
+      "Explanation": "Balance between inputs and outputs",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "CropResidues",
+      "Description": "Crop residues",
+      "Explanation": "Additions with crop residues",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "GreenManure",
+      "Description": "Green manures",
+      "Explanation": "Green manures adddd to the soil",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "FeedLoss",
+      "Description": "Feed losses",
+      "Explanation": "Feed losses in the stable",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "Manure",
+      "Description": "Own manure",
+      "Explanation": "Manure produced on farm",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "AddedManure",
+      "Description": "Imported manure",
+      "Explanation": "Imported manure",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "ManureBreakdown",
+      "Description": "Manure degradation",
+      "Explanation": "Degradation of manure",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "SomBreakdown",
+      "Description": "SOM degradation",
+      "Explanation": "Degradation of soil organic matter",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "Erosion",
+      "Description": "Erosion losses",
+      "Explanation": "Losses with soil removed by erosion",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "Cfactor",
+      "Description": "C-Factor",
+      "Explanation": "Crop cover factor for the RUSLE soil loss equation, weighed for relative crop area",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "OverviewRotations",
+      "Description": "Overview crop areas and rotations",
+      "Explanation": "Overview of crop areas (ha) and group frequencies",
+      "SIUnit": "ha"
+    },
+    {
+      "VarName": "WholeFarmCropAreas",
+      "Description": "Whole farm crop areas",
+      "Explanation": "Total areas of individual crops on the whole farm, aggregated for rotations",
+      "SIUnit": "ha"
+    },
+    {
+      "VarName": "CropProdUse",
+      "Description": "Production and use (kg DM; kg FM)",
+      "Explanation": "Amounts of products from crops (kg dry matter) and animals (kg fresh matter), their destination on the farm and import/export balance",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "Name",
+      "Description": "Name",
+      "Explanation": "Name",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "DMYield",
+      "Description": "Production",
+      "Explanation": "Dry matter yield",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "FeedGrazing",
+      "Description": "Feed grazing",
+      "Explanation": "Feed for livestock supplied during the grazing season, i.e. during summer or wet season",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "FeedNonGraz",
+      "Description": "Feed non-graz.",
+      "Explanation": "Feed for livestock supplied during the non-grazing (stable) season, i.e. during winter or dry season",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "LeftOnField",
+      "Description": "Left on field",
+      "Explanation": "Material left on the field as residue for green manure",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "Bedding",
+      "Description": "Bedding",
+      "Explanation": "Material used as bedding for livestock in the stable",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "BeddingSupply",
+      "Description": "Available bedding",
+      "Explanation": "Available amount of bedding material",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "BeddingRequired",
+      "Description": "Required bedding",
+      "Explanation": "Required amount of bedding material",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "BeddingBalance",
+      "Description": "Deviation",
+      "Explanation": "Deviation between supplied and required",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "HomeUse",
+      "Description": "Home use",
+      "Explanation": "Used for home consumption by the farm family",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "Burning",
+      "Description": "Burning",
+      "Explanation": "Used to burn on the field",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "FireWood",
+      "Description": "Fire wood",
+      "Explanation": "Used as fire wood",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "SelfSupply",
+      "Description": "Self reliance",
+      "Explanation": "Proportion of product produced on the farm. Values <1 (or <100%) denote import, while values >1 (or >100%) indicate export from the farm",
+      "SIUnit": "- or %"
+    },
+    {
+      "VarName": "Correction",
+      "Description": "Correction",
+      "Explanation": "Correction applied to reach full self supply, if indicated for the product",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "FeedBalance",
+      "Description": "Feed balance",
+      "Explanation": "Feed balance in the grazing and non-grazing period",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "GrazingPeriod",
+      "Description": "Grazing period",
+      "Explanation": "Overview for the grazing period",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "NonGrazingPeriod",
+      "Description": "Stable period",
+      "Explanation": "Overview for the non-grazing period",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "DryMatter",
+      "Description": "Dry matter",
+      "Explanation": "Dry matter available for animals, and intake capacity",
+      "SIUnit": "kg/year"
+    },
+    {
+      "VarName": "Intake",
+      "Description": "Saturation",
+      "Explanation": "Dry matter intake capacity (of animals) and saturation (by feeds)",
+      "SIUnit": "kg/year"
+    },
+    {
+      "VarName": "Energy",
+      "Description": "Energy",
+      "Explanation": "Energy required (for animal maintenance and production) and available from crop products and other feeds",
+      "SIUnit": "energy/year"
+    },
+    {
+      "VarName": "Protein",
+      "Description": "Protein",
+      "Explanation": "Protein required (for animal maintenance and production) and available from crop products and other feeds",
+      "SIUnit": "kg/year"
+    },
+    {
+      "VarName": "Structure",
+      "Description": "Structure",
+      "Explanation": "Structure from fibrous material for animal rumen function, and provided by crop products and other feeds",
+      "SIUnit": "kg/year"
+    },
+    {
+      "VarName": "GrazingPeriod.Available",
+      "Description": "Feed available",
+      "Explanation": "For the grazing period: total amount available from crop products and other feeds",
+      "SIUnit": "kg/year"
+    },
+    {
+      "VarName": "GrazingPeriod.Required",
+      "Description": "Animal capacity/req.",
+      "Explanation": "For the grazing period: total amount required for animal maintenance and production",
+      "SIUnit": "kg/year"
+    },
+    {
+      "VarName": "GrazingPeriod.Deviation",
+      "Description": "Deviation available/req.",
+      "Explanation": "For the grazing period: percentage difference between required and available",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "NonGrazingPeriod.Available",
+      "Description": "Feed available",
+      "Explanation": "For the non-grazing period: total amount available from crop products and other feeds",
+      "SIUnit": "kg/year"
+    },
+    {
+      "VarName": "NonGrazingPeriod.Required",
+      "Description": "Animal capacity/req.",
+      "Explanation": "For the non-grazing period: total amount required for animal maintenance and production",
+      "SIUnit": "kg/year"
+    },
+    {
+      "VarName": "NonGrazingPeriod.Deviation",
+      "Description": "Deviation available/req.",
+      "Explanation": "For the non-grazing period: percentage difference between required and available",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "SelfSupply.GrazingPeriod",
+      "Description": "Self reliance",
+      "Explanation": "Feed self reliance during the grazing period",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "SelfSupply.NonGrazingPeriod",
+      "Description": "Self reliance",
+      "Explanation": "Feed self reliance during the non-grazing period",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "SelfSupply.Total",
+      "Description": "Self reliance total",
+      "Explanation": "Feed self reliance for all periods",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "LabourBalance",
+      "Description": "Labor balance",
+      "Explanation": "Overview of labor requirement and avaiability",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "RegularLabour",
+      "Description": "Regular",
+      "Explanation": "Family labor and skilled hired labor",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "CasualLabour",
+      "Description": "Casual",
+      "Explanation": "Unskilled hired labor for peaks related to sowing, weeding or harvest",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "RequiredLabour",
+      "Description": "Required",
+      "Explanation": "Labor required for farm maintenance, cropping and animal management",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "AvailableLabour",
+      "Description": "Available",
+      "Explanation": "Available labor on the farm",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "BalanceLabour",
+      "Description": "Balance",
+      "Explanation": "Difference between required and available labor",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "FarmLabour",
+      "Description": "Farm management",
+      "Explanation": "Labor required for general farm management activities",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "HerdLabour",
+      "Description": "Herd management",
+      "Explanation": "Labor required for livestock management",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "CropLabour",
+      "Description": "Crop management",
+      "Explanation": "Labor required for cropping",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "OwnLabour",
+      "Description": "Own labor",
+      "Explanation": "Labor provided by the farm family",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "FamilyLabor",
+      "Description": "Family labor",
+      "Explanation": "Family labor",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "HiredLabor",
+      "Description": "Hired labor",
+      "Explanation": "Hired labor",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "HouseholdAvailableTime",
+      "Description": "Available time",
+      "Explanation": "Available time",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "HouseholdFarmLabor",
+      "Description": "Farm labor",
+      "Explanation": "Farm labor",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "HouseholdOffFarmLabor",
+      "Description": "Off-farm labor",
+      "Explanation": "Off-farm labor",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "HouseholdLeisureTime",
+      "Description": "Leisure time",
+      "Explanation": "Leisure time",
+      "SIUnit": "hours/year"
+    },
+    {
+      "VarName": "ManureProductionLosses",
+      "Description": "Manure production, use, degradation and losses",
+      "Explanation": "Manure production, degradation and losses",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "CompositionAfterApplication",
+      "Description": "Composition of manure",
+      "Explanation": "Composition of the manure produced, after excretion, after storage and after application to the field",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "StorageBreakdownLosses",
+      "Description": "Degradation and losses",
+      "Explanation": "Degradation of organic matter and volatilization losses of N as ammonia during various stages",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "DM",
+      "Description": "DM",
+      "Explanation": "Dry matter",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "OM",
+      "Description": "OM",
+      "Explanation": "Organic matter",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "C",
+      "Description": "C",
+      "Explanation": "Carbon",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "N",
+      "Description": "N",
+      "Explanation": "Nitrogen",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "P",
+      "Description": "P",
+      "Explanation": "Phosphorus",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "K",
+      "Description": "K",
+      "Explanation": "Potassium",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "MineralN",
+      "Description": "Inorg. N",
+      "Explanation": "Inorganic nitrogen",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "OrganicN",
+      "Description": "Org. N",
+      "Explanation": "Organic nitrogen",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "NLossExcretion",
+      "Description": "N loss excr.",
+      "Explanation": "Nitrogen losses after excretion",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "NReleaseStor",
+      "Description": "N release stor.",
+      "Explanation": "Nitrogen released during storage by mineralization",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "NLossStorage",
+      "Description": "N loss storage",
+      "Explanation": "Nitrogen losses during storage",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "CLossStorage",
+      "Description": "C degr. storage",
+      "Explanation": "Carbon ldegradation during storage due to breakdown",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "ProportionOfTotal",
+      "Description": "Fraction",
+      "Explanation": "Fraction of the total of this type of manure",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "NLossFirewood",
+      "Description": "N loss firewood",
+      "Explanation": "Losses of nitrogen due to burning for cooking or heating",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "CLossFirewood",
+      "Description": "C loss firewood",
+      "Explanation": "Losses of carbon due to burning for cooking or heating",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "AmountBedding",
+      "Description": "Bedding",
+      "Explanation": "Bedding material (incl. feed losses) that are added to the manure",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "ToBiogas",
+      "Description": "For biogas",
+      "Explanation": "Produced manure (incl. bedding) allocated for biogas production",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "ToSoil",
+      "Description": "For fertiliz.",
+      "Explanation": "Produced manure (incl. bedding) allocated for crop fertilization",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "ToFirewood",
+      "Description": "For firewood",
+      "Explanation": "Produced manure (incl. bedding) allocated for use as firewood",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "ToExport",
+      "Description": "For export",
+      "Explanation": "Produced manure (incl. bedding) allocated for export from the farm",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "AmountSold",
+      "Description": "Sold",
+      "Explanation": "Amount of manure sold (after storage)",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "AvailableForSoil",
+      "Description": "Available",
+      "Explanation": "Amount of manure available for application to crops (after storage)",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "RequiredForSoil",
+      "Description": "Required",
+      "Explanation": "Amount of manure required for application to crops",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "DeviationForSoil",
+      "Description": "Deviation",
+      "Explanation": "Deviation between availability and requirement for crop fertilization",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "TotalDM",
+      "Description": "Total DM",
+      "Explanation": "Total amount of manure dry matter that is applied to the crop",
+      "SIUnit": "kg DM"
+    },
+    {
+      "VarName": "DmPerHa",
+      "Description": "DM per area",
+      "Explanation": "Amount of manure dry matter per unit of area (ha) applied to the crop",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "NPerHa",
+      "Description": "N per ha",
+      "Explanation": "Amount of manure nitrogen per unit of area (ha) applied to the crop",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "PPerHa",
+      "Description": "P per ha",
+      "Explanation": "Amount of manure phosphorus per unit of area (ha) applied to the crop",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "KPerHa",
+      "Description": "K per ha",
+      "Explanation": "Amount of manure kalium per unit of area (ha) applied to the crop",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "NLossApplic",
+      "Description": "N loss applic.",
+      "Explanation": "Nitrogen losses after application to the field",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "CLossField",
+      "Description": "C degr. field",
+      "Explanation": "Carbon degradation after application to the field due to breakdown",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "NutrientBalanceAndFlows",
+      "Description": "Nutrient balance and individual flows",
+      "Explanation": "Inputs, outputs, balance and flows of carbon and nutrients nitrogen, phosphorus and potassium",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "Ckgha",
+      "Description": "C",
+      "Explanation": "Carbon",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "Nkgha",
+      "Description": "N",
+      "Explanation": "Nitrogen",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "Pkgha",
+      "Description": "P",
+      "Explanation": "Phosphorus",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "Kkgha",
+      "Description": "K",
+      "Explanation": "Potassium",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "InputsKgHa",
+      "Description": "Inputs",
+      "Explanation": "Imported into the farm",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "OutputsKgHa",
+      "Description": "Outputs",
+      "Explanation": "Exported from the farm",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "BalanceKgHa",
+      "Description": "Balance",
+      "Explanation": "Balance between inputs and outputs",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "AllFlowsKgHa",
+      "Description": "All flows",
+      "Explanation": "Overview of all the carbon and nutrient flows on the farm",
+      "SIUnit": "kg/ha"
+    },
+    {
+      "VarName": "CropReturns",
+      "Description": "Returns from crop production",
+      "Explanation": "Returns from the sale of crop products",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "AmountUsed",
+      "Description": "Amount used",
+      "Explanation": "Amount of the product used on the farm",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "AmountProduced",
+      "Description": "Production",
+      "Explanation": "Amount of the product produced on the farm",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "PurchaseSaleBalance",
+      "Description": "Purch-sale bal.",
+      "Explanation": "Balance of imports and exports from the farm",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "SelfSupplyRate",
+      "Description": "SelfSupplyRate",
+      "Explanation": "Self supply rate of the product used on the farm (1: completely produced on-farm; <1: partly imported; >1: partly exported)",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Returns",
+      "Description": "Returns",
+      "Explanation": "Returns from the sales of products",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "Costs",
+      "Description": "Costs",
+      "Explanation": "Costs",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "CropMargins",
+      "Description": "Margin for crop production",
+      "Explanation": "Balance of costs and returns for crop production",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "CropName",
+      "Description": "Crop name",
+      "Explanation": "Name of the crop",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "GeneralCosts",
+      "Description": "General costs",
+      "Explanation": "General costs",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "ContractWorkCosts",
+      "Description": "Contr.work costs",
+      "Explanation": "Costs for contract work",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "Subsidies",
+      "Description": "Subsidies",
+      "Explanation": "Subsidies",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "Margin",
+      "Description": "Margin",
+      "Explanation": "Margin",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "AnimalCosts",
+      "Description": "Animal costs",
+      "Explanation": "Costs for animals, for breeding, veterinary care, etc.",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "AnimalReturns",
+      "Description": "Returns from animal production",
+      "Explanation": "Returns from the sales of animal products",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "AnimalMargins",
+      "Description": "Margin for animal production",
+      "Explanation": "Balance of costs and returns for animal production",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "FreshPrice",
+      "Description": "Price",
+      "Explanation": "Price of the fresh product",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "FeedCosts",
+      "Description": "Feed costs",
+      "Explanation": "Costs for feeding the animals",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "BeddingCosts",
+      "Description": "Bedding costs",
+      "Explanation": "Costs for bedding materials for animals in the stable",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "InterestCosts",
+      "Description": "Interest costs",
+      "Explanation": "Interest costs",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "OtherCosts",
+      "Description": "Other costs",
+      "Explanation": "Other costs for animal husbandry",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "MarginsCostsProfit",
+      "Description": "Margins, costs and profit",
+      "Explanation": "Overview of costs, profits and margins for the whole farm and associated to the crop and animal production",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "Totals",
+      "Description": "Totals",
+      "Explanation": "Totals",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "GrossMarginCrops",
+      "Description": "Gross margin crops",
+      "Explanation": "Balance of costs and benefits for crop production",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "GrossMarginAnimals",
+      "Description": "Gross margin animals",
+      "Explanation": "Balance of costs and benefits for animal production",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "EquipmentCosts",
+      "Description": "Equipment costs",
+      "Explanation": "Costs for the depreciation, interest and operation of equipment (machinery)",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "BuildingCosts",
+      "Description": "Building costs",
+      "Explanation": "Costs for the depreciation, interest and operation of buildings",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "CasualLabourCosts",
+      "Description": "Hired cas. labor costs",
+      "Explanation": "Costs for hiring casual, unskilled labor",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "RegularLabourCosts",
+      "Description": "Hired reg. labor costs",
+      "Explanation": "Costs for hired, skilled labor (not family labor)",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "HomeConsumption",
+      "Description": "Home consumption",
+      "Explanation": "Costs for home consumption of farm products",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "OperatingProfit",
+      "Description": "Operating profit (+return fam.labor)",
+      "Explanation": "Operating profit, the result of margins corrected for costs, including the return to family labor",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "OperatingProfitPerHa",
+      "Description": "Operating profit per ha",
+      "Explanation": "Operating profit per unit of area (ha)",
+      "SIUnit": "currency/ha"
+    },
+    {
+      "VarName": "OwnLabourCosts",
+      "Description": "Own labor costs",
+      "Explanation": "Costs for own, family labor",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "ReturnToLabour",
+      "Description": "Return to family labor per hour",
+      "Explanation": "Return for the labor that the family puts into the farm",
+      "SIUnit": "curr/h"
+    },
+    {
+      "VarName": "Interest",
+      "Description": "Interest costs",
+      "Explanation": "Costs for interest over livestock, equipment and buildings",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "Depreciation",
+      "Description": "Depreciation costs",
+      "Explanation": "Costs for depreciation of equipment and buildings",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "CheckDecisionVariables",
+      "Description": "Check decision variables",
+      "Explanation": "Check whether the decision variables are within the limits (minimum and maximum) as specified in the Describe Window",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Description",
+      "Description": "Description",
+      "Explanation": "Description",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Minimum",
+      "Description": "Minimum",
+      "Explanation": "Minimum",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Maximum",
+      "Description": "Maximum",
+      "Explanation": "Maximum",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Value",
+      "Description": "Value",
+      "Explanation": "Value",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "CheckObjectivesConstraints",
+      "Description": "Check objectives and constraints values",
+      "Explanation": "Check objectives and constraints values",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "OverviewDecisionVariables",
+      "Description": "Overview of values of decision variables",
+      "Explanation": "Overview of values of decision variables (per solution)",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "OverviewObjConstraints",
+      "Description": "Overview of values of objectives and constraints",
+      "Explanation": "Overview of values of objectives and constraints (per solution)",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "ImportCrops",
+      "Description": "Import crop products",
+      "Explanation": "Import of nutrients in crop products used on the farm",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "Fixation",
+      "Description": "Fixation",
+      "Explanation": "Symbiotic fixation (only nitrogen)",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "NDeposition",
+      "Description": "Deposition",
+      "Explanation": "Atmospheric nutrient deposition",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "NonSymbFixation",
+      "Description": "Non-symb. fixation",
+      "Explanation": "Non-symbiotic fixation (only nitrogen)",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "ImportManure",
+      "Description": "Import manure",
+      "Explanation": "Import of nutrients in manures and fertilizers",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "ExportCropProducts",
+      "Description": "Export crop products",
+      "Explanation": "Export of nutrients in crop products from the farm",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "ExportAnimalProducts",
+      "Description": "Export animal products",
+      "Explanation": "Export of nutrients in animal products from the farm",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "UptakeCrops",
+      "Description": "Uptake in crops",
+      "Explanation": "Nutrients taken up by the growing crop and harvested in products",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "CropProductsToAnimals",
+      "Description": "Crop prod. as feed",
+      "Explanation": "Nutrients from crop products supplied as feed to animals",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "AnimalProductsToAnimals",
+      "Description": "Animal prod. as feed",
+      "Explanation": "Nutrients from animal products supplied as feed to animals",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "FeedToAnimals",
+      "Description": "Feed to animals",
+      "Explanation": "Nutrients supplied as feed to animals, both crop and animal products",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "AnimalIntake",
+      "Description": "Animal intake",
+      "Explanation": "Nutrients in feeds taken up by the animals",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "AnimalRespiration",
+      "Description": "Animal respiration",
+      "Explanation": "Losses by respiration of animals (only carbon)",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "AnimalsToManure",
+      "Description": "Manure produced",
+      "Explanation": "Nutrients in manure produced by farm animals, with added bedding material",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "OwnManure",
+      "Description": "Manure to soil",
+      "Explanation": "Amount of nutrients supplied to the soil in manures, including imported manures and fertilizers, after correction for losses during storage",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "Importmanure",
+      "Description": "Manure import",
+      "Explanation": "Nutrients in imported manures and fertilizers",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "TotalManure",
+      "Description": "Available manure",
+      "Explanation": "Nutrients available in the total manure",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "SoilLosses",
+      "Description": "Soil losses",
+      "Explanation": "Losses of nutrients from the soil by run-off, leaching or volatilization. Calculated by difference. For carbon the degradation of soil OM and manure after application are given",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "Volatilization",
+      "Description": "Volatilization",
+      "Explanation": "Gaseous losses from manures (carbon: dissimilation of carbohydrates; nitrogen: volatilization of ammonia)",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "Immobilization",
+      "Description": "Immobilization",
+      "Explanation": "Net immobilization of carbon; for nitrogen the potential immobilization in the soil, dependent on the net carbon sequestration (can be subtracted from soil losses)",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "WaterBalance",
+      "Description": "Water balance",
+      "Explanation": "Percentage deviation of available water from the demand",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "WaterPerCrop",
+      "Description": "Crop water demand",
+      "Explanation": "Volume of water needed for cultivation of the crop at the indicated yield level",
+      "SIUnit": "m3"
+    },
+    {
+      "VarName": "RequiredWater",
+      "Description": "Total water demand",
+      "Explanation": "Water needed for cultivation of all crops",
+      "SIUnit": "m3"
+    },
+    {
+      "VarName": "AvailableWater",
+      "Description": "Water availability",
+      "Explanation": "Water available for crop production on the farm",
+      "SIUnit": "m3"
+    },
+    {
+      "VarName": "Digestibility",
+      "Description": "Digestibility",
+      "Explanation": "Fraction of dry matter degraded by the animals",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "ExportManure",
+      "Description": "Export with manure",
+      "Explanation": "Nutrients exported from the farm in manure",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "TotalLosses",
+      "Description": "Total nutrient losses",
+      "Explanation": "Losses of nutrients to the air (volatilization) and the soil (leaching, denitrification)",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "BeddingToManure",
+      "Description": "Bedding to manure",
+      "Explanation": "Amount of nutrients from bedding material added to the manure",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "ManureBalance",
+      "Description": "Manure balance",
+      "Explanation": "Balance between production and application of manures",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "TotalApplied",
+      "Description": "Applied",
+      "Explanation": "Amount of manure dry matter applied to crops",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "GrossMarginCropsRisk",
+      "Description": "Risk crop margin",
+      "Explanation": "Risk for crop gross margin on basis of historical GM and crop areas",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "ManurePerCrop",
+      "Description": "Manure per crop",
+      "Explanation": "Amount of manure applied to crops",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "ManureName",
+      "Description": "Manure name",
+      "Explanation": "Name of the type of manure",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "GreenManureCosts",
+      "Description": "Green manure costs",
+      "Explanation": "Costs for applying green manures",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "MarginPerHa",
+      "Description": "Margin p.ha",
+      "Explanation": "Margin per unit of farm area",
+      "SIUnit": "currency/ha"
+    },
+    {
+      "VarName": "ReturnsPerHa",
+      "Description": "Returns p.ha",
+      "Explanation": "Returns per unit of farm area",
+      "SIUnit": "currency/ha"
+    },
+    {
+      "VarName": "PesticideUsage",
+      "Description": "Use of pesticides on crops",
+      "Explanation": "Use of pesticides on crops",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "AmountPesticide",
+      "Description": "Amount",
+      "Explanation": "Amount of Pesticide",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "PricePesticide",
+      "Description": "Price",
+      "Explanation": "Price of Pesticide",
+      "SIUnit": "currency/ha"
+    },
+    {
+      "VarName": "ActiveIngredients",
+      "Description": "Active ingredients",
+      "Explanation": "Active Ingredients",
+      "SIUnit": "g/L"
+    },
+    {
+      "VarName": "PesticideBalance",
+      "Description": "Pesticide overview",
+      "Explanation": "Amount of each pesticide used",
+      "SIUnit": "L or kg"
+    },
+    {
+      "VarName": "PesticideName",
+      "Description": "Name",
+      "Explanation": "Name of the pesticide",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "AppliedPesticide",
+      "Description": "Applied",
+      "Explanation": "Applied pesticide",
+      "SIUnit": "L or kg"
+    },
+    {
+      "VarName": "AppliedActiveIngredients",
+      "Description": "Active ingredients",
+      "Explanation": "Amount of active ingredients applied",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "TotalActiveIngredients",
+      "Description": "Total active ingredients",
+      "Explanation": "Total amount of active ingredients applied",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "CropArea",
+      "Description": "Crop area",
+      "Explanation": "Area per crop",
+      "SIUnit": "ha"
+    },
+    {
+      "VarName": "PerCropPesticide",
+      "Description": "Pesticide per crop",
+      "Explanation": "Amount of pesticide applied to crops",
+      "SIUnit": "L or kg/ha"
+    },
+    {
+      "VarName": "ApplicationRate",
+      "Description": "Application rate",
+      "Explanation": "Application Rate",
+      "SIUnit": "L or kg/ha"
+    },
+    {
+      "VarName": "ManureCosts",
+      "Description": "Manure costs",
+      "Explanation": "Costs for manures and fertilizers",
+      "SIUnit": "Curr"
+    },
+    {
+      "VarName": "PesticideCosts",
+      "Description": "Crop protection costs",
+      "Explanation": "Costs for crop protection",
+      "SIUnit": "Curr"
+    },
+    {
+      "VarName": "LandCosts",
+      "Description": "Land costs",
+      "Explanation": "Cost for land use",
+      "SIUnit": "Curr"
+    },
+    {
+      "VarName": "EnergyProduction",
+      "Description": "Energy production",
+      "Explanation": "Energy produced on the farm ",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "EnergyCropResidues",
+      "Description": "Crop residues",
+      "Explanation": "Crop Residues used for energy production",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "CropProductName",
+      "Description": "Name",
+      "Explanation": "Name of the crop product",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "CarbonAmount",
+      "Description": "Carbon amount",
+      "Explanation": "Amount supplied of carbon",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "ResidueC",
+      "Description": "Residue C",
+      "Explanation": "Residue C",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "CH4Produced",
+      "Description": "CH4 produced",
+      "Explanation": "CH4 Produced on the farm",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "Manures",
+      "Description": "Manures",
+      "Explanation": "Manures used for energy production on the farm",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "TotalEnergy",
+      "Description": "Total energy produced ",
+      "Explanation": "Total energy produced on farm",
+      "SIUnit": "MJ"
+    },
+    {
+      "VarName": "CropsToFermentation",
+      "Description": "Crops to fermentation",
+      "Explanation": "Crop products used for energy production in anaerobic fermentation",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "GreenhouseGasEmissions",
+      "Description": "Greenhouse gas emissions",
+      "Explanation": "Emissions of greenhouse gasses",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "TotalEmissionCO2eq",
+      "Description": "Total CO2-eq (Mg)",
+      "Explanation": "Summed emission expressed in CO2-equivalents from all sources",
+      "SIUnit": "Mg CO2-eq"
+    },
+    {
+      "VarName": "GhgEmissionCrops",
+      "Description": "Greenhouse gas emission crops",
+      "Explanation": "Greenhouse gas emission crops",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "GhgEmissionsAnimals",
+      "Description": "Greenhouse gas emission animals",
+      "Explanation": "Greenhouse gas emission animals",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "GhgEmissionsManures",
+      "Description": "Greenhouse gas emission manures",
+      "Explanation": "Greenhouse gas emission manures",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "GhgEmissionsFertilizers",
+      "Description": "Greenhouse gas emission fertilizers",
+      "Explanation": "Greenhouse gas emission fertilizers",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "GhgEmissionsBurning",
+      "Description": "Greenhouse gas emission burning",
+      "Explanation": "Greenhouse gas emission burning",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "EntericCH4",
+      "Description": "Enteric CH4",
+      "Explanation": "CH4 (methane) emission from fermentation processes in the rumen",
+      "SIUnit": "kg CH4"
+    },
+    {
+      "VarName": "ManureCH4",
+      "Description": "Manure CH4",
+      "Explanation": "CH4 (methane) emissie from excreted animal manure",
+      "SIUnit": "kg CH4"
+    },
+    {
+      "VarName": "ManureN2OApplied",
+      "Description": "Applic. N2O",
+      "Explanation": "N2O (di-nitrogen-oxide) emission from applied animal manure",
+      "SIUnit": "kg N2O"
+    },
+    {
+      "VarName": "ManureN2ODirect",
+      "Description": "Direct N2O",
+      "Explanation": "N2O (di-nitrogen-oxide) emission from animal manure (direct emission)",
+      "SIUnit": "kg N2O"
+    },
+    {
+      "VarName": "ManureN2OVolatiliz",
+      "Description": "Indirect N2O",
+      "Explanation": "N2O (di-nitrogen-oxide) emission as a fraction of volatilized ammonia-nitrogen (indirecte emissie)",
+      "SIUnit": "kg N2O"
+    },
+    {
+      "VarName": "FertilizerN2OApplic",
+      "Description": "Applic. N2O",
+      "Explanation": "N2O (di-nitrogen-oxide) emission from applied nitrogen",
+      "SIUnit": "kg N2O"
+    },
+    {
+      "VarName": "CropCH4",
+      "Description": "Crop CH4",
+      "Explanation": "Crop-specific emission for CH4 (methane), in particular for rice cultivation",
+      "SIUnit": "kg CH4"
+    },
+    {
+      "VarName": "CO2eq",
+      "Description": "CO2-eq",
+      "Explanation": "Carbon-dioxide equavalents (CH4 = 21; N2O = 310)",
+      "SIUnit": "kg CO2-eq"
+    },
+    {
+      "VarName": "N2OEmission",
+      "Description": "NO2 emission",
+      "Explanation": "N2O (di-nitrogen-oxide) emission",
+      "SIUnit": "kg N2O"
+    },
+    {
+      "VarName": "ResidueEmissionCO2eq",
+      "Description": "Green manure applied",
+      "Explanation": "N2O (di-nitrogen-oxide) emission from green manures or residues applied to the soil",
+      "SIUnit": "kg N2O"
+    },
+    {
+      "VarName": "FixationEmissionCO2eq",
+      "Description": "Symbiotic N fixation",
+      "Explanation": "N2O (di-nitrogen-oxide) emission from symbiotically fixed nitrogen (by legumes)",
+      "SIUnit": "kg N2O"
+    },
+    {
+      "VarName": "DepositionEmissionCO2eq",
+      "Description": "Atmospheric N deposition",
+      "Explanation": "N2O (di-nitrogen-oxide) emission from atmopheric nitrogen deposition",
+      "SIUnit": "kg N2O"
+    },
+    {
+      "VarName": "AnimalProductImportToHousehold",
+      "Description": "Import animal products",
+      "Explanation": "The import of animal products into the system to satisfy the nutritional needs of the household",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "ExportAnimalManure",
+      "Description": "Export animal manure",
+      "Explanation": "Export of manure produced by the livestock on the farm",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "ExportHouseholdManure",
+      "Description": "Export of household excreta",
+      "Explanation": "Export of excreta produced by the household",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "CropProductsToManure",
+      "Description": "Crop products to manure",
+      "Explanation": "Crop products added to manure, sources: feed losses, bedding material and substrate for the fermentation for biogas production",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "CropProductsToFermentation",
+      "Description": "Crop prod. to fermentation",
+      "Explanation": "Crop products added to fermentation for biogas (energy) production",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "CropProductsToHousehold",
+      "Description": "Crop prod. for household",
+      "Explanation": "Crop products used by the household as food",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "AnimalProductsToHousehold",
+      "Description": "Animal prod. for household",
+      "Explanation": "Animal products used by the household as food",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "HouseholdToManure",
+      "Description": "Excreta household to manure",
+      "Explanation": "Excretaof the household that are added to the manure and remain within the system",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "HouseholdRespiration",
+      "Description": "Respiration household",
+      "Explanation": "Respiration losses by the household members",
+      "SIUnit": "kg"
+    },
+    {
+      "VarName": "HumanNutritionIndicators",
+      "Description": "Human nutrition indicators",
+      "Explanation": "Human nutrition indicators",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "DietaryDiversityScore",
+      "Description": "Dietary Diversity Score",
+      "Explanation": "Dietary Diversity Score (DDS)",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "FoodGroup",
+      "Description": "Food group",
+      "Explanation": "Food group",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "FoodGroupDeviations",
+      "Description": "Food group deviations",
+      "Explanation": "Food group deviations",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "NutrientDeviations",
+      "Description": "Nutrient deviations",
+      "Explanation": "Nutrient deviations",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "MagnesiumRatio",
+      "Description": "Magnesium ratio",
+      "Explanation": "Ratio between Mg and other nutrients (Mg/(K+Na+P+Ca))",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "Demand",
+      "Description": "Demand",
+      "Explanation": "Demand",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "Supply",
+      "Description": "Supply",
+      "Explanation": "Supply",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "Deviation",
+      "Description": "Deviation",
+      "Explanation": "Deviation",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "FoodGroupDemand",
+      "Description": "Demand per food group",
+      "Explanation": "Demand of food group per person",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "FoodGroupSupply",
+      "Description": "Supply per food group",
+      "Explanation": "Supply of food group per food",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "NutrientDemand",
+      "Description": "Demand per nutrient",
+      "Explanation": "Demand of nutrients per person",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "NutrientSupply",
+      "Description": "Supply per nutrient",
+      "Explanation": "Supply of nutrients per food",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "HouseholdSize",
+      "Description": "Household size",
+      "Explanation": "Size of the household",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "NumberHouseholdMembers",
+      "Description": "Number of household members",
+      "Explanation": "Number of members in the household",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "TotalIncome",
+      "Description": "Total income",
+      "Explanation": "Total income from the farm and external sources",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "TotalExpenditures",
+      "Description": "Total expenditures",
+      "Explanation": "Total expenditures on food and other costs",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "ProportionFoodCosts",
+      "Description": "Proportion food costs",
+      "Explanation": "Proportion of food costs in the total expenditures",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "HouseholdBudget",
+      "Description": "Household budget",
+      "Explanation": "Household budget",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "FreeBudget",
+      "Description": "Free budget",
+      "Explanation": "Free budget after subtraction of diet costs",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "FarmIncome",
+      "Description": "Farm income",
+      "Explanation": "Income from the activities on the farm",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "OffFarmIncome",
+      "Description": "Off-farm income",
+      "Explanation": "Income from activities outside the farm",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "FoodCosts",
+      "Description": "Costs for food",
+      "Explanation": "Costs for food, either on-farm produced or purchased",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "Result",
+      "Description": "Financial result",
+      "Explanation": "Financial result: budget available for spending",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "OtherExpenditures",
+      "Description": "Other expenditures",
+      "Explanation": "Other expenditures by household members",
+      "SIUnit": "currency"
+    },
+    {
+      "VarName": "DiversityHyperVolume",
+      "Description": "Diversity hyper volume",
+      "Explanation": "Volume of distances in concentrations of nutrients in produced or consumed foods",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "FunctionalDiversity",
+      "Description": "Functional diversity",
+      "Explanation": "The functional diversity of produced or consumed foods",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "Produced",
+      "Description": "Produced",
+      "Explanation": "Produced foods",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "Consumed",
+      "Description": "Consumed",
+      "Explanation": "Consumed foods",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "NutrientYield",
+      "Description": "Nutrient yield",
+      "Explanation": "Number of consumer units (persons) that can be nutrished in terms of individual nutrients from the on-farm products",
+      "SIUnit": "persons"
+    },
+    {
+      "VarName": "NutrYield",
+      "Description": "Yield",
+      "Explanation": "Number of consumer units (persons) that can be nutrished in terms of individual nutrients from the on-farm products",
+      "SIUnit": "persons"
+    },
+    {
+      "VarName": "CropBurningLoss",
+      "Description": "Crop burning losses",
+      "Explanation": "Losses of nutrients upon crop burning",
+      "SIUnit": "kg/ha/year"
+    },
+    {
+      "VarName": "AnimalDensity",
+      "Description": "Animal number and density",
+      "Explanation": "Number of livestock on the farm",
+      "SIUnit": "-"
+    },
+    {
+      "VarName": "LivestockNumber",
+      "Description": "Livestock number",
+      "Explanation": "Number of livestock units",
+      "SIUnit": "LU"
+    },
+    {
+      "VarName": "LivestockDensity",
+      "Description": "Livestock density",
+      "Explanation": "Number of livestock units per unit of area",
+      "SIUnit": "LU/ha"
+    },
+    {
+      "VarName": "LaborHoursClasses",
+      "Description": "Labor input per gender and age class",
+      "Explanation": "Labor input per gender and age class",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "LaborFractionsClasses",
+      "Description": "Fraction of labor per gender and age class",
+      "Explanation": "Fraction of labor per gender and age class",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "Male",
+      "Description": "Male",
+      "Explanation": "Male",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "Female",
+      "Description": "Female",
+      "Explanation": "Female",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "SpeciesIndices",
+      "Description": "Species richness and evenness indicators",
+      "Explanation": "Indices for species richness (Margalef) and evenness (Shannon)",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "Efficiencies",
+      "Description": "Nutrient use efficiencies",
+      "Explanation": "Efficiencies of nutrient use at farm and component levels",
+      "SIUnit": ""
+    },
+    {
+      "VarName": "AnimalEfficiency",
+      "Description": "Animal efficiency",
+      "Explanation": "Animal efficiency",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "ManureEfficiency",
+      "Description": "Manure efficiency",
+      "Explanation": "Manure efficiency",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "SoilCropEfficiency",
+      "Description": "Soil-crop efficiency",
+      "Explanation": "Soil-crop efficiency",
+      "SIUnit": "%"
+    },
+    {
+      "VarName": "FarmEfficiency",
+      "Description": "Farm efficiency",
+      "Explanation": "Farm efficiency",
+      "SIUnit": "%"
+    }
+  ],
+  "source": "Original FarmDESIGN 4.21.5 language metadata, explicit Windows-1252 TSV"
+}

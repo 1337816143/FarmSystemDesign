@@ -11,7 +11,7 @@ const HASH_FORMAT=Object.freeze({algorithm:'SHA-256',canonicalization:'sorted-js
 const ASSURANCE='local-record-integrity-only; not scientific validation or executed-byte attestation';
 const PARENT_CLAIM='provenance-reference-not-membership-proof';
 export const ENGINE_MODULE_PATHS=Object.freeze([
-  'src/data.js','src/evidence.generated.js','src/frozen-run.js','src/model.js',
+  'src/data.js','src/evidence.generated.js','src/frozen-run.js','src/manure-np-input.js','src/manure-np.js','src/model.js',
   'src/optimizer.worker.js','src/release-state.js','src/spatial-inputs.js','src/version.js'
 ]);
 
@@ -78,9 +78,15 @@ async function verifyEngineIdentity(identity,cryptoProvider){
   if(!identity||identity.format!=='FarmSystemDesign.EngineSource.v1'||identity.algorithm!=='SHA-256'
     ||!SHA256.test(identity.digest||'')||!Array.isArray(identity.modules))throw new Error('invalid-engine-identity');
   for(const field of ['applicationVersion','modelVersion','dataVersion'])if(typeof identity[field]!=='string'||!identity[field])throw new Error('invalid-engine-version');
-  // Preserve verification of original 0.3.14 records without adding today's module or parameters.
-  const paths=identity.applicationVersion==='0.3.14'&&identity.modelVersion==='screening-0.2.0'&&identity.dataVersion==='evidence-2025-r1+assumptions-r2'
-    ?ENGINE_MODULE_PATHS.filter(path=>path!=='src/spatial-inputs.js'):ENGINE_MODULE_PATHS;
+  // Historical records keep their exact historical modules, bytes and parameters.
+  // These version-pinned lists are validation rules, never migrations or backfills.
+  const oldPaths=ENGINE_MODULE_PATHS.filter(path=>!['src/manure-np-input.js','src/manure-np.js'].includes(path));
+  const legacyData=identity.dataVersion==='evidence-2025-r1+assumptions-r2';
+  let paths=ENGINE_MODULE_PATHS;
+  if(legacyData&&identity.applicationVersion==='0.3.14'&&identity.modelVersion==='screening-0.2.0')
+    paths=oldPaths.filter(path=>path!=='src/spatial-inputs.js');
+  else if(legacyData&&['0.3.15','0.3.16','0.3.17','0.3.18','0.3.19'].includes(identity.applicationVersion)&&identity.modelVersion==='screening-0.2.1')
+    paths=oldPaths;
   if(canonicalJSON(identity.modules.map(m=>m.path))!==canonicalJSON(paths))throw new Error('engine-dependency-list-mismatch');
   for(const m of identity.modules)if(!Number.isSafeInteger(m.bytes)||m.bytes<0||!SHA256.test(m.sha256||''))throw new Error('invalid-engine-module');
   const digest=await sha256JSON(ENGINE_DOMAIN,enginePayload(identity),cryptoProvider);

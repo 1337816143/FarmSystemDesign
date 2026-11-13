@@ -1,0 +1,15 @@
+{
+  "inputIsValidUnderUnchangedEngine": true,
+  "inputBytes": 5247310,
+  "extraOriginalNotesBytes": 5242880,
+  "limitBytes": 5242880,
+  "downloadDispatched": false,
+  "blobCreated": false,
+  "inputUnchanged": true,
+  "resultDisplayUnchanged": true,
+  "mainStatusUnchanged": true,
+  "retryButtonEnabled": true,
+  "originalMetadataNotSilentlyRemoved": true,
+  "followingSmallSnapshotRoundTripPassed": true,
+  "browserOrNativeDiskExecuted": false
+}

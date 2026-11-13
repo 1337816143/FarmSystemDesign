@@ -1,20 +1,22 @@
 {
-  "version": "0.3.16",
-  "name": "Constraint Diagnostics and Safe Shell Refresh",
+  "version": "0.3.26",
+  "name": "Original Directory Portability and Consistent Saves",
   "channel": "research-preview",
-  "releasedOn": "2026-10-06",
-  "modelVersion": "screening-0.2.1",
+  "releasedOn": "2026-10-29",
+  "modelVersion": "screening-0.2.3",
   "dataVersion": "evidence-2025-r1+assumptions-r2",
-  "regionalEvidenceVersion": "hainan-regional-2026-10-03-r4",
+  "regionalEvidenceVersion": "hainan-regional-2026-10-06-task6-r5",
   "schemaVersion": 1,
   "storageVersion": 2,
   "commit": "local-preview",
   "changes": [
-    "Complete candidate-level constraint reasons and monthly demand, capacity and shortfall units",
-    "Representative failure diagnostics are not a global infeasibility certificate or a minimum-resource recommendation",
-    "Versioned application shell refresh avoids combining fresh release metadata with stale application modules",
-    "Preserve original maps, NASA default, model coefficients, stored plans and uncalibrated research boundaries"
+    "Original input/output directory changes are reflected in pull, file downloads and complete session exports",
+    "Selected external directories have versioned portable copies; same-folder restart preserves their paths and relocation uses the copies",
+    "Immediate input pull waits for the original Jet writer and independent reader to agree",
+    "Browser folder-path assistance and global-language directory messages",
+    "Closing the original window stops browser polling and preserves the recoverable session",
+    "Local portable release only; original author calculations and research scope remain unchanged"
   ],
-  "engineDigest": "a9dfc0f3b2b9cde7dca0e0de92e715b85a3b0c5b40692782aa0854e68f776790",
+  "engineDigest": "d6c8d78eded05327280f2514371ba8de87bbd940d759ce0c76fa386fce452833",
   "spatialInputVersion": "spatial-inputs-2025-r1"
 }

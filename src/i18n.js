@@ -1,5 +1,6 @@
 import {BASE_TRANSLATIONS} from './translations.generated.js';
 import {VERSION} from './version.js';
+import {saveLanguage} from './display-language.js';
 
 export const LANGUAGE_KEY = 'farmsystem-language-v1';
 export const LANGUAGES = ['zh', 'en', 'both'];
@@ -7,9 +8,49 @@ const HAN = /[\u3400-\u9fff]/;
 const ORIGINAL_TEXT = new WeakMap();
 const ORIGINAL_ATTRIBUTES = new WeakMap();
 const ATTRIBUTES = ['aria-label', 'title', 'placeholder', 'alt'];
+const SOURCE_PAIRS={
+  '批量情景实验':['批量情景实验','Batch scenario experiments'],
+  '更新方案管理信息':['更新方案管理信息','Update plan label and notes'],
+  '添加反馈记录':['添加反馈记录','Add feedback record'],
+  '修订反馈记录':['修订反馈记录','Revise feedback record'],
+  '归档反馈记录':['归档反馈记录','Archive feedback record'],
+  '恢复反馈记录':['恢复反馈记录','Restore feedback record'],
+  'DESIGN WORKSPACE':['设计工作台','Design workspace'],
+  'RESEARCH WORKSPACE':['研究工作区','Research workspace'],
+  'Hainan · Tropical systems':['海南 · 热带农业系统','Hainan · Tropical systems'],
+  'RESEARCH':['研究','RESEARCH'],
+  'FARMSYSTEM / RESEARCH':['农场系统 / 研究','FARMSYSTEM / RESEARCH'],
+  'REPRODUCIBLE SELECTION':['可复现筛选','Reproducible selection'],
+  '01 / SOURCE':['01 / 来源','01 / Source'],
+  '02 / RULES':['02 / 规则','02 / Rules'],
+  '03 / RETAINED':['03 / 保留结果','03 / Retained'],
+  'REGIONAL DATA / ROUTE 2':['区域资料 / 路线二','Regional data / Route 2'],
+  'DATA LINEAGE':['数据来源链','Data lineage'],
+  'GEOMETRY CHECKS':['几何检查','Geometry checks'],
+  'IMAGE + SEMANTICS':['影像与语义','Image and semantics'],
+  'OBJECT INSPECTOR':['对象详情','Object inspector'],
+  'TEMPORAL CONTEXT / 2025':['时间背景 / 2025','Temporal context / 2025'],
+  'EVIDENCE + ASSUMPTION + EXPLORATION':['证据、假设与探索','Evidence, assumptions and exploration'],
+  'YAZHOU · HAINAN':['崖州 · 海南','Yazhou · Hainan'],
+  'Mapping':['空间制图','Mapping'],
+  'Modelling':['系统建模','Modelling'],
+  'Exploration':['方案探索','Exploration'],
+  'Feedback':['反馈','Feedback'],
+};
 
 // Reviewed research terms take precedence over the generated draft catalog.
 const REVIEWED = {
+  "Task6已核读主文及35页渲染补充；作者原始数据/模型配置未接入。全岛阈值不能直接下推市县或农场，也不代表董博士全文已取得。": "The Paper reading site has reviewed the article and the rendered 35-page supplement. Original author data and model configuration are not integrated. Island-wide thresholds cannot be assigned directly to counties or farms; this does not imply access to Dong’s full dissertation.",
+  "阈值和情景均为全岛模型结果；不能直接分配到市县或地块，也不能充当本平台的实测参数。Task6已核读主文与补充；作者底层数据、NUFER配置和分区损失参数尚未接入。保留原文P表与公式口径疑点，先核系统边界。": "Thresholds and scenarios are island-wide model results, not county or parcel allocations or measured parameters for this platform. The Paper reading site has reviewed the article and supplement; original data, NUFER configuration and spatial loss coefficients are not integrated. Unresolved differences between the source phosphorus table and formula remain explicit pending boundary checks.",
+  "路线 A · 原proposal农场系统": "Route A · Original proposal farm systems",
+  "路线 B · 海南大尺度": "Route B · Larger-scale Hainan",
+  "省域覆盖；环境×生产系统×经营资源分层；经营单元菜单与共享资源": "Provincial coverage; environment × production system × operating-resource strata; whole-unit menus and shared resources",
+  "哪些时空与经营差异改变菜单可行性；个体可行的菜单能否共同满足区域资源与生产目标；同信息下调整权何时值得？": "Which spatial, temporal and operating differences change menu feasibility? Can individually feasible menus jointly meet regional resource and production goals? When does adjustment add value under the same information?",
+  "有证据的分层与可比基线": "Evidence-based strata and comparable baselines",
+  "跨活动可行经营菜单和区域桥接": "Feasible whole-unit activity menus and regional aggregation",
+  "资源可达性与固定／可调策略的独立检验": "Independent tests of resource attainability and fixed versus adjustable strategies",
+  "无代表性覆盖权重只做分层机制情景，不能报海南总体收益。B合成菜单原型不替代真实分层、跨活动模型或适应性验证；A与原地图继续保留。": "Without representative coverage weights, report stratified mechanism scenarios only, not Hainan-wide benefits. The synthetic B menu prototype does not replace empirical strata, integrated activity models or adaptive-policy validation; A and the original maps remain available.",
+
   "保留已保存的输入、范围和版本；参数来源以各快照记录为准": "Retain saved inputs, scope and versions; parameter provenance depends on each snapshot record",
   "指标定义与论文证据": "Metric definitions and paper evidence",
   "运行记录与内容摘要": "Run record and content digests",
@@ -388,7 +429,7 @@ const REVIEWED = {
   "完整搜索仅在当前会话保留；方案库与项目包仍只持久保存已选快照": "The complete search stays in the current session; the plan library and project package persist only selected snapshots",
 };
 
-const CATALOG = {...BASE_TRANSLATIONS, ...REVIEWED};
+const CATALOG = {...BASE_TRANSLATIONS, ...REVIEWED, '从地块到系统':'Field to system'};
 const escapeRegex = value => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const entries = Object.keys(CATALOG).filter(key => HAN.test(key) && CATALOG[key] && !HAN.test(CATALOG[key]));
 entries.sort((a, b) => b.length - a.length);
@@ -413,6 +454,8 @@ export function english(source) {
 }
 
 function display(source, mode, compact = false) {
+  const explicit=SOURCE_PAIRS[source.trim()];
+  if(explicit)return source.replace(source.trim(),mode==='zh'?explicit[0]:mode==='en'?explicit[1]:`${explicit[0]} / ${explicit[1]}`);
   if (mode === 'zh' || !HAN.test(source)) return source;
   const translated = english(source);
   if (translated === source) return source;
@@ -429,7 +472,7 @@ function localizeText(node, mode) {
   const previous = ORIGINAL_TEXT.get(node);
   const actual = node.nodeValue;
   const source = previous && previous.rendered === actual ? previous.source : actual;
-  if (!HAN.test(source)) return;
+  if (!HAN.test(source) && !SOURCE_PAIRS[source.trim()]) return;
   const compact = Boolean(node.parentElement.closest('button,option,svg,.topbar,.nav,.tag,.map-toolbar,.map-mini-legend'));
   const rendered = display(source, mode, compact);
   ORIGINAL_TEXT.set(node, {source, rendered});
@@ -468,7 +511,7 @@ export function applyLanguage(container = document.body, mode = getLanguage()) {
 
 export function setLanguage(mode) {
   if (!LANGUAGES.includes(mode)) return;
-  try { localStorage.setItem(LANGUAGE_KEY, mode); } catch {}
+  saveLanguage(mode);
   document.documentElement.lang = mode === 'en' ? 'en' : 'zh-CN';
   document.body.dataset.language = mode;
   document.title = mode === 'zh' ? `FarmSystem Design v${VERSION} · 双路线研究台` : mode === 'en' ? `FarmSystem Design v${VERSION} · Research routes` : `FarmSystem Design v${VERSION} · 双路线研究台 / Research routes`;

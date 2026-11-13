@@ -1,3 +1,47 @@
+## 0.3.26 · 2026-10-29 · Original directory portability and consistent saves
+
+- Follow the original program's selected input and output folders when pulling inputs, listing/downloading files and exporting a session.
+- Preserve versioned portable copies of selected external directories. Reopen with the same paths in place; use the copied data after relocation.
+- Compare the author's writer connection with the independent Jet reader before returning a snapshot, preventing stale inputs immediately after an edit.
+- Add browser path assistance for the original folder chooser and readable global-language directory/export messages.
+- Handle Enter/Escape in native dialogs and stop browser polling after the original window closes; recognize saved sessions after a service restart, retain recoverable files and release closed-session resources.
+- Verify original Save as and XML export/import through the real forms. Local release only; author equations and A/B scientific modules are unchanged.
+
+## 0.3.25 · 2026-10-28 · Reliable original session startup
+
+- Native session creation survives calculation redraws and navigation between sections. Save the completed session and reconnect the current view; prevent repeated launches while starting.
+- Render saved-project inputs safely before metadata finishes loading, and keep generic captions distinct from context-specific labels.
+
+## 0.3.24 · 2026-10-28 · Original FarmDESIGN interfaces
+
+- Reuse the author's actual 4.21.5 forms in the browser and in a separate desktop window, sharing isolated original databases.
+- Preserve native optimization parameters, original identifiers, chart references, notes and photo references. Add recoverable sessions and automatic backup before pulling inputs.
+- Replace encoded module and food-group strings with labelled controls; expose time-period values and verified fractional units.
+- Follow the global display-language preference in the original forms without translating input values or changing scientific assemblies.
+- Add original reports, databases and manual downloads. Local release only; original photo files absent from the author archive are not recreated.
+
+## 0.3.23 · 2026-10-27 · Local scenario studies
+
+- Batch independent-quarter scenarios with frozen inputs, serial original search workers, pause/resume checkpoints, integrity-checked JSON import/export and unit-labelled CSV.
+- Saved-plan context checks suppress invalid subtraction; scenario/search differences are visible. Plan labels and notes remain separate from historical snapshots.
+- Six feedback metrics, strict scope/date/source validation, revision history and reversible archival; failed feedback saves roll back.
+- Working scope, scenario settings and selected plot survive reopening and project exports. N/P remains off on restore.
+- All new controls follow the global Chinese / English / bilingual setting and join the offline shell. A/B and original FarmDESIGN accounting engines are unchanged.
+- Local release only. No field calibration, cross-quarter state transfer or approved regional-model claim.
+
+# 0.3.22 · local minimal reviewed A + dated B candidate
+
+- Integrates A R1 input-race and finite-number guards without changing the reviewed model/NP scientific bytes
+- Integrates B 0.1.6-dated-ui-r2 with explicit date confirmation, retained JSON drafts and BUILD17 source identity
+- Keeps historical records, the original regional-map strategy and every c70 data/vendor blob; no new imagery/background feature
+- Declared engine identity changes with the new application version; this is not runtime attestation, calibration, browser acceptance or a complete offline release
+
+## 0.3.17 · 2026-10-06
+
+- Added a complete published-site offline manifest with SHA-256 and byte counts, verified resumable downloads, retry and quota reporting.
+- Offline fallback includes local raster byte ranges. External live sources remain explicitly online-only.
+- Only the current site scope app-shell caches are replaced; full bundles, saved plans, notes and other websites are preserved.
+
 # 0.3.16 — Constraint diagnostics and safe shell refresh (2026-10-06)
 
 - Show every retained candidate-level constraint reason, with monthly boundary IDs, demand, capacity, shortfall and resource units

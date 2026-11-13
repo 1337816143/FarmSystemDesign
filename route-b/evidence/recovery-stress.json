@@ -1,0 +1,16 @@
+{
+  "inputBytes": 13921,
+  "baselineArchiveBytes": 36420987,
+  "actualControllerArchiveBytes": 36422897,
+  "actualControllerSnapshotBytes": 14485,
+  "limitBytes": 5242880,
+  "combinations": 729,
+  "issuesPerCombination": 144,
+  "totalIssues": 104976,
+  "originalInputDeepEqual": true,
+  "effectiveConfigDeepEqual": true,
+  "allRecalculatedResultsDeepEqual": true,
+  "archiveRejectedBeforeRead": true,
+  "controllerImportRecomputed": true,
+  "browserOrNativeDiskExecuted": false
+}

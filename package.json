@@ -1,13 +1,16 @@
 {
   "name": "farm-system-design",
-  "version": "0.3.16",
+  "version": "0.3.26",
   "private": true,
   "type": "module",
   "description": "Transparent multi-scale agricultural systems research workbench",
   "scripts": {
     "test": "node --max-old-space-size=512 --test --test-concurrency=1 tests/*.test.mjs",
-    "start": "python3 -m http.server 4173",
-    "check": "node --check src/app.js && node --check src/hainan-atlas.js && node --check src/regional-data.js && node --check src/i18n.js && node --check src/translations.generated.js && node --check src/model.js && node --check src/map.js && node --check src/research.js && node --check src/regional-raster.js && node --check src/regional-atlas-layers.js && node --check src/coverage-panel.js && node --check src/atlas-status.js && node --check src/local-classification.js && node --check src/landcover-layer.js && node --check src/results.js && node --check src/charts.js && node --check src/optimizer.worker.js && node --check sw.js && node --check src/frozen-run.js && node --check src/metric-contracts.js && node --check src/release-state.js && node --check src/provenance-ui.js && node --check src/spatial-inputs.js"
+    "start": "python tools/serve.py --port 4173",
+    "check": "node --check src/app.js && node --check src/hainan-atlas.js && node --check src/regional-data.js && node --check src/i18n.js && node --check src/translations.generated.js && node --check src/model.js && node --check src/map.js && node --check src/research.js && node --check src/regional-raster.js && node --check src/regional-atlas-layers.js && node --check src/coverage-panel.js && node --check src/atlas-status.js && node --check src/local-classification.js && node --check src/landcover-layer.js && node --check src/results.js && node --check src/charts.js && node --check src/optimizer.worker.js && node --check sw.js && node --check src/frozen-run.js && node --check src/metric-contracts.js && node --check src/release-state.js && node --check src/provenance-ui.js && node --check src/spatial-inputs.js && node --check src/offline-bundle.js && node --check src/offline-ui.js && node --check src/offline-downloads.js && node --check tools/offline-manifest.mjs && node --check src/manure-np.js && node --check src/manure-np-input.js && node --check src/manure-np-ui.js && node --check tools/generate-engine-identity.mjs && node --check tools/check-route-a-np-offline.mjs && node --check tools/build.mjs && node --check src/study-records.js && node --check src/study-ui.js && node --check src/working-context.js && node --check src/scenario-batch.js && node --check src/scenario-batch-ui.js && node --check src/study-worker.js && node --check src/farmdesign/ui.js && node --check src/farmdesign/document.js && node --check src/farmdesign/input-controls.js && node --check src/farmdesign/original-ui.js && node --check src/farmdesign/original-language.js",
+    "test:route-b": "node --test route-b/tests/*.test.mjs",
+    "test:farmdesign": "python -X utf8 tests/farmdesign_native.py",
+    "prepare:farmdesign": "python -X utf8 tools/prepare-farmdesign.py"
   },
   "engines": {
     "node": ">=20"

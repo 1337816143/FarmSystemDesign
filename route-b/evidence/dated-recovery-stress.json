@@ -1,0 +1,14 @@
+{
+  "inputBytes": 13921,
+  "fullArchiveBytes": 38042149,
+  "snapshotBytes": 895660,
+  "limitBytes": 5242880,
+  "dateAttachments": 18,
+  "periods": 24,
+  "combinations": 729,
+  "issuesPerCombination": 144,
+  "fullResultsPreserved": true,
+  "inputAndDateSourcesExact": true,
+  "independentRecalculationEqual": true,
+  "browserDiskOrOfflineNetworkQA": "NOT_RUN"
+}

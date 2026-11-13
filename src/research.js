@@ -1,10 +1,10 @@
 // Research route register. Source confirmation is deliberately separate from
 // integration and scientific validation; no regional record enters the farm model.
-export const REGIONAL_EVIDENCE_VERSION = 'hainan-regional-2026-10-03-r4';
+export const REGIONAL_EVIDENCE_VERSION = 'hainan-regional-2026-10-06-task6-r5';
 
 export const ROUTES = {
   farm: {
-    title: '路线一 · 案例农场系统',
+    title: '路线 A · 原proposal农场系统',
     status: 'Proposal 主线',
     unit: '农户／农场及其经营地块',
     question: '在地块、季节和经营约束下，种植与其他活动怎样组合，获得新信息后如何调整？',
@@ -17,12 +17,12 @@ export const ROUTES = {
     ]
   },
   province: {
-    title: '路线二 · 海南全域',
+    title: '路线 B · 海南大尺度',
     status: '待导师组确认',
-    unit: '市县／农业生态分区；省域汇总与协调',
-    question: '面对海南各地生产条件与风险差异，哪些分区措施组合能改善食物供给、经营收益和资源表现，并能随新信息调整？',
-    outputs: ['市县时序与农业系统分型', '区域措施组合及固定／分阶段策略比较', '典型农户、农场的可实施性检验'],
-    boundary: '省级汇总数不能拆成市县或地块；区域情景不能假定全省土地由单一主体自由调配。',
+    unit: '省域覆盖；环境×生产系统×经营资源分层；经营单元菜单与共享资源',
+    question: '哪些时空与经营差异改变菜单可行性；个体可行的菜单能否共同满足区域资源与生产目标；同信息下调整权何时值得？',
+    outputs: ['有证据的分层与可比基线', '跨活动可行经营菜单和区域桥接', '资源可达性与固定／可调策略的独立检验'],
+    boundary: '无代表性覆盖权重只做分层机制情景，不能报海南总体收益。B合成菜单原型不替代真实分层、跨活动模型或适应性验证；A与原地图继续保留。',
     stages: [
       {name:'市县时序诊断', needs:['county-series','admin-units']},
       {name:'区域情景与典型系统检验', needs:['county-series','admin-units','land-eligibility','regional-resources','farm-bridge']},
@@ -62,7 +62,7 @@ export const NUTRIENT_BOUNDARY_STUDY = {
     {label:'S5：相对 2020 减少氮／磷投入',value:'45%／37%',unit:'模型情景',source:'摘要；§3.2'},
     {label:'S5：目标产量需氮达成',value:'96%',unit:'模型情景',source:'摘要；§3.2'}
   ],
-  boundary: '阈值和情景均为全岛模型结果；不能直接分配到市县或地块，也不能充当本平台的实测参数。需取得补充材料、NUFER 配置和分区损失系数，先核对各项投入的系统边界。'
+  boundary: '阈值和情景均为全岛模型结果；不能直接分配到市县或地块，也不能充当本平台的实测参数。Task6已核读主文与补充；作者底层数据、NUFER配置和分区损失参数尚未接入。保留原文P表与公式口径疑点，先核系统边界。'
 };
 
 // "source-confirmed" means a source and its stated grain were checked. It does
@@ -75,7 +75,7 @@ export const AUDIT = [
   {"id":"osm-boundaries","track":"province","name":"OSM本岛18单元社区边界","status":"display-only","grain":"WGS84社区几何","period":"2026-10-03下载快照","use":"非官方位置参照","gap":"含五指山，未混入琼山区；三沙完整面缺失，不代表权威现势界或可直接用于县域统计。","url":"https://download.geofabrik.de/asia/china/hainan.html"},
 
   {id:'province-snapshot',track:'province',name:'2025 年全省农业总量',status:'display-only',grain:'省级 · 年度',period:'2025',use:'描述性背景',gap:'已在平台展示；未进入分析模型。不能反推市县或农场。',url:OFFICIAL_SNAPSHOT.url},
-  {id:'dong-nutrient-boundaries',track:'province',name:'Dong 等（2026）海南氮磷边界研究',status:'source-confirmed',grain:'全岛模型 · 年度／2030 情景',period:'1988–2020；2030 情景',use:'营养约束候选与跨尺度问题定义',gap:'已核读论文；补充材料、原始数据及模型参数未接入。全岛阈值不能直接下推市县或农场。',url:NUTRIENT_BOUNDARY_STUDY.url},
+  {id:'dong-nutrient-boundaries',track:'province',name:'Dong 等（2026）海南氮磷边界研究',status:'source-confirmed',grain:'全岛模型 · 年度／2030 情景',period:'1988–2020；2030 情景',use:'营养约束候选与跨尺度问题定义',gap:'Task6已核读主文及35页渲染补充；作者原始数据/模型配置未接入。全岛阈值不能直接下推市县或农场，也不代表董博士全文已取得。',url:NUTRIENT_BOUNDARY_STUDY.url},
   {id:'county-series',track:'province',name:'市县农业生产时序',status:'source-confirmed',grain:'市县 · 年度',period:'2023 年单表已核读；时序待核对',use:'区域诊断',gap:'2024 版年鉴表 12-1 已核读 2023 年 18 个岛内农业行；最新年鉴、逐年口径和可再发布范围仍待核对。',url:'https://stats.hainan.gov.cn/tjj/tjsu/ndsj/2024/202412/P020250116308974141111.pdf'},
   {id:'admin-units',track:'province',name:'可追溯的现势市县边界与代码',status:'missing',grain:'市县 · 版本化',period:'待定',use:'空间汇总',gap:'历史 18 面含琼山市、缺五指山市；2023 年鉴行政表有 19 行（含三沙），农业表有 18 行。不能按行数把旧面与现势统计量连接。',url:'https://stats.hainan.gov.cn/tjj/tjsu/ndsj/2024/202412/P020250116308974141111.pdf'},
   {id:'historic-boundaries',track:'province',name:'geoBoundaries 历史县级位置参考',status:'display-only',grain:'海南岛 · 历史县级几何',period:'标称 2017；部分名称更早',use:'地图定位参考',gap:'已提取 18 个岛内要素；仅供叠加查看，默认关闭。不能用于现势市县数据连接或面积计算。',url:'https://www.geoboundaries.org/api/current/gbOpen/CHN/ADM2/'},

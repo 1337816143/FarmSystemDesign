@@ -5,7 +5,7 @@ import {fileURLToPath} from 'node:url';
 import {VERSION,MODEL_VERSION,DATA_VERSION} from '../src/version.js';
 
 export const ENGINE_MODULE_PATHS=Object.freeze([
-  'src/data.js','src/evidence.generated.js','src/frozen-run.js','src/model.js',
+  'src/data.js','src/evidence.generated.js','src/frozen-run.js','src/manure-np-input.js','src/manure-np.js','src/model.js',
   'src/optimizer.worker.js','src/release-state.js','src/spatial-inputs.js','src/version.js'
 ]);
 function canonical(value){

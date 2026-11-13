@@ -439,7 +439,7 @@ export class HainanAtlas {
     const b=this.map.getBounds(),rows=this.remoteLayer.coverageForBounds([b.getWest(),b.getSouth(),b.getEast(),b.getNorth()]);
     const categorical=['classes2025','crops2025'].includes(this.layer),pending=(!rows.length&&this.remoteLayer.isLoading?.())||rows.some(r=>r.pending||r.status==='loading'||r.status==='partial-loading');
     this.host.querySelector('#atlas-runtime-coverage').textContent=categorical?classifiedTileText(rows,this.layer==='crops2025',this.language==='en'):runtimeCoverageText(rows,this.language==='en',{kind:this.layer});
-    const failed=rows.some(r=>!r.pending&&['read-error','incomplete-read','partial-read','quality-unavailable','timeout'].includes(r.status));
+    const failed=rows.some(r=>!r.pending&&['read-error','incomplete-read','partial-read','quality-unavailable','timeout','offline-unavailable'].includes(r.status));
     this.host.querySelector('#atlas-load-label').hidden=!pending;this.host.classList.toggle('atlas-loading',pending);
     const shown=rows.filter(r=>Number(r.filled)>0||r.status==='displayed').length,waiting=rows.filter(r=>r.pending||r.status==='loading'||r.status==='partial-loading').length;this.host.querySelector('#atlas-loading-summary').textContent=pending?(this.language==='en'?`${shown} tiles shown · ${waiting} loading`:`已显示${shown}块 · 仍读取${waiting}块`):failed?(this.language==='en'?'Partial read failure · retry keeps accepted pixels':'部分读取失败 · 重试保留已显示像元'):'';
     this.host.querySelector('#atlas-retry-raster').hidden=!failed;this.host.querySelector('#atlas-error-label').hidden=!failed;this.host.classList.toggle('atlas-error',failed);this.updateScaleStatus();

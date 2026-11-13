@@ -1,12 +1,16 @@
 /** Auditable screening model. All production coefficients are synthetic and uncalibrated. */
 import {CROPS,ANNUALS,MODEL_VERSION,baselineAllocation,climateForQuarter,rng,hash} from './data.js';
 import {prepareSpatialRainfall} from './spatial-inputs.js';
+import {distributeManureNP} from './manure-np.js';
+import {validateManurePhosphorusArchive} from './manure-np-input.js';
 const sum=a=>a.reduce((s,n)=>s+n,0);
 const eps=1e-6;
 export function validateConfig(c){
   const checks=[['water',0,2],['labour',0,2],['rain',0,2],['price',0,2],['shock',0,1],['minIncomeRatio',0,1]];
   if(!['independent','cooperative','centralized'].includes(c.mode))throw new Error('Invalid decision mode');
   if(!Number.isInteger(c.quarter)||c.quarter<0||c.quarter>3)throw new Error('Invalid quarter');
+  if(!Number.isSafeInteger(c.samples)||c.samples<100||c.samples>6000)throw new Error('Invalid samples: integer random-draw budget in [100, 6000] required');
+  if(!Number.isSafeInteger(c.seed)||c.seed<0||c.seed>0xffffffff)throw new Error('Invalid seed: unsigned 32-bit integer required');
   for(const [k,a,b] of checks)if(!Number.isFinite(c[k])||c[k]<a||c[k]>b)throw new Error(`Invalid ${k}`);
 }
 function distributeManure(rows, mode){
@@ -40,6 +44,7 @@ function evaluatePrepared(data, farmIds, allocation, config, climate, participat
   const plots=data.plots.filter(p=>selected.has(p.farmId)),rain=climateForQuarter(climate,config.quarter);
   const warnings=[];if(!spatial&&rain.some(x=>x===null))warnings.push('部分公开气候缺失：缺失月份按0 mm降雨进行保守需求核算，不代表真实天气。');
   const rows=farms.map(f=>({id:f.id,name:f.name,villageId:f.villageId,area:0,revenue:f.poultry*28,cost:f.poultry*16,waterMonths:[0,0,0],labourMonths:[0,0,0],waterCapacity:f.water.map(v=>v*config.water),labourCapacity:f.labour.map(v=>v*config.labour),nNeed:0,nFix:0,nHarvest:f.poultry*.12,nFeed:f.poultry*.4,manureProduced:f.poultry*.22,manureRecovered:f.poultry*.22*.65,manureApplied:0,transferCost:0,nTransferIn:0,nTransferOut:0,energy:f.poultry*.008,production:[],crops:new Set()}));
+  for(const r of rows)for(const key of ['waterCapacity','labourCapacity'])if(r[key].some(v=>!Number.isFinite(v)||v<0))throw new Error(`Non-finite or negative ${r.id}.${key}`);
   const byId=Object.fromEntries(rows.map(r=>[r.id,r])),plotResults=[];
   const violations=[];
   for(const p of plots){
@@ -56,7 +61,10 @@ function evaluatePrepared(data, farmIds, allocation, config, climate, participat
     for(let m=0;m<3;m++){r.waterMonths[m]+=waterMonths[m];r.labourMonths[m]+=labourMonths[m];}
     plotResults.push({id:p.id,farmId:p.farmId,activity,area:a,revenue,baseCost:cost,water:sum(waterMonths),labour:sum(labourMonths),yieldTonnes:c.yield*a*yieldFactor,energy:c.energy*a*yieldFactor,...(spatial?{rainMonths:plotRain}: {})});
   }
-  const transfers=distributeManure(rows,config.mode);
+  const npEnabled=Object.hasOwn(config,'manurePhosphorus');
+  if(npEnabled)validateManurePhosphorusArchive(config.manurePhosphorus,rows,config.quarter);
+  const manureNP=npEnabled?distributeManureNP(rows,config.mode,config.manurePhosphorus,config.quarter,{availableNFraction:.45,transferCostPerKgN:2}):null;
+  const transfers=manureNP?manureNP.transfers:distributeManure(rows,config.mode);
   for(const f of farms){const r=byId[f.id];for(let m=0;m<3;m++){r.waterMonths[m]+=f.poultry*.07/3;r.labourMonths[m]+=f.poultry*.04/3;}
     r.chemicalN=Math.max(0,r.nNeed-r.manureApplied*.45);
     r.water=sum(r.waterMonths);r.labour=sum(r.labourMonths);
@@ -76,17 +84,20 @@ function evaluatePrepared(data, farmIds, allocation, config, climate, participat
   const balances=[];
   for(const [key,group]of Object.entries(groups))for(let m=0;m<3;m++)for(const [resource,need,cap]of [['水','waterMonths','waterCapacity'],['劳动','labourMonths','labourCapacity']]){
     const demand=sum(group.map(r=>r[need][m])),supply=sum(group.map(r=>r[cap][m]));
+    if(!Number.isFinite(demand)||!Number.isFinite(supply))throw new Error('Non-finite monthly resource demand or capacity');
     balances.push({group:key,month:config.quarter*3+m+1,resource,demand,capacity:supply});
     if(demand>supply+eps)violations.push(`${key} · ${config.quarter*3+m+1}月${resource}超限 ${Math.round(demand-supply)}`);
   }
   const totals={};for(const k of ['area','revenue','cost','margin','water','labour','chemicalN','nInput','nOutput','nSurplus','manureProduced','manureRecovered','manureApplied','energy'])totals[k]=sum(rows.map(r=>r[k]));
   totals.nInput=sum(rows.map(r=>r.externalNInput));totals.nOutput=sum(rows.map(r=>r.externalNOutput));
-  if(Object.values(totals).some(v=>!Number.isFinite(v)))throw new Error('计算出现非有限值，请检查参数与数据');
   totals.waterCapacity=sum(rows.map(r=>sum(r.waterCapacity)));totals.labourCapacity=sum(rows.map(r=>sum(r.labourCapacity)));
+  if(Object.values(totals).some(v=>!Number.isFinite(v)))throw new Error('计算出现非有限值，请检查参数与数据');
   const allCrops=new Set(plotResults.map(p=>p.activity));totals.diversity=allCrops.size;
   const outsideFarms=data.farms.filter(f=>!selected.has(f.id));
-  return {modelVersion:MODEL_VERSION,allocation:{...allocation},totals,farms:rows,plots:plotResults,transfers,balances,feasible:violations.length===0,violations,warnings:[...new Set(warnings)],rainMonths:spatial?null:rain,...(spatial?{spatialRainfall:spatial.summary}:{}),
-    boundary:{farmIds:[...selected],outsideReservedWater:sum(outsideFarms.map(f=>sum(f.water)))*config.water,note:'仅合并所选主体的配额；未选主体的水、劳动和粪肥不参与共享。'},
+  const outsideReservedWater=sum(outsideFarms.map(f=>sum(f.water)))*config.water;
+  if(!Number.isFinite(outsideReservedWater))throw new Error('Non-finite outside reserved water capacity');
+  return {...(manureNP?{manurePhosphorus:manureNP.budget}:{}),modelVersion:MODEL_VERSION,allocation:{...allocation},totals,farms:rows,plots:plotResults,transfers,balances,feasible:violations.length===0,violations,warnings:[...new Set(warnings)],rainMonths:spatial?null:rain,...(spatial?{spatialRainfall:spatial.summary}:{}),
+    boundary:{farmIds:[...selected],outsideReservedWater,note:'仅合并所选主体的配额；未选主体的水、劳动和粪肥不参与共享。'},
     sensitivity:{lowMargin:totals.revenue*.8-totals.cost,highMargin:totals.revenue*1.2-totals.cost,label:'仅收入±20%的确定性敏感性区间，不是置信区间'},
     fingerprint:hash({contextHash:contextHash||hash({data,farmIds,config,climate}),allocation})};
 }
@@ -122,7 +133,7 @@ export function search(data,farmIds,config,climate,onProgress=()=>{}){
   if(exact){const a={...baseAllocation};function visit(i){if(i===variable.length){add({...a});return;}for(const c of ANNUALS){a[variable[i].id]=c;visit(i+1);}}visit(0);}
   else{
     for(const p of variable)for(const c of ANNUALS)add({...baseAllocation,[p.id]:c});
-    const limit=Math.max(100,Math.min(6000,config.samples||1600));
+    const limit=config.samples;
     for(let i=0;i<limit;i++){
       const weights=ANNUALS.map(()=>rand()**2+.03),ws=sum(weights),a={...baseAllocation};
       for(const p of variable){let n=rand()*ws;for(let j=0;j<ANNUALS.length;j++){n-=weights[j];if(n<=0||j===ANNUALS.length-1){a[p.id]=ANNUALS[j];break;}}}

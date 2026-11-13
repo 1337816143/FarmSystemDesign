@@ -1,0 +1,22 @@
+{
+  "version": "0.1.3",
+  "sourceHashes": {
+    "README.md": "c04fd897191dae7556adb015ad670079f679ed876abf0105489582d0c848a185",
+    "index.html": "6831d7fe449281d32af40f4259a188ed005428fff6385926aefa21c4d0b2949f",
+    "package.json": "8c81b6d3d32c4062ed07452b1edb96df6b5d536c05fb7ca6827ffa508b649c96",
+    "styles.css": "bae91b155c31446d2b89ca580b1e9867fe736a648959aa6f333402d1e2b3909d",
+    "tools/independent-controller-review.mjs": "37e720dd099a63f0e9ba532364b211181eb9a888eddc0658a67d28c9d4fe3480",
+    "tools/independent-contract-review.mjs": "2066b583d8b9f3df9ebfb7314d08e6cf95e956ef52e8068e1f88c3dd87e4737e",
+    "tools/build-identity.mjs": "fcd77302b0bcf990ab52681b4d5db1b76709da40c47e2adf25657ab1d0d0d1bf",
+    "tests/controller.test.mjs": "f436e271d5c29a28ba044edbcaaa8479c119327832e87447053435b15ba6de4d",
+    "tests/engine.test.mjs": "dffd81e6750dce42d20be192ad0950a404b630707ab4a726fdac34dea06d6b44",
+    "src/build.generated.js": "2e9a33cd6f27b6a938eb8e28fa69701dd908e538aeff2c34ab15b80ac65ae099",
+    "src/research.js": "1273e0073dff148a7965b982ae8538616285f69275da84f5bc6d75e0ea0cc077",
+    "src/np-interface.js": "0d651f36f0b8e789c69b02cbb0d4e23bb52f7a2591638bd3f1583ef6070b1698",
+    "src/engine.js": "a23a7363e759dad4c97ad639f205685bb5c75942b93b5929efb10bde4837e8b0",
+    "src/fixture.js": "008f59d272cc27f9176e0bf350f9a2eacb16800079a3c5603050167a089b391e",
+    "src/app.js": "1bb70c5b15f89b6a6e1571e52dfcf687cae026e3869088fdffca14c3f8911889",
+    "docs/RESEARCH_DESIGN.md": "e58029265401c5d99a9e9f36f1b749f5193fad13354e956c4d082853c10d288e",
+    "docs/INPUT_CONTRACT.md": "68f156b04c6cb8c69a3da76a9ea14cff968e4f8d6eba1d2d44b98e3d178baa64"
+  }
+}

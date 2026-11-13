@@ -29,6 +29,11 @@ export function createLandcoverLayer(L, {cropsOnly = false, ...options} = {}) {
         if(records.length){
           result=await drawClassification(coords,records,cropsOnly,attempt.signal,tile._classPixels);if(controller.signal.aborted)return;
           const ctx=tile.getContext('2d'),im=ctx.createImageData(256,256);im.data.set(result.rgba);ctx.putImageData(im,0,0);tile._classPixels=result.rgba;tile.dataset.mode='local-classification';tile.dataset.validPixels=String(result.filled);
+        }else if(globalThis.navigator?.onLine===false){
+          // There are no retained local classification records for this tile.
+          // Do not turn an offline service dependency into a source-no-data claim.
+          result={status:'offline-unavailable',transport:'online-only',message:'Remote classification needs a network connection; retained local tiles remain available'};
+          tile.dataset.mode='offline-unavailable';
         }else{
           const size=this.getTileSize(),nw=this._map.unproject(L.point(coords.x*size.x,coords.y*size.y),coords.z),se=this._map.unproject(L.point((coords.x+1)*size.x,(coords.y+1)*size.y),coords.z),a=L.CRS.EPSG3857.project(nw),b=L.CRS.EPSG3857.project(se);
           const image=new Image();image.crossOrigin='anonymous';const promise=new Promise((yes,no)=>{image.onload=()=>yes(image);image.onerror=()=>no(new Error('2025 land-cover service unavailable'));image.src=landcoverTileUrl([a.x,b.y,b.x,a.y],cropsOnly);});
@@ -40,7 +45,7 @@ export function createLandcoverLayer(L, {cropsOnly = false, ...options} = {}) {
       if(!tile._classReady){tile._classReady=true;done(result.status==='read-error'||result.status==='timeout'?new Error('Classification read failed'):null,tile);}this.fire('coverage');
     },
     coverageForBounds(bounds){return Object.values(this._tiles||{}).map(t=>t.el).filter(t=>t._classBounds&&intersects(t._classBounds,bounds)).map(t=>t._classCoverage||{status:'loading',pending:true});},
-    retryFailedTiles(){this._classCatalogPromise=null;let n=0;for(const {el} of Object.values(this._tiles||{})){if(!el._classPending&&['read-error','partial-read','timeout'].includes(el._classCoverage?.status)){el._classRetry();n++;}}return n;},
+    retryFailedTiles(){this._classCatalogPromise=null;let n=0;for(const {el} of Object.values(this._tiles||{})){if(!el._classPending&&['read-error','partial-read','timeout','offline-unavailable'].includes(el._classCoverage?.status)){el._classRetry();n++;}}return n;},
     _removeTile(key){const tile=this._tiles[key]?.el;if(tile){tile._classController.abort();this._classQueue=this._classQueue?.filter(t=>t.tile!==tile);}L.GridLayer.prototype._removeTile.call(this,key);}
   });
   return new Layer({tileSize:256,keepBuffer:1,updateWhenIdle:true,updateWhenZooming:false,maxNativeZoom:16,maxZoom:18,

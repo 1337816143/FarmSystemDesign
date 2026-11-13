@@ -1,0 +1,19 @@
+{
+  "evidence": "synthetic",
+  "actualController": "src/app.js + src/dated-ui.js",
+  "baseline": {
+    "total": 9,
+    "annualFeasible": 8,
+    "periodFeasible": 5
+  },
+  "sameTotal140hPeak": {
+    "total": 9,
+    "annualFeasible": 8,
+    "periodFeasible": 3
+  },
+  "unselectedInputPreserved": true,
+  "confirmationRequired": true,
+  "archiveDateSourceExact": true,
+  "validation": "Node DOM stub only; not empirical/calibrated/adaptive replay",
+  "browserDiskOrOfflineNetworkQA": "NOT_RUN"
+}
